@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style/reset.css">
+    <!--<link rel="stylesheet" href="/style/style.css">-->
+    <link rel="stylesheet" href="/style/contact.css">
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <title>Contact</title>
+</head>
+
+<body>
+    <header>
+        <!--<img class="photo" src="images/melanie-voyante.jpeg" alt="Logo de Mélanie Voyante">-->
+        <nav>
+            <div class="container">
+                <a href="accueil.html">Accueil</a>
+                <a href="contact.html">Contact</a>
+                <a href="avis.html">Avis clients</a>
+                <a href="inscription.html">S'inscrire</a>
+                <a href="connexion.html">Se connecter</a>
+            </div>
+        </nav>
+    </header>
+    <form action="" method="get">
+        <label for="nom">Nom * :</label>
+        <input type="text" id="nom" name="nom" required>
+        <br><br>
+        <label for="prenom">Prénom * :</label>
+        <input type="text" id="prenom" name="prenom" required>
+        <br><br>
+        <label for="message">Message * :</label>
+        <textarea type="text" id="message" name="message" rows="3" cols="30" placeholder="Entrer votre message ici" required></textarea>
+        <br><br>
+        <!--Bouton de soumission avec <input>-->
+        <input type="submit" value="Envoyer">
+    </form> 
+</body>

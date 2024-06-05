@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/style/reset.css" />
+    <link rel="stylesheet" href="/style/style.css" />
+    <link rel="stylesheet" href="/style/inscription.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+    <title>Inscription</title>
+  </head>
+
+  <body>
+    <header>
+      <img
+        class="photo-header"
+        src="images/melanie-voyante-2.jpg"
+        alt="Logo de Mélanie Voyante"
+      />
+      <nav class="lien-page-header">
+        <div class="navbar">
+          <div class="dropdown">
+            <button
+              onclick="window.location.href='accueil.html'"
+              class="dropbtn"
+            >
+              Accueil
+              <!-- <a href="accueil.html">Accueil</a> -->
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+              <!-- <a href="inscription.html">inscription</a> -->
+              <a href="connexion.html">connexion</a>
+            </div>
+          </div>
+
+          <div class="dropdown">
+            <button class="dropbtn">
+              Voyance
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+              <a href="pratique-voyance.html">Pratique</a>
+              <a href="definition-voyance.html">Définition</a>
+            </div>
+          </div>
+          <div class="dropdown">
+            <button class="dropbtn">
+              Cartomoncie
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+              <a href="pratique-cartomancie.html">Pratique</a>
+              <a href="definition-cartomancie.html">Définition</a>
+            </div>
+          </div>
+          <div class="dropdown">
+            <button class="dropbtn">
+              Ressenti photo
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+              <a href=" pratique-ressenti-photo.html">Pratique</a>
+              <a href="definition-ressenti-photo.html">Définition</a>
+            </div>
+          </div>
+        </div>
+        <div class="contact-avis-blog">
+          <a href="contact.html">Contact</a>
+          <a href="avis.html">Avis clients</a>
+          <a href="blog.html">Blog</a>
+        </div>
+      </nav>
+    </header>
+    <!-- <header>
+        <img class="photo" src="images/melanie-voyante.jpeg" alt="Logo de Mélanie Voyante">-->
+    <!-- <nav>
+            <div class="container"> -->
+    <!-- <a href="accueil.html">Accueil</a>
+                <a href="contact.html">Contact</a>
+                <a href="avis.html">Avis clients</a>
+                <a href="inscription.html">S'inscrire</a>
+                <a href="connexion.html">Se connecter</a> -->
+    <!-- </div> -->
+    <!-- </nav> -->
+    <!-- </header> -->
+    <div class="formulaire">
+      <form action="" method="get">
+        <label for="genre">Mme</label>
+        <input
+          type="radio"
+          id="mme"
+          name="genre"
+          value="Mme"
+          required
+          checked
+        />
+        <label for="genre">Mr</label>
+        <input type="radio" id="mr" name="genre" value="Mr" required />
+        <br /><br />
+        <label for="nom">Nom * :</label>
+        <input type="text" id="nom" name="nom" required />
+        <br /><br />
+        <label for="prenom">Prénom * :</label>
+        <input type="text" id="prenom" name="prenom" required />
+        <br /><br />
+        <label for="date_naissance">Date de naissance * :</label>
+        <input type="date" id="date_naissance" name="date_naissance" required />
+        <br /><br />
+        <label for="email">Email * :</label>
+        <input type="email" id="email" name="email" required />
+        <br /><br />
+        <label for="phone">Numéro de téléphone * :</label>
+        <input
+          type="tel"
+          id="phone"
+          pattern="[0-9] {10}"
+          name="phone"
+          required
+        />
+        <br /><br />
+        <label for="password">Créer votre mot de passe * :</label>
+        <input type="password" id="password" name="password" required />
+        <br /><br />
+        <label for="password">Retapez votre mot de passe * :</label>
+        <input type="password" id="password" name="password" required />
+        <br /><br />
+        <!--Bouton de soumission-->
+        <button>Créer un compte</button>
+        <!--Bouton de réinitialisation-->
+        <button>Réinitialiser</button>
+        <br /><br />
+        Vous avez déjà un compte ?
+        <a href="connexion.html" class="connectez-vous">Connectez-vous</a>
+      </form>
+    </div>
+    <footer class="lien-page-footer">
+      <ul>
+        <li><a href="accueil.html">Accueil</a></li>
+        <li><a href="inscription.html">Inscription</a></li>
+        <li><a href="connexion.html">Connexion</a></li>
+      </ul>
+      <ul>
+        <li><a href="voyance.html">Voyance</a></li>
+        <li><a href="definition-voyance.html">Définition voyance</a></li>
+        <li><a href="pratique-voyance.html">Pratique voyance</a></li>
+      </ul>
+      <ul>
+        <li><a href="cartomancie.html">Cartomancie</a></li>
+        <li>
+          <a href="definition-cartomancie.html">Définition cartomancie</a>
+        </li>
+        <li><a href="pratique-cartomancie.html">Pratique cartomancie</a></li>
+      </ul>
+      <ul>
+        <li><a href="ressenti-photo.html">Ressenti Photo</a></li>
+        <li>
+          <a href="definition-ressenti-photo.html">Définition ressenti photo</a>
+        </li>
+        <li>
+          <a href="pratique-ressenti-photo.html">Pratique ressenti photo</a>
+        </li>
+      </ul>
+      <ul>
+        <li><a href="avis.html">Avis clients</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="blog.html">Blog</a></li>
+      </ul>
+
+      <a
+        class="logo-footer"
+        href="https://www.instagram.com/melanievoyante/"
+        target="_blank"
+      >
+        <i class="fab fa-instagram fa-2x instagram-logo"></i>
+        <!-- <img src="/images/instagram.jpg" alt="Instagram de melanievoyante"> -->
+      </a>
+      <a
+        class="logo-footer"
+        href="https://www.paypal.com/fr/home"
+        target="_blank"
+      >
+        <!-- <img src="images/paypal.jpg" alt="Logo de Paypal"> -->
+        <i class="fa-brands fa-paypal fa-2xl"></i>
+      </a>
+    </footer>
+  </body>
+</html>
