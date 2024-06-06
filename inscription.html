@@ -2,14 +2,15 @@
 <html lang="fr">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8" /> <!-- La balise meta charset spécifie le jeu de caractères utilisé. Utiliser UTF-8 est recommandé pour une compatibilité maximale -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- La balise meta viewport contrôle la mise en page sur les appareils mobiles et est essentielle pour un design responsive -->
   <link rel="stylesheet" href="/style/reset.css" />
   <link rel="stylesheet" href="/style/style.css" />
   <link rel="stylesheet" href="/style/inscription.css" />
+  <link rel="shortcut icon" href="/images/favicon-1.ico" type="image/x-icon" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css all.min.css" />
-  <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
-  <title>Inscription</title>
+  <title>Inscription</title> <!-- max 60 caractères -->
+  <meta name="description" content="Site de voyance et de cartomancie pour les clients qui veulent savoir leur avenir sur différents domaines" /> <!-- max 160 caractères -->
 </head>
 
 <body>
@@ -19,70 +20,74 @@
   <nav class="lien-page-header">
     <div class="navbar">
     <div class="dropdown">
-      <button class="dropbtn">Accueil
+      <button class="dropbtn"> Accueil
         <i class="fa fa-caret-down"> </i>
       </button>
     <div class="dropdown-content">
-      <a href="inscription.html">Inscription</a>
-      <a href="connexion.html">Connexion</a>
+      <a href="connexion.html"> Connexion </a>
     </div>
     </div>
 
     <div class="dropdown">
-      <button class="dropbtn">Voyance 
+      <button class="dropbtn"> Voyance 
         <i class="fa fa-caret-down"> </i>
       </button>
     <div class="dropdown-content">
-      <a href="pratique-voyance.html">Pratique</a>
-      <a href="definition-voyance.html">Définition</a>
+      <a href="pratique-voyance.html"> Pratique </a>
+      <a href="definition-voyance.html"> Définition </a>
     </div>
     </div> 
 
     <div class="dropdown">
-      <button class="dropbtn">Cartomoncie 
+      <button class="dropbtn"> Cartomoncie 
         <i class="fa fa-caret-down"> </i>
       </button>
     <div class="dropdown-content">
-      <a href="pratique-cartomancie.html">Pratique</a>
-      <a href="definition-cartomancie.html">Définition</a>
+      <a href="pratique-cartomancie.html"> Pratique </a>
+      <a href="definition-cartomancie.html"> Définition </a>
     </div>
     </div> 
 
     <div class="dropdown">
-      <button class="dropbtn">Ressenti photo
+      <button class="dropbtn"> Ressenti photo
         <i class="fa fa-caret-down"> </i>
       </button>
     <div class="dropdown-content">
-      <a href=" pratique-ressenti-photo.html">Pratique</a>
-      <a href="definition-ressenti-photo.html">Définition</a>
+      <a href=" pratique-ressenti-photo.html"> Pratique </a>
+      <a href="definition-ressenti-photo.html"> Définition </a>
     </div>
     </div> 
     </div>
 
     <div class="contact-avis-blog">   
-      <a href="contact.html">Contact</a>
-      <a href="avis.html">Avis clients</a>
-      <a href="blog.html">Blog</a>
+      <a href="contact.html"> Contact </a>
+      <a href="avis.html"> Avis clients </a>
+      <a href="blog.html"> Blog </a>
     </div>
   </nav>
   </header>
     
   <div class="formulaire">
     <form action="" method="get">
-        
+      <h2>
+        Bonjour !
+      </h2>
+      <p>
+        Créer votre compte Les prédictions de Mélanie
+      </p>
       <label for="genre"> Mme </label>
-      <input type="radio" id="mme" name="genre" value="Mme" required checked />
+      <input class="checked" type="radio" id="mme" name="genre" value="Mme" required checked />
         
       <label for="genre"> Mr </label>
-      <input type="radio" id="mr" name="genre" value="Mr" required />
+      <input class="checked" type="radio" id="mr" name="genre" value="Mr" required />
       <br /> <br />
       
       <label for="nom"> Nom * : </label>
-      <input type="text" id="nom" name="nom" required />
+      <input type="text" id="nom" name="nom" placeholder="Votre nom" required />
       <br /> <br />
       
       <label for="prenom"> Prénom * : </label>
-      <input type="text" id="prenom" name="prenom" required />
+      <input type="text" id="prenom" name="prenom" placeholder="Votre prénom" required />
       <br /><br />
       
       <label for="date_naissance"> Date de naissance * : </label>
@@ -90,29 +95,30 @@
       <br /><br />
       
       <label for="email"> E-mail * : </label>
-      <input type="email" id="email" name="email" required />
+      <input type="email" id="email" name="email" placeholder="votre.email@exemple.com" required />
       <br /><br />
       
       <label for="phone"> Tel * : </label>
-      <input type="tel" id="phone" pattern="[0-9] {10}" name="phone" />
+      <input type="tel" id="phone" pattern="[0-9] {10}" name="phone" placeholder="+33" />
       <br /><br />
       
       <label for="password"> Votre mot de passe * : </label>
-      <input type="password" id="password" name="password" placeholder="Votre mot de passe doit contenir 8 caractère minimum" required />
+      <input type="password" id="password" name="password" placeholder="Votre mot de passe doit contenir 8 caractères minimum" required />
       <br /><br />
       
       <label for="password"> Confirmation du mot de passe * : </label>
-      <input type="password" id="password" name="password" required />
+      <input type="password" id="password" name="password" placeholder="Veuillez entrer à nouveau votre mot de passe" required />
       <br /><br />
       
       <!--Bouton de soumission-->
-      <button>Créer un compte</button>
-      
+      <button class="btn"> Créer un compte </button>
+      <br />
+
       <!--Bouton de réinitialisation-->
-      <button>Réinitialiser</button>
+      <button class="btn"> Réinitialiser </button>
       <br /><br />
         
-      Vous avez déjà un compte ? <a href="connexion.html" class="connectez-vous">Connectez-vous </a>
+      Vous avez déjà un compte ? <a href="connexion.html" class="connectez-vous"> Se connecter </a>
   
     </form>
     </div>

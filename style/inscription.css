@@ -9,16 +9,52 @@
 /* ------------------------ */
 
 form {
-  border: 2px solid #000000;
-  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid grey;
+  border-radius: 20px;
   padding: 20px;
   font-size: 18px;
+  box-shadow: -2px 2px 30px grey;
+}
+
+.formulaire label {
+  padding: 10px;
+}
+
+.formulaire h2 {
+  text-align: left;
+}
+
+.formulaire p {
+  line-height: 50px;
+}
+
+.checked input {
+  height: auto;
+  width: 1px;
+  padding: 2px;
 }
 
 .formulaire {
   display: flex;
   justify-content: center;
-  padding: 300px;
+  align-items: center;
+  padding: 200px;
+}
+
+.formulaire input {
+  height: 40px;
+  width: 400px;
+  padding: 5px;
+  border-radius: 20px;
+}
+
+.forgot-your-password {
+  font-size: 12px;
+  color: #808080;
+  padding: 6px 0 0 10px;
 }
 
 .connectez-vous {
@@ -26,7 +62,10 @@ form {
   font-size: 18px;
 }
 
-button {
-  background: #add8e6;
+.btn button {
+  font-size: 16px;
+  background-color: #add8e6;
   cursor: pointer;
+  height: 40px;
+  border-radius: 20px;
 }

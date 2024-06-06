@@ -39,10 +39,10 @@ body {
 }
 
 .dropdown .dropbtn {
-  font-size: 16px;
+  font-size: 18px;
   border: none;
   outline: none;
-  color: white;
+  color: #ffffff;
   padding: 14px 16px;
   background-color: inherit;
   font-family: inherit;
@@ -69,7 +69,7 @@ body {
 
 .dropdown-content a {
   float: none;
-  color: black;
+  color: #000000;
   padding: 12px 16px;
   text-decoration: none;
   display: block;
@@ -106,7 +106,7 @@ body {
 
 .contact-avis-blog a:hover {
   background-color: #ffffff;
-  color: black;
+  color: #000000;
   border-radius: 4px;
 }
 

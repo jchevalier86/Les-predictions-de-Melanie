@@ -2,14 +2,15 @@
 <html lang="fr">
   
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" /> <!-- La balise meta charset spécifie le jeu de caractères utilisé. Utiliser UTF-8 est recommandé pour une compatibilité maximale -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- La balise meta viewport contrôle la mise en page sur les appareils mobiles et est essentielle pour un design responsive -->
     <link rel="stylesheet" href="/style/reset.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <link rel="stylesheet" href="/style/style.css" />
     <link rel="stylesheet" href="/style/connexion.css" />
-    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
-    <title>Connexion</title>
+    <link rel="shortcut icon" href="/images/favicon-1.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <title>Connexion</title> <!-- max 60 caractères -->
+    <meta name="description" content="Site de voyance et de cartomancie pour les clients qui veulent savoir leur avenir sur différents domaines" /> <!-- max 160 caractères -->
   </head>
 
   <body>
@@ -19,70 +20,82 @@
     <nav class="lien-page-header">
       <div class="navbar">
       <div class="dropdown">
-        <button class="dropbtn">Accueil
+        <button class="dropbtn"> Accueil
           <i class="fa fa-caret-down"> </i>
         </button>
       <div class="dropdown-content">
-        <a href="inscription.html">Inscription</a>
-        <a href="connexion.html">Connexion</a>
+        <a href="inscription.html"> Inscription </a>
       </div>
       </div>
   
       <div class="dropdown">
-        <button class="dropbtn">Voyance 
+        <button class="dropbtn"> Voyance 
           <i class="fa fa-caret-down"> </i>
         </button>
       <div class="dropdown-content">
-        <a href="pratique-voyance.html">Pratique</a>
-        <a href="definition-voyance.html">Définition</a>
+        <a href="pratique-voyance.html"> Pratique </a>
+        <a href="definition-voyance.html"> Définition </a>
       </div>
       </div> 
   
       <div class="dropdown">
-        <button class="dropbtn">Cartomoncie 
+        <button class="dropbtn"> Cartomoncie 
           <i class="fa fa-caret-down"> </i>
         </button>
       <div class="dropdown-content">
-        <a href="pratique-cartomancie.html">Pratique</a>
-        <a href="definition-cartomancie.html">Définition</a>
+        <a href="pratique-cartomancie.html"> Pratique </a>
+        <a href="definition-cartomancie.html"> Définition </a>
       </div>
       </div> 
   
       <div class="dropdown">
-        <button class="dropbtn">Ressenti photo
+        <button class="dropbtn"> Ressenti photo
           <i class="fa fa-caret-down"> </i>
         </button>
       <div class="dropdown-content">
-        <a href=" pratique-ressenti-photo.html">Pratique</a>
-        <a href="definition-ressenti-photo.html">Définition</a>
+        <a href=" pratique-ressenti-photo.html"> Pratique </a>
+        <a href="definition-ressenti-photo.html"> Définition </a>
       </div>
       </div> 
       </div>
   
       <div class="contact-avis-blog">   
-        <a href="contact.html">Contact</a>
-        <a href="avis.html">Avis clients</a>
-        <a href="blog.html">Blog</a>
+        <a href="contact.html"> Contact </a>
+        <a href="avis.html"> Avis clients </a>
+        <a href="blog.html"> Blog </a>
       </div>
     </nav>
     </header>
 
     <div class="formulaire">
       <form action="" method="get">
-        <label for="email">Email * :</label>
+        
+        <h2>
+          Bonjour !
+        </h2>
+        <p>
+          Connectez-vous pour découvrir plus de fonctionnalités.
+        </p>
+        
+        <label for="email"> Email * : </label>
         <input type="email" id="email" name="email" required />
         <br /><br />
-        <label for="password">Mot de passe * :</label>
+        
+        <label for="password"> Mot de passe * : </label>
         <input type="password" id="password" name="password" required />
+
+        <a class="forgot-your-password" href=""> Mot de passe oublié </a>
         <br /><br />
-        <!-- Bouton de soumission avec  -->
-        <button>Se connecter</button>
-        <!-- <input type="submit" value="Envoyer" /> -->
+        
+        <!-- Bouton Se connecter -->
+        <button class="btn"> Se connecter </button>
         <br /><br />
-        Vous n'avez pas de compte ?
-        <a href="inscription.html">Inscrivez-vous</a>
+        
+        <p>
+          Première visite ? <a href="inscription.html"> Inscrivez-vous </a>
+        </p>
         <br />
-        <a href="">Mot de passe oublié ?</a>
+      
       </form>
     </div>
     
