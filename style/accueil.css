@@ -11,11 +11,6 @@
 } */
 
 .intro {
-  /* background-image: url("/images/melanie-voyante-1.jpeg");
-  background-repeat: no-repeat;
-  background-size: cover; */
-  /* height: 900px; */
-  /* background: #f7eeee; */
   background: rgb(224, 149, 149);
   background: linear-gradient(
     90deg,
@@ -29,12 +24,14 @@
   flex-direction: column;
   line-height: 20px;
 }
+
 .liste-domaines span {
   padding: 0 30px;
   font-size: 21px;
   font-weight: 600;
   margin: 20px 0;
 }
+
 .liste-domaines-list {
   display: flex;
   flex-direction: column;
@@ -44,33 +41,32 @@
   font-style: italic;
   font-weight: 500;
 }
+
 .photo-body {
   height: 600px;
   width: 500px;
-  /* border: solid 1px #000000; */
   padding: 25px 0;
-  /* border-radius: 60px 0 60px 0;
-  margin: 20px 30px 100px 30px; */
 }
+
 .section-presentation {
   padding: 20px;
   display: flex;
-
   justify-content: center;
-
-  /* background-color: rgba(209, 157, 197, 0.947); */
 }
+
 .presentation {
   padding: 25px;
   width: 550px;
   height: 300px;
   line-height: 23px;
 }
+
 .presentation-text-content {
   margin: 20px 0;
   font-size: 18px;
   text-align: justify;
 }
+
 .presentation-span {
   color: rgb(209, 31, 143);
   margin-bottom: 30px;
@@ -78,6 +74,7 @@
   font-size: 18px;
   font-weight: 700;
 }
+
 .costum-word {
   font-weight: 800;
 }
