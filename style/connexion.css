@@ -1,3 +1,4 @@
+/* Applique la boîte de bordure à tous les éléments, ainsi qu'aux éléments ::before et ::after */
 *,
 *::before,
 *::after {
@@ -5,61 +6,94 @@
 }
 
 /* ------------------------ */
+/* ----------Header---------- */
+/* ------------------------ */
+
+/* Style pour le conteneur de navigation de la page d'inscription */
+.lien-page-inscription {
+  display: flex; /* Utilise Flexbox pour aligner les éléments */
+  justify-content: center; /* Centre les éléments horizontalement */
+  align-items: center; /* Centre les éléments verticalement */
+  background-color: #ff00ae82; /* Définit une couleur de fond avec transparence */
+}
+
+/* Style pour l'image de la flèche de retour */
+.back-arrow {
+  cursor: pointer; /* Change le curseur en pointeur lors du survol */
+}
+
+/* Style pour le titre */
+.title {
+  color: #ffffff; /* Couleur du texte blanche */
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; /* Famille de polices */
+  padding: 20px; /* Ajoute un espacement interne */
+}
+
+/* ------------------------ */
 /* ----------Main---------- */
 /* ------------------------ */
 
+/* Style pour le formulaire */
 form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  border: 1px solid grey;
-  border-radius: 20px;
-  padding: 20px;
-  font-size: 18px;
-  box-shadow: -2px 2px 30px grey;
+  display: flex; /* Utilise Flexbox pour disposer les éléments */
+  flex-direction: column; /* Aligne les éléments en colonne */
+  justify-content: center; /* Centre les éléments verticalement */
+  border: 1px solid grey; /* Bordure grise */
+  border-radius: 20px; /* Coins arrondis */
+  padding: 20px; /* Ajoute un espacement interne */
+  font-size: 18px; /* Taille de la police */
+  box-shadow: -2px 2px 30px grey; /* Ajoute une ombre portée */
 }
 
+/* Style pour les étiquettes des champs du formulaire */
 .formulaire label {
-  padding: 10px;
+  padding: 10px; /* Ajoute un espacement interne */
 }
 
+/* Style pour le titre h2 du formulaire */
 .formulaire h2 {
-  text-align: left;
+  text-align: left; /* Aligne le texte à gauche */
 }
 
+/* Style pour les paragraphes du formulaire */
 .formulaire p {
-  line-height: 50px;
+  line-height: 50px; /* Hauteur de ligne */
 }
 
+/* Style pour le conteneur du formulaire */
 .formulaire {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 200px;
+  display: flex; /* Utilise Flexbox pour disposer les éléments */
+  justify-content: center; /* Centre les éléments horizontalement */
+  align-items: center; /* Centre les éléments verticalement */
+  padding: 200px; /* Ajoute un espacement interne */
 }
 
+/* Style pour les champs de saisie du formulaire */
 .formulaire input {
-  height: 40px;
-  width: 400px;
-  padding: 5px;
-  border-radius: 20px;
+  height: 40px; /* Hauteur des champs */
+  width: 400px; /* Largeur des champs */
+  padding: 5px; /* Ajoute un espacement interne */
+  border-radius: 20px; /* Coins arrondis */
 }
 
+/* Style pour le lien mot de passe oublié */
 .forgot-your-password {
-  font-size: 12px;
-  color: #808080;
-  padding: 6px 0 0 10px;
+  font-size: 12px; /* Taille de la police */
+  color: #808080; /* Couleur du texte gris */
+  padding: 6px 0 0 10px; /* Ajoute un espacement interne en haut et à gauche */
 }
 
+/* Style pour le texte "connectez-vous" (actuellement non utilisé dans votre HTML) */
 .connectez-vous {
-  color: black;
-  font-size: 18px;
+  color: black; /* Couleur du texte noire */
+  font-size: 18px; /* Taille de la police */
 }
 
+/* Style pour le bouton de connexion */
 .btn button {
-  font-size: 16px;
-  background-color: lightblue;
-  cursor: pointer;
-  height: 40px;
-  border-radius: 30px;
+  font-size: 16px; /* Taille de la police */
+  background-color: lightblue; /* Couleur de fond bleu clair */
+  cursor: pointer; /* Change le curseur en pointeur lors du survol */
+  height: 40px; /* Hauteur du bouton */
+  border-radius: 30px; /* Coins arrondis */
 }

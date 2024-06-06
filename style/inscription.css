@@ -5,6 +5,27 @@
 }
 
 /* ------------------------ */
+/* ----------Header----------*/
+/* ------------------------ */
+
+.lien-page-inscription {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ff00ae82;
+}
+
+.back-arrow {
+  cursor: pointer;
+}
+
+.title {
+  color: #ffffff;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  padding: 20px;
+}
+
+/* ------------------------ */
 /* ----------Main---------- */
 /* ------------------------ */
 
@@ -29,12 +50,6 @@ form {
 
 .formulaire p {
   line-height: 50px;
-}
-
-.checked input {
-  height: auto;
-  width: 1px;
-  padding: 2px;
 }
 
 .formulaire {
