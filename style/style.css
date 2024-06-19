@@ -1,122 +1,229 @@
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
+  box-sizing: border-box; /* Applique box-sizing à tous les éléments */
 }
 
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  /* margin: 0; */
-  /* max-width: 1200px; */
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif; /* Police système */
+  max-width: 1580px; /* Largeur maximale du corps */
+  min-width: 800px; /* Largeur minimale du corps */
+  margin: 0;
+  padding: 0;
+}
+
+@media (max-width: 1200px) {
+  
+  .photo-header img {
+    background-position: cover;
+  }
+
+  .navbar {
+    flex-direction: column; /* Aligne les éléments en colonne */
+    align-items: flex-start; /* Aligne les éléments à gauche */
+  }
+
+  .navbar .dropdown,
+  .navbar .dropbtn,
+  .navbar .dropdown-content,
+  .contact-avis-blog {
+    width: 100%; /* Largeur de 100% */
+  }
+
+  .navbar .dropbtn {
+    text-align: left; /* Aligne le texte à gauche */
+  }
+
+  .navbar .dropdown-content {
+    position: relative; /* Position relative pour dropdown content */
+  }
+
+  .contact-avis-blog {
+    display: flex;
+    flex-direction: column; /* Affiche les éléments en colonne */
+    align-items: flex-start; /* Aligne les éléments à gauche */
+  }
+
+  .contact-avis-blog a {
+    padding: 10px 0; /* Ajoute du padding vertical */
+  }
+
+  .icone-connect img {
+    padding-right: 150px; /* Ajoute du padding vertical */
+  }
+
+  .intro h1, .intro h2 {
+    padding-right: 150px;
+  }
+
+  .separator hr {
+    width: 1000px;
+  }
+
+  .section-presentation {
+    flex-direction: column; /* Aligne les éléments en colonne */
+    align-items: right; /* Centre les éléments */
+  }
+
+  .photo-body {
+    width: 100%;
+    max-width: 500px; /* Largeur maximale de 500px */
+    padding-left: 300px;
+  }
+}
+
+@media (max-width: 100px) {
+  .intro h1, .intro h2 {
+    font-size: 2em; /* Taille de police pour h1 et h2 */
+  }
+
+  .separator {
+    width: 80%; /* Largeur de 80% */
+  }
+
+  .presentation-span {
+    font-size: 2em; /* Taille de police */
+  }
+
+  footer ul {
+    display: flex;
+    flex-direction: column; /* Aligne les éléments en colonne */
+    align-items: center; /* Centre les éléments */
+  }
+
+  footer ul li, a {
+    width: 100%; /* Largeur de 100% */
+    text-align: center; /* Centre le texte */
+  }
 }
 
 /* --------------------------- */
 /* -----------Header----------- */
 /* ---------------------------- */
 
+header {
+  text-align: center; /* Centre le texte */
+  max-width: 100%; /* Largeur maximale de 100% */
+  margin: 0;
+  padding: 0;
+}
+
 .navbar {
-  overflow: hidden;
+  overflow: hidden; /* Cache le débordement */
 }
 
 .navbar a {
   float: left;
   display: block;
-  color: #f2f2f2;
+  color: #f2f2f2; /* Couleur du texte */
   text-align: center;
   padding: 14px 16px;
-  text-decoration: none;
+  text-decoration: none; /* Enlève la décoration du texte */
   cursor: pointer;
 }
 
 .navbar a:hover {
-  color: black;
+  color: #000000; /* Change la couleur du texte au survol */
 }
 
 .dropdown {
   float: left;
-  overflow: hidden;
+  overflow: hidden; /* Cache le débordement */
 }
 
 .dropdown .dropbtn {
   font-size: 18px;
   border: none;
   outline: none;
-  color: #ffffff;
+  color: #ffffff; /* Couleur du texte */
   padding: 14px 16px;
-  background-color: inherit;
-  font-family: inherit;
+  background-color: inherit; /* Inhérente à la couleur du parent */
+  font-family: inherit; /* Inhérente à la police du parent */
   margin: 0;
 }
 
 .navbar a:hover,
 .dropdown:hover .dropbtn {
-  background-color: #ffffff;
-  color: black;
-  border-radius: 4px;
+  background-color: #ffffff; /* Couleur de fond au survol */
+  color: #000000; /* Couleur du texte au survol */
+  border-radius: 4px; /* Bord arrondi */
 }
 
 .dropdown-content {
-  display: none;
+  display: none; /* Masqué par défaut */
   position: absolute;
-  background-color: #ff8ed7;
+  background: linear-gradient(
+    90deg,
+    rgb(15, 0, 146),
+    rgb(176, 0, 176)
+  ); /* Dégradé de fond */
   min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2); /* Ombre de boîte */
   z-index: 1;
-  border-radius: 4px;
+  border-radius: 4px; /* Bord arrondi */
   font-size: 16px;
 }
 
 .dropdown-content a {
   float: none;
-  color: #000000;
+  color: #000000; /* Couleur du texte */
   padding: 12px 16px;
-  text-decoration: none;
+  text-decoration: none; /* Enlève la décoration du texte */
   display: block;
-  text-align: left;
+  text-align: left; /* Aligne le texte à gauche */
 }
 
 .dropdown-content a:hover {
-  background-color: #ffffff;
+  background-color: #ffffff; /* Couleur de fond au survol */
 }
 
 .dropdown:hover .dropdown-content {
-  display: block;
+  display: block; /* Affiche le contenu du dropdown au survol */
 }
 
 .photo-header {
-  background-size: contain;
+  background-size: auto;
   width: 100%;
 }
 
 .lien-page-header {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-evenly; /* Espace égal entre les éléments */
   align-items: center;
   gap: 20px;
-  background-color: #ff00ae82;
+  background: linear-gradient(
+    90deg,
+    rgb(15, 0, 146),
+    rgb(176, 0, 176)
+  ); /* Dégradé de fond */
   width: 100%;
 }
 
 .contact-avis-blog {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; /* Espace entre les éléments */
   align-items: center;
 }
 
 .contact-avis-blog a:hover {
-  background-color: #ffffff;
-  color: #000000;
-  border-radius: 4px;
+  background-color: #ffffff; /* Couleur de fond au survol */
+  color: #000000; /* Couleur du texte au survol */
+  border-radius: 4px; /* Bord arrondi */
 }
 
 .contact-avis-blog a {
-  color: #ffffff;
-  text-decoration: none;
+  color: #ffffff; /* Couleur du texte */
+  text-decoration: none; /* Enlève la décoration du texte */
   font-size: 16px;
-  letter-spacing: 1px;
+  letter-spacing: 1px; /* Espacement des lettres */
   cursor: pointer;
   padding: 14px 16px;
+}
+
+.icone-connect {
+  height: 30px;
+  cursor: pointer;
 }
 
 /* --------------------------- */
@@ -125,17 +232,17 @@ body {
 
 h1 {
   font-size: 30px;
-  font-weight: 900;
-  text-transform: uppercase;
+  font-weight: 900; /* Gras intense */
+  text-transform: uppercase; /* Majuscules */
   text-align: center;
   padding-top: 30px;
 }
 
 h2 {
   font-size: 20px;
-  font-weight: 600;
+  font-weight: 600; /* Gras moyen */
   text-align: center;
-  letter-spacing: 1px;
+  letter-spacing: 1px; /* Espacement des lettres */
 }
 
 .separator {
@@ -146,36 +253,45 @@ h2 {
   margin: 30px auto;
 }
 
+.costum-word {
+  font-weight: 800; /* Gras intense */
+}
+
 /* --------------------------- */
 /* -----------Footer----------- */
 /* ---------------------------- */
 
 footer {
-  background: #a19c9c;
+  background: linear-gradient(
+    90deg,
+    rgb(15, 0, 146),
+    rgb(176, 0, 176)
+  ); /* Dégradé de fond */
   width: 100%;
   height: 200px;
+  max-width: 100%;
 }
 
 .lien-page-footer {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-evenly; /* Espace égal entre les éléments */
   align-items: center;
   padding: 0 30px;
   gap: 25px;
   line-height: 1.4;
-  letter-spacing: 1px;
+  letter-spacing: 1px; /* Espacement des lettres */
 }
 
 .lien-page-footer a {
   font-size: 12px;
-  color: black;
-  font-weight: 600;
-  text-decoration: none;
+  color: #ffffff; /* Couleur du texte */
+  font-weight: 600; /* Gras moyen */
+  text-decoration: none; /* Enlève la décoration du texte */
   cursor: pointer;
 }
 
-.lien-page-footer a:hover {
-  text-decoration: underline;
+ul li a:hover {
+  text-decoration: underline; /* Soulignement au survol */
 }
 
 .logo-footer {
@@ -185,7 +301,7 @@ footer {
 }
 
 .instagram-logo {
-  color: white;
+  color: #ffffff; /* Couleur du texte */
   background: radial-gradient(
     circle at 30% 107%,
     #fdf497 0%,
@@ -193,6 +309,20 @@ footer {
     #fd5949 45%,
     #d6249f 60%,
     #285aeb 90%
-  );
-  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.25);
+  ); /* Dégradé radial */
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.25); /* Ombre de boîte */
+}
+
+.lien-page-footer .instagram-logo a:hover {
+  text-decoration: none; /* Enlève la décoration du texte */
+}
+
+.paypal-logo {
+  color: #ffffff; /* Couleur du texte */
+  background: radial-gradient(
+    circle,
+    #00457C,
+    #0079C1
+  ); /* Dégradé radial */
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.25) /* Ombre de boîte */
 }

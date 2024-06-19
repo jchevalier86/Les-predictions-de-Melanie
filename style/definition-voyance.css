@@ -1,0 +1,55 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* --------------------------- */
+/* -----------Main----------- */
+/* ---------------------------- */
+
+.intro {
+    background: linear-gradient(
+      90deg,
+      #ffffff,
+      #f32bf3
+    );
+}
+
+.photo {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.photo-body {
+    height: auto;
+    width: 500px;
+    max-width: 100%;
+}
+
+.section-presentation {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.section1-col1 {
+    flex: 1;
+    max-width: 550px;
+    margin-right: 20px;
+}
+
+.presentation {
+    padding: 25px;
+    width: 550px;
+    height: 300px;
+    line-height: 23px;
+}
+
+.presentation-text-content {
+    margin: 20px 0;
+    font-size: 18px;
+    text-align: justify;
+}

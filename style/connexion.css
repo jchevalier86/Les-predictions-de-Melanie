@@ -5,6 +5,13 @@
   box-sizing: border-box;
 }
 
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+}
+
 /* ------------------------ */
 /* ----------Header---------- */
 /* ------------------------ */
@@ -33,49 +40,6 @@
 /* ----------Main---------- */
 /* ------------------------ */
 
-/* Style pour le formulaire */
-form {
-  display: flex; /* Utilise Flexbox pour disposer les éléments */
-  flex-direction: column; /* Aligne les éléments en colonne */
-  justify-content: center; /* Centre les éléments verticalement */
-  border: 1px solid grey; /* Bordure grise */
-  border-radius: 20px; /* Coins arrondis */
-  padding: 20px; /* Ajoute un espacement interne */
-  font-size: 18px; /* Taille de la police */
-  box-shadow: -2px 2px 30px grey; /* Ajoute une ombre portée */
-}
-
-/* Style pour les étiquettes des champs du formulaire */
-.formulaire label {
-  padding: 10px; /* Ajoute un espacement interne */
-}
-
-/* Style pour le titre h2 du formulaire */
-.formulaire h2 {
-  text-align: left; /* Aligne le texte à gauche */
-}
-
-/* Style pour les paragraphes du formulaire */
-.formulaire p {
-  line-height: 50px; /* Hauteur de ligne */
-}
-
-/* Style pour le conteneur du formulaire */
-.formulaire {
-  display: flex; /* Utilise Flexbox pour disposer les éléments */
-  justify-content: center; /* Centre les éléments horizontalement */
-  align-items: center; /* Centre les éléments verticalement */
-  padding: 200px; /* Ajoute un espacement interne */
-}
-
-/* Style pour les champs de saisie du formulaire */
-.formulaire input {
-  height: 40px; /* Hauteur des champs */
-  width: 400px; /* Largeur des champs */
-  padding: 5px; /* Ajoute un espacement interne */
-  border-radius: 20px; /* Coins arrondis */
-}
-
 /* Style pour le lien mot de passe oublié */
 .forgot-your-password {
   font-size: 12px; /* Taille de la police */
@@ -83,17 +47,61 @@ form {
   padding: 6px 0 0 10px; /* Ajoute un espacement interne en haut et à gauche */
 }
 
-/* Style pour le texte "connectez-vous" (actuellement non utilisé dans votre HTML) */
-.connectez-vous {
-  color: black; /* Couleur du texte noire */
-  font-size: 18px; /* Taille de la police */
+.container {
+  max-width: 400px;
+  margin: 20px auto;
+  background-color: #fff;
+  padding: 20px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
-/* Style pour le bouton de connexion */
-.btn button {
-  font-size: 16px; /* Taille de la police */
-  background-color: lightblue; /* Couleur de fond bleu clair */
-  cursor: pointer; /* Change le curseur en pointeur lors du survol */
-  height: 40px; /* Hauteur du bouton */
-  border-radius: 30px; /* Coins arrondis */
+h2 {
+  font-size: 24px;
+  color: #333;
+  text-align: center;
+}
+
+form {
+  margin-top: 25px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  color: #666;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="email"],
+input[type="tel"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+button {
+  background-color: #6a0dad;
+  color: #fff;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 100%;
+}
+
+button:hover {
+  background-color: #4f0a68;
+}
+
+.star {
+  color: red;
 }

@@ -1,7 +1,7 @@
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
+  box-sizing: border-box; /* Applique box-sizing à tous les éléments */
 }
 
 /* body {
@@ -11,83 +11,69 @@
 } */
 
 /* --------------------------- */
-/* -----------Header----------- */
-/* ---------------------------- */
-
-.icone-connect {
-  height: 30px;
-  cursor: pointer;
-}
-
-/* --------------------------- */
 /* -----------Main----------- */
 /* ---------------------------- */
 
 .intro {
-  background: rgb(224, 149, 149);
   background: linear-gradient(
     90deg,
-    rgba(224, 149, 149, 0.38139005602240894) 0%,
-    rgb(237, 147, 181) 79%
-  );
+    #ffffff,
+    #f32bf3
+  ); /* Dégradé de fond horizontal du blanc au fuchsia */
 }
 
 .liste-domaines {
-  display: flex;
-  flex-direction: column;
-  line-height: 20px;
+  display: flex; /* Ajoute le flexbox */
+  flex-direction: column; /* Affiche les éléments en colonne */
+  line-height: 20px; /* Hauteur de ligne */
 }
 
 .liste-domaines span {
-  padding: 0 30px;
-  font-size: 21px;
-  font-weight: 600;
-  margin: 20px 0;
+  padding: 0 30px; /* Ajoute du padding horizontal */
+  font-size: 21px; /* Taille de police */
+  font-weight: 600; /* Poids de la police */
+  margin: 20px 0; /* Marge verticale */
 }
 
 .liste-domaines-list {
   display: flex;
-  flex-direction: column;
-  gap: 10px;
-  font-size: 18px;
-  padding: 10px 30px;
-  font-style: italic;
-  font-weight: 500;
+  flex-direction: column; /* Affiche les éléments en colonne */
+  gap: 10px; /* Espace entre les éléments */
+  font-size: 18px; /* Taille de police */
+  padding: 10px 30px; /* Ajoute du padding */
+  font-style: italic; /* Italique */
+  font-weight: 500; /* Poids de la police */
 }
 
 .photo-body {
-  height: 600px;
-  width: 500px;
-  padding: 25px 0;
+  height: 600px; /* Hauteur de l'image */
+  width: 500px; /* Largeur de l'image */
+  padding: 25px 0; /* Ajoute du padding vertical */
 }
 
 .section-presentation {
-  padding: 20px;
-  display: flex;
-  justify-content: center;
+  padding: 20px; /* Ajoute du padding */
+  display: flex; /* Ajoute le flexbox */
+  justify-content: center; /* Centre les éléments horizontalement */
 }
 
 .presentation {
-  padding: 25px;
-  width: 550px;
-  height: 300px;
-  line-height: 23px;
+  padding: 25px; /* Ajoute du padding */
+  width: 550px; /* Largeur de la section */
+  height: 300px; /* Hauteur de la section */
+  line-height: 23px; /* Hauteur de ligne */
 }
 
 .presentation-text-content {
-  margin: 20px 0;
-  font-size: 18px;
-  text-align: justify;
+  margin: 20px 0; /* Marge verticale */
+  font-size: 18px; /* Taille de police */
+  text-align: justify; /* Justifie le texte */
 }
 
 .presentation-span {
-  color: rgb(209, 31, 143);
-  margin-bottom: 30px;
-  letter-spacing: 1px;
-  font-size: 18px;
-  font-weight: 700;
-}
-
-.costum-word {
-  font-weight: 800;
+  color: #970097; /* Couleur du texte */
+  margin-bottom: 30px; /* Marge en bas */
+  letter-spacing: 1px; /* Espacement des lettres */
+  font-size: 18px; /* Taille de police */
+  font-weight: 700; /* Poids de la police */
 }
