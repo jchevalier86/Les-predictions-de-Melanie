@@ -14,7 +14,6 @@ body {
 }
 
 @media (max-width: 1200px) {
-  
   .photo-header img {
     background-position: cover;
   }
@@ -53,7 +52,8 @@ body {
     padding-right: 150px; /* Ajoute du padding vertical */
   }
 
-  .intro h1, .intro h2 {
+  .intro h1,
+  .intro h2 {
     padding-right: 150px;
   }
 
@@ -74,7 +74,8 @@ body {
 }
 
 @media (max-width: 100px) {
-  .intro h1, .intro h2 {
+  .intro h1,
+  .intro h2 {
     font-size: 2em; /* Taille de police pour h1 et h2 */
   }
 
@@ -92,7 +93,8 @@ body {
     align-items: center; /* Centre les éléments */
   }
 
-  footer ul li, a {
+  footer ul li,
+  a {
     width: 100%; /* Largeur de 100% */
     text-align: center; /* Centre le texte */
   }
@@ -319,10 +321,6 @@ ul li a:hover {
 
 .paypal-logo {
   color: #ffffff; /* Couleur du texte */
-  background: radial-gradient(
-    circle,
-    #00457C,
-    #0079C1
-  ); /* Dégradé radial */
-  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.25) /* Ombre de boîte */
+  background: radial-gradient(circle, #00457c, #0079c1); /* Dégradé radial */
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.25); /* Ombre de boîte */
 }

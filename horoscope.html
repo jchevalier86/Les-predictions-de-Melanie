@@ -10,7 +10,7 @@
     <!-- Liens vers les feuilles de style CSS -->
     <link rel="stylesheet" href="/style/reset.css" />
     <link rel="stylesheet" href="/style/style.css" />
-    <link rel="stylesheet" href="/style/connexion.css" />
+    <link rel="stylesheet" href="/style/horoscope.css" />
 
     <!-- Favicon pour le site -->
     <link
@@ -26,83 +26,38 @@
     />
 
     <!-- Titre de la page (max 60 caractères) -->
-    <title>Connexion</title>
+    <title>Les prédictions de Mélanie</title>
 
     <!-- Meta description de la page (max 160 caractères) -->
     <meta
       name="description"
-      content="Site de voyance et de cartomancie pour les clients qui veulent savoir leur avenir sur différents domaines"
+      content="Découvrez votre horoscope quotidien personnalisé et obtenez des prédictions précises pour chaque signe astrologique. Sélectionnez votre signe et explorez ce que les étoiles vous réservent aujourd'hui."
     />
   </head>
 
   <body>
-    <!-- En-tête de la page -->
-    <header>
-      <!-- Image de l'en-tête -->
-      <img
-        class="photo-header"
-        src="images/melanie-voyante-2.jpg"
-        alt="Logo de Mélanie Voyante"
-      />
-
-      <!-- Navigation pour retourner à la page d'accueil -->
-      <nav class="lien-page-inscription">
-        <!-- Image de la flèche de retour -->
-        <img
-          class="back-arrow"
-          src="images/flèche-gauche.png"
-          alt="Retour à la page d'accueil"
-          onclick="window.location.href='accueil.html'"
-        />
-
-        <!-- Titre de la page -->
-        <h1 class="title">Les prédictions de Mélanie</h1>
-      </nav>
-    </header>
-
-    <!-- Section du formulaire d'avis -->
-    <div class="container">
-      <form action="" method="post">
-        <h2>Connexion</h2>
-
-        <!-- Champ pour entrer l'email -->
-        <label for="email"> Email <span class="star">*</span> </label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          placeholder="Entrez votre adresse email"
-          required
-        />
-        <br /><br />
-
-        <!-- Champ pour entrer le mot de passe -->
-        <label for="password"> Mot de passe <span class="star">*</span> </label>
-        <input
-          type="password"
-          id="password"
-          name="password"
-          placeholder="Entrez votre mot de passe"
-          required
-        />
-
-        <!-- Lien pour mot de passe oublié -->
-        <a class="forgot-your-password" href=""> Mot de passe oublié </a>
-        <br /><br />
-
-        <!-- Bouton Se connecter -->
-        <button>Se connecter</button>
-        <br /><br />
-
-        <!-- Lien pour s'inscrire si c'est la première visite -->
-        <p>Première visite ? <a href="inscription.html"> Inscrivez-vous </a></p>
-        <br />
-      </form>
-    </div>
+    <h1>Choisissez votre signe astrologique</h1>
+    <form method="POST" action="api-horoscope.php">
+      <label for="sign">Signe :</label>
+      <select name="sign" id="sign">
+        <option value="aries">Bélier</option>
+        <option value="taurus">Taureau</option>
+        <option value="gemini">Gémeaux</option>
+        <option value="cancer">Cancer</option>
+        <option value="leo">Lion</option>
+        <option value="virgo">Vierge</option>
+        <option value="libra">Balance</option>
+        <option value="scorpio">Scorpion</option>
+        <option value="sagittarius">Sagittaire</option>
+        <option value="capricorn">Capricorne</option>
+        <option value="aquarius">Verseau</option>
+        <option value="pisces">Poissons</option>
+      </select>
+      <button type="submit">Voir l'horoscope</button>
+    </form>
 
     <!-- Pied de page -->
     <footer class="lien-page-footer">
-      <!-- Liste de liens de navigation -->
       <ul>
         <li><a href="accueil.html">Accueil</a></li>
         <li><a href="inscription.html">Inscription</a></li>
@@ -130,10 +85,10 @@
       <ul>
         <li><a href="avis.html">Avis clients</a></li>
         <li><a href="contact.html">Contact</a></li>
-        <li><a href="api-horoscope.php"> Horoscope </a></li>
+        <li><a href="blog.html">Blog</a></li>
       </ul>
 
-      <!-- Liens vers les réseaux sociaux et les plateformes externes -->
+      <!-- Liens vers les réseaux sociaux et PayPal -->
       <a
         class="logo-footer"
         href="https://www.instagram.com/melanievoyante/"
@@ -146,10 +101,10 @@
         href="https://www.paypal.com/fr/home"
         target="_blank"
       >
-        <i class="fa-brands fa-paypal fa-2xl"> </i>
+        <i class="fa-brands fa-paypal fa-2xl paypal-logo"> </i>
       </a>
 
-      <!-- Lien mailto pour envoyer un e-mail -->
+      <!-- Lien mailto pour contacter par email -->
       <a href="mailto:melanie20082011@outlook.fr" target="_blank">
         melanie20082011@outlook.fr
       </a>

@@ -1,165 +1,206 @@
 <!DOCTYPE html>
 <html lang="fr">
-  
-<head>
-  <!-- La balise meta charset spécifie le jeu de caractères utilisé. Utiliser UTF-8 est recommandé pour une compatibilité maximale -->
-  <meta charset="UTF-8" />
-  
-  <!-- La balise meta viewport contrôle la mise en page sur les appareils mobiles et est essentielle pour un design responsive -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
-  
-  <!-- Liens vers les feuilles de style CSS -->
-  <link rel="stylesheet" href="/style/reset.css" />
-  <link rel="stylesheet" href="/style/style.css" />
-  <link rel="stylesheet" href="/style/avis.css" />
-  
-  <!-- Favicon pour le site -->
-  <link rel="shortcut icon" href="/images/favicon-1.ico" type="image/x-icon" />
-  
-  <!-- Lien vers les icônes Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-  
-  <!-- Titre de la page (max 60 caractères) -->
-  <title>Avis Clients</title>
-  
-  <!-- Meta description de la page (max 160 caractères) -->
-  <meta name="description" content="Découvrez les avis et témoignages de nos clients après leurs consultations de voyance et cartomancie. Lisez les retours d'expérience et partagez votre propre avis pour aider les autres à trouver la guidance dont ils ont besoin." />
-</head>
+  <head>
+    <!-- La balise meta charset spécifie le jeu de caractères utilisé. Utiliser UTF-8 est recommandé pour une compatibilité maximale -->
+    <meta charset="UTF-8" />
 
-<body>
+    <!-- La balise meta viewport contrôle la mise en page sur les appareils mobiles et est essentielle pour un design responsive -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Liens vers les feuilles de style CSS -->
+    <link rel="stylesheet" href="/style/reset.css" />
+    <link rel="stylesheet" href="/style/style.css" />
+    <link rel="stylesheet" href="/style/avis.css" />
+
+    <!-- Favicon pour le site -->
+    <link
+      rel="shortcut icon"
+      href="/images/favicon-1.ico"
+      type="image/x-icon"
+    />
+
+    <!-- Lien vers les icônes Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+
+    <!-- Titre de la page (max 60 caractères) -->
+    <title>Avis Clients</title>
+
+    <!-- Meta description de la page (max 160 caractères) -->
+    <meta
+      name="description"
+      content="Découvrez les avis et témoignages de nos clients après leurs consultations de voyance et cartomancie. Lisez les retours d'expérience et partagez votre propre avis pour aider les autres à trouver la guidance dont ils ont besoin."
+    />
+  </head>
+
+  <body>
     <header>
-        <!-- Image de l'en-tête avec un logo ou une photo -->
-        <img class="photo-header" src="images/melanie-voyante-2.jpg" alt="Logo de Mélanie Voyante">
-    
-        <!-- Navigation principale -->
-        <nav class="lien-page-header">
-            <div class="navbar">
-                <!-- Menu déroulant pour Accueil -->
-                <div class="dropdown">
-                    <button class="dropbtn"> Accueil
-                        <i class="fa fa-caret-down"> </i>
-                    </button>
-                    <div class="dropdown-content">
-                        <a href="inscription.html"> Inscription </a>
-                        <a href="connexion.html"> Connexion </a>
-                    </div>
-                </div>
-    
-                <!-- Menu déroulant pour Voyance -->
-                <div class="dropdown">
-                    <button class="dropbtn"> Voyance 
-                        <i class="fa fa-caret-down"> </i>
-                    </button>
-                    <div class="dropdown-content">
-                        <a href="pratique-voyance.html"> Pratique </a>
-                        <a href="definition-voyance.html"> Définition </a>
-                    </div>
-                </div> 
-    
-                <!-- Menu déroulant pour Cartomancie -->
-                <div class="dropdown">
-                    <button class="dropbtn"> Cartomancie 
-                        <i class="fa fa-caret-down"> </i>
-                    </button>
-                    <div class="dropdown-content">
-                        <a href="pratique-cartomancie.html"> Pratique </a>
-                        <a href="definition-cartomancie.html"> Définition </a>
-                    </div>
-                </div> 
-    
-                <!-- Menu déroulant pour Ressenti photo -->
-                <div class="dropdown">
-                    <button class="dropbtn"> Ressenti photo
-                        <i class="fa fa-caret-down"> </i>
-                    </button>
-                    <div class="dropdown-content">
-                        <a href="pratique-ressenti-photo.html"> Pratique </a>
-                        <a href="definition-ressenti-photo.html"> Définition </a>
-                    </div>
-                </div> 
-            </div>
-    
-            <!-- Liens directs pour Contact, Avis clients et Blog -->
-            <div class="contact-avis-blog">   
-                <a href="contact.html"> Contact </a>
-                <a href="avis.html"> Avis clients </a>
-                <a href="blog.html"> Blog </a>
-            </div>
+      <!-- Image de l'en-tête avec un logo ou une photo -->
+      <img
+        class="photo-header"
+        src="images/melanie-voyante-2.jpg"
+        alt="Logo de Mélanie Voyante"
+      />
 
-            <!-- Icône de connexion avec un lien vers la page de connexion -->
-            <img class="icone-connect" src="images/connexion.png" alt="Aller à la page de connexion" onclick="window.location.href='connexion.html'">
-        </nav>
+      <!-- Navigation principale -->
+      <nav class="lien-page-header">
+        <div class="navbar">
+          <!-- Menu déroulant pour Accueil -->
+          <div class="dropdown">
+            <button class="dropbtn">
+              Accueil
+              <i class="fa fa-caret-down"> </i>
+            </button>
+            <div class="dropdown-content">
+              <a href="inscription.html"> Inscription </a>
+              <a href="connexion.html"> Connexion </a>
+            </div>
+          </div>
+
+          <!-- Menu déroulant pour Voyance -->
+          <div class="dropdown">
+            <button class="dropbtn">
+              Voyance
+              <i class="fa fa-caret-down"> </i>
+            </button>
+            <div class="dropdown-content">
+              <a href="pratique-voyance.html"> Pratique </a>
+              <a href="definition-voyance.html"> Définition </a>
+            </div>
+          </div>
+
+          <!-- Menu déroulant pour Cartomancie -->
+          <div class="dropdown">
+            <button class="dropbtn">
+              Cartomancie
+              <i class="fa fa-caret-down"> </i>
+            </button>
+            <div class="dropdown-content">
+              <a href="pratique-cartomancie.html"> Pratique </a>
+              <a href="definition-cartomancie.html"> Définition </a>
+            </div>
+          </div>
+
+          <!-- Menu déroulant pour Ressenti photo -->
+          <div class="dropdown">
+            <button class="dropbtn">
+              Ressenti photo
+              <i class="fa fa-caret-down"> </i>
+            </button>
+            <div class="dropdown-content">
+              <a href="pratique-ressenti-photo.html"> Pratique </a>
+              <a href="definition-ressenti-photo.html"> Définition </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Liens directs pour Contact, Avis clients et Blog -->
+        <div class="contact-avis-blog">
+          <a href="contact.html"> Contact </a>
+          <a href="avis.html"> Avis clients </a>
+          <a href="api-horoscope.php"> Horoscope </a>
+        </div>
+
+        <!-- Icône de connexion avec un lien vers la page de connexion -->
+        <img
+          class="icone-connect"
+          src="images/connexion.png"
+          alt="Aller à la page de connexion"
+          onclick="window.location.href='connexion.html'"
+        />
+      </nav>
     </header>
 
     <div class="container">
-        <form id="avis-form">
-        
-            <h1> Donnez votre avis </h1>
-    
-            <div class="rating">
-                <input type="radio" id="star5" name="rating" value="5">
-                <label for="star5" title="5étoiles">☆</label>
-                
-                <input type="radio" id="star4" name="rating" value="4">
-                <label for="star4" title="4étoiles">☆</label>
+      <form id="avis-form">
+        <h1>Donnez votre avis</h1>
 
-                <input type="radio" id="star3" name="rating" value="3">
-                <label for="star3" title="3étoiles">☆</label>
+        <div class="rating">
+          <input type="radio" id="star5" name="rating" value="5" />
+          <label for="star5" title="5étoiles">☆</label>
 
-                <input type="radio" id="star2" name="rating" value="2">
-                <label for="star2" title="2étoiles">☆</label>
-                
-                <input type="radio" id="star1" name="rating" value="1" required>
-                <label for="star1" title="1étoile">☆</label>
-            </div>
+          <input type="radio" id="star4" name="rating" value="4" />
+          <label for="star4" title="4étoiles">☆</label>
 
-                <label for="avis">Votre avis</label>
-                <textarea id="avis" name="avis" rows="4" placeholder="Écrivez votre avis ici..." required></textarea>
-    
-                <button type="submit">Envoyer</button>
-        </form>
+          <input type="radio" id="star3" name="rating" value="3" />
+          <label for="star3" title="3étoiles">☆</label>
+
+          <input type="radio" id="star2" name="rating" value="2" />
+          <label for="star2" title="2étoiles">☆</label>
+
+          <input type="radio" id="star1" name="rating" value="1" required />
+          <label for="star1" title="1étoile">☆</label>
+        </div>
+
+        <label for="avis">Votre avis</label>
+        <textarea
+          id="avis"
+          name="avis"
+          rows="4"
+          placeholder="Écrivez votre avis ici..."
+          required
+        ></textarea>
+
+        <button type="submit">Envoyer</button>
+      </form>
     </div>
 
     <!-- Pied de page avec des liens vers les différentes pages du site -->
-  <footer class="lien-page-footer">
-    <ul>
-      <li> <a href="accueil.html">Accueil</a> </li>
-      <li> <a href="inscription.html">Inscription</a> </li>
-      <li> <a href="connexion.html">Connexion</a> </li>
-    </ul>
-    
-    <ul>
-      <li> <a href="definition-voyance.html">Définition voyance</a> </li>
-      <li> <a href="definition-cartomancie.html">Définition cartomancie</a> </li>
-      <li> <a href="definition-ressenti-photo.html">Définition ressenti photo</a> </li>
-    </ul>
-  
-    <ul>
-      <li> <a href="pratique-voyance.html">Pratique voyance</a> </li>
-      <li> <a href="pratique-cartomancie.html">Pratique cartomancie</a> </li>
-      <li> <a href="pratique-ressenti-photo.html">Pratique ressenti photo</a> </li>
-    </ul>
-    
-    <ul>
-      <li> <a href="avis.html">Avis clients</a> </li>
-      <li> <a href="contact.html">Contact</a> </li>
-      <li> <a href="blog.html">Blog</a> </li>
-    </ul>
+    <footer class="lien-page-footer">
+      <ul>
+        <li><a href="accueil.html">Accueil</a></li>
+        <li><a href="inscription.html">Inscription</a></li>
+        <li><a href="connexion.html">Connexion</a></li>
+      </ul>
 
-    <!-- Liens vers les réseaux sociaux et PayPal -->
-    <a class="logo-footer" href="https://www.instagram.com/melanievoyante/" target="_blank">
-      <i class="fab fa-instagram fa-2x instagram-logo"> </i>
-    </a>
-    <a class="logo-footer" href="https://www.paypal.com/fr/home" target="_blank">
-      <i class="fa-brands fa-paypal fa-2xl paypal-logo"> </i>
-    </a>
-    
-    <!-- Lien mailto pour contacter par email -->
-    <a href="mailto:melanie20082011@outlook.fr" target="_blank"> melanie20082011@outlook.fr </a>
+      <ul>
+        <li><a href="definition-voyance.html">Définition voyance</a></li>
+        <li>
+          <a href="definition-cartomancie.html">Définition cartomancie</a>
+        </li>
+        <li>
+          <a href="definition-ressenti-photo.html">Définition ressenti photo</a>
+        </li>
+      </ul>
 
-  </footer>
+      <ul>
+        <li><a href="pratique-voyance.html">Pratique voyance</a></li>
+        <li><a href="pratique-cartomancie.html">Pratique cartomancie</a></li>
+        <li>
+          <a href="pratique-ressenti-photo.html">Pratique ressenti photo</a>
+        </li>
+      </ul>
 
-  <!-- <script src="avis.js"> </script> -->
-</body>
+      <ul>
+        <li><a href="avis.html">Avis clients</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="blog.html">Blog</a></li>
+      </ul>
 
+      <!-- Liens vers les réseaux sociaux et PayPal -->
+      <a
+        class="logo-footer"
+        href="https://www.instagram.com/melanievoyante/"
+        target="_blank"
+      >
+        <i class="fab fa-instagram fa-2x instagram-logo"> </i>
+      </a>
+      <a
+        class="logo-footer"
+        href="https://www.paypal.com/fr/home"
+        target="_blank"
+      >
+        <i class="fa-brands fa-paypal fa-2xl paypal-logo"> </i>
+      </a>
+
+      <!-- Lien mailto pour contacter par email -->
+      <a href="mailto:melanie20082011@outlook.fr" target="_blank">
+        melanie20082011@outlook.fr
+      </a>
+    </footer>
+
+    <!-- <script src="avis.js"> </script> -->
+  </body>
 </html>

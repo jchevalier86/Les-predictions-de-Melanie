@@ -25,14 +25,17 @@
 .section-presentation {
     padding: 20px; /* Ajoute du padding */
     display: flex; /* Ajoute le flexbox */
-    justify-content: left; /* Centre les éléments horizontalement */
+    justify-content: center; /* Centre les éléments horizontalement */
     gap: 20px;
+}
+
+.section1-col1 {
+    display: flex;
 }
   
 .presentation {
     padding: 25px; /* Ajoute du padding */
     width: 550px; /* Largeur de la section */
-    height: 300px; /* Hauteur de la section */
     line-height: 23px; /* Hauteur de ligne */
 }
   

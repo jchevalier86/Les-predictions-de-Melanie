@@ -1,177 +1,227 @@
 <!DOCTYPE html>
 <html lang="fr">
-
-<head>
+  <head>
     <!-- La balise meta charset spécifie le jeu de caractères utilisé. Utiliser UTF-8 est recommandé pour une compatibilité maximale -->
     <meta charset="UTF-8" />
 
     <!-- La balise meta viewport contrôle la mise en page sur les appareils mobiles et est essentielle pour un design responsive -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
+
     <!-- Liens vers les feuilles de style CSS -->
     <link rel="stylesheet" href="/style/reset.css" />
     <link rel="stylesheet" href="/style/style.css" />
     <link rel="stylesheet" href="/style/accueil.css" />
 
     <!-- Favicon pour le site -->
-    <link rel="shortcut icon" href="/images/favicon-1.ico" type="image/x-icon" />
+    <link
+      rel="shortcut icon"
+      href="/images/favicon-1.ico"
+      type="image/x-icon"
+    />
 
     <!-- Lien vers les icônes Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
 
     <!-- Titre de la page (max 60 caractères) -->
     <title>Les prédictions de Mélanie</title>
 
     <!-- Meta description de la page (max 160 caractères) -->
-    <meta name="description" content="Explorez les prédictions de Mélanie, cartomancienne et voyante passionnée. Avec des années d'expérience, j'offre des guidances claires et authentiques en amour, travail, argent, et plus encore." />
-</head>
+    <meta
+      name="description"
+      content="Explorez les prédictions de Mélanie, cartomancienne et voyante passionnée. Avec des années d'expérience, j'offre des guidances claires et authentiques en amour, travail, argent, et plus encore."
+    />
+  </head>
 
-<body>
+  <body>
     <header>
-        <!-- Image de l'en-tête avec un logo ou une photo -->
-        <img class="photo-header" src="images/melanie-voyante-2.jpg" alt="Logo de Mélanie Voyante">
-        
-        <!-- Navigation principale -->
-        <nav class="lien-page-header">
-            <div class="navbar">
-                <!-- Menu déroulant pour Accueil -->
-                <div class="dropdown">
-                    <button class="dropbtn"> Accueil
-                        <i class="fa fa-caret-down"> </i>
-                    </button>
-                    <div class="dropdown-content">
-                        <a href="inscription.html"> Inscription </a>
-                        <a href="connexion.html"> Connexion </a>
-                    </div>
-                </div>
-        
-                <!-- Menu déroulant pour Voyance -->
-                <div class="dropdown">
-                    <button class="dropbtn"> Voyance 
-                        <i class="fa fa-caret-down"> </i>
-                    </button>
-                    <div class="dropdown-content">
-                        <a href="pratique-voyance.html"> Pratique </a>
-                        <a href="definition-voyance.html"> Définition </a>
-                    </div>
-                </div> 
-        
-                <!-- Menu déroulant pour Cartomancie -->
-                <div class="dropdown">
-                    <button class="dropbtn"> Cartomancie 
-                        <i class="fa fa-caret-down"> </i>
-                    </button>
-                    <div class="dropdown-content">
-                        <a href="pratique-cartomancie.html"> Pratique </a>
-                        <a href="definition-cartomancie.html"> Définition </a>
-                    </div>
-                </div> 
-        
-                <!-- Menu déroulant pour Ressenti photo -->
-                <div class="dropdown">
-                    <button class="dropbtn"> Ressenti photo
-                        <i class="fa fa-caret-down"> </i>
-                    </button>
-                    <div class="dropdown-content">
-                        <a href="pratique-ressenti-photo.html"> Pratique </a>
-                        <a href="definition-ressenti-photo.html"> Définition </a>
-                    </div>
-                </div> 
-            </div>
-        
-            <!-- Liens directs pour Contact, Avis clients et Blog -->
-            <div class="contact-avis-blog">   
-                <a href="contact.html"> Contact </a>
-                <a href="avis.html"> Avis clients </a>
-                <a href="blog.html"> Blog </a>
-            </div>
+      <!-- Image de l'en-tête avec un logo ou une photo -->
+      <img
+        class="photo-header"
+        src="images/melanie-voyante-2.jpg"
+        alt="Logo de Mélanie Voyante"
+      />
 
-            <!-- Icône de connexion avec un lien vers la page de connexion -->
-            <img class="icone-connect" src="images/connexion.png" alt="Aller à la page de connexion" onclick="window.location.href='connexion.html'">
-        </nav>
+      <!-- Navigation principale -->
+      <nav class="lien-page-header">
+        <div class="navbar">
+          <!-- Menu déroulant pour Accueil -->
+          <div class="dropdown">
+            <button class="dropbtn">
+              Accueil
+              <i class="fa fa-caret-down"> </i>
+            </button>
+            <div class="dropdown-content">
+              <a href="inscription.html"> Inscription </a>
+              <a href="connexion.html"> Connexion </a>
+            </div>
+          </div>
+
+          <!-- Menu déroulant pour Voyance -->
+          <div class="dropdown">
+            <button class="dropbtn">
+              Voyance
+              <i class="fa fa-caret-down"> </i>
+            </button>
+            <div class="dropdown-content">
+              <a href="pratique-voyance.html"> Pratique </a>
+              <a href="definition-voyance.html"> Définition </a>
+            </div>
+          </div>
+
+          <!-- Menu déroulant pour Cartomancie -->
+          <div class="dropdown">
+            <button class="dropbtn">
+              Cartomancie
+              <i class="fa fa-caret-down"> </i>
+            </button>
+            <div class="dropdown-content">
+              <a href="pratique-cartomancie.html"> Pratique </a>
+              <a href="definition-cartomancie.html"> Définition </a>
+            </div>
+          </div>
+
+          <!-- Menu déroulant pour Ressenti photo -->
+          <div class="dropdown">
+            <button class="dropbtn">
+              Ressenti photo
+              <i class="fa fa-caret-down"> </i>
+            </button>
+            <div class="dropdown-content">
+              <a href="pratique-ressenti-photo.html"> Pratique </a>
+              <a href="definition-ressenti-photo.html"> Définition </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Liens directs pour Contact, Avis clients et Blog -->
+        <div class="contact-avis-blog">
+          <a href="contact.html"> Contact </a>
+          <a href="avis.html"> Avis clients </a>
+          <a href="api-horoscope.php"> Horoscope </a>
+        </div>
+
+        <!-- Icône de connexion avec un lien vers la page de connexion -->
+        <img
+          class="icone-connect"
+          src="images/connexion.png"
+          alt="Aller à la page de connexion"
+          onclick="window.location.href='connexion.html'"
+        />
+      </nav>
     </header>
-    
+
     <!-- Section d'introduction -->
     <section class="intro">
-        <h1>Les prédictions de Mélanie</h1>
-        <hr class="separator">
-        <h2>Voyance et Cartomancie</h2>
-        
-        <!-- Section de présentation -->
-        <section class="section-presentation">
-            <div class="section1-col1">
-                <!-- Texte de présentation -->
-                <div class="presentation"> 
-                    <span class="presentation-span">Bonjour et bienvenue !</span> 
-                    <div class="presentation-text-content">
-                        <p>
-                            Je me présente Mélanie, je suis <span class="costum-word"> cartomancienne</span> et <span class="costum-word">voyante</span> passionnée, exerçant depuis septembre 2019. Mon parcours dans le monde mystique et spirituel m’a permis d’affiner mes dons et d’acquérir une profonde compréhension des cartes et de l’intuition.
-                            À travers mes consultations, je m’engage à vous offrir des guidances claires, empathiques et authentiques pour vous aider à naviguer à travers les défis de la vie et à découvrir votre plein potentiel. Que vous soyez en quête de réponses, de conseils ou de soutiens, je suis là pour vous accompagner sur votre chemin.
-                        </p>
-                    </div>
-                </div>
-                
-                <!-- Liste des domaines de pratique -->
-                <div class="liste-domaines"> 
-                    <span>Les domaines que je pratique :</span>
-                    <ul class="liste-domaines-list">
-                        <li> Amour </li>
-                        <li> Travail </li>
-                        <li> Grossesse </li>
-                        <li> Argent </li>
-                        <li> Déménagement </li>
-                        <li> Permis </li>
-                        <li> Général </li>
-                    </ul>
-                </div>
+      <h1>Les prédictions de Mélanie</h1>
+      <hr class="separator" />
+      <h2>Voyance et Cartomancie</h2>
+
+      <!-- Section de présentation -->
+      <section class="section-presentation">
+        <div class="section1-col1">
+          <!-- Texte de présentation -->
+          <div class="presentation">
+            <span class="presentation-span">Bonjour et bienvenue !</span>
+            <div class="presentation-text-content">
+              <p>
+                Je me présente Mélanie, je suis
+                <span class="costum-word"> cartomancienne</span> et
+                <span class="costum-word">voyante</span> passionnée, exerçant
+                depuis septembre 2019. Mon parcours dans le monde mystique et
+                spirituel m’a permis d’affiner mes dons et d’acquérir une
+                profonde compréhension des cartes et de l’intuition. À travers
+                mes consultations, je m’engage à vous offrir des guidances
+                claires, empathiques et authentiques pour vous aider à naviguer
+                à travers les défis de la vie et à découvrir votre plein
+                potentiel. Que vous soyez en quête de réponses, de conseils ou
+                de soutiens, je suis là pour vous accompagner sur votre chemin.
+              </p>
             </div>
-            
-            <!-- Photo dans la section de présentation -->
-            <div class="photo">            
-                <img class="photo-body" src="/images/melanie-voyante-1.jpeg" alt="Logo de Mélanie Voyante">
-            </div>
-        </section>
+          </div>
+
+          <!-- Liste des domaines de pratique -->
+          <div class="liste-domaines">
+            <span>Les domaines que je pratique :</span>
+            <ul class="liste-domaines-list">
+              <li>Amour</li>
+              <li>Travail</li>
+              <li>Grossesse</li>
+              <li>Argent</li>
+              <li>Déménagement</li>
+              <li>Permis</li>
+              <li>Général</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Photo dans la section de présentation -->
+        <div class="photo">
+          <img
+            class="photo-body"
+            src="/images/melanie-voyante-1.jpeg"
+            alt="Logo de Mélanie Voyante"
+          />
+        </div>
+      </section>
     </section>
-    
+
     <!-- Pied de page -->
     <footer class="lien-page-footer">
-        <ul>
-            <li> <a href="accueil.html">Accueil</a> </li>
-            <li> <a href="inscription.html">Inscription</a> </li>
-            <li> <a href="connexion.html">Connexion</a> </li>
-        </ul>
-        
-        <ul>
-            <li> <a href="definition-voyance.html">Définition voyance</a> </li>
-            <li> <a href="definition-cartomancie.html">Définition cartomancie</a> </li>
-            <li> <a href="definition-ressenti-photo.html">Définition ressenti photo</a> </li>
-        </ul>
-        
-        <ul>
-            <li> <a href="pratique-voyance.html">Pratique voyance</a> </li>
-            <li> <a href="pratique-cartomancie.html">Pratique cartomancie</a> </li>
-            <li> <a href="pratique-ressenti-photo.html">Pratique ressenti photo</a> </li>
-        </ul>
-        
-        <ul>
-            <li> <a href="avis.html">Avis clients</a> </li>
-            <li> <a href="contact.html">Contact</a> </li>
-            <li> <a href="blog.html">Blog</a> </li>
-        </ul>
-        
-        <!-- Liens vers les réseaux sociaux et PayPal -->
-        <a class="logo-footer" href="https://www.instagram.com/melanievoyante/" target="_blank">
-            <i class="fab fa-instagram fa-2x instagram-logo"> </i>
-        </a>
-        <a class="logo-footer" href="https://www.paypal.com/fr/home" target="_blank">
-            <i class="fa-brands fa-paypal fa-2xl paypal-logo"> </i>
-        </a>
-        
-        <!-- Lien mailto pour contacter par email -->
-        <a href="mailto:melanie20082011@outlook.fr" target="_blank"> melanie20082011@outlook.fr </a>
+      <ul>
+        <li><a href="accueil.html">Accueil</a></li>
+        <li><a href="inscription.html">Inscription</a></li>
+        <li><a href="connexion.html">Connexion</a></li>
+      </ul>
+
+      <ul>
+        <li><a href="definition-voyance.html">Définition voyance</a></li>
+        <li>
+          <a href="definition-cartomancie.html">Définition cartomancie</a>
+        </li>
+        <li>
+          <a href="definition-ressenti-photo.html">Définition ressenti photo</a>
+        </li>
+      </ul>
+
+      <ul>
+        <li><a href="pratique-voyance.html">Pratique voyance</a></li>
+        <li><a href="pratique-cartomancie.html">Pratique cartomancie</a></li>
+        <li>
+          <a href="pratique-ressenti-photo.html">Pratique ressenti photo</a>
+        </li>
+      </ul>
+
+      <ul>
+        <li><a href="avis.html">Avis clients</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="blog.html">Blog</a></li>
+      </ul>
+
+      <!-- Liens vers les réseaux sociaux et PayPal -->
+      <a
+        class="logo-footer"
+        href="https://www.instagram.com/melanievoyante/"
+        target="_blank"
+      >
+        <i class="fab fa-instagram fa-2x instagram-logo"> </i>
+      </a>
+      <a
+        class="logo-footer"
+        href="https://www.paypal.com/fr/home"
+        target="_blank"
+      >
+        <i class="fa-brands fa-paypal fa-2xl paypal-logo"> </i>
+      </a>
+
+      <!-- Lien mailto pour contacter par email -->
+      <a href="mailto:melanie20082011@outlook.fr" target="_blank">
+        melanie20082011@outlook.fr
+      </a>
     </footer>
 
-    <script src="script.js"> </script>
-</body>
-
+    <script src="script.js"></script>
+  </body>
 </html>
