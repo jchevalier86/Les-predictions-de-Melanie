@@ -7,11 +7,11 @@
 
     <!-- La balise meta viewport contrôle la mise en page sur les appareils mobiles et est essentielle pour un design responsive -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
+
     <!-- Liens vers les feuilles de style CSS -->
     <link rel="stylesheet" href="/style/reset.css" />
     <link rel="stylesheet" href="/style/style.css" />
-    <link rel="stylesheet" href="/style/definition-cartomancie.css" />
+    <link rel="stylesheet" href="/style/definitions.css" />
 
     <!-- Favicon pour le site -->
     <link rel="shortcut icon" href="/images/favicon-3.ico" type="image/x-icon" />
@@ -23,14 +23,15 @@
     <title>Définition de la Cartomancie</title>
 
     <!-- Meta description de la page (max 160 caractères) -->
-    <meta name="description" content="Découvrez la définition de la cartomancie, une pratique divinatoire utilisant les cartes pour révéler des informations cachées et prédire des événements futurs. Apprenez comment les cartomanciens interprètent les cartes pour offrir des guidances précises et profondes." />
+    <meta name="description"
+        content="Découvrez la définition de la cartomancie, une pratique divinatoire utilisant les cartes pour révéler des informations cachées et prédire des événements futurs. Apprenez comment les cartomanciens interprètent les cartes pour offrir des guidances précises et profondes." />
 </head>
 
 <body>
     <header>
         <!-- Image de l'en-tête avec un logo ou une photo -->
         <img class="photo-header" src="images/melanie-voyante-2.jpg" alt="Logo de Mélanie Voyante">
-        
+
         <!-- Navigation principale -->
         <nav class="lien-page-header">
             <div class="navbar">
@@ -44,29 +45,29 @@
                         <a href="connexion.html"> Connexion </a>
                     </div>
                 </div>
-        
+
                 <!-- Menu déroulant pour Voyance -->
                 <div class="dropdown">
-                    <button class="dropbtn"> Voyance 
+                    <button class="dropbtn"> Voyance
                         <i class="fa fa-caret-down"> </i>
                     </button>
                     <div class="dropdown-content">
                         <a href="pratique-voyance.html"> Pratique </a>
                         <a href="definition-voyance.html"> Définition </a>
                     </div>
-                </div> 
-        
+                </div>
+
                 <!-- Menu déroulant pour Cartomancie -->
                 <div class="dropdown">
-                    <button class="dropbtn"> Cartomancie 
+                    <button class="dropbtn"> Cartomancie
                         <i class="fa fa-caret-down"> </i>
                     </button>
                     <div class="dropdown-content">
                         <a href="pratique-cartomancie.html"> Pratique </a>
                         <a href="definition-cartomancie.html"> Définition </a>
                     </div>
-                </div> 
-        
+                </div>
+
                 <!-- Menu déroulant pour Ressenti photo -->
                 <div class="dropdown">
                     <button class="dropbtn"> Ressenti photo
@@ -76,87 +77,96 @@
                         <a href="pratique-ressenti-photo.html"> Pratique </a>
                         <a href="definition-ressenti-photo.html"> Définition </a>
                     </div>
-                </div> 
+                </div>
             </div>
-        
+
             <!-- Liens directs pour Contact, Avis clients et Blog -->
-            <div class="contact-avis-blog">   
+            <div class="contact-avis-blog">
                 <a href="contact.html"> Contact </a>
                 <a href="avis.html"> Avis clients </a>
-                <a href="api-horoscope.php"> Horoscope </a>
+                <a href="horoscope.html"> Horoscope </a>
             </div>
 
             <!-- Icône de connexion avec un lien vers la page de connexion -->
-            <img class="icone-connect" src="images/connexion.png" alt="Aller à la page de connexion" onclick="window.location.href='connexion.html'">
+            <img class="icone-connect" src="images/connexion.png" alt="Aller à la page de connexion"
+                onclick="window.location.href='connexion.html'">
         </nav>
     </header>
-    
+
     <!-- Section d'introduction -->
     <section class="intro">
         <h1>La Cartomancie</h1>
         <hr class="separator">
         <h2>Définition</h2>
-        
+
         <!-- Section de définition -->
         <section class="section-presentation">
             <div class="section1-col1">
                 <!-- Texte de définition de la Voyance -->
-                <div class="presentation">  
+                <div class="presentation">
                     <div class="presentation-text-content">
                         <p>
-                            <span class="costum-word">La cartomancie</span> est une pratique divinatoire qui consiste à utiliser des cartes pour prédire l’avenir ou obtenir des conseils sur des questions personnelles. Elle peut impliquer divers types de cartes, notamment les cartes à jouer classiques, les tarots ou d’autres jeux de cartes spécialement conçus pour la divination.
-                            <span class="costum-word">La cartomancie</span> repose sur l’interprétation des cartes tirées selon des méthodes spécifiques, souvent influencées par la positions des cartes, leur signification individuelles et leurs relations les unes avec les autres. <span class="costum-word">Les cartomanciens</span>, ou <span class="costum-word">praticiens de la cartomancie</span>, utilisent leurs connaissances des significations traditionnelles des cartes ainsi que leur intuition pour fournir des lectures et des interprétations aux personnes qui les consultent.
+                            <span class="costum-word">La cartomancie</span> est une pratique divinatoire qui consiste à
+                            utiliser des cartes pour prédire l’avenir ou obtenir des conseils sur des questions
+                            personnelles. Elle peut impliquer divers types de cartes, notamment les cartes à jouer
+                            classiques, les tarots ou d’autres jeux de cartes spécialement conçus pour la divination.
+                            <span class="costum-word">La cartomancie</span> repose sur l’interprétation des cartes
+                            tirées selon des méthodes spécifiques, souvent influencées par la positions des cartes, leur
+                            signification individuelles et leurs relations les unes avec les autres. <span
+                                class="costum-word">Les cartomanciens</span>, ou <span class="costum-word">praticiens de
+                                la cartomancie</span>, utilisent leurs connaissances des significations traditionnelles
+                            des cartes ainsi que leur intuition pour fournir des lectures et des interprétations aux
+                            personnes qui les consultent.
                         </p>
                     </div>
                 </div>
-                
-            
-            <!-- Photo dans la section de définition -->
-                    <div class="photo">            
-                        <img class="photo-body" src="/images/cartomancienne.jpg" alt="Image de carte Oracle Gé">
-                    </div>
+
+
+                <!-- Photo dans la section de définition -->
+                <div class="photo">
+                    <img class="photo-body-2" src="/images/cartomancienne.jpg" alt="Image de carte Oracle Gé">
+                </div>
             </div>
         </section>
-    
-    <!-- Pied de page -->
-    <footer class="lien-page-footer">
-        <ul>
-            <li> <a href="accueil.html">Accueil</a> </li>
-            <li> <a href="inscription.html">Inscription</a> </li>
-            <li> <a href="connexion.html">Connexion</a> </li>
-        </ul>
-        
-        <ul>
-            <li> <a href="definition-voyance.html">Définition voyance</a> </li>
-            <li> <a href="definition-cartomancie.html">Définition cartomancie</a> </li>
-            <li> <a href="definition-ressenti-photo.html">Définition ressenti photo</a> </li>
-        </ul>
-        
-        <ul>
-            <li> <a href="pratique-voyance.html">Pratique voyance</a> </li>
-            <li> <a href="pratique-cartomancie.html">Pratique cartomancie</a> </li>
-            <li> <a href="pratique-ressenti-photo.html">Pratique ressenti photo</a> </li>
-        </ul>
-        
-        <ul>
-            <li> <a href="avis.html">Avis clients</a> </li>
-            <li> <a href="contact.html">Contact</a> </li>
-            <li> <a href="blog.html">Blog</a> </li>
-        </ul>
-        
-        <!-- Liens vers les réseaux sociaux et PayPal -->
-        <a class="logo-footer" href="https://www.instagram.com/melanievoyante/" target="_blank">
-            <i class="fab fa-instagram fa-2x instagram-logo"> </i>
-        </a>
-        <a class="logo-footer" href="https://www.paypal.com/fr/home" target="_blank">
-            <i class="fa-brands fa-paypal fa-2xl"> </i>
-        </a>
-        
-        <!-- Lien mailto pour contacter par email -->
-        <a href="mailto:melanie20082011@outlook.fr" target="_blank"> melanie20082011@outlook.fr </a>
-    </footer>
 
-    <script src="script.js"> </script>
+        <!-- Pied de page -->
+        <footer class="lien-page-footer">
+            <ul>
+                <li> <a href="accueil.html"> Accueil </a> </li>
+                <li> <a href="inscription.html"> Inscription </a> </li>
+                <li> <a href="connexion.html"> Connexion </a> </li>
+            </ul>
+
+            <ul>
+                <li> <a href="definition-voyance.html"> Définition voyance </a> </li>
+                <li> <a href="definition-cartomancie.html"> Définition cartomancie </a> </li>
+                <li> <a href="definition-ressenti-photo.html"> Définition ressenti photo </a> </li>
+            </ul>
+
+            <ul>
+                <li> <a href="pratique-voyance.html"> Pratique voyance </a> </li>
+                <li> <a href="pratique-cartomancie.html"> Pratique cartomancie </a> </li>
+                <li> <a href="pratique-ressenti-photo.html"> Pratique ressenti photo </a> </li>
+            </ul>
+
+            <ul>
+                <li> <a href="avis.html"> Avis clients </a> </li>
+                <li> <a href="contact.html"> Contact </a> </li>
+                <li> <a href="horoscope.html"> Horoscope </a> </li>
+            </ul>
+
+            <!-- Liens vers les réseaux sociaux et PayPal -->
+            <a class="logo-footer" href="https://www.instagram.com/melanievoyante/" target="_blank">
+                <i class="fab fa-instagram fa-2x instagram-logo"> </i>
+            </a>
+            <a class="logo-footer" href="https://www.paypal.com/fr/home" target="_blank">
+                <i class="fa-brands fa-paypal fa-2xl"> </i>
+            </a>
+
+            <!-- Lien mailto pour contacter par email -->
+            <a href="mailto:melanie20082011@outlook.fr" target="_blank"> melanie20082011@outlook.fr </a>
+        </footer>
+
+        <script src="./script/script.js"> </script>
 </body>
-
 </html>

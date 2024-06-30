@@ -32,7 +32,7 @@ body {
 /* Style pour le titre */
 .title {
   color: #ffffff; /* Couleur du texte blanche */
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; /* Famille de polices */
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif; /* Famille de polices */
   padding: 20px; /* Ajoute un espacement interne */
 }
 
@@ -55,7 +55,7 @@ body {
   margin-top: 30px;
   margin-bottom: 30px;
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 h2 {
@@ -74,10 +74,7 @@ label {
   color: #666;
 }
 
-input[type="text"],
-input[type="date"],
 input[type="email"],
-input[type="tel"],
 input[type="password"] {
   width: 100%;
   padding: 10px;

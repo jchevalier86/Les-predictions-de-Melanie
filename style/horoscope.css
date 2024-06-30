@@ -1,1 +1,97 @@
-{\rtf1}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+}
+
+/* ------------------------ */
+/* ----------Header----------*/
+/* ------------------------ */
+
+.lien-page-inscription {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ff00ae82;
+}
+
+.back-arrow {
+  cursor: pointer;
+}
+
+.title {
+  color: #ffffff;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  padding: 20px;
+}
+
+/* ------------------------ */
+/* ----------Main---------- */
+/* ------------------------ */
+
+.container {
+  max-width: 400px;
+  margin: 20px auto;
+  background-color: #fff;
+  padding: 20px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  font-size: 24px;
+  color: #333;
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+form {
+  margin-top: 25px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  color: #666;
+}
+
+select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+button {
+  background-color: #6a0dad;
+  color: #fff;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 100%;
+}
+
+button:hover {
+  background-color: #4f0a68;
+}
+
+/* .connectez-vous {
+  padding: 2px;
+} */
+
+.star {
+  color: red;
+}

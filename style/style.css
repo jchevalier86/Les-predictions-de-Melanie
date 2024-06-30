@@ -1,55 +1,69 @@
+/* 
+ * Applique la propriété box-sizing: border-box à tous les éléments,
+ * ainsi qu'à leurs pseudo-éléments ::before et ::after. 
+ * Cela inclut le padding et la bordure dans les dimensions totales des éléments.
+ */
 *,
 *::before,
 *::after {
-  box-sizing: border-box; /* Applique box-sizing à tous les éléments */
+  box-sizing: border-box;
 }
 
+/* 
+  * Style pour le corps du document :
+  * Utilise une police système, définit des largeurs minimale et maximale,
+  * et réinitialise la marge et le padding.
+  */
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif; /* Police système */
-  max-width: 1580px; /* Largeur maximale du corps */
-  min-width: 800px; /* Largeur minimale du corps */
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  max-width: 1580px;
+  min-width: 800px;
   margin: 0;
   padding: 0;
 }
 
+/* 
+  * Media queries pour les écrans de largeur maximale de 1200px 
+  * Ajuste la disposition et le style des éléments pour les petits écrans.
+  */
 @media (max-width: 1200px) {
   .photo-header img {
     background-position: cover;
   }
 
   .navbar {
-    flex-direction: column; /* Aligne les éléments en colonne */
-    align-items: flex-start; /* Aligne les éléments à gauche */
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .navbar .dropdown,
   .navbar .dropbtn,
   .navbar .dropdown-content,
   .contact-avis-blog {
-    width: 100%; /* Largeur de 100% */
+    width: 100%;
   }
 
   .navbar .dropbtn {
-    text-align: left; /* Aligne le texte à gauche */
+    text-align: left;
   }
 
   .navbar .dropdown-content {
-    position: relative; /* Position relative pour dropdown content */
+    position: relative;
   }
 
   .contact-avis-blog {
     display: flex;
-    flex-direction: column; /* Affiche les éléments en colonne */
-    align-items: flex-start; /* Aligne les éléments à gauche */
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .contact-avis-blog a {
-    padding: 10px 0; /* Ajoute du padding vertical */
+    padding: 10px 0;
   }
 
   .icone-connect img {
-    padding-right: 150px; /* Ajoute du padding vertical */
+    padding-right: 150px;
   }
 
   .intro h1,
@@ -62,191 +76,269 @@ body {
   }
 
   .section-presentation {
-    flex-direction: column; /* Aligne les éléments en colonne */
-    align-items: right; /* Centre les éléments */
+    flex-direction: column;
+    align-items: right;
   }
 
   .photo-body {
     width: 100%;
-    max-width: 500px; /* Largeur maximale de 500px */
+    max-width: 500px;
     padding-left: 300px;
   }
 }
 
+/* 
+  * Media queries pour les écrans de largeur maximale de 100px 
+  * Ajuste la taille de police et la disposition des éléments pour les écrans très petits.
+  */
 @media (max-width: 100px) {
   .intro h1,
   .intro h2 {
-    font-size: 2em; /* Taille de police pour h1 et h2 */
+    font-size: 2em;
   }
 
   .separator {
-    width: 80%; /* Largeur de 80% */
+    width: 80%;
   }
 
   .presentation-span {
-    font-size: 2em; /* Taille de police */
+    font-size: 2em;
   }
 
   footer ul {
     display: flex;
-    flex-direction: column; /* Aligne les éléments en colonne */
-    align-items: center; /* Centre les éléments */
+    flex-direction: column;
+    align-items: center;
   }
 
   footer ul li,
   a {
-    width: 100%; /* Largeur de 100% */
-    text-align: center; /* Centre le texte */
+    width: 100%;
+    text-align: center;
   }
 }
 
-/* --------------------------- */
-/* -----------Header----------- */
-/* ---------------------------- */
+/* 
+  * --------------------------- 
+  * Header 
+  * ----------------------------
+  */
 
+/* 
+  * Style de l'en-tête : Centre le texte 
+  * et définit la largeur maximale.
+  */
 header {
-  text-align: center; /* Centre le texte */
-  max-width: 100%; /* Largeur maximale de 100% */
+  text-align: center;
+  max-width: 100%;
   margin: 0;
   padding: 0;
 }
 
+/* 
+  * Navigation principale : Cache le débordement.
+  */
 .navbar {
-  overflow: hidden; /* Cache le débordement */
+  overflow: hidden;
 }
 
+/* 
+  * Liens de la barre de navigation : 
+  * Flottants à gauche, affichés en bloc, couleur de texte, 
+  * centrage, padding, sans décoration, et curseur pointeur.
+  */
 .navbar a {
   float: left;
   display: block;
-  color: #f2f2f2; /* Couleur du texte */
+  color: #f2f2f2;
   text-align: center;
   padding: 14px 16px;
-  text-decoration: none; /* Enlève la décoration du texte */
+  text-decoration: none;
   cursor: pointer;
 }
 
+/* 
+  * Changement de couleur de texte au survol.
+  */
 .navbar a:hover {
-  color: #000000; /* Change la couleur du texte au survol */
+  color: #000000;
 }
 
+/* 
+  * Style des éléments dropdown : Flottants à gauche, 
+  * cache le débordement.
+  */
 .dropdown {
   float: left;
-  overflow: hidden; /* Cache le débordement */
+  overflow: hidden;
 }
 
+/* 
+  * Bouton dropdown : Taille de police, sans bordure, sans outline,
+  * couleur de texte, padding, couleur de fond et police inhérentes, 
+  * sans marge.
+  */
 .dropdown .dropbtn {
   font-size: 18px;
   border: none;
   outline: none;
-  color: #ffffff; /* Couleur du texte */
+  color: #ffffff;
   padding: 14px 16px;
-  background-color: inherit; /* Inhérente à la couleur du parent */
-  font-family: inherit; /* Inhérente à la police du parent */
+  background-color: inherit;
+  font-family: inherit;
   margin: 0;
 }
 
+/* 
+  * Changement de couleur de fond et de texte au survol,
+  * avec bords arrondis.
+  */
 .navbar a:hover,
 .dropdown:hover .dropbtn {
-  background-color: #ffffff; /* Couleur de fond au survol */
-  color: #000000; /* Couleur du texte au survol */
-  border-radius: 4px; /* Bord arrondi */
+  background-color: #ffffff;
+  color: #000000;
+  border-radius: 4px;
 }
 
+/* 
+  * Contenu du dropdown : Masqué par défaut, 
+  * position absolue, fond en dégradé, ombre de boîte,
+  * index z, bords arrondis, et taille de police.
+  */
 .dropdown-content {
-  display: none; /* Masqué par défaut */
+  display: none;
   position: absolute;
-  background: linear-gradient(
-    90deg,
-    rgb(15, 0, 146),
-    rgb(176, 0, 176)
-  ); /* Dégradé de fond */
+  background: linear-gradient(90deg, rgb(15, 0, 146), rgb(176, 0, 176));
   min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2); /* Ombre de boîte */
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
-  border-radius: 4px; /* Bord arrondi */
+  border-radius: 4px;
   font-size: 16px;
 }
 
+/* 
+  * Liens dans le dropdown : Non flottants, couleur de texte, padding,
+  * sans décoration, affichés en bloc, et alignés à gauche.
+  */
 .dropdown-content a {
   float: none;
-  color: #000000; /* Couleur du texte */
+  color: #000000;
   padding: 12px 16px;
-  text-decoration: none; /* Enlève la décoration du texte */
+  text-decoration: none;
   display: block;
-  text-align: left; /* Aligne le texte à gauche */
+  text-align: left;
 }
 
+/* 
+  * Changement de couleur de fond au survol des liens du dropdown.
+  */
 .dropdown-content a:hover {
-  background-color: #ffffff; /* Couleur de fond au survol */
+  background-color: #ffffff;
 }
 
+/* 
+  * Affiche le contenu du dropdown au survol.
+  */
 .dropdown:hover .dropdown-content {
-  display: block; /* Affiche le contenu du dropdown au survol */
+  display: block;
 }
 
+/* 
+  * Style de l'image de l'en-tête : Taille de fond automatique,
+  * largeur 100%.
+  */
 .photo-header {
   background-size: auto;
   width: 100%;
 }
 
+/* 
+  * Liens de l'en-tête : Alignement et espacement des éléments,
+  * fond en dégradé, largeur 100%.
+  */
 .lien-page-header {
   display: flex;
-  justify-content: space-evenly; /* Espace égal entre les éléments */
+  justify-content: space-evenly;
   align-items: center;
   gap: 20px;
-  background: linear-gradient(
-    90deg,
-    rgb(15, 0, 146),
-    rgb(176, 0, 176)
-  ); /* Dégradé de fond */
+  background: linear-gradient(90deg, rgb(15, 0, 146), rgb(176, 0, 176));
   width: 100%;
 }
 
+/* 
+  * Section contact-avis-blog : Alignement et espacement des éléments.
+  */
 .contact-avis-blog {
   display: flex;
-  justify-content: space-between; /* Espace entre les éléments */
+  justify-content: space-between;
   align-items: center;
 }
 
+/* 
+  * Changement de couleur de fond et de texte au survol des liens,
+  * avec bords arrondis.
+  */
 .contact-avis-blog a:hover {
-  background-color: #ffffff; /* Couleur de fond au survol */
-  color: #000000; /* Couleur du texte au survol */
-  border-radius: 4px; /* Bord arrondi */
+  background-color: #ffffff;
+  color: #000000;
+  border-radius: 4px;
 }
 
+/* 
+  * Style des liens de contact-avis-blog : Couleur de texte, sans décoration,
+  * taille de police, espacement des lettres, curseur pointeur, et padding.
+  */
 .contact-avis-blog a {
-  color: #ffffff; /* Couleur du texte */
-  text-decoration: none; /* Enlève la décoration du texte */
+  color: #ffffff;
+  text-decoration: none;
   font-size: 16px;
-  letter-spacing: 1px; /* Espacement des lettres */
+  letter-spacing: 1px;
   cursor: pointer;
   padding: 14px 16px;
 }
 
+/* 
+  * Style des icônes de connexion : Hauteur définie,
+  * curseur pointeur.
+  */
 .icone-connect {
   height: 30px;
   cursor: pointer;
 }
 
-/* --------------------------- */
-/* -----------Main----------- */
-/* ---------------------------- */
+/* 
+  * --------------------------- 
+  * Main 
+  * ----------------------------
+  */
 
+/* 
+  * Style du titre principal (h1) : Taille de police, gras intense,
+  * majuscules, centrage, et padding supérieur.
+  */
 h1 {
   font-size: 30px;
-  font-weight: 900; /* Gras intense */
-  text-transform: uppercase; /* Majuscules */
+  font-weight: 900;
+  text-transform: uppercase;
   text-align: center;
   padding-top: 30px;
 }
 
+/* 
+  * Style du titre secondaire (h2) : Taille de police, gras moyen,
+  * centrage, et espacement des lettres.
+  */
 h2 {
   font-size: 20px;
-  font-weight: 600; /* Gras moyen */
+  font-weight: 600;
   text-align: center;
-  letter-spacing: 1px; /* Espacement des lettres */
+  letter-spacing: 1px;
 }
 
+/* 
+  * Séparateur : Sans bordure, hauteur de 2px, couleur de fond noire,
+  * largeur de 20%, et centrage avec marge.
+  */
 .separator {
   border: none;
   height: 2px;
@@ -255,55 +347,78 @@ h2 {
   margin: 30px auto;
 }
 
+/* 
+  * Classe pour un mot personnalisé : Gras intense.
+  */
 .costum-word {
-  font-weight: 800; /* Gras intense */
+  font-weight: 800;
 }
 
-/* --------------------------- */
-/* -----------Footer----------- */
-/* ---------------------------- */
+/* 
+  * --------------------------- 
+  * Footer 
+  * ----------------------------
+  */
 
+/* 
+  * Style du pied de page : Fond en dégradé,
+  * largeur 100%, hauteur 200px, et largeur maximale 100%.
+  */
 footer {
-  background: linear-gradient(
-    90deg,
-    rgb(15, 0, 146),
-    rgb(176, 0, 176)
-  ); /* Dégradé de fond */
+  background: linear-gradient(90deg, rgb(15, 0, 146), rgb(176, 0, 176));
   width: 100%;
   height: 200px;
   max-width: 100%;
 }
 
+/* 
+  * Liens du pied de page : Alignement et espacement des éléments,
+  * padding, et espacement des lettres.
+  */
 .lien-page-footer {
   display: flex;
-  justify-content: space-evenly; /* Espace égal entre les éléments */
+  justify-content: space-evenly;
   align-items: center;
   padding: 0 30px;
   gap: 25px;
   line-height: 1.4;
-  letter-spacing: 1px; /* Espacement des lettres */
+  letter-spacing: 1px;
 }
 
+/* 
+  * Liens dans le pied de page : Taille de police, couleur de texte,
+  * gras moyen, sans décoration, et curseur pointeur.
+  */
 .lien-page-footer a {
   font-size: 12px;
-  color: #ffffff; /* Couleur du texte */
-  font-weight: 600; /* Gras moyen */
-  text-decoration: none; /* Enlève la décoration du texte */
+  color: #ffffff;
+  font-weight: 600;
+  text-decoration: none;
   cursor: pointer;
 }
 
+/* 
+  * Ajout de soulignement au survol des liens du pied de page.
+  */
 ul li a:hover {
-  text-decoration: underline; /* Soulignement au survol */
+  text-decoration: underline;
 }
 
+/* 
+  * Style du logo du pied de page : Alignement des éléments.
+  */
 .logo-footer {
   display: flex;
   justify-content: right;
   align-items: center;
 }
 
+/* 
+  * Logo Instagram : Couleur de texte blanche,
+  * fond en dégradé radial, et ombre de boîte.
+  */
 .instagram-logo {
-  color: #ffffff; /* Couleur du texte */
+  color: #ffffff;
   background: radial-gradient(
     circle at 30% 107%,
     #fdf497 0%,
@@ -311,16 +426,23 @@ ul li a:hover {
     #fd5949 45%,
     #d6249f 60%,
     #285aeb 90%
-  ); /* Dégradé radial */
-  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.25); /* Ombre de boîte */
+  );
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.25);
 }
 
+/* 
+  * Enlève la décoration du texte au survol des liens Instagram.
+  */
 .lien-page-footer .instagram-logo a:hover {
-  text-decoration: none; /* Enlève la décoration du texte */
+  text-decoration: none;
 }
 
+/* 
+  * Logo PayPal : Couleur de texte blanche,
+  * fond en dégradé radial, et ombre de boîte.
+  */
 .paypal-logo {
-  color: #ffffff; /* Couleur du texte */
-  background: radial-gradient(circle, #00457c, #0079c1); /* Dégradé radial */
-  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.25); /* Ombre de boîte */
+  color: #ffffff;
+  background: radial-gradient(circle, #00457c, #0079c1);
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.25);
 }

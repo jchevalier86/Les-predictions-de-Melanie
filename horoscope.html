@@ -36,56 +36,139 @@
   </head>
 
   <body>
-    <h1>Choisissez votre signe astrologique</h1>
-    <form method="POST" action="api-horoscope.php">
-      <label for="sign">Signe :</label>
-      <select name="sign" id="sign">
-        <option value="aries">Bélier</option>
-        <option value="taurus">Taureau</option>
-        <option value="gemini">Gémeaux</option>
-        <option value="cancer">Cancer</option>
-        <option value="leo">Lion</option>
-        <option value="virgo">Vierge</option>
-        <option value="libra">Balance</option>
-        <option value="scorpio">Scorpion</option>
-        <option value="sagittarius">Sagittaire</option>
-        <option value="capricorn">Capricorne</option>
-        <option value="aquarius">Verseau</option>
-        <option value="pisces">Poissons</option>
-      </select>
-      <button type="submit">Voir l'horoscope</button>
-    </form>
+    <header>
+      <!-- Image de l'en-tête avec un logo ou une photo -->
+      <img
+        class="photo-header"
+        src="images/melanie-voyante-2.jpg"
+        alt="Logo de Mélanie Voyante"
+      />
+
+      <!-- Navigation principale -->
+      <nav class="lien-page-header">
+        <div class="navbar">
+          <!-- Menu déroulant pour Accueil -->
+          <div class="dropdown">
+            <button class="dropbtn">
+              Accueil
+              <i class="fa fa-caret-down"> </i>
+            </button>
+            <div class="dropdown-content">
+              <a href="inscription.html"> Inscription </a>
+              <a href="connexion.html"> Connexion </a>
+            </div>
+          </div>
+
+          <!-- Menu déroulant pour Voyance -->
+          <div class="dropdown">
+            <button class="dropbtn">
+              Voyance
+              <i class="fa fa-caret-down"> </i>
+            </button>
+            <div class="dropdown-content">
+              <a href="pratique-voyance.html"> Pratique </a>
+              <a href="definition-voyance.html"> Définition </a>
+            </div>
+          </div>
+
+          <!-- Menu déroulant pour Cartomancie -->
+          <div class="dropdown">
+            <button class="dropbtn">
+              Cartomancie
+              <i class="fa fa-caret-down"> </i>
+            </button>
+            <div class="dropdown-content">
+              <a href="pratique-cartomancie.html"> Pratique </a>
+              <a href="definition-cartomancie.html"> Définition </a>
+            </div>
+          </div>
+
+          <!-- Menu déroulant pour Ressenti photo -->
+          <div class="dropdown">
+            <button class="dropbtn">
+              Ressenti photo
+              <i class="fa fa-caret-down"> </i>
+            </button>
+            <div class="dropdown-content">
+              <a href="pratique-ressenti-photo.html"> Pratique </a>
+              <a href="definition-ressenti-photo.html"> Définition </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Liens directs pour Contact, Avis clients et Blog -->
+        <div class="contact-avis-blog">
+          <a href="contact.html"> Contact </a>
+          <a href="avis.html"> Avis clients </a>
+          <a href="horoscope.html"> Horoscope </a>
+        </div>
+
+        <!-- Icône de connexion avec un lien vers la page de connexion -->
+        <img
+          class="icone-connect"
+          src="images/connexion.png"
+          alt="Aller à la page de connexion"
+          onclick="window.location.href='connexion.html'"
+        />
+      </nav>
+    </header>
+
+    <!-- Conteneur principal pour le formulaire d'horoscope -->
+    <div class="container">
+      <!-- Formulaire pour sélectionner le signe astrologique et obtenir l'horoscope -->
+      <form method="POST" action="/api-horoscope.php">
+        <h1>Choisissez votre signe astrologique</h1>
+        <label for="sign">Signe :</label>
+        <select name="sign" id="sign">
+          <option value="belier">Bélier</option>
+          <option value="taureau">Taureau</option>
+          <option value="gemeaux">Gémeaux</option>
+          <option value="cancer">Cancer</option>
+          <option value="lion">Lion</option>
+          <option value="vierge">Vierge</option>
+          <option value="balance">Balance</option>
+          <option value="scorpion">Scorpion</option>
+          <option value="sagittaire">Sagittaire</option>
+          <option value="capricorne">Capricorne</option>
+          <option value="verseau">Verseau</option>
+          <option value="poissons">Poissons</option>
+        </select>
+        <button type="submit">Voir l'horoscope</button>
+      </form>
+    </div>
 
     <!-- Pied de page -->
     <footer class="lien-page-footer">
       <ul>
-        <li><a href="accueil.html">Accueil</a></li>
-        <li><a href="inscription.html">Inscription</a></li>
-        <li><a href="connexion.html">Connexion</a></li>
+        <li><a href="accueil.html"> Accueil </a></li>
+        <li><a href="inscription.html"> Inscription </a></li>
+        <li><a href="connexion.html"> Connexion </a></li>
       </ul>
 
       <ul>
-        <li><a href="definition-voyance.html">Définition voyance</a></li>
+        <li><a href="definition-voyance.html"> Définition voyance </a></li>
         <li>
-          <a href="definition-cartomancie.html">Définition cartomancie</a>
+          <a href="definition-cartomancie.html"> Définition cartomancie </a>
         </li>
         <li>
-          <a href="definition-ressenti-photo.html">Définition ressenti photo</a>
-        </li>
-      </ul>
-
-      <ul>
-        <li><a href="pratique-voyance.html">Pratique voyance</a></li>
-        <li><a href="pratique-cartomancie.html">Pratique cartomancie</a></li>
-        <li>
-          <a href="pratique-ressenti-photo.html">Pratique ressenti photo</a>
+          <a href="definition-ressenti-photo.html">
+            Définition ressenti photo
+          </a>
         </li>
       </ul>
 
       <ul>
-        <li><a href="avis.html">Avis clients</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="blog.html">Blog</a></li>
+        <li><a href="pratique-voyance.html"> Pratique voyance </a></li>
+        <li><a href="pratique-cartomancie.html"> Pratique cartomancie </a></li>
+        <li>
+          <a href="pratique-ressenti-photo.html"> Pratique ressenti photo </a>
+        </li>
+      </ul>
+
+      <ul>
+        <li><a href="avis.html"> Avis clients </a></li>
+        <li><a href="contact.html"> Contact </a></li>
+        <li><a href="horoscope.html"> Horoscope </a></li>
       </ul>
 
       <!-- Liens vers les réseaux sociaux et PayPal -->
