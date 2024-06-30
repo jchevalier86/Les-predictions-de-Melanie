@@ -10,7 +10,7 @@
     <!-- Liens vers les feuilles de style CSS -->
     <link rel="stylesheet" href="/style/reset.css" />
     <link rel="stylesheet" href="/style/style.css" />
-    <link rel="stylesheet" href="/style/contact.css" />
+    <link rel="stylesheet" href="/style/inscription-connexion-contact.css" />
 
     <!-- Favicon pour le site -->
     <link
@@ -112,27 +112,6 @@
         />
       </nav>
     </header>
-    <!-- <form action="" method="post">
-      <label for="nom">Nom * :</label>
-      <input type="text" id="nom" name="nom" required />
-      <br /><br />
-      <label for="prenom">Prénom * :</label>
-      <input type="text" id="prenom" name="prenom" required />
-      <br /><br />
-      <label for="message">Message * :</label>
-      <textarea
-        type="text"
-        id="message"
-        name="message"
-        rows="3"
-        cols="30"
-        placeholder="Entrer votre message ici"
-        required
-      ></textarea>
-      <br /><br />
-      Bouton de soumission avec <input>-->
-    <!-- <input type="submit" value="Envoyer" />
-    </form> -->
 
     <!-- Section du formulaire d'avis -->
     <div class="container">
@@ -151,72 +130,89 @@
           type="text"
           id="message"
           name="message"
-          rows="3"
-          cols="30"
+          rows="5"
+          cols="46"
           placeholder="Entrez votre message ici"
           required
         ></textarea>
         <br /><br />
 
-        <!-- Bouton de soumission avec <input> -->
-        <input type="submit" value="Envoyer" />
+        <!-- Bouton Envoyer -->
+        <button>Envoyer</button>
       </form>
     </div>
 
-    <!-- Pied de page -->
+    <!-- Pied de page avec des liens vers les différentes pages du site -->
     <footer class="lien-page-footer">
-      <ul>
-        <li><a href="accueil.html"> Accueil </a></li>
-        <li><a href="inscription.html"> Inscription </a></li>
-        <li><a href="connexion.html"> Connexion </a></li>
-      </ul>
-
-      <ul>
-        <li><a href="definition-voyance.html"> Définition voyance </a></li>
-        <li>
-          <a href="definition-cartomancie.html"> Définition cartomancie </a>
-        </li>
-        <li>
-          <a href="definition-ressenti-photo.html">
-            Définition ressenti photo
+      <div class="nav-links-1">
+        <div class="social-link">
+          <!-- Liens vers les réseaux sociaux et PayPal -->
+          <a
+            class="logo-footer"
+            href="https://www.instagram.com/melanievoyante/"
+            target="_blank"
+          >
+            <i class="fab fa-instagram fa-2x instagram-logo"> </i>
+            <span class="insta-paypal-mail">Suivez-moi sur Instagram</span>
           </a>
-        </li>
-      </ul>
+        </div>
+        <div class="social-link">
+          <a
+            class="logo-footer"
+            href="https://www.paypal.com/fr/home"
+            target="_blank"
+          >
+            <i class="fa-brands fa-paypal fa-2xl paypal-logo"> </i>
+            <span class="insta-paypal-mail">PayPal</span>
+          </a>
+        </div>
 
-      <ul>
-        <li><a href="pratique-voyance.html"> Pratique voyance </a></li>
-        <li><a href="pratique-cartomancie.html"> Pratique cartomancie </a></li>
-        <li>
-          <a href="pratique-ressenti-photo.html"> Pratique ressenti photo </a>
-        </li>
-      </ul>
+        <!-- Lien mailto pour contacter par email -->
+        <div class="social-link">
+          <a href="mailto:melanie20082011@outlook.fr" target="_blank">
+            mail: melanie20082011@outlook.fr
+            <span class="insta-paypal-mail">Contactez-moi par mail</span>
+          </a>
+        </div>
+      </div>
 
-      <ul>
-        <li><a href="avis.html"> Avis clients </a></li>
-        <li><a href="contact.html"> Contact </a></li>
-        <li><a href="horoscope.html"> Horoscope </a></li>
-      </ul>
+      <div class="nav-links-2">
+        <ul>
+          <li><a href="accueil.html"> Accueil </a></li>
+          <li><a href="inscription.html"> Inscription </a></li>
+          <li><a href="connexion.html"> Connexion </a></li>
+        </ul>
 
-      <!-- Liens vers les réseaux sociaux et PayPal -->
-      <a
-        class="logo-footer"
-        href="https://www.instagram.com/melanievoyante/"
-        target="_blank"
-      >
-        <i class="fab fa-instagram fa-2x instagram-logo"> </i>
-      </a>
-      <a
-        class="logo-footer"
-        href="https://www.paypal.com/fr/home"
-        target="_blank"
-      >
-        <i class="fa-brands fa-paypal fa-2xl paypal-logo"> </i>
-      </a>
+        <ul>
+          <li><a href="definition-voyance.html"> Définition voyance </a></li>
+          <li>
+            <a href="definition-cartomancie.html"> Définition cartomancie </a>
+          </li>
+          <li>
+            <a href="definition-ressenti-photo.html">
+              Définition ressenti photo
+            </a>
+          </li>
+        </ul>
 
-      <!-- Lien mailto pour contacter par email -->
-      <a href="mailto:melanie20082011@outlook.fr" target="_blank">
-        melanie20082011@outlook.fr
-      </a>
+        <ul>
+          <li><a href="pratique-voyance.html"> Pratique voyance </a></li>
+          <li>
+            <a href="pratique-cartomancie.html"> Pratique cartomancie </a>
+          </li>
+          <li>
+            <a href="pratique-ressenti-photo.html"> Pratique ressenti photo </a>
+          </li>
+        </ul>
+
+        <ul>
+          <li><a href="avis.html"> Avis clients </a></li>
+          <li><a href="contact.html"> Contact </a></li>
+          <li><a href="horoscope.html"> Horoscope </a></li>
+        </ul>
+      </div>
     </footer>
+
+    <script src="./script/script.js"></script>
   </body>
 </html>

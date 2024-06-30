@@ -360,35 +360,116 @@ h2 {
   * ----------------------------
   */
 
-/* 
-  * Style du pied de page : Fond en dégradé,
-  * largeur 100%, hauteur 200px, et largeur maximale 100%.
-  */
+/* Style général du pied de page :
+ * - Fond en dégradé linéaire de 90 degrés allant de bleu foncé à violet.
+ * - Largeur de 100% pour occuper toute la largeur disponible.
+ * - Hauteur fixe de 250px.
+ * - Largeur maximale de 100% pour s'assurer qu'il ne dépasse pas la taille de l'écran.
+ */
 footer {
   background: linear-gradient(90deg, rgb(15, 0, 146), rgb(176, 0, 176));
   width: 100%;
-  height: 200px;
+  height: 250px;
   max-width: 100%;
 }
 
-/* 
-  * Liens du pied de page : Alignement et espacement des éléments,
-  * padding, et espacement des lettres.
-  */
+/* Conteneur des liens du pied de page :
+ * - Padding de 0 en haut et en bas, et de 30px à gauche et à droite.
+ * - Espacement de 25px entre les éléments enfants.
+ * - Hauteur de ligne de 1.4 pour un bon espacement vertical entre les lignes.
+ * - Espacement des lettres de 1px pour une meilleure lisibilité.
+ */
 .lien-page-footer {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
   padding: 0 30px;
   gap: 25px;
   line-height: 1.4;
   letter-spacing: 1px;
 }
 
-/* 
-  * Liens dans le pied de page : Taille de police, couleur de texte,
-  * gras moyen, sans décoration, et curseur pointeur.
-  */
+/* Style des liens de navigation (première section) :
+ * - Affichage en flexbox pour une disposition flexible.
+ * - Justification centrée pour centrer les éléments horizontalement.
+ * - Espacement de 50px entre les éléments enfants.
+ * - Padding de 50px en haut.
+ */
+.nav-links-1 {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  padding-top: 50px;
+}
+
+/* Style général des liens sociaux :
+ * - Position relative pour pouvoir positionner des éléments enfants absolument.
+ * - Affichage en ligne pour s'aligner horizontalement.
+ * - Marge de droite de 10px pour espacer les icônes entre elles.
+ */
+.social-link {
+  position: relative;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+/* Style des info-bulles des liens sociaux :
+ * - Invisibilité par défaut.
+ * - Couleur de fond sombre (#555).
+ * - Couleur de texte blanche (#fff).
+ * - Alignement du texte au centre.
+ * - Bordure arrondie.
+ * - Padding pour l'espace interne.
+ * - Position absolue pour positionner au-dessus des liens.
+ * - Index de pile élevé (z-index) pour être au-dessus des autres éléments.
+ * - Transition pour une apparition en douceur.
+ * - Largeur fixe de 120px.
+ */
+.insta-paypal-mail {
+  visibility: hidden;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px 10px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  width: 120px;
+}
+
+/* Affichage de l'info-bulle au survol du lien social :
+ * - Visibilité activée.
+ * - Opacité à 1 pour la rendre visible.
+ */
+.social-link:hover .insta-paypal-mail {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Style des liens de navigation (deuxième section) :
+ * - Affichage en flexbox pour une disposition flexible.
+ * - Justification avec un espacement égal entre les éléments.
+ * - Alignement vertical centré.
+ * - Espacement de 50px entre les éléments enfants.
+ * - Padding de 50px en haut.
+ */
+.nav-links-2 {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 50px;
+  padding-top: 50px;
+}
+
+/* Style général des liens dans le pied de page :
+ * - Taille de police de 12px.
+ * - Couleur de texte blanche (#ffffff).
+ * - Poids de police moyen (600).
+ * - Pas de décoration de texte par défaut.
+ * - Curseur en forme de pointeur au survol.
+ */
 .lien-page-footer a {
   font-size: 12px;
   color: #ffffff;
@@ -397,26 +478,29 @@ footer {
   cursor: pointer;
 }
 
-/* 
-  * Ajout de soulignement au survol des liens du pied de page.
-  */
+/* Ajout de soulignement au survol des liens du pied de page :
+ * - Appliqué aux liens à l'intérieur des listes non ordonnées (ul).
+ */
 ul li a:hover {
   text-decoration: underline;
 }
 
-/* 
-  * Style du logo du pied de page : Alignement des éléments.
-  */
+/* Style des conteneurs de logos dans le pied de page :
+ * - Affichage en flexbox pour aligner les éléments facilement.
+ * - Justification à droite pour aligner les logos à droite horizontalement.
+ * - Alignement vertical au centre.
+ */
 .logo-footer {
   display: flex;
   justify-content: right;
   align-items: center;
 }
 
-/* 
-  * Logo Instagram : Couleur de texte blanche,
-  * fond en dégradé radial, et ombre de boîte.
-  */
+/* Style spécifique du logo Instagram :
+ * - Couleur de texte blanche (#ffffff).
+ * - Fond en dégradé radial pour l'effet multicolore.
+ * - Ombre de boîte pour donner de la profondeur.
+ */
 .instagram-logo {
   color: #ffffff;
   background: radial-gradient(
@@ -430,19 +514,27 @@ ul li a:hover {
   box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.25);
 }
 
-/* 
-  * Enlève la décoration du texte au survol des liens Instagram.
-  */
-.lien-page-footer .instagram-logo a:hover {
-  text-decoration: none;
+/* Style spécifique du logo PayPal :
+ * - Couleur de texte bleu (#000075).
+ * - Fond en dégradé radial pour l'effet multicolore.
+ * - Ombre de boîte pour donner de la profondeur.
+ */
+.paypal-logo {
+  color: #000075;
+  background: radial-gradient(
+    circle at 30% 107%,
+    #f5f5f5 0%,
+    #f5f5f5 5%,
+    #0070ba 45%,
+    #00457c 60%,
+    #003087 90%
+  );
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.25);
 }
 
-/* 
-  * Logo PayPal : Couleur de texte blanche,
-  * fond en dégradé radial, et ombre de boîte.
-  */
-.paypal-logo {
-  color: #ffffff;
-  background: radial-gradient(circle, #00457c, #0079c1);
-  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.25);
+/* Enlève la décoration du texte au survol des logos Instagram et PayPal :
+ * - Assure que les liens des logos n'ont pas de décoration de texte au survol.
+ */
+.lien-page-footer .instagram-logo .paypal-logo a:hover {
+  text-decoration: none;
 }

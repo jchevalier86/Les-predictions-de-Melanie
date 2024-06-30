@@ -1,12 +1,16 @@
+/* style sur les pages définition de la voyance, cartomancie et ressenti photo */
+
 *,
 *::before,
 *::after {
   box-sizing: border-box; /* Applique box-sizing à tous les éléments */
 }
 
-/* --------------------------- */
-/* -----------Main----------- */
-/* ---------------------------- */
+/* 
+  * --------------------------- 
+  * Main 
+  * ----------------------------
+  */
 
 .intro {
   background: linear-gradient(90deg, #ffffff, #f32bf3);
