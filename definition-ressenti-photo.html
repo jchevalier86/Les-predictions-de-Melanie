@@ -1,39 +1,185 @@
 <!DOCTYPE html>
 <html lang="fr">
   <head>
+    <!-- La balise meta charset spécifie le jeu de caractères utilisé. Utiliser UTF-8 est recommandé pour une compatibilité maximale -->
     <meta charset="UTF-8" />
-    <!--La balise meta charset spécifie le jeu de caractères utilisé. Utiliser UTF-8 est recommandé pour une compatibilité maximale-->
+
+    <!-- La balise meta viewport contrôle la mise en page sur les appareils mobiles et est essentielle pour un design responsive -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!--La balise meta viewport contrôle la mise en page sur les appareils mobiles et est essentielle pour un design responsive-->
+
+    <!-- Liens vers les feuilles de style CSS -->
     <link rel="stylesheet" href="/style/reset.css" />
     <link rel="stylesheet" href="/style/style.css" />
     <link rel="stylesheet" href="/style/definitions-pratiques.css" />
+
+    <!-- Favicon pour le site -->
     <link
       rel="shortcut icon"
       href="/images/favicon-1.ico"
       type="image/x-icon"
     />
-    <title>Définition Ressenti Photo</title>
-    <!--max 60 caractères-->
+
+    <!-- Lien vers les icônes Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+
+    <!-- Titre de la page (max 60 caractères) -->
+    <title>Les prédictions de Mélanie</title>
+
+    <!-- Meta description de la page (max 160 caractères) -->
     <meta
       name="description"
-      content="Savoir la définition du ressenti photos"
+      content="Découvrez la définition du ressenti photo, un concept essentiel pour comprendre l'impact émotionnel des images. Apprenez comment les photographies peuvent évoquer des sentiments puissants et influencer la perception visuelle."
     />
-    <!--max 160 caractères-->
   </head>
 
   <body>
     <header>
-      <nav>
-        <div class="container">
-          <a href="accueil.html">Accueil</a>
-          <a href="contact.html">Contact</a>
-          <a href="avis.html">Avis clients</a>
-          <a href="inscription.html">S'inscrire</a>
-          <a href="connexion.html">Se connecter</a>
+      <!-- Image de l'en-tête avec un logo ou une photo -->
+      <img
+        class="photo-header"
+        src="images/melanie-voyante-2.jpg"
+        alt="Logo de Mélanie Voyante"
+      />
+
+      <!-- Navigation principale -->
+      <nav class="lien-page-header">
+        <div class="navbar">
+          <!-- Menu déroulant pour Accueil -->
+          <div class="dropdown">
+            <button class="dropbtn">
+              Accueil
+              <i class="fa fa-caret-down"> </i>
+            </button>
+            <div class="dropdown-content">
+              <a href="inscription.html"> Inscription </a>
+              <a href="connexion.html"> Connexion </a>
+            </div>
+          </div>
+
+          <!-- Menu déroulant pour Voyance -->
+          <div class="dropdown">
+            <button class="dropbtn">
+              Voyance
+              <i class="fa fa-caret-down"> </i>
+            </button>
+            <div class="dropdown-content">
+              <a href="definition-voyance.html"> Définition </a>
+              <a href="pratique-voyance.html"> Pratique </a>
+            </div>
+          </div>
+
+          <!-- Menu déroulant pour Cartomancie -->
+          <div class="dropdown">
+            <button class="dropbtn">
+              Cartomancie
+              <i class="fa fa-caret-down"> </i>
+            </button>
+            <div class="dropdown-content">
+              <a href="definition-cartomancie.html"> Définition </a>
+              <a href="pratique-cartomancie.html"> Pratique </a>
+            </div>
+          </div>
+
+          <!-- Menu déroulant pour Ressenti photo -->
+          <div class="dropdown">
+            <button class="dropbtn">
+              Ressenti photo
+              <i class="fa fa-caret-down"> </i>
+            </button>
+            <div class="dropdown-content">
+              <a href="definition-ressenti-photo.html"> Définition </a>
+              <a href="pratique-ressenti-photo.html"> Pratique </a>
+            </div>
+          </div>
         </div>
+
+        <!-- Liens directs pour Contact, Avis clients et Blog -->
+        <div class="contact-avis-blog">
+          <a href="contact.html"> Contact </a>
+          <a href="avis.html"> Avis clients </a>
+          <a href="horoscope.html"> Horoscope </a>
+        </div>
+
+        <!-- Icône de connexion avec un lien vers la page de connexion -->
+        <img
+          class="icone-connect"
+          src="images/connexion.png"
+          alt="Aller à la page de connexion"
+          onclick="window.location.href='connexion.html'"
+        />
       </nav>
     </header>
+
+    <!-- Section d'introduction -->
+    <section class="intro">
+      <h1>Le Ressenti Photo</h1>
+      <hr class="separator" />
+      <h2>Définition</h2>
+
+      <!-- Section de définition -->
+      <section class="section-presentation">
+        <div class="section1-col1">
+          <!-- Texte de définition du ressenti photo -->
+          <div class="presentation">
+            <div class="presentation-text-content">
+              <p>
+                <span class="costum-word">Le ressenti photo</span> désigne
+                l’ensemble des impressions et émotions subjectives qu’une
+                personne éprouve en regardant une photographie. Ce ressenti est
+                influencé par plusieurs facteurs :
+              </p>
+
+              <div class="liste-facteurs">
+                <ol class="liste-facteurs-list">
+                  <li>
+                    <span class="costum-word">Éléments visuels :</span>
+                    Couleurs, composition, lumières et textures de l’image.
+                  </li>
+                  <li>
+                    <span class="costum-word">Sujet :</span> Ce que représente
+                    la photo, comme des personnes, des paysages, des objets ou
+                    des évènements.
+                  </li>
+                  <li>
+                    <span class="costum-word">Contexte émotionnel :</span>
+                    L’état d’esprit du spectateurs au moment où il regarde la
+                    photo.
+                  </li>
+                  <li>
+                    <span class="costum-word">Expériences personnelles :</span>
+                    Les souvenirs et associations personnelles que la photo peut
+                    évoquer.
+                  </li>
+                  <li>
+                    <span class="costum-word">Référence culturelles :</span> Les
+                    significations culturelles et sociales associées aux
+                    éléments présents dans l’image.
+                  </li>
+                </ol>
+                <p>
+                  En résumé,
+                  <span class="costum-word">le ressenti photo</span> est une
+                  réaction personnelle et émotionnelle unique que suscite une
+                  photographie chez chaque individu.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Photo dans la section de définition -->
+        <div class="photo">
+          <!-- <img
+            class="photo-body-3"
+            src="/images/melanie-voyante-1.jpeg"
+            alt="Image"
+          /> -->
+        </div>
+      </section>
+    </section>
 
     <!-- Pied de page avec des liens vers les différentes pages du site -->
     <footer class="lien-page-footer">
