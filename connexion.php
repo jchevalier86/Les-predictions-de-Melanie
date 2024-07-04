@@ -1,3 +1,60 @@
+<?php
+    // Définition des informations de connexion au serveur MySQL
+    $servername = "localhost"; // Nom du serveur
+    $username = "root"; // Nom d'utilisateur MySQL
+    $password = ""; // Mot de passe MySQL
+    $dbname = "lespredictionsdemelanie"; // Nom de la base de données
+
+    // Création d'une nouvelle connexion à la base de données MySQL
+    $conn = new mysqli($servername, $username, $password, $dbname);
+
+    // Vérification de la connexion à la base de données
+    if ($conn->connect_error) {
+        // Affichage d'un message d'erreur en cas d'échec de connexion
+        die("La connexion a échoué : " . $conn->connect_error);
+    }
+
+    // Vérification que les champs de formulaire sont définis
+    if (isset($_POST['email'], $_POST['mot_de_passe'])) {
+        // Récupération et stockage des valeurs du formulaire dans des variables
+        $email = $_POST['email'];
+        $mot_de_passe = $_POST['mot_de_passe'];
+
+        // Préparation de la requête SQL de sélection
+        $sql = "SELECT * FROM utilisateurs WHERE email = ?";
+        $stmt = $conn->prepare($sql);
+        if ($stmt) {
+            // Liaison des paramètres de la requête préparée aux variables
+            $stmt->bind_param("s", $email);
+            $stmt->execute();
+            $result = $stmt->get_result();
+
+            if ($result->num_rows === 1) {
+                // Récupération des données utilisateur
+                $user = $result->fetch_assoc();
+                // Vérification du mot de passe
+                if (password_verify($mot_de_passe, $user['mot_de_passe'])) {
+                    echo "Connexion réussie. Bienvenue " . $user['prenom'] . " " . $user['nom'] . "!";
+                } else {
+                    echo "Mot de passe incorrect.";
+                }
+            } else {
+                echo "Aucun utilisateur trouvé avec cet e-mail.";
+            }
+            $stmt->close();
+        } else {
+            echo "Erreur de préparation de la requête : " . $conn->error;
+        }
+    } else {
+        echo "Veuillez remplir tous les champs.";
+        // Debugging
+        var_dump($_POST);
+    }
+
+    // Fermeture de la connexion à la base de données
+    $conn->close();
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
   <head>
@@ -7,15 +64,15 @@
     <!-- La balise meta viewport contrôle la mise en page sur les appareils mobiles et est essentielle pour un design responsive -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Liens vers les feuilles de style CSS pour réinitialiser les styles par défaut et appliquer les styles personnalisés -->
+    <!-- Liens vers les feuilles de style CSS -->
     <link rel="stylesheet" href="../style/reset.css" />
     <link rel="stylesheet" href="../style/style.css" />
     <link rel="stylesheet" href="../style/inscription-connexion-contact.css" />
 
-    <!-- Favicon pour le site, affiché dans l'onglet du navigateur -->
+    <!-- Favicon pour le site -->
     <link
       rel="shortcut icon"
-      href="/images/favicon-7.ico"
+      href="/images/favicon-5.ico"
       type="image/x-icon"
     />
 
@@ -25,127 +82,78 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     />
 
-    <!-- Titre de la page (max 60 caractères) affiché dans l'onglet du navigateur -->
-    <title>Inscription</title>
+    <!-- Titre de la page (max 60 caractères) -->
+    <title>Connexion</title>
 
-    <!-- Meta description de la page (max 160 caractères) pour les moteurs de recherche -->
+    <!-- Meta description de la page (max 160 caractères) -->
     <meta
       name="description"
-      content="Découvrez votre avenir avec le service de voyance et cartomancie. Inscrivez-vous dès maintenant pour une consultation personnalisée. Obtenez des réponses claires et précises à vos questions grâce à mon expertise en cartomancie"
+      content="Connectez-vous pour accéder aux prédictions personnalisées de Mélanie, voyante et cartomancienne. Entrez votre email et mot de passe pour découvrir vos prédictions."
     />
   </head>
 
   <body>
+    <!-- En-tête de la page -->
     <header>
-      <!-- Image de l'en-tête avec un logo ou une photo, représentative du site -->
+      <!-- Image de l'en-tête -->
       <img
         class="photo-header"
         src="images/melanie-voyante-2.jpg"
         alt="Logo de Mélanie Voyante"
       />
 
-      <!-- Navigation pour la page d'inscription avec un lien de retour à l'accueil -->
+      <!-- Navigation pour retourner à la page d'accueil -->
       <nav class="lien-page-inscription">
+        <!-- Image de la flèche de retour -->
         <img
           class="back-arrow"
           src="images/flèche-gauche.png"
           alt="Retour à la page d'accueil"
           onclick="window.location.href='accueil.html'"
         />
+
+        <!-- Titre de la page -->
         <h1 class="title">Les prédictions de Mélanie</h1>
       </nav>
     </header>
 
-    <!-- Conteneur principal pour le formulaire d'inscription -->
+    <!-- Section du formulaire d'avis -->
     <div class="container">
-      <!-- Formulaire d'inscription, les données sont envoyées à "inscription.php" en utilisant la méthode POST -->
-      <form action="inscription.php" method="post">
-        <h2>Inscription</h2>
+      <form action="connexion.php" method="post">
+        <h2>Connexion</h2>
 
-        <!-- Champ de saisie pour le nom -->
-        <label for="nom"> Nom <span class="star">*</span> </label>
-        <input
-          type="text"
-          id="nom"
-          name="nom"
-          placeholder="Votre nom"
-          required
-        />
-        <br /><br />
-
-        <!-- Champ de saisie pour le prénom -->
-        <label for="prenom"> Prénom <span class="star">*</span> </label>
-        <input
-          type="text"
-          id="prenom"
-          name="prenom"
-          placeholder="Votre prénom"
-          required
-        />
-        <br /><br />
-
-        <!-- Champ de saisie pour la date de naissance -->
-        <label for="date_naissance">
-          Date de naissance <span class="star">*</span>
-        </label>
-        <input type="date" id="date_naissance" name="date_naissance" required />
-        <br /><br />
-
-        <!-- Champ de saisie pour l'email -->
-        <label for="email"> E-mail <span class="star">*</span> </label>
+        <!-- Champ pour entrer l'email -->
+        <label for="email"> Email <span class="star">*</span> </label>
         <input
           type="email"
           id="email"
           name="email"
-          placeholder="votre.email@exemple.com"
+          placeholder="Entrez votre adresse email"
           required
         />
         <br /><br />
 
-        <!-- Champ de saisie pour le numéro de téléphone -->
-        <label for="phone"> Tel </label>
-        <input
-          type="tel"
-          id="phone"
-          pattern="[0-9]{10}"
-          name="phone"
-          placeholder="+33"
-        />
-        <br /><br />
-
-        <!-- Champ de saisie pour le mot de passe -->
-        <label for="password">
-          Votre mot de passe <span class="star">*</span>
-        </label>
+        <!-- Champ pour entrer le mot de passe -->
+        <label for="password"> Mot de passe <span class="star">*</span> </label>
         <input
           type="password"
           id="mot_de_passe"
           name="mot_de_passe"
-          placeholder="Créer votre mot de passe"
+          placeholder="Entrez votre mot de passe"
           required
         />
+
+        <!-- Lien pour mot de passe oublié -->
+        <a class="forgot-your-password" href=""> Mot de passe oublié </a>
         <br /><br />
 
-        <!-- Champ de confirmation du mot de passe -->
-        <label for="password">
-          Confirmation du mot de passe <span class="star">*</span>
-        </label>
-        <input
-          type="password"
-          id="confirmation_mot_de_passe"
-          name="confirmation_mot_de_passe"
-          placeholder="Veuillez entrer à nouveau votre mot de passe"
-          required
-        />
+        <!-- Bouton Se connecter -->
+        <button>Se connecter</button>
         <br /><br />
 
-        <!-- Bouton de soumission du formulaire -->
-        <button>Créer un compte</button>
+        <!-- Lien pour s'inscrire si c'est la première visite -->
+        <p>Première visite ? <a href="inscription.html"> Inscrivez-vous </a></p>
         <br />
-
-        <!-- Lien pour se connecter si l'utilisateur a déjà un compte -->
-        Vous avez déjà un compte ?
-        <a href="connexion.html" class="connectez-vous"> Se connecter </a>
       </form>
     </div>
 
@@ -220,6 +228,15 @@
       </div>
     </footer>
 
-    <script src="./script/inscription.js"></script>
+    <script src="./script/connexion.js"></script>
   </body>
 </html>
+
+<?php
+    session_start();
+    $_SESSION['user_id'] = $user['id'];
+    $_SESSION['user_name'] = $user['prenom'] . " " . $user['nom'];
+    // Redirection vers une page protégée
+    header("Location: accueil.html");
+    exit();
+?>

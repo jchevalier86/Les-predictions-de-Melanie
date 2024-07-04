@@ -14,10 +14,11 @@
 /* 
   * Définir la police par défaut pour le corps du document, 
   * définir une couleur de fond et réinitialiser la marge et le padding.
-  */
+*/
 body {
   font-family: Arial, sans-serif;
   background-color: #f0f0f0;
+  background-image: url(../images/etoile-filante.jpeg);
   margin: 0;
   padding: 0;
 }
@@ -26,13 +27,13 @@ body {
   * ------------------------ 
   * Header 
   * ------------------------ 
-  */
+*/
 
 /* 
   * Style de la navigation dans l'en-tête. 
   * Centrage horizontal et vertical des éléments à l'intérieur,
   * avec une couleur de fond rose transparent.
-  */
+*/
 .lien-page-inscription {
   display: flex;
   justify-content: center;
@@ -43,7 +44,7 @@ body {
 /* 
   * Curseur en forme de pointeur pour l'image de la flèche de retour, 
   * indiquant qu'elle est cliquable.
-  */
+*/
 .back-arrow {
   cursor: pointer;
 }
@@ -51,7 +52,7 @@ body {
 /* 
   * Style du titre dans l'en-tête, 
   * couleur blanche et police différente pour se démarquer.
-  */
+*/
 .title {
   color: #ffffff;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
@@ -62,14 +63,14 @@ body {
   * ------------------------ 
   * Main 
   * ------------------------ 
-  */
+*/
 
 /* 
   * Conteneur principal pour le formulaire, 
   * avec une largeur maximale définie, centrée horizontalement.
   * Ajout de marges et de padding, d'un fond blanc, 
   * des coins arrondis et une ombre pour l'effet de carte.
-  */
+*/
 .container {
   max-width: 400px;
   margin: 20px auto;
@@ -84,7 +85,7 @@ body {
 /* 
   * Style du titre secondaire (h2) dans le conteneur,
   * avec une taille de police et une couleur définies, et un centrage du texte.
-  */
+*/
 h2 {
   font-size: 24px;
   color: #333;
@@ -94,7 +95,7 @@ h2 {
 
 /* 
   * Ajout d'une marge supérieure au formulaire pour espacer du titre.
-  */
+*/
 form {
   margin-top: 25px;
 }
@@ -102,7 +103,7 @@ form {
 /* 
   * Style des labels des champs de formulaire,
   * avec une marge inférieure pour espacer du champ et une couleur de texte gris.
-  */
+*/
 label {
   display: block;
   margin-bottom: 8px;
@@ -113,7 +114,7 @@ label {
   * Style des champs de saisie du formulaire, 
   * avec une largeur de 100%, padding, marges inférieures,
   * bordure grise, coins arrondis et une taille de police définie.
-  */
+*/
 input[type="text"],
 input[type="date"],
 input[type="email"],
@@ -132,7 +133,7 @@ input[type="password"] {
   * avec une couleur de fond violet, texte blanc, padding,
   * sans bordure, coins arrondis, curseur en forme de pointeur, 
   * taille de police définie et largeur de 100%.
-  */
+*/
 button {
   background-color: #6a0dad;
   color: #fff;
@@ -147,7 +148,7 @@ button {
 /* 
   * Changement de couleur de fond du bouton lors du survol, 
   * pour un effet visuel interactif.
-  */
+*/
 button:hover {
   background-color: #4f0a68;
 }
@@ -155,7 +156,7 @@ button:hover {
 /* 
   * La classe star pour ajouter une couleur rouge aux éléments, 
   * souvent utilisée pour indiquer les champs obligatoires.
-  */
+*/
 .star {
   color: red;
 }
