@@ -15,7 +15,7 @@
     }
 
     // Vérification que tous les champs de formulaire nécessaires sont définis
-    if (isset($_POST['nom'], $_POST['prenom'], $_POST['date_naissance'], $_POST['email'], $_POST['phone'], $_POST['mot_de_passe'], $_POST['confirmation_mot_de_passe'])) {
+    if (isset($_POST['nom'], $_POST['prenom'], $_POST['date_naissance'], $_POST['email'], $_POST['phone'], $_POST['mot_de_passe'])) {
         // Récupération et stockage des valeurs du formulaire dans des variables
         $utilisateurs_nom = $_POST['nom'];
         $utilisateurs_prenom = $_POST['prenom'];
@@ -23,7 +23,7 @@
         $utilisateurs_email = $_POST['email'];
         $utilisateurs_phone = $_POST['phone'];
         // Hachage du mot de passe et de la confirmation du mot de passe pour des raisons de sécurité
-        $utilisateurs_password = password_hash($_POST['mot_de_passe'], PASSWORD_DEFAULT);
+        $utilisateurs_mot_de_passe = password_hash($_POST['mot_de_passe'], PASSWORD_DEFAULT);
 
         // Préparation de la requête SQL d'insertion
         $sql = "INSERT INTO utilisateurs (nom, prenom, date_naissance, email, phone, mot_de_passe) VALUES (?, ?, ?, ?, ?, ?)";
@@ -34,7 +34,7 @@
         // Vérification que la préparation de la requête a réussi
         if ($stmt) {
             // Liaison des paramètres de la requête préparée aux variables
-            $stmt->bind_param("ssisis", $utilisateurs_nom, $utilisateurs_prenom, $utilisateurs_date_naissance, $utilisateurs_email, $utilisateurs_phone, $utilisateurs_password);
+            $stmt->bind_param("ssisis", $utilisateurs_nom, $utilisateurs_prenom, $utilisateurs_date_naissance, $utilisateurs_email, $utilisateurs_phone, $utilisateurs_mot_de_passe);
             // Exécution de la requête préparée
             if ($stmt->execute()) {
                 // Affichage d'un message de succès si les données ont été insérées avec succès

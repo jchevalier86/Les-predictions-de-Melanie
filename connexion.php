@@ -29,7 +29,7 @@
             $stmt->execute();
             $result = $stmt->get_result();
 
-            if ($result->num_rows === 1) {
+            if ($result->num_rows >= 1) {
                 // Récupération des données utilisateur
                 $user = $result->fetch_assoc();
                 // Vérification du mot de passe
