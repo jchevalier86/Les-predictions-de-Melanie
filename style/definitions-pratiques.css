@@ -10,7 +10,7 @@
   * --------------------------- 
   * Main 
   * ----------------------------
-  */
+*/
 
 .intro {
   background: linear-gradient(90deg, #ffffff, #f32bf3);
@@ -54,4 +54,27 @@
   margin: 20px 0; /* Marge verticale */
   font-size: 18px; /* Taille de police */
   text-align: justify; /* Justifie le texte */
+}
+
+.liste-pratique {
+  display: flex; /* Ajoute le flexbox */
+  flex-direction: column; /* Affiche les éléments en colonne */
+  line-height: 20px; /* Hauteur de ligne */
+}
+
+.liste-pratique span {
+  padding: 0 30px; /* Ajoute du padding horizontal */
+  font-size: 21px; /* Taille de police */
+  font-weight: 600; /* Poids de la police */
+  margin: 20px 0; /* Marge verticale */
+}
+
+.liste-pratique-list {
+  display: flex;
+  flex-direction: column; /* Affiche les éléments en colonne */
+  gap: 10px; /* Espace entre les éléments */
+  font-size: 18px; /* Taille de police */
+  padding: 10px 30px; /* Ajoute du padding */
+  font-style: italic; /* Italique */
+  font-weight: 500; /* Poids de la police */
 }

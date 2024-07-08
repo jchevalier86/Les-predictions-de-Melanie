@@ -1,213 +1,190 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <!-- La balise meta charset spécifie le jeu de caractères utilisé. Utiliser UTF-8 est recommandé pour une compatibilité maximale -->
-    <meta charset="UTF-8" />
 
-    <!-- La balise meta viewport contrôle la mise en page sur les appareils mobiles et est essentielle pour un design responsive -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+  <!-- La balise meta charset spécifie le jeu de caractères utilisé. Utiliser UTF-8 est recommandé pour une compatibilité maximale -->
+  <meta charset="UTF-8" />
 
-    <!-- Liens vers les feuilles de style CSS -->
-    <link rel="stylesheet" href="/style/reset.css" />
-    <link rel="stylesheet" href="/style/style.css" />
-    <link rel="stylesheet" href="/style/horoscope.css" />
+  <!-- La balise meta viewport contrôle la mise en page sur les appareils mobiles et est essentielle pour un design responsive -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Favicon pour le site -->
-    <link
-      rel="shortcut icon"
-      href="/images/favicon-6.ico"
-      type="image/x-icon"
-    />
+  <!-- Liens vers les feuilles de style CSS -->
+  <link rel="stylesheet" href="/style/reset.css" />
+  <link rel="stylesheet" href="/style/style.css" />
+  <link rel="stylesheet" href="/style/horoscope.css" />
 
-    <!-- Lien vers les icônes Font Awesome -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-    />
+  <!-- Favicon pour le site -->
+  <link rel="shortcut icon" href="/images/favicon-6.ico" type="image/x-icon" />
 
-    <!-- Titre de la page (max 60 caractères) -->
-    <title>Les prédictions de Mélanie</title>
+  <!-- Lien vers les icônes Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 
-    <!-- Meta description de la page (max 160 caractères) -->
-    <meta
-      name="description"
-      content="Découvrez votre horoscope quotidien personnalisé et obtenez des prédictions précises pour chaque signe astrologique. Sélectionnez votre signe et explorez ce que les étoiles vous réservent aujourd'hui."
-    />
-  </head>
+  <!-- Titre de la page (max 60 caractères) -->
+  <title>Les prédictions de Mélanie</title>
 
-  <body>
-    <header>
-      <!-- Image de l'en-tête avec un logo ou une photo -->
-      <img
-        class="photo-header"
-        src="images/melanie-voyante-2.jpg"
-        alt="Logo de Mélanie Voyante"
-      />
+  <!-- Meta description de la page (max 160 caractères) -->
+  <meta name="description"
+    content="Découvrez votre horoscope quotidien personnalisé et obtenez des prédictions précises pour chaque signe astrologique. Sélectionnez votre signe et explorez ce que les étoiles vous réservent aujourd'hui." />
+</head>
 
-      <!-- Navigation principale -->
-      <nav class="lien-page-header">
-        <div class="navbar">
-          <!-- Menu déroulant pour Accueil -->
-          <div class="dropdown">
-            <button class="dropbtn">
-              Accueil
-              <i class="fa fa-caret-down"> </i>
-            </button>
-            <div class="dropdown-content">
-              <a href="inscription.html"> Inscription </a>
-              <a href="connexion.html"> Connexion </a>
-            </div>
-          </div>
+<body>
+  <header>
+    <!-- Image de l'en-tête avec un logo ou une photo -->
+    <img class="photo-header" src="images/melanie-voyante-2.jpg" alt="Logo de Mélanie Voyante" />
 
-          <!-- Menu déroulant pour Voyance -->
-          <div class="dropdown">
-            <button class="dropbtn">
-              Voyance
-              <i class="fa fa-caret-down"> </i>
-            </button>
-            <div class="dropdown-content">
-              <a href="definition-voyance.html"> Définition </a>
-              <a href="pratique-voyance.html"> Pratique </a>
-            </div>
-          </div>
-
-          <!-- Menu déroulant pour Cartomancie -->
-          <div class="dropdown">
-            <button class="dropbtn">
-              Cartomancie
-              <i class="fa fa-caret-down"> </i>
-            </button>
-            <div class="dropdown-content">
-              <a href="definition-cartomancie.html"> Définition </a>
-              <a href="pratique-cartomancie.html"> Pratique </a>
-            </div>
-          </div>
-
-          <!-- Menu déroulant pour Ressenti photo -->
-          <div class="dropdown">
-            <button class="dropbtn">
-              Ressenti photo
-              <i class="fa fa-caret-down"> </i>
-            </button>
-            <div class="dropdown-content">
-              <a href="definition-ressenti-photo.html"> Définition </a>
-              <a href="pratique-ressenti-photo.html"> Pratique </a>
-            </div>
+    <!-- Navigation principale -->
+    <nav class="lien-page-header">
+      <div class="navbar">
+        <!-- Menu déroulant pour Accueil -->
+        <div class="dropdown">
+          <button class="dropbtn">
+            Accueil
+            <i class="fa fa-caret-down"> </i>
+          </button>
+          <div class="dropdown-content">
+            <a href="inscription.html"> Inscription </a>
+            <a href="connexion.html"> Connexion </a>
           </div>
         </div>
 
-        <!-- Liens directs pour Contact, Avis clients et Blog -->
-        <div class="contact-avis-blog">
-          <a href="contact.html"> Contact </a>
-          <a href="avis.html"> Avis clients </a>
-          <a href="horoscope.html"> Horoscope </a>
+        <!-- Menu déroulant pour Voyance -->
+        <div class="dropdown">
+          <button class="dropbtn">
+            Voyance
+            <i class="fa fa-caret-down"> </i>
+          </button>
+          <div class="dropdown-content">
+            <a href="definition-voyance.html"> Définition </a>
+            <a href="pratique-voyance.html"> Pratique </a>
+          </div>
         </div>
 
-        <!-- Icône de connexion avec un lien vers la page de connexion -->
-        <img
-          class="icone-connect"
-          src="images/connexion.png"
-          alt="Aller à la page de connexion"
-          onclick="window.location.href='connexion.html'"
-        />
-      </nav>
-    </header>
+        <!-- Menu déroulant pour Cartomancie -->
+        <div class="dropdown">
+          <button class="dropbtn">
+            Cartomancie
+            <i class="fa fa-caret-down"> </i>
+          </button>
+          <div class="dropdown-content">
+            <a href="definition-cartomancie.html"> Définition </a>
+            <a href="pratique-cartomancie.html"> Pratique </a>
+          </div>
+        </div>
 
-    <!-- Conteneur principal pour le formulaire d'horoscope -->
-    <div class="container">
-      <!-- Formulaire pour sélectionner le signe astrologique et obtenir l'horoscope -->
-      <form method="POST" action="/api-horoscope.php">
-        <h1>Choisissez votre signe astrologique</h1>
-        <label for="sign">Signe :</label>
-        <select name="sign" id="sign">
-          <option value="belier">Bélier</option>
-          <option value="taureau">Taureau</option>
-          <option value="gemeaux">Gémeaux</option>
-          <option value="cancer">Cancer</option>
-          <option value="lion">Lion</option>
-          <option value="vierge">Vierge</option>
-          <option value="balance">Balance</option>
-          <option value="scorpion">Scorpion</option>
-          <option value="sagittaire">Sagittaire</option>
-          <option value="capricorne">Capricorne</option>
-          <option value="verseau">Verseau</option>
-          <option value="poissons">Poissons</option>
-        </select>
-        <button type="submit">Voir l'horoscope</button>
-      </form>
+        <!-- Menu déroulant pour Ressenti photo -->
+        <div class="dropdown">
+          <button class="dropbtn">
+            Ressenti photo
+            <i class="fa fa-caret-down"> </i>
+          </button>
+          <div class="dropdown-content">
+            <a href="definition-ressenti-photo.html"> Définition </a>
+            <a href="pratique-ressenti-photo.html"> Pratique </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Liens directs pour Contact, Avis clients et Horoscope -->
+      <div class="contact-avis-blog">
+        <a href="contact.html"> Contact </a>
+        <a href="avis.html"> Avis clients </a>
+        <a href="horoscope.html"> Horoscope </a>
+      </div>
+
+      <!-- Icône de connexion avec un lien vers la page de connexion -->
+      <img class="icone-connect" src="images/connexion.png" alt="Aller à la page de connexion"
+        onclick="window.location.href='connexion.html'" />
+    </nav>
+  </header>
+
+  <!-- Conteneur principal pour le formulaire d'horoscope -->
+  <div class="container">
+    <!-- Formulaire pour sélectionner le signe astrologique et obtenir l'horoscope -->
+    <form method="POST" action="/api-horoscope.php">
+      <h1>Choisissez votre signe astrologique</h1>
+      <label for="sign">Signe :</label>
+      <select name="sign" id="sign">
+        <option value="belier">Bélier</option>
+        <option value="taureau">Taureau</option>
+        <option value="gemeaux">Gémeaux</option>
+        <option value="cancer">Cancer</option>
+        <option value="lion">Lion</option>
+        <option value="vierge">Vierge</option>
+        <option value="balance">Balance</option>
+        <option value="scorpion">Scorpion</option>
+        <option value="sagittaire">Sagittaire</option>
+        <option value="capricorne">Capricorne</option>
+        <option value="verseau">Verseau</option>
+        <option value="poissons">Poissons</option>
+      </select>
+      <button type="submit">Voir l'horoscope</button>
+    </form>
+  </div>
+
+  <!-- Pied de page avec des liens vers les différentes pages du site -->
+  <footer class="lien-page-footer">
+    <div class="nav-links-1">
+      <div class="social-link">
+        <!-- Liens vers les réseaux sociaux et PayPal -->
+        <a class="logo-footer" href="https://www.instagram.com/melanievoyante/" target="_blank">
+          <i class="fab fa-instagram fa-2x instagram-logo"> </i>
+          <span class="insta-paypal-mail">Suivez-moi sur Instagram</span>
+        </a>
+      </div>
+      <div class="social-link">
+        <a class="logo-footer" href="https://www.paypal.com/fr/home" target="_blank">
+          <i class="fa-brands fa-paypal fa-2xl paypal-logo"> </i>
+          <span class="insta-paypal-mail">PayPal</span>
+        </a>
+      </div>
+
+      <!-- Lien mailto pour contacter par email -->
+      <div class="social-link">
+        <a href="mailto:melanie20082011@outlook.fr" target="_blank">
+          mail: melanie20082011@outlook.fr
+          <span class="insta-paypal-mail">Contactez-moi par mail</span>
+        </a>
+      </div>
     </div>
 
-    <!-- Pied de page avec des liens vers les différentes pages du site -->
-    <footer class="lien-page-footer">
-      <div class="nav-links-1">
-        <div class="social-link">
-          <!-- Liens vers les réseaux sociaux et PayPal -->
-          <a
-            class="logo-footer"
-            href="https://www.instagram.com/melanievoyante/"
-            target="_blank"
-          >
-            <i class="fab fa-instagram fa-2x instagram-logo"> </i>
-            <span class="insta-paypal-mail">Suivez-moi sur Instagram</span>
+    <div class="nav-links-2">
+      <ul>
+        <li><a href="accueil.html"> Accueil </a></li>
+        <li><a href="inscription.html"> Inscription </a></li>
+        <li><a href="connexion.html"> Connexion </a></li>
+      </ul>
+
+      <ul>
+        <li><a href="definition-voyance.html"> Définition voyance </a></li>
+        <li>
+          <a href="definition-cartomancie.html"> Définition cartomancie </a>
+        </li>
+        <li>
+          <a href="definition-ressenti-photo.html">
+            Définition ressenti photo
           </a>
-        </div>
-        <div class="social-link">
-          <a
-            class="logo-footer"
-            href="https://www.paypal.com/fr/home"
-            target="_blank"
-          >
-            <i class="fa-brands fa-paypal fa-2xl paypal-logo"> </i>
-            <span class="insta-paypal-mail">PayPal</span>
-          </a>
-        </div>
+        </li>
+      </ul>
 
-        <!-- Lien mailto pour contacter par email -->
-        <div class="social-link">
-          <a href="mailto:melanie20082011@outlook.fr" target="_blank">
-            mail: melanie20082011@outlook.fr
-            <span class="insta-paypal-mail">Contactez-moi par mail</span>
-          </a>
-        </div>
-      </div>
+      <ul>
+        <li><a href="pratique-voyance.html"> Pratique voyance </a></li>
+        <li>
+          <a href="pratique-cartomancie.html"> Pratique cartomancie </a>
+        </li>
+        <li>
+          <a href="pratique-ressenti-photo.html"> Pratique ressenti photo </a>
+        </li>
+      </ul>
 
-      <div class="nav-links-2">
-        <ul>
-          <li><a href="accueil.html"> Accueil </a></li>
-          <li><a href="inscription.html"> Inscription </a></li>
-          <li><a href="connexion.html"> Connexion </a></li>
-        </ul>
+      <ul>
+        <li><a href="avis.html"> Avis clients </a></li>
+        <li><a href="contact.html"> Contact </a></li>
+        <li><a href="horoscope.html"> Horoscope </a></li>
+      </ul>
+    </div>
+  </footer>
 
-        <ul>
-          <li><a href="definition-voyance.html"> Définition voyance </a></li>
-          <li>
-            <a href="definition-cartomancie.html"> Définition cartomancie </a>
-          </li>
-          <li>
-            <a href="definition-ressenti-photo.html">
-              Définition ressenti photo
-            </a>
-          </li>
-        </ul>
+  <script src="./script/script.js"></script>
+</body>
 
-        <ul>
-          <li><a href="pratique-voyance.html"> Pratique voyance </a></li>
-          <li>
-            <a href="pratique-cartomancie.html"> Pratique cartomancie </a>
-          </li>
-          <li>
-            <a href="pratique-ressenti-photo.html"> Pratique ressenti photo </a>
-          </li>
-        </ul>
-
-        <ul>
-          <li><a href="avis.html"> Avis clients </a></li>
-          <li><a href="contact.html"> Contact </a></li>
-          <li><a href="horoscope.html"> Horoscope </a></li>
-        </ul>
-      </div>
-    </footer>
-
-    <script src="./script/script.js"></script>
-  </body>
 </html>
