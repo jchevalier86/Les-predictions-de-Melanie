@@ -1,8 +1,9 @@
 /* 
- * Applique la propriété box-sizing: border-box à tous les éléments,
- * ainsi qu'à leurs pseudo-éléments ::before et ::after. 
- * Cela inclut le padding et la bordure dans les dimensions totales des éléments.
- */
+  * Applique la propriété box-sizing: border-box à tous les éléments,
+  * ainsi qu'à leurs pseudo-éléments ::before et ::after. 
+  * Cela inclut le padding et la bordure dans les dimensions totales des éléments.
+*/
+
 *,
 *::before,
 *::after {
@@ -13,7 +14,8 @@
   * Style pour le corps du document :
   * Utilise une police système, définit des largeurs minimale et maximale,
   * et réinitialise la marge et le padding.
-  */
+*/
+
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
@@ -24,7 +26,8 @@ body {
 /* 
   * Media queries pour les écrans de largeur maximale de 1200px 
   * Ajuste la disposition et le style des éléments pour les petits écrans.
-  */
+*/
+
 @media (max-width: 1200px) {
   .photo-header img {
     background-position: cover;
@@ -83,12 +86,20 @@ body {
     max-width: 500px;
     padding-left: 300px;
   }
+
+  footer ul li,
+  a {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+  }
 }
 
 /* 
   * Media queries pour les écrans de largeur maximale de 100px 
   * Ajuste la taille de police et la disposition des éléments pour les écrans très petits.
-  */
+*/
+
 @media (max-width: 100px) {
   .intro h1,
   .intro h2 {
@@ -112,6 +123,7 @@ body {
   footer ul li,
   a {
     width: 100%;
+    height: 100%;
     text-align: center;
   }
 }
@@ -120,12 +132,13 @@ body {
   * --------------------------- 
   * Header 
   * ----------------------------
-  */
+*/
 
 /* 
   * Style de l'en-tête : Centre le texte 
   * et définit la largeur maximale.
-  */
+*/
+
 header {
   text-align: center;
   max-width: 100%;
@@ -135,7 +148,8 @@ header {
 
 /* 
   * Navigation principale : Cache le débordement.
-  */
+*/
+
 .navbar {
   overflow: hidden;
 }
@@ -144,7 +158,8 @@ header {
   * Liens de la barre de navigation : 
   * Flottants à gauche, affichés en bloc, couleur de texte, 
   * centrage, padding, sans décoration, et curseur pointeur.
-  */
+*/
+
 .navbar a {
   float: left;
   display: block;
@@ -157,7 +172,8 @@ header {
 
 /* 
   * Changement de couleur de texte au survol.
-  */
+*/
+
 .navbar a:hover {
   color: #000000;
 }
@@ -165,7 +181,8 @@ header {
 /* 
   * Style des éléments dropdown : Flottants à gauche, 
   * cache le débordement.
-  */
+*/
+
 .dropdown {
   float: left;
   overflow: hidden;
@@ -175,7 +192,8 @@ header {
   * Bouton dropdown : Taille de police, sans bordure, sans outline,
   * couleur de texte, padding, couleur de fond et police inhérentes, 
   * sans marge.
-  */
+*/
+
 .dropdown .dropbtn {
   font-size: 18px;
   border: none;
@@ -190,7 +208,8 @@ header {
 /* 
   * Changement de couleur de fond et de texte au survol,
   * avec bords arrondis.
-  */
+*/
+
 .navbar a:hover,
 .dropdown:hover .dropbtn {
   background-color: #ffffff;
@@ -202,7 +221,8 @@ header {
   * Contenu du dropdown : Masqué par défaut, 
   * position absolue, fond en dégradé, ombre de boîte,
   * index z, bords arrondis, et taille de police.
-  */
+*/
+
 .dropdown-content {
   display: none;
   position: absolute;
@@ -217,7 +237,8 @@ header {
 /* 
   * Liens dans le dropdown : Non flottants, couleur de texte, padding,
   * sans décoration, affichés en bloc, et alignés à gauche.
-  */
+*/
+
 .dropdown-content a {
   float: none;
   color: #fff;
@@ -229,14 +250,16 @@ header {
 
 /* 
   * Changement de couleur de fond au survol des liens du dropdown.
-  */
+*/
+
 .dropdown-content a:hover {
   background-color: #ffffff;
 }
 
 /* 
   * Affiche le contenu du dropdown au survol.
-  */
+*/
+
 .dropdown:hover .dropdown-content {
   display: block;
 }
@@ -244,7 +267,8 @@ header {
 /* 
   * Style de l'image de l'en-tête : Taille de fond automatique,
   * largeur 100%.
-  */
+*/
+
 .photo-header {
   background-size: auto;
   width: 100%;
@@ -253,7 +277,8 @@ header {
 /* 
   * Liens de l'en-tête : Alignement et espacement des éléments,
   * fond en dégradé, largeur 100%.
-  */
+*/
+
 .lien-page-header {
   display: flex;
   justify-content: space-evenly;
@@ -265,7 +290,8 @@ header {
 
 /* 
   * Section contact-avis-blog : Alignement et espacement des éléments.
-  */
+*/
+
 .contact-avis-blog {
   display: flex;
   justify-content: space-between;
@@ -275,7 +301,8 @@ header {
 /* 
   * Changement de couleur de fond et de texte au survol des liens,
   * avec bords arrondis.
-  */
+*/
+
 .contact-avis-blog a:hover {
   background-color: #ffffff;
   color: #000000;
@@ -285,7 +312,8 @@ header {
 /* 
   * Style des liens de contact-avis-blog : Couleur de texte, sans décoration,
   * taille de police, espacement des lettres, curseur pointeur, et padding.
-  */
+*/
+
 .contact-avis-blog a {
   color: #ffffff;
   text-decoration: none;
@@ -298,7 +326,8 @@ header {
 /* 
   * Style des icônes de connexion : Hauteur définie,
   * curseur pointeur.
-  */
+*/
+
 .icone-connect {
   height: 30px;
   cursor: pointer;
@@ -308,12 +337,13 @@ header {
   * --------------------------- 
   * Main 
   * ----------------------------
-  */
+*/
 
 /* 
   * Style du titre principal (h1) : Taille de police, gras intense,
   * majuscules, centrage, et padding supérieur.
-  */
+*/
+
 h1 {
   font-size: 30px;
   font-weight: 900;
@@ -325,7 +355,8 @@ h1 {
 /* 
   * Style du titre secondaire (h2) : Taille de police, gras moyen,
   * centrage, et espacement des lettres.
-  */
+*/
+
 h2 {
   font-size: 20px;
   font-weight: 600;
@@ -336,7 +367,8 @@ h2 {
 /* 
   * Séparateur : Sans bordure, hauteur de 2px, couleur de fond noire,
   * largeur de 20%, et centrage avec marge.
-  */
+*/
+
 .separator {
   border: none;
   height: 2px;
@@ -347,7 +379,8 @@ h2 {
 
 /* 
   * Classe pour un mot personnalisé : Gras intense.
-  */
+*/
+
 .costum-word {
   font-weight: 800;
 }
@@ -356,14 +389,15 @@ h2 {
   * --------------------------- 
   * Footer 
   * ----------------------------
-  */
+*/
 
 /* Style général du pied de page :
- * - Fond en dégradé linéaire de 90 degrés allant de bleu foncé à violet.
- * - Largeur de 100% pour occuper toute la largeur disponible.
- * - Hauteur fixe de 250px.
- * - Largeur maximale de 100% pour s'assurer qu'il ne dépasse pas la taille de l'écran.
- */
+  * - Fond en dégradé linéaire de 90 degrés allant de bleu foncé à violet.
+  * - Largeur de 100% pour occuper toute la largeur disponible.
+  * - Hauteur fixe de 250px.
+  * - Largeur maximale de 100% pour s'assurer qu'il ne dépasse pas la taille de l'écran.
+*/
+
 footer {
   background: linear-gradient(90deg, rgb(15, 0, 146), rgb(176, 0, 176));
   width: 100%;
@@ -372,11 +406,12 @@ footer {
 }
 
 /* Conteneur des liens du pied de page :
- * - Padding de 0 en haut et en bas, et de 30px à gauche et à droite.
- * - Espacement de 25px entre les éléments enfants.
- * - Hauteur de ligne de 1.4 pour un bon espacement vertical entre les lignes.
- * - Espacement des lettres de 1px pour une meilleure lisibilité.
- */
+  * - Padding de 0 en haut et en bas, et de 30px à gauche et à droite.
+  * - Espacement de 25px entre les éléments enfants.
+  * - Hauteur de ligne de 1.4 pour un bon espacement vertical entre les lignes.
+  * - Espacement des lettres de 1px pour une meilleure lisibilité.
+*/
+
 .lien-page-footer {
   padding: 0 30px;
   gap: 25px;
@@ -385,11 +420,12 @@ footer {
 }
 
 /* Style des liens de navigation (première section) :
- * - Affichage en flexbox pour une disposition flexible.
- * - Justification centrée pour centrer les éléments horizontalement.
- * - Espacement de 50px entre les éléments enfants.
- * - Padding de 50px en haut.
- */
+  * - Affichage en flexbox pour une disposition flexible.
+  * - Justification centrée pour centrer les éléments horizontalement.
+  * - Espacement de 50px entre les éléments enfants.
+  * - Padding de 50px en haut.
+*/
+
 .nav-links-1 {
   display: flex;
   justify-content: center;
@@ -398,10 +434,11 @@ footer {
 }
 
 /* Style général des liens sociaux :
- * - Position relative pour pouvoir positionner des éléments enfants absolument.
- * - Affichage en ligne pour s'aligner horizontalement.
- * - Marge de droite de 10px pour espacer les icônes entre elles.
- */
+  * - Position relative pour pouvoir positionner des éléments enfants absolument.
+  * - Affichage en ligne pour s'aligner horizontalement.
+  * - Marge de droite de 10px pour espacer les icônes entre elles.
+*/
+
 .social-link {
   position: relative;
   display: inline-block;
@@ -409,17 +446,18 @@ footer {
 }
 
 /* Style des info-bulles des liens sociaux :
- * - Invisibilité par défaut.
- * - Couleur de fond sombre (#555).
- * - Couleur de texte blanche (#fff).
- * - Alignement du texte au centre.
- * - Bordure arrondie.
- * - Padding pour l'espace interne.
- * - Position absolue pour positionner au-dessus des liens.
- * - Index de pile élevé (z-index) pour être au-dessus des autres éléments.
- * - Transition pour une apparition en douceur.
- * - Largeur fixe de 120px.
- */
+  * - Invisibilité par défaut.
+  * - Couleur de fond sombre (#555).
+  * - Couleur de texte blanche (#fff).
+  * - Alignement du texte au centre.
+  * - Bordure arrondie.
+  * - Padding pour l'espace interne.
+  * - Position absolue pour positionner au-dessus des liens.
+  * - Index de pile élevé (z-index) pour être au-dessus des autres éléments.
+  * - Transition pour une apparition en douceur.
+  * - Largeur fixe de 120px.
+*/
+
 .insta-paypal-mail {
   visibility: hidden;
   background-color: #555;
@@ -438,21 +476,23 @@ footer {
 }
 
 /* Affichage de l'info-bulle au survol du lien social :
- * - Visibilité activée.
- * - Opacité à 1 pour la rendre visible.
- */
+  * - Visibilité activée.
+  * - Opacité à 1 pour la rendre visible.
+*/
+
 .social-link:hover .insta-paypal-mail {
   visibility: visible;
   opacity: 1;
 }
 
 /* Style des liens de navigation (deuxième section) :
- * - Affichage en flexbox pour une disposition flexible.
- * - Justification avec un espacement égal entre les éléments.
- * - Alignement vertical centré.
- * - Espacement de 50px entre les éléments enfants.
- * - Padding de 50px en haut.
- */
+  * - Affichage en flexbox pour une disposition flexible.
+  * - Justification avec un espacement égal entre les éléments.
+  * - Alignement vertical centré.
+  * - Espacement de 50px entre les éléments enfants.
+  * - Padding de 50px en haut.
+*/
+
 .nav-links-2 {
   display: flex;
   justify-content: space-evenly;
@@ -462,12 +502,13 @@ footer {
 }
 
 /* Style général des liens dans le pied de page :
- * - Taille de police de 12px.
- * - Couleur de texte blanche (#ffffff).
- * - Poids de police moyen (600).
- * - Pas de décoration de texte par défaut.
- * - Curseur en forme de pointeur au survol.
- */
+  * - Taille de police de 12px.
+  * - Couleur de texte blanche (#ffffff).
+  * - Poids de police moyen (600).
+  * - Pas de décoration de texte par défaut.
+  * - Curseur en forme de pointeur au survol.
+*/
+
 .lien-page-footer a {
   font-size: 12px;
   color: #ffffff;
@@ -477,17 +518,19 @@ footer {
 }
 
 /* Ajout de soulignement au survol des liens du pied de page :
- * - Appliqué aux liens à l'intérieur des listes non ordonnées (ul).
- */
+  * - Appliqué aux liens à l'intérieur des listes non ordonnées (ul).
+*/
+
 ul li a:hover {
   text-decoration: underline;
 }
 
 /* Style des conteneurs de logos dans le pied de page :
- * - Affichage en flexbox pour aligner les éléments facilement.
- * - Justification à droite pour aligner les logos à droite horizontalement.
- * - Alignement vertical au centre.
- */
+  * - Affichage en flexbox pour aligner les éléments facilement.
+  * - Justification à droite pour aligner les logos à droite horizontalement.
+  * - Alignement vertical au centre.
+*/
+
 .logo-footer {
   display: flex;
   justify-content: right;
@@ -495,10 +538,11 @@ ul li a:hover {
 }
 
 /* Style spécifique du logo Instagram :
- * - Couleur de texte blanche (#ffffff).
- * - Fond en dégradé radial pour l'effet multicolore.
- * - Ombre de boîte pour donner de la profondeur.
- */
+  * - Couleur de texte blanche (#ffffff).
+  * - Fond en dégradé radial pour l'effet multicolore.
+  * - Ombre de boîte pour donner de la profondeur.
+*/
+
 .instagram-logo {
   color: #ffffff;
   background: radial-gradient(
@@ -513,10 +557,11 @@ ul li a:hover {
 }
 
 /* Style spécifique du logo PayPal :
- * - Couleur de texte bleu (#000075).
- * - Fond en dégradé radial pour l'effet multicolore.
- * - Ombre de boîte pour donner de la profondeur.
- */
+  * - Couleur de texte bleu (#000075).
+  * - Fond en dégradé radial pour l'effet multicolore.
+  * - Ombre de boîte pour donner de la profondeur.
+*/
+
 .paypal-logo {
   color: #ffffff;
   background: radial-gradient(
@@ -530,9 +575,31 @@ ul li a:hover {
   box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.25);
 }
 
+/* Style spécifique du logo Gmail :
+ * - Couleur de texte blanc (#ffffff).
+ * - Fond en dégradé linéaire pour inclure les couleurs emblématiques de Gmail.
+ * - Ombre de boîte pour donner de la profondeur.
+ * - Clip de fond pour appliquer le dégradé au texte.
+*/
+
+.gmail-logo {
+  color: #ffffff;
+  background: linear-gradient(
+    135deg,
+    #d93025 0%,
+    #ea4335 25%,
+    #fbbc05 50%,
+    #34a853 75%,
+    #4285f4 100%
+  );
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.25);
+  -webkit-text-fill-color: transparent;
+}
+
 /* Enlève la décoration du texte au survol des logos Instagram et PayPal :
- * - Assure que les liens des logos n'ont pas de décoration de texte au survol.
- */
+  * - Assure que les liens des logos n'ont pas de décoration de texte au survol.
+*/
+
 .lien-page-footer .instagram-logo .paypal-logo a:hover {
   text-decoration: none;
 }

@@ -9,12 +9,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- Liens vers les feuilles de style CSS -->
-  <link rel="stylesheet" href="/style/reset.css" />
-  <link rel="stylesheet" href="/style/style.css" />
-  <link rel="stylesheet" href="/style/inscription-connexion-contact.css" />
+  <link rel="stylesheet" href="./style/reset.css" />
+  <link rel="stylesheet" href="./style/style.css" />
+  <link rel="stylesheet" href="./style/inscription-connexion-contact.css" />
 
   <!-- Favicon pour le site -->
-  <link rel="shortcut icon" href="/images/favicon-1.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="./images/favicon-1.ico" type="image/x-icon" />
 
   <!-- Lien vers les icônes Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
@@ -30,7 +30,7 @@
 <body>
   <header>
     <!-- Image de l'en-tête avec un logo ou une photo -->
-    <img class="photo-header" src="images/melanie-voyante-2.jpg" alt="Logo de Mélanie Voyante" />
+    <img class="photo-header" src="./images/melanie-voyante-2.jpg" alt="Logo de Mélanie Voyante" />
 
     <!-- Navigation principale -->
     <nav class="lien-page-header">
@@ -92,14 +92,14 @@
       </div>
 
       <!-- Icône de connexion avec un lien vers la page de connexion -->
-      <img class="icone-connect" src="images/connexion.png" alt="Aller à la page de connexion"
+      <img class="icone-connect" src="./images/connexion.png" alt="Aller à la page de connexion"
         onclick="window.location.href='connexion.html'" />
     </nav>
   </header>
 
   <!-- Section du formulaire d'avis -->
   <div class="container">
-    <form action="contact.php" method="post">
+    <form action="../contact.php" method="post">
       <h2>Contact</h2>
 
       <!-- Champ pour entrer l'email -->
@@ -114,8 +114,8 @@
         required></textarea>
       <br /><br />
 
-      <!-- Bouton Envoyer -->
-      <button type="submit">Envoyer</button>
+      <!-- Input Envoyer -->
+      <input type="submit" name="contact" value="Envoyer" />
     </form>
     <div id="notRegisteredMessage" style="display: none; color: red">
       Vous devez être inscrit pour accéder à cette page.

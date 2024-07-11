@@ -134,7 +134,7 @@ input[type="password"] {
   * sans bordure, coins arrondis, curseur en forme de pointeur, 
   * taille de police définie et largeur de 100%.
 */
-button {
+input[type="submit"] {
   background-color: #6a0dad;
   color: #fff;
   padding: 12px 20px;
