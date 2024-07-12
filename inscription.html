@@ -43,7 +43,7 @@
   <!-- Conteneur principal pour le formulaire d'inscription -->
   <div class="container">
     <!-- Formulaire d'inscription, les données sont envoyées à "inscription.php" en utilisant la méthode POST -->
-    <form action="../inscription.php" method="post">
+    <form onsubmit="return validate()" action="../inscription.php" method="post">
       <h2>Inscription</h2>
 
       <!-- Champ de saisie pour le nom -->
@@ -61,11 +61,13 @@
         Date de naissance <span class="star">*</span>
       </label>
       <input type="date" id="date_naissance" name="date_naissance" required />
+      <span id="errorAge" style="color: red;"></span>
       <br /><br />
 
       <!-- Champ de saisie pour l'email -->
       <label for="email"> E-mail <span class="star">*</span> </label>
       <input type="email" id="email" name="email" placeholder="votre.email@exemple.com" required />
+      <span id="errorEmail" style="color: red;"></span>
       <br /><br />
 
       <!-- Champ de saisie pour le numéro de téléphone -->
@@ -78,6 +80,7 @@
         Votre mot de passe <span class="star">*</span>
       </label>
       <input type="password" id="mot_de_passe" name="mot_de_passe" placeholder="Créer votre mot de passe" required />
+      <span id="errorPassword" style="color: red;"></span>
       <br /><br />
 
       <!-- Champ de confirmation du mot de passe -->
