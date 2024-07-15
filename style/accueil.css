@@ -48,9 +48,9 @@
 }
 
 .photo-body {
-  height: 600px; /* Hauteur de l'image */
-  width: 500px; /* Largeur de l'image */
-  padding: 25px 0; /* Ajoute du padding vertical */
+  height: 550px; /* Hauteur de l'image */
+  width: 550px; /* Largeur de l'image */
+  padding-top: 75px; /* Ajoute du padding vertical */
 }
 
 .section-presentation {
