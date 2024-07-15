@@ -32,11 +32,12 @@
 
 /* Style pour la photo définition ressenti photo */
 .photo-body-3 {
-  height: 575px;
-  width: 625px;
-  padding-top: 50px;
+  height: 575px; /* Hauteur de l'image */
+  width: 625px; /* Largeur de l'image */
+  padding-top: 50px; /* Ajoute du padding vertical */
 }
 
+/* Style pour la photo pratique voyance, cartomancie et ressenti photo */
 .photo-body-4 {
   height: 830px; /* Hauteur de l'image */
   width: 500px; /* Largeur de l'image */
