@@ -125,6 +125,7 @@ label {
   * bordure grise, coins arrondis et une taille de police définie.
 */
 
+select,
 input[type="text"],
 input[type="date"],
 input[type="email"],

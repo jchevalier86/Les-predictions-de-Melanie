@@ -104,14 +104,49 @@
 
       <!-- Champ pour entrer l'email -->
       <label for="nom"> Nom <span class="star">*</span> </label>
-      <input type="text" id="nom" name="nom" required />
+      <input type="text" id="nom" name="nom" placeholder="Votre nom" required />
 
       <label for="prenom"> Prénom <span class="star">*</span> </label>
-      <input type="text" id="prenom" name="prenom" required />
+      <input type="text" id="prenom" name="prenom" placeholder="Votre prénom" required />
 
-      <label for="message">Message <span class="star">*</span> </label>
-      <textarea type="text" id="message" name="message" rows="5" cols="46" placeholder="Entrez votre message ici"
-        required></textarea>
+      <label for="subject"> Sujet <span class="star">*</span> </label>
+      <select name="sujet" id="subject" required>
+        <option value="selection"> Sélectionnez un sujet </option>
+        <option value="question" name="question"> Question </option>
+        <option value="draught" name="tirage"> Tirage </option>
+        <option value="felt" name="ressenti-photo"> Ressenti photo </option>
+        <option value="big-shot" name="personnalite"> Personnalité </option>
+        <option value="information" name="information"> Renseignement </option>
+      </select>
+
+      <label for="domain"> Domaine <span class="star">*</span> </label>
+      <select name="domaine" id="domain" required>
+        <option value="selection"> Sélectionnez un domaine </option>
+        <option value="love" name="amour"> Amour </option>
+        <option value="work" name="travail"> Travail </option>
+        <option value="pregnancy" name="grossesse"> Grossesse </option>
+        <option value="money" name="argent"> Argent </option>
+        <option value="move" name="demenagement"> Déménagement </option>
+        <option value="permit" name="permis"> Permis </option>
+        <option value="general" name="general"> Général </option>
+        <option value="other" name="autres"> Autres </option>
+      </select>
+
+      <label for="date">
+        Date d'envoi <span class="star">*</span>
+      </label>
+      <input type="date" id="date_envoi" name="date_envoi" placeholder="jj/mm/aaaa" required />
+
+      <label for="payment"> Type de paiement <span class="star">*</span> </label>
+      <select name="paiement" id="payment" required>
+        <option value="selection"> Sélectionnez un type de paiement </option>
+        <option value="paypal" name="paypal"> Paypal </option>
+        <option value="virement" name="virement"> Virement bancaire </option>
+      </select>
+
+      <label for="message"> Message <span class="star">*</span> </label>
+      <textarea type="text" id="message_envoi" name="message_envoi" rows="5" cols="44"
+        placeholder="Entrez votre message ici" required></textarea>
       <br /><br />
 
       <!-- Input Envoyer -->
@@ -189,6 +224,19 @@
   </footer>
 
   <script src="./script/contact.js" type="module"></script>
+  <!-- Start of LiveChat (www.livechat.com) code -->
+  <script>
+    window.__lc = window.__lc || {};
+    window.__lc.license = 18270912;
+    window.__lc.integration_name = "manual_onboarding";
+    window.__lc.product_name = "livechat";
+    window.__lc.lang = 'fr'; // Sélectionnez 'fr' pour le français
+    ; (function (n, t, c) { function i(n) { return e._h ? e._h.apply(null, n) : e._q.push(n) } var e = { _q: [], _h: null, _v: "2.0", on: function () { i(["on", c.call(arguments)]) }, once: function () { i(["once", c.call(arguments)]) }, off: function () { i(["off", c.call(arguments)]) }, get: function () { if (!e._h) throw new Error("[LiveChatWidget] You can't use getters before load."); return i(["get", c.call(arguments)]) }, call: function () { i(["call", c.call(arguments)]) }, init: function () { var n = t.createElement("script"); n.async = !0, n.type = "text/javascript", n.src = "https://cdn.livechatinc.com/tracking.js", t.head.appendChild(n) } }; !n.__lc.asyncInit && e.init(), n.LiveChatWidget = n.LiveChatWidget || e }(window, document, [].slice))
+  </script>
+  <noscript><a href="https://www.livechat.com/chat-with/18270912/" rel="nofollow">Chat with us</a>, powered by <a
+      href="https://www.livechat.com/?welcome" rel="noopener nofollow" target="_blank">LiveChat</a></noscript>
+  <!-- End of LiveChat code -->
+
 </body>
 
 </html>

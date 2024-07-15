@@ -102,7 +102,7 @@
     <!-- Formulaire pour sélectionner le signe astrologique et obtenir l'horoscope -->
     <form method="POST" action="./horoscope-api.php">
       <h1>Choisissez votre signe astrologique</h1>
-      <label for="sign">Signe :</label>
+      <label for="sign"> Signe : </label>
       <select name="sign" id="sign">
         <option value="belier">Bélier</option>
         <option value="taureau">Taureau</option>
@@ -117,7 +117,13 @@
         <option value="verseau">Verseau</option>
         <option value="poissons">Poissons</option>
       </select>
-      <button type="submit">Voir l'horoscope</button>
+      <br /><br />
+
+      <label for="date"> Date : </label>
+      <input type="date" id="date" name="date" />
+      <br /><br />
+
+      <button type="submit"> Voir l'horoscope </button>
     </form>
   </div>
 

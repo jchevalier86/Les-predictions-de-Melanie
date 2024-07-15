@@ -68,7 +68,8 @@ label {
   color: #666;
 }
 
-select {
+select,
+input[type="date"] {
   width: 100%;
   padding: 10px;
   margin-bottom: 15px;
@@ -90,12 +91,4 @@ button {
 
 button:hover {
   background-color: #4f0a68;
-}
-
-/* .connectez-vous {
-  padding: 2px;
-} */
-
-.star {
-  color: red;
 }
