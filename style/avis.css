@@ -1,94 +1,94 @@
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
+  box-sizing: border-box; /* Assure que le padding et la bordure sont inclus dans la largeur et la hauteur des éléments */
 }
 
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f0f0f0;
-  margin: 0;
-  padding: 0;
+  font-family: Arial, sans-serif; /* Définit la police de base du document */
+  background-color: #f0f0f0; /* Couleur de fond de la page */
+  margin: 0; /* Supprime les marges par défaut du body */
+  padding: 0; /* Supprime les padding par défaut du body */
 }
 
 /* 
   * --------------------------- 
   * Main 
   * ----------------------------
-  */
+*/
 
 .container {
-  max-width: 600px;
-  margin: 20px auto;
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 600px; /* Limite la largeur maximale du conteneur à 600px */
+  margin: 20px auto; /* Centre le conteneur horizontalement et ajoute une marge verticale de 20px */
+  background-color: #fff; /* Couleur de fond blanche pour le conteneur */
+  padding: 20px; /* Ajoute un padding de 20px autour du contenu */
+  border-radius: 8px; /* Ajoute des coins arrondis de 8px au conteneur */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Ajoute une ombre légère autour du conteneur */
 }
 
 h1 {
-  font-size: 24px;
-  color: #6a0dad;
-  text-align: center;
-  margin-bottom: 20px;
+  font-size: 24px; /* Définit la taille de police à 24px pour le titre */
+  color: #6a0dad; /* Couleur violette pour le texte du titre */
+  text-align: center; /* Centre le texte du titre */
+  margin-bottom: 20px; /* Ajoute une marge inférieure de 20px au titre */
 }
 
 form {
-  margin-top: 20px;
+  margin-top: 20px; /* Ajoute une marge supérieure de 20px au formulaire */
 }
 
 .rating {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 20px;
-  direction: rtl;
+  display: flex; /* Utilise flexbox pour aligner les éléments en ligne */
+  justify-content: center; /* Centre les étoiles horizontalement */
+  margin-bottom: 20px; /* Ajoute une marge inférieure de 20px à la zone de notation */
+  direction: rtl; /* Inverse la direction des éléments de droite à gauche */
 }
 
 .rating input {
-  display: none;
+  display: none; /* Cache les éléments input (étoiles non sélectionnées) */
 }
 
 .rating label {
-  font-size: 30px;
-  color: #ccc;
-  cursor: pointer;
-  transition: color 0.2s;
+  font-size: 30px; /* Définit la taille de police des étoiles */
+  color: #ccc; /* Couleur grise claire pour les étoiles non sélectionnées */
+  cursor: pointer; /* Change le curseur en main pour indiquer qu'elles sont cliquables */
+  transition: color 0.2s; /* Ajoute une transition douce pour le changement de couleur */
 }
 
 .rating input:checked ~ label,
 .rating label:hover ~ label,
 .rating label:hover {
-  color: #ffd700;
+  color: #ffd700; /* Change la couleur des étoiles sélectionnées ou survolées en or */
 }
 
 label {
-  display: block;
-  margin-bottom: 8px;
-  color: #666;
-  text-align: left;
+  display: block; /* Affiche le label comme un bloc */
+  margin-bottom: 8px; /* Ajoute une marge inférieure de 8px au label */
+  color: #666; /* Couleur gris moyen pour le texte du label */
+  text-align: left; /* Aligne le texte à gauche */
 }
 
 textarea {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 16px;
-  resize: vertical;
+  width: 100%; /* Fait en sorte que le textarea prenne toute la largeur du parent */
+  padding: 10px; /* Ajoute un padding de 10px à l'intérieur du textarea */
+  margin-bottom: 15px; /* Ajoute une marge inférieure de 15px au textarea */
+  border: 1px solid #ccc; /* Ajoute une bordure grise claire autour du textarea */
+  border-radius: 4px; /* Ajoute des coins arrondis de 4px au textarea */
+  font-size: 16px; /* Définit la taille de police à 16px pour le textarea */
+  resize: vertical; /* Permet seulement la redimension verticale du textarea */
 }
 
 button {
-  background-color: #6a0dad;
-  color: #fff;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 16px;
-  width: 100%;
+  background-color: #6a0dad; /* Couleur violette pour le bouton */
+  color: #fff; /* Couleur blanche pour le texte du bouton */
+  padding: 12px 20px; /* Ajoute un padding de 12px en haut/bas et 20px à gauche/droite */
+  border: none; /* Supprime la bordure par défaut du bouton */
+  border-radius: 4px; /* Ajoute des coins arrondis de 4px au bouton */
+  cursor: pointer; /* Change le curseur en main pour indiquer que le bouton est cliquable */
+  font-size: 16px; /* Définit la taille de police à 16px pour le bouton */
+  width: 100%; /* Fait en sorte que le bouton prenne toute la largeur du parent */
 }
 
 button:hover {
-  background-color: #4f0a68;
+  background-color: #4f0a68; /* Change la couleur de fond du bouton lors du survol */
 }

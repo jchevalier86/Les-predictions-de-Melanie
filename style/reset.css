@@ -1,42 +1,136 @@
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+/* Réinitialise les marges, les paddings et les bordures pour tous les éléments */
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0; /* Supprime les marges par défaut */
+  padding: 0; /* Supprime les paddings par défaut */
+  border: 0; /* Supprime les bordures par défaut */
+  font-size: 100%; /* Réinitialise la taille de police à 100% */
+  font: inherit; /* Inhère la famille de polices du parent */
+  vertical-align: baseline; /* Réinitialise l'alignement vertical par défaut */
 }
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
+
+/* Assure que les nouveaux éléments HTML5 sont affichés comme des blocs */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block; /* Force l'affichage en bloc pour ces éléments */
 }
+
+/* Réinitialise la hauteur de ligne par défaut pour le body */
 body {
-	line-height: 1;
+  line-height: 1; /* Définit une hauteur de ligne standard */
 }
-ol, ul {
-	list-style: none;
+
+/* Supprime les puces des listes */
+ol,
+ul {
+  list-style: none; /* Supprime les styles de liste par défaut */
 }
-blockquote, q {
-	quotes: none;
+
+/* Supprime les guillemets des blockquotes et des quotes */
+blockquote,
+q {
+  quotes: none; /* Supprime les guillemets automatiques */
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
+
+/* Supprime le contenu généré automatiquement des blockquotes et des quotes */
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: ""; /* Supprime le contenu avant et après */
+  content: none; /* Assure que rien ne soit affiché */
 }
+
+/* Réinitialise les bordures des tables */
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+  border-collapse: collapse; /* Fusionne les bordures adjacentes des cellules */
+  border-spacing: 0; /* Supprime l'espacement entre les cellules */
 }

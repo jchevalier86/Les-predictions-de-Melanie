@@ -33,7 +33,9 @@
     <img class="photo-header" src="./images/melanie-voyante-2.jpg" alt="Logo de Mélanie Voyante" />
 
     <!-- Navigation principale -->
-    <nav class="lien-page-header">
+    <div class="lien-page-header">
+      <!-- Ajout du bouton hamburger -->
+      <div class="hamburger" onclick="toggleMenu()">☰</div>
       <div class="navbar">
         <!-- Menu déroulant pour Accueil -->
         <div class="dropdown">
@@ -94,7 +96,7 @@
       <!-- Icône de connexion avec un lien vers la page de connexion -->
       <img class="icone-connect" src="./images/connexion.png" alt="Aller à la page de connexion"
         onclick="window.location.href='connexion.html'" />
-    </nav>
+      </nav>
   </header>
 
   <!-- Section d'introduction -->
@@ -129,16 +131,22 @@
         <!-- Liste des domaines de pratique -->
         <div class="liste-domaines">
           <span> Les domaines que je pratique : </span>
-          <ul class="liste-domaines-list">
-            <li> Amour </li>
-            <li> Travail </li>
-            <li> Grossesse </li>
-            <li> Argent </li>
-            <li> Déménagement </li>
-            <li> Permis </li>
-            <li> Général </li>
-          </ul>
+          <div class="liste-domaines-conteneur">
+            <ul class="liste-domaines-list-1">
+              <li> Amour </li>
+              <li> Travail </li>
+              <li> Grossesse </li>
+              <li> Argent </li>
+            </ul>
+            <ul class="liste-domaines-list-2">
+              <li> Déménagement </li>
+              <li> Permis </li>
+              <li> Avenir </li>
+              <li> Général </li>
+            </ul>
+          </div>
         </div>
+      </div>
       </div>
 
       <!-- Photo dans la section de présentation -->
@@ -211,6 +219,11 @@
         <li><a href="contact.html"> Contact </a></li>
         <li><a href="horoscope.html"> Horoscope </a></li>
       </ul>
+    </div>
+
+    <div class="copyright-info">
+      <p> © 2024 Les Prédictions de Mélanie. Tous droits réservés </p>
+      <a href="mentions-legales.html"> Mentions Légales </a>
     </div>
   </footer>
 

@@ -1,0 +1,49 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box; /* Applique box-sizing à tous les éléments */
+}
+
+/* 
+  * --------------------------- 
+  * Main 
+  * ----------------------------
+*/
+
+.section-presentation {
+  display: flex; /* Ajoute le flexbox */
+  justify-content: center; /* Centre les éléments horizontalement */
+}
+
+.presentation {
+  width: 550px; /* Largeur de la section */
+  height: 300px; /* Hauteur de la section */
+  line-height: 23px; /* Hauteur de ligne */
+}
+
+.presentation-text-content {
+  margin: 20px 0; /* Marge verticale */
+  font-size: 18px; /* Taille de police */
+  text-align: justify; /* Justifie le texte */
+}
+
+/* 
+  * --------------------------- 
+  * Footer 
+  * ----------------------------
+*/
+
+/* Style général du pied de page :
+  * - Fond en dégradé linéaire de 90 degrés allant de bleu foncé à violet.
+  * - Largeur de 100% pour occuper toute la largeur disponible.
+  * - Hauteur fixe de 250px.
+  * - Largeur maximale de 100% pour s'assurer qu'il ne dépasse pas la taille de l'écran.
+*/
+
+footer {
+  background: linear-gradient(90deg, rgb(15, 0, 146), rgb(176, 0, 176));
+  width: 100%;
+  height: 340px;
+  margin-top: 1400px;
+  max-width: 100%;
+}

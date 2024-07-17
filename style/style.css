@@ -22,6 +22,83 @@ body {
 }
 
 /* 
+  * Cacher le menu hamburger par défaut 
+*/
+
+.hamburger {
+  display: none;
+}
+
+/* Styles pour les appareils mobiles */
+@media (max-width: 768px) {
+  .lien-page-header {
+    flex-direction: column;
+  }
+
+  .contact-avis-blog {
+    order: 1;
+  }
+
+  .navbar {
+    order: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .navbar .dropdown {
+    width: 100%;
+  }
+
+  .navbar .dropdown-content {
+    position: static;
+    width: 100%;
+  }
+
+  .navbar .dropdown-content a {
+    text-align: center;
+  }
+
+  /* Ajout pour centrer et agrandir les titres */
+  h1,
+  h2,
+  .presentation-text-content p,
+  .liste-domaines span,
+  ul {
+    text-align: justify;
+    font-size: 14px;
+  }
+
+  /* Placement de la photo en bas du texte */
+  .section-presentation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .presentation {
+    order: 1;
+  }
+
+  .liste-domaines {
+    order: 2;
+  }
+
+  .photo {
+    order: 2;
+    text-align: center;
+    margin-top: 20px; /* Espace au-dessus de la photo */
+    width: 100%;
+  }
+
+  .photo img {
+    width: 80%; /* Ajustez la taille de l'image si nécessaire */
+  }
+}
+
+/* 
   * --------------------------- 
   * Header 
   * ----------------------------
@@ -302,7 +379,7 @@ h2 {
 footer {
   background: linear-gradient(90deg, rgb(15, 0, 146), rgb(176, 0, 176));
   width: 100%;
-  height: 250px;
+  height: 340px;
   max-width: 100%;
 }
 
@@ -314,7 +391,6 @@ footer {
 */
 
 .lien-page-footer {
-  padding: 0 30px;
   gap: 25px;
   line-height: 1.4;
   letter-spacing: 1px;
@@ -422,7 +498,8 @@ footer {
   * - Appliqué aux liens à l'intérieur des listes non ordonnées (ul).
 */
 
-ul li a:hover {
+ul li a,
+a:hover {
   text-decoration: underline;
 }
 
@@ -444,4 +521,21 @@ ul li a:hover {
 
 .lien-page-footer .instagram-logo .paypal-logo a:hover {
   text-decoration: none;
+}
+
+.copyright-info a {
+  color: #000;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.copyright-info {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  padding-top: 40px;
+  margin-top: 50px;
+  width: 100%;
+  height: 92px;
+  background-color: #fff;
 }

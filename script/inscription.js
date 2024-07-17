@@ -10,10 +10,6 @@ function validate() {
     return false;
   }
 
-  if (!validateDateOfBirth(date_naissance)) {
-    return false;
-  }
-
   if (!validateAge(date_naissance)) {
     return false;
   }
@@ -33,18 +29,6 @@ function validatePassword(mot_de_passe, confirmation_mot_de_passe) {
     document.getElementById("errorPassword").innerHTML =
       "* Les mots de passe ne correspondent pas."; // Sinon message d'erreur "Les mots de passe ne correspondent pas."
     return false; // Empêche la soumission du formulaire
-  }
-}
-
-function validateDateOfBirth(date_naissance) {
-  var regex = /^\d{2}\/\d{2}\/\d{4}$/; // Regex pour le format jj/mm/aaaa
-  if (!regex.test(date_naissance)) {
-    document.getElementById("errorDateOfBirth").innerHTML =
-      "* Veuillez entrer une date de naissance valide (jj/mm/aaaa).";
-    return false; // Empêche la soumission du formulaire
-  } else {
-    document.getElementById("errorDateOfBirth").innerHTML = ""; // Si le format est valide, efface le message d'erreur
-    return true; // Autorise la soumission du formulaire
   }
 }
 
