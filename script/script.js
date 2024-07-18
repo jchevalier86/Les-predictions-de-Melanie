@@ -14,11 +14,11 @@ document.addEventListener("DOMContentLoaded", (event) => {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-  const menuItems = document.getElementById("bropbtn");
+  const menuItems = document.querySelectorAll(".bropbtn");
 
   menuItems.forEach(function (menuItem) {
-    menuItem.addEventListener("click", function () {
-      const dropbtn = this.getElementById("dropbtn");
+    menuItems.addEventListener("click", function () {
+      const dropbtn = menuItem.querySelector(".dropbtn");
       if (dropbtn.style.display === "block") {
         dropbtn.style.display = "none";
       } else {
@@ -57,7 +57,7 @@ function login() {
 function logout() {
   localStorage.setItem("isLoggedIn", "false");
   alert("Vous avez bien été déconnecté.");
-  window.location.href = "accueil.html"; // Redirigez vers la page d'accueil ou une autre page
+  window.location.href = "accueil.html"; // Redirigez vers la page d'accueil
 }
 
 // Ajouter des événements aux boutons de connexion et de déconnexion
@@ -66,4 +66,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
   document.querySelector(".lien-connect").addEventListener("click", login);
   document.querySelector(".lien-deconnect").addEventListener("click", logout);
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const presentation = document.querySelector(".presentation");
+  const photoBody = document.querySelector(".photo-body");
+  const listeDomaine = document.querySelector(".liste-domaines");
+
+  if (presentation) {
+    presentation.classList.add("show");
+  }
+
+  if (photoBody) {
+    photoBody.classList.add("show");
+  }
+
+  if (listeDomaine) {
+    listeDomaine.classList.add("show");
+  }
 });

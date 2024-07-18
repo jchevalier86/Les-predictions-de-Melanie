@@ -45,7 +45,39 @@
   text-align: justify; /* Justifie le texte */
 }
 
+/* Ajoute ces styles pour l'animation de texte */
+.presentation-span,
+.presentation-text-content {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 3s ease-out, transform 3s ease-out;
+}
+
+/* Ajoute cette classe pour déclencher la transition */
+.presentation.show .presentation-span,
+.presentation.show .presentation-text-content,
+.presentation.show .liste-domaines {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Ajoute ces styles pour l'animation de l'image */
+.photo-body {
+  opacity: 0;
+  transform: scale(1.05);
+  transition: opacity 3s ease-out, transform 3s ease-out;
+}
+
+/* Ajoute cette classe pour déclencher la transition */
+.photo-body.show {
+  opacity: 1;
+  transform: scale(1);
+}
+
 .liste-domaines {
+  opacity: 1, 1;
+  transform: translateY(20px);
+  transition: opacity 3s ease-out, transform 3s ease-out;
   line-height: 20px; /* Hauteur de ligne */
 }
 
