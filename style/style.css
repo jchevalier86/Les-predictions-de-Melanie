@@ -311,6 +311,11 @@ header {
   cursor: pointer;
 }
 
+.icone-deconnect {
+  height: 20px;
+  cursor: pointer;
+}
+
 /* 
   * --------------------------- 
   * Main 
