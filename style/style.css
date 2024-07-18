@@ -418,6 +418,7 @@ footer {
 
 .social-link,
 .lien-connect,
+.lien-deconnect,
 .lien-arrow {
   position: relative;
   display: inline-block;
@@ -439,6 +440,7 @@ footer {
 
 .insta-paypal-mail,
 .connect,
+.deconnect,
 .arrow {
   visibility: hidden;
   background-color: #555;
@@ -463,6 +465,7 @@ footer {
 
 .social-link:hover .insta-paypal-mail,
 .lien-connect:hover .connect,
+.lien-deconnect:hover .deconnect,
 .lien-arrow:hover .arrow {
   visibility: visible;
   opacity: 1;
