@@ -87,7 +87,6 @@ body {
   }
 
   .photo {
-    order: 2;
     text-align: center;
     margin-top: 20px; /* Espace au-dessus de la photo */
     width: 100%;
@@ -285,6 +284,7 @@ header {
   background-color: #ffffff;
   color: #000000;
   border-radius: 4px;
+  text-decoration: none;
 }
 
 /* 
@@ -416,7 +416,9 @@ footer {
   * - Marge de droite de 10px pour espacer les icônes entre elles.
 */
 
-.social-link {
+.social-link,
+.lien-connect,
+.lien-arrow {
   position: relative;
   display: inline-block;
   margin-right: 10px;
@@ -435,7 +437,9 @@ footer {
   * - Largeur fixe de 120px.
 */
 
-.insta-paypal-mail {
+.insta-paypal-mail,
+.connect,
+.arrow {
   visibility: hidden;
   background-color: #555;
   color: #fff;
@@ -457,7 +461,9 @@ footer {
   * - Opacité à 1 pour la rendre visible.
 */
 
-.social-link:hover .insta-paypal-mail {
+.social-link:hover .insta-paypal-mail,
+.lien-connect:hover .connect,
+.lien-arrow:hover .arrow {
   visibility: visible;
   opacity: 1;
 }
@@ -519,7 +525,8 @@ a:hover {
   * - Assure que les liens des logos n'ont pas de décoration de texte au survol.
 */
 
-.lien-page-footer .instagram-logo .paypal-logo a:hover {
+.lien-page-footer .instagram-logo,
+.paypal-logo a:hover {
   text-decoration: none;
 }
 

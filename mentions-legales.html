@@ -37,7 +37,7 @@
             <div class="navbar">
                 <!-- Menu déroulant pour Accueil -->
                 <div class="dropdown">
-                    <button class="dropbtn">
+                    <button class="dropbtn" onclick="window.location.href='accueil.html'">
                         Accueil
                         <i class="fa fa-caret-down"> </i>
                     </button>
@@ -92,8 +92,11 @@
             </div>
 
             <!-- Icône de connexion avec un lien vers la page de connexion -->
-            <img class="icone-connect" src="./images/connexion.png" alt="Aller à la page de connexion"
-                onclick="window.location.href='connexion.html'" />
+            <div class="lien-connect">
+                <img class="icone-connect" src="./images/connexion.png" alt="Aller à la page de connexion"
+                    onclick="window.location.href='connexion.html'" />
+                <span class="connect"> Connexion </span>
+            </div>
         </nav>
     </header>
 
@@ -109,7 +112,7 @@
                     <div class="presentation-text-content">
                         <h2> Editeur du site : </h2>
                         <br />
-                        <div class="">
+                        <div class="text">
                             <p>
                                 Les Prédictions de Mélanie
                                 <br />
@@ -120,18 +123,18 @@
                         <h2> Siège Social : </h2>
 
                         <br />
-                        <p>
-                        <div>
-                            <br />
-                            Téléphone : +33 7 68 04 12 49
-                            <br />
-                            Email : les-predictions-de-melanie@outlook.com
+                        <div class="text">
+                            <p>
+                                <br />
+                                Téléphone : +33 7 68 04 12 49
+                                <br />
+                                Email : les-predictions-de-melanie@outlook.com
                             </p>
                         </div>
                         <br />
                         <h2> Hébergeur : </h2>
                         <br />
-                        <div class="">
+                        <div class="text">
                             <p>
                                 Mr CHEVALIER
                                 <br />

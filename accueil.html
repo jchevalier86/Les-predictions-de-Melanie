@@ -33,13 +33,13 @@
     <img class="photo-header" src="./images/melanie-voyante-2.jpg" alt="Logo de Mélanie Voyante" />
 
     <!-- Navigation principale -->
-    <div class="lien-page-header">
+    <nav class="lien-page-header">
       <!-- Ajout du bouton hamburger -->
       <div class="hamburger" onclick="toggleMenu()">☰</div>
       <div class="navbar">
         <!-- Menu déroulant pour Accueil -->
         <div class="dropdown">
-          <button class="dropbtn">
+          <button class="dropbtn" id="dropbtn" onclick="dropbtn()">
             Accueil
             <i class="fa fa-caret-down"> </i>
           </button>
@@ -51,7 +51,7 @@
 
         <!-- Menu déroulant pour Voyance -->
         <div class="dropdown">
-          <button class="dropbtn">
+          <button class="dropbtn" id="dropbtn" onclick="dropbtn()">
             Voyance
             <i class="fa fa-caret-down"> </i>
           </button>
@@ -63,7 +63,7 @@
 
         <!-- Menu déroulant pour Cartomancie -->
         <div class="dropdown">
-          <button class="dropbtn">
+          <button class="dropbtn" id="dropbtn" onclick="dropbtn()">
             Cartomancie
             <i class="fa fa-caret-down"> </i>
           </button>
@@ -75,7 +75,7 @@
 
         <!-- Menu déroulant pour Ressenti photo -->
         <div class="dropdown">
-          <button class="dropbtn">
+          <button class="dropbtn" id="dropbtn" onclick="dropbtn()">
             Ressenti photo
             <i class="fa fa-caret-down"> </i>
           </button>
@@ -94,9 +94,12 @@
       </div>
 
       <!-- Icône de connexion avec un lien vers la page de connexion -->
-      <img class="icone-connect" src="./images/connexion.png" alt="Aller à la page de connexion"
-        onclick="window.location.href='connexion.html'" />
-      </nav>
+      <div class="lien-connect">
+        <img class="icone-connect" src="./images/connexion.png" alt="Aller à la page de connexion"
+          onclick="window.location.href='connexion.html'" />
+        <span class="connect"> Connexion </span>
+      </div>
+    </nav>
   </header>
 
   <!-- Section d'introduction -->

@@ -17,6 +17,7 @@ body {
   * Header 
   * ----------------------------
 */
+
 .lien-page-inscription {
   display: flex; /* Utilise flexbox pour disposer les éléments en ligne */
   justify-content: center; /* Centre les éléments horizontalement */
@@ -39,6 +40,7 @@ body {
   * Main 
   * ----------------------------
 */
+
 .container {
   max-width: 400px; /* Largeur maximale du conteneur limitée à 400px */
   margin: 20px auto; /* Centre le conteneur horizontalement et ajoute une marge verticale de 20px */
