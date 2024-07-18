@@ -115,6 +115,29 @@ header {
   padding: 0;
 }
 
+.circle-1 {
+  width: 30px;
+  height: 30px;
+  background: linear-gradient(90deg, #ffffff, #f32bf3);
+  border-radius: 50%;
+}
+
+.circle-2 {
+  width: 30px;
+  height: 30px;
+  background: linear-gradient(90deg, #ffffff, #00b5fd);
+  border-radius: 50%;
+}
+
+.circle-1:hover,
+.circle-2:hover {
+  cursor: pointer;
+}
+
+.circle-1-2 {
+  display: flex;
+}
+
 .hamburger {
   display: none;
   font-size: 30px;
@@ -424,7 +447,9 @@ footer {
 .social-link,
 .lien-connect,
 .lien-deconnect,
-.lien-arrow {
+.lien-arrow,
+.circle-1-pink,
+.circle-2-blue {
   position: relative;
   display: inline-block;
   margin-right: 10px;
@@ -446,7 +471,9 @@ footer {
 .insta-paypal-mail,
 .connect,
 .deconnect,
-.arrow {
+.arrow,
+.circle-pink,
+.circle-blue {
   visibility: hidden;
   background-color: #555;
   color: #fff;
@@ -471,7 +498,9 @@ footer {
 .social-link:hover .insta-paypal-mail,
 .lien-connect:hover .connect,
 .lien-deconnect:hover .deconnect,
-.lien-arrow:hover .arrow {
+.lien-arrow:hover .arrow,
+.circle-1-pink:hover .circle-pink,
+.circle-2-blue:hover .circle-blue {
   visibility: visible;
   opacity: 1;
 }
@@ -529,7 +558,8 @@ a:hover {
   align-items: center;
 }
 
-/* Enlève la décoration du texte au survol des logos Instagram et PayPal :
+/* 
+  * Enlève la décoration du texte au survol des logos Instagram et PayPal :
   * - Assure que les liens des logos n'ont pas de décoration de texte au survol.
 */
 

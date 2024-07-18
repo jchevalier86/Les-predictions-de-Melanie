@@ -1,7 +1,17 @@
-function toggleMenu() {
-  const navbar = document.querySelector(".navbar");
-  navbar.classList.toggle("active");
-}
+document.addEventListener("DOMContentLoaded", (event) => {
+  event.preventDefault;
+  const circleBlue = document.querySelector(".circle-2");
+  const circlePink = document.querySelector(".circle-1");
+  const colorSection = document.querySelector(".intro");
+
+  circleBlue.addEventListener("click", () => {
+    colorSection.style.background = "linear-gradient(90deg, #ffffff, #00b5fd)";
+  });
+
+  circlePink.addEventListener("click", () => {
+    colorSection.style.background = "linear-gradient(90deg, #ffffff, #f32bf3)";
+  });
+});
 
 document.addEventListener("DOMContentLoaded", function () {
   const menuItems = document.getElementById("bropbtn");

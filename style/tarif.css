@@ -26,10 +26,6 @@
   * ----------------------------
 */
 
-.intro {
-  background: linear-gradient(90deg, #ffffff, #f32bf3);
-}
-
 .section-presentation {
   padding: 20px; /* Ajoute du padding */
   display: flex; /* Ajoute le flexbox */
