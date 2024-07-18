@@ -77,6 +77,8 @@
 }
 
 .photo-body {
+  filter: blur(1.2px);
+  border-radius: 20px 20px;
   height: 500px; /* Hauteur de l'image */
   width: 550px; /* Largeur de l'image */
   padding-top: 65px; /* Ajoute du padding vertical */

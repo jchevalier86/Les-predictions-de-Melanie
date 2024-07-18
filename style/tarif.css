@@ -19,3 +19,47 @@
 .accueil button {
   cursor: pointer;
 }
+
+/* 
+  * --------------------------- 
+  * Main 
+  * ----------------------------
+*/
+
+.intro {
+  background: linear-gradient(90deg, #ffffff, #f32bf3);
+}
+
+.section-presentation {
+  padding: 20px; /* Ajoute du padding */
+  display: flex; /* Ajoute le flexbox */
+  justify-content: center; /* Centre les éléments horizontalement */
+  gap: 20px;
+}
+
+.section1-col1 {
+  display: flex;
+}
+
+.presentation {
+  padding: 25px; /* Ajoute du padding */
+  width: 550px; /* Largeur de la section */
+  line-height: 23px; /* Hauteur de ligne */
+}
+
+.presentation-text-content {
+  margin: 20px 0; /* Marge verticale */
+  font-size: 18px; /* Taille de police */
+  text-align: justify; /* Justifie le texte */
+}
+
+.contact-paypal {
+  text-decoration: none;
+  font-weight: 500;
+  color: #0000ff;
+}
+
+.contact-paypal:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
