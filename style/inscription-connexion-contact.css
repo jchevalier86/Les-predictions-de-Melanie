@@ -49,7 +49,8 @@ body {
   * indiquant qu'elle est cliquable.
 */
 
-.back-arrow {
+.back-arrow,
+.accueil button {
   cursor: pointer;
 }
 

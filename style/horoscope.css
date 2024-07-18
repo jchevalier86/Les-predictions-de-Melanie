@@ -25,7 +25,7 @@ body {
   background-color: #ff00ae82; /* Couleur de fond avec une opacité pour le header */
 }
 
-.back-arrow {
+.accueil button {
   cursor: pointer; /* Change le curseur en main pour indiquer que l'élément est cliquable */
 }
 

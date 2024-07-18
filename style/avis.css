@@ -13,6 +13,16 @@ body {
 
 /* 
   * --------------------------- 
+  * Header 
+  * ----------------------------
+*/
+
+.accueil button {
+  cursor: pointer;
+}
+
+/* 
+  * --------------------------- 
   * Main 
   * ----------------------------
 */
@@ -78,7 +88,7 @@ textarea {
   resize: vertical; /* Permet seulement la redimension verticale du textarea */
 }
 
-button {
+.submit {
   background-color: #6a0dad; /* Couleur violette pour le bouton */
   color: #fff; /* Couleur blanche pour le texte du bouton */
   padding: 12px 20px; /* Ajoute un padding de 12px en haut/bas et 20px à gauche/droite */

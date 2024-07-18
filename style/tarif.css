@@ -1,0 +1,21 @@
+/* 
+  * Applique la propriété box-sizing: border-box à tous les éléments,
+  * ainsi qu'à leurs pseudo-éléments ::before et ::after. 
+  * Cela inclut le padding et la bordure dans les dimensions totales des éléments.
+*/
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box; /* Applique box-sizing à tous les éléments */
+}
+
+/* 
+  * --------------------------- 
+  * Header 
+  * ----------------------------
+*/
+
+.accueil button {
+  cursor: pointer;
+}

@@ -269,7 +269,7 @@ header {
   * Section contact-avis-blog : Alignement et espacement des éléments.
 */
 
-.contact-avis-blog {
+.tarif-contact-avis-blog {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -280,7 +280,7 @@ header {
   * avec bords arrondis.
 */
 
-.contact-avis-blog a:hover {
+.tarif-contact-avis-blog a:hover {
   background-color: #ffffff;
   color: #000000;
   border-radius: 4px;
@@ -292,7 +292,7 @@ header {
   * taille de police, espacement des lettres, curseur pointeur, et padding.
 */
 
-.contact-avis-blog a {
+.tarif-contact-avis-blog a {
   color: #ffffff;
   text-decoration: none;
   font-size: 16px;
