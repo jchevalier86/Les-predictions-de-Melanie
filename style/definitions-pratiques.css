@@ -31,6 +31,9 @@
   height: 450px; /* Hauteur de l'image */
   width: 600px; /* Largeur de l'image */
   padding: 50px 0; /* Ajoute du padding vertical */
+  opacity: 0;
+  transform: scale(1.05);
+  transition: opacity 3s ease-out, transform 3s ease-out;
 }
 
 /* Style pour la photo définition cartomancie */
@@ -38,6 +41,9 @@
   height: 400px; /* Hauteur de l'image */
   width: 500px; /* Largeur de l'image */
   padding: 50px 0; /* Ajoute du padding vertical */
+  opacity: 0;
+  transform: scale(1.05);
+  transition: opacity 3s ease-out, transform 3s ease-out;
 }
 
 /* Style pour la photo définition ressenti photo */
@@ -45,6 +51,9 @@
   height: 575px; /* Hauteur de l'image */
   width: 625px; /* Largeur de l'image */
   padding-top: 50px; /* Ajoute du padding vertical */
+  opacity: 0;
+  transform: scale(1.05);
+  transition: opacity 3s ease-out, transform 3s ease-out;
 }
 
 /* Style pour la photo pratique voyance, cartomancie et ressenti photo */
@@ -52,6 +61,9 @@
   height: 830px; /* Hauteur de l'image */
   width: 600px; /* Largeur de l'image */
   padding: 50px 0; /* Ajoute du padding vertical */
+  opacity: 0;
+  transform: scale(1.05);
+  transition: opacity 3s ease-out, transform 3s ease-out;
 }
 
 .section-presentation {
@@ -75,4 +87,25 @@
   margin: 20px 0; /* Marge verticale */
   font-size: 18px; /* Taille de police */
   text-align: justify; /* Justifie le texte */
+}
+
+.presentation-span,
+.presentation-text-content {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 3s ease-out, transform 3s ease-out;
+}
+
+.presentation.show .presentation-span,
+.presentation.show .presentation-text-content {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.photo-body-1.show,
+.photo-body-2.show,
+.photo-body-3.show,
+.photo-body-4.show {
+  opacity: 1;
+  transform: scale(1);
 }

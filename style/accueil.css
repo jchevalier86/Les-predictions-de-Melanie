@@ -45,7 +45,6 @@
   text-align: justify; /* Justifie le texte */
 }
 
-/* Ajoute ces styles pour l'animation de texte */
 .presentation-span,
 .presentation-text-content {
   opacity: 0;
@@ -53,32 +52,28 @@
   transition: opacity 3s ease-out, transform 3s ease-out;
 }
 
-/* Ajoute cette classe pour déclencher la transition */
 .presentation.show .presentation-span,
-.presentation.show .presentation-text-content,
-.presentation.show .liste-domaines {
+.presentation.show .presentation-text-content {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* Ajoute ces styles pour l'animation de l'image */
-.photo-body {
-  opacity: 0;
-  transform: scale(1.05);
-  transition: opacity 3s ease-out, transform 3s ease-out;
-}
-
-/* Ajoute cette classe pour déclencher la transition */
 .photo-body.show {
   opacity: 1;
   transform: scale(1);
 }
 
 .liste-domaines {
-  opacity: 1, 1;
-  transform: translateY(20px);
+  padding-bottom: 40px;
+  opacity: 0;
+  transform: translateY(50px);
   transition: opacity 3s ease-out, transform 3s ease-out;
   line-height: 20px; /* Hauteur de ligne */
+}
+
+.presentation.show .liste-domaines {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .liste-domaines span {
@@ -109,9 +104,10 @@
 }
 
 .photo-body {
-  filter: blur(1.2px);
-  border-radius: 20px 20px;
   height: 500px; /* Hauteur de l'image */
   width: 550px; /* Largeur de l'image */
   padding-top: 65px; /* Ajoute du padding vertical */
+  opacity: 0;
+  transform: scale(1.05);
+  transition: opacity 3s ease-out, transform 3s ease-out;
 }
