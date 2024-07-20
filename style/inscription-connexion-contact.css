@@ -161,6 +161,10 @@ input[type="submit"] {
   width: 100%;
 }
 
+select:hover {
+  cursor: pointer;
+}
+
 /* 
   * Changement de couleur de fond du bouton lors du survol, 
   * pour un effet visuel interactif.

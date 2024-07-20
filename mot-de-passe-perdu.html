@@ -46,24 +46,17 @@
         </nav>
     </header>
 
-    <!-- Section du formulaire d'avis -->
+    <!-- Section du formulaire mot de passe perdu -->
     <div class="container-2">
-        <form action="../mot-de-passe-perdu.php" method="post">
-            <h2> Réinitialisation du mot de passe </h2>
+        <form action="../password_requests.php" method="POST">
+            <h2> Mot de passe oublié </h2>
 
             <!-- Champ pour entrer l'email -->
-            <label for="password"> Votre mot de passe <span class="star">*</span> </label>
-            <input type="password" id="mot_de_passe" name="mot_de_passe" placeholder="Créer votre nouveau mot de passe"
-                required />
-            <br /><br />
-
-            <!-- Champ pour entrer le mot de passe -->
-            <label for="password"> Confirmation du mot de passe <span class="star">*</span> </label>
-            <input type="password" id="confirmation_mot_de_passe" name="confirmation_mot_de_passe"
-                placeholder="Confirmer votre nouveau mot de passe" required />
+            <label for="email"> E-mail <span class="star">*</span> </label>
+            <input type="email" id="email" name="email" placeholder="votre.email@exemple.com" required />
 
             <!-- Input Réinitialisation du mot de passe -->
-            <input type="submit" name="reinitialisation" value="Réinitialiser votre mot de passe" />
+            <input type="submit" name="reinitialisation" value="Mot de passe oublié" />
 
         </form>
     </div>
