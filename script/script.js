@@ -1,26 +1,3 @@
-// Ce script s'exécute également une fois que le DOM est entièrement chargé et prêt
-document.addEventListener("DOMContentLoaded", function () {
-  // Sélectionne tous les éléments avec la classe "bropbtn"
-  const menuItems = document.querySelectorAll(".bropbtn");
-
-  // Itère sur chaque élément du menu
-  menuItems.forEach(function (menuItem) {
-    // Ajoute un écouteur d'événement pour le clic sur chaque élément du menu
-    menuItems.addEventListener("click", function () {
-      // Sélectionne le bouton de menu à l'intérieur de l'élément cliqué
-      const dropbtn = menuItem.querySelector(".dropbtn");
-      // Vérifie si le bouton de menu est affiché ou non
-      if (dropbtn.style.display === "block") {
-        // Si le bouton est affiché, le cache
-        dropbtn.style.display = "none";
-      } else {
-        // Sinon, l'affiche
-        dropbtn.style.display = "block";
-      }
-    });
-  });
-});
-
 // Fonction pour vérifier si l'utilisateur est connecté
 function checkLoginStatus() {
   // Récupère l'état de connexion depuis le localStorage
@@ -68,35 +45,4 @@ document.addEventListener("DOMContentLoaded", function () {
   // Ajoute des écouteurs d'événement pour les liens de connexion et de déconnexion
   document.querySelector(".lien-connect").addEventListener("click", login);
   document.querySelector(".lien-deconnect").addEventListener("click", logout);
-});
-
-// Ce script s'exécute également une fois que le DOM est entièrement chargé et prêt
-document.addEventListener("DOMContentLoaded", () => {
-  // Sélectionne les éléments avec des classes spécifiques pour les afficher
-  const presentation = document.querySelector(".presentation");
-  const photoBody = document.querySelector(".photo-body");
-  const photoBody1 = document.querySelector(".photo-body-1");
-  const photoBody2 = document.querySelector(".photo-body-2");
-  const photoBody3 = document.querySelector(".photo-body-3");
-  const photoBody4 = document.querySelector(".photo-body-4");
-
-  // Vérifie et ajoute la classe "show" si les éléments existent
-  if (presentation) {
-    presentation.classList.add("show");
-  }
-  if (photoBody) {
-    photoBody.classList.add("show");
-  }
-  if (photoBody1) {
-    photoBody1.classList.add("show");
-  }
-  if (photoBody2) {
-    photoBody2.classList.add("show");
-  }
-  if (photoBody3) {
-    photoBody3.classList.add("show");
-  }
-  if (photoBody4) {
-    photoBody4.classList.add("show");
-  }
 });

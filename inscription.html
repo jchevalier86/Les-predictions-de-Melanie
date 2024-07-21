@@ -35,12 +35,13 @@
     <!-- Navigation pour la page d'inscription avec un lien de retour à l'accueil -->
 
     <nav class="lien-page-inscription">
-      <div class="lien-arrow">
-        <img class="back-arrow" src="./images/flèche-gauche.png" alt="Retour à la page d'accueil"
-          onclick="window.location.href='accueil.html'" />
-        <span class="arrow"> Accueil </span>
-      </div>
 
+      <!-- Logo maison accueil -->
+      <div class="lien-home">
+        <img class="back-home" src="./images/maison-accueil.png" alt="Retour à la page d'accueil"
+          onclick="window.location.href='accueil.html'" />
+        <span class="home"> Accueil </span>
+      </div>
 
       <h1 class="title">Les prédictions de Mélanie</h1>
     </nav>
@@ -49,7 +50,7 @@
   <!-- Conteneur principal pour le formulaire d'inscription -->
   <div class="container">
     <!-- Formulaire d'inscription, les données sont envoyées à "inscription.php" en utilisant la méthode POST -->
-    <form onsubmit="return validate()" action="../inscription.php" method="post">
+    <form onsubmit="return validate()" action="./inscription.php" method="post">
       <h2>Inscription</h2>
 
       <!-- Champ de saisie pour le nom -->

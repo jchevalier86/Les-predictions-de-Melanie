@@ -34,12 +34,15 @@
 
     <!-- Navigation principale -->
     <nav class="lien-page-header">
+
       <!-- Ajout du bouton hamburger -->
-      <div class="hamburger" onclick="toggleMenu()">☰</div>
-      <div class="navbar">
+      <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+
+      <div class="navbar" id="navbar">
+
         <!-- Menu déroulant pour Accueil -->
         <div class="dropdown">
-          <button class="dropbtn" id="dropbtn" onclick="dropbtn()">
+          <button class="dropbtn">
             Accueil
             <i class="fa fa-caret-down"> </i>
           </button>
@@ -51,7 +54,7 @@
 
         <!-- Menu déroulant pour Voyance -->
         <div class="dropdown">
-          <button class="dropbtn" id="dropbtn" onclick="dropbtn()">
+          <button class="dropbtn">
             Voyance
             <i class="fa fa-caret-down"> </i>
           </button>
@@ -63,7 +66,7 @@
 
         <!-- Menu déroulant pour Cartomancie -->
         <div class="dropdown">
-          <button class="dropbtn" id="dropbtn" onclick="dropbtn()">
+          <button class="dropbtn">
             Cartomancie
             <i class="fa fa-caret-down"> </i>
           </button>
@@ -75,7 +78,7 @@
 
         <!-- Menu déroulant pour Ressenti photo -->
         <div class="dropdown">
-          <button class="dropbtn" id="dropbtn" onclick="dropbtn()">
+          <button class="dropbtn">
             Ressenti photo
             <i class="fa fa-caret-down"> </i>
           </button>

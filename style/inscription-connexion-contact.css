@@ -45,16 +45,6 @@ body {
 }
 
 /* 
-  * Curseur en forme de pointeur pour l'image de la flèche de retour, 
-  * indiquant qu'elle est cliquable.
-*/
-
-.back-arrow,
-.accueil button {
-  cursor: pointer;
-}
-
-/* 
   * Style du titre dans l'en-tête, 
   * couleur blanche et police différente pour se démarquer.
 */

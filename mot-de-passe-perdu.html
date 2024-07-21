@@ -23,7 +23,8 @@
     <title> Mot de passe oublié </title>
 
     <!-- Meta description de la page (max 160 caractères) -->
-    <meta name="description" content="" />
+    <meta name="description"
+        content="Vous avez oublié votre mot de passe ? Pas de problème ! Réinitialisez votre mot de passe en quelques étapes simples en utilisant notre formulaire sécurisé. Recevez un lien de réinitialisation directement dans votre boîte de réception." />
 </head>
 
 <body>
@@ -34,11 +35,12 @@
 
         <!-- Navigation pour retourner à la page d'accueil -->
         <nav class="lien-page-inscription">
-            <!-- Image de la flèche de retour -->
-            <div class="lien-arrow">
-                <img class="back-arrow" src="./images/flèche-gauche.png" alt="Retour à la page d'accueil"
+
+            <!-- Logo maison accueil -->
+            <div class="lien-home">
+                <img class="back-home" src="./images/maison-accueil.png" alt="Retour à la page d'accueil"
                     onclick="window.location.href='accueil.html'" />
-                <span class="arrow"> Accueil </span>
+                <span class="home"> Accueil </span>
             </div>
 
             <!-- Titre de la page -->
@@ -48,7 +50,7 @@
 
     <!-- Section du formulaire mot de passe perdu -->
     <div class="container-2">
-        <form action="../password_requests.php" method="POST">
+        <form action="./password_requests.php" method="POST">
             <h2> Mot de passe oublié </h2>
 
             <!-- Champ pour entrer l'email -->
@@ -133,6 +135,7 @@
     </footer>
 
     <script src="./script/script.js"></script>
+    <script src="./script/inscription.js"></script>
 </body>
 
 </html>

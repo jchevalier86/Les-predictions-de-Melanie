@@ -8,6 +8,8 @@
 *::before,
 *::after {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 /* 
@@ -19,23 +21,29 @@
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
 }
 
-/* 
-  * Cacher le menu hamburger par défaut 
-*/
-
-/* .hamburger {
-  display: none;
-} */
-
-/* Styles pour les appareils mobiles */
+/* Petites tablettes et grands téléphones */
 @media (max-width: 768px) {
+  body {
+    font-size: 15px;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
   .lien-page-header {
     flex-direction: column;
   }
 
-  .contact-avis-blog {
+  .tarif-contact-avis-blog {
     order: 1;
   }
 
@@ -67,7 +75,7 @@ body {
   .liste-domaines span,
   ul {
     text-align: justify;
-    font-size: 14px;
+    width: 100%;
   }
 
   /* Placement de la photo en bas du texte */
@@ -84,16 +92,119 @@ body {
 
   .liste-domaines {
     order: 2;
+    margin-left: 80px;
   }
 
   .photo {
     text-align: center;
-    margin-top: 20px; /* Espace au-dessus de la photo */
+    margin: 100px 20px 0 0; /* Espace au-dessus de la photo */
+    width: 100%;
+  }
+
+  .photo img {
+    width: 70%; /* Ajustez la taille de l'image si nécessaire */
+    height: 70%;
+  }
+
+  .copyright-info {
+    padding-top: 150px;
+  }
+}
+
+/* Téléphones portables */
+@media (max-width: 360px) {
+  body {
+    font-size: 12px;
+    margin: 0;
+    padding: 10px;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .lien-page-header {
+    flex-direction: column;
+  }
+
+  .tarif-contact-avis-blog {
+    order: 1;
+  }
+
+  .navbar {
+    order: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .navbar .dropdown {
+    width: 100%;
+  }
+
+  .navbar .dropdown-content {
+    position: static;
+    width: 100%;
+  }
+
+  .navbar .dropdown-content a {
+    text-align: center;
+  }
+
+  /* Ajout pour centrer */
+  h1,
+  h2,
+  .presentation-text-content p,
+  .liste-domaines span,
+  ul {
+    text-align: justify;
+  }
+
+  .presentation-text-content {
+    flex: 1;
+    padding: 10px;
+    white-space: normal;
+    overflow-wrap: break-word; /* Empêche les débordements */
+    word-break: break-word; /* Empêche les débordements */
+    overflow-x: hidden; /* Empêche le débordement horizontal */
+  }
+
+  /* Placement de la photo en bas du texte */
+  .section-presentation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .presentation {
+    order: 1;
+  }
+
+  .liste-domaines {
+    order: 2;
+    margin-left: 0;
+  }
+
+  .photo {
+    order: 3;
+    text-align: center;
+    margin: 20px 0 0 0; /* Espace au-dessus de la photo */
     width: 100%;
   }
 
   .photo img {
     width: 80%; /* Ajustez la taille de l'image si nécessaire */
+    height: auto;
+  }
+
+  .nav-links-2 {
+    margin-right: 0px;
+  }
+
+  .copyright-info {
+    padding-top: 50px;
   }
 }
 
@@ -144,6 +255,10 @@ header {
   cursor: pointer;
   padding: 14px 16px;
   color: white;
+}
+
+.lien-home {
+  cursor: pointer;
 }
 
 /* 
@@ -203,6 +318,7 @@ header {
   background-color: inherit;
   font-family: inherit;
   margin: 0;
+  cursor: pointer;
 }
 
 /* 
@@ -407,7 +523,7 @@ h2 {
 footer {
   background: linear-gradient(90deg, rgb(15, 0, 146), rgb(176, 0, 176));
   width: 100%;
-  height: 340px;
+  height: 330px;
   max-width: 100%;
 }
 
@@ -447,7 +563,7 @@ footer {
 .social-link,
 .lien-connect,
 .lien-deconnect,
-.lien-arrow,
+.lien-home,
 .circle-1-pink,
 .circle-2-blue {
   position: relative;
@@ -471,7 +587,7 @@ footer {
 .insta-paypal-mail,
 .connect,
 .deconnect,
-.arrow,
+.home,
 .circle-pink,
 .circle-blue {
   visibility: hidden;
@@ -498,7 +614,7 @@ footer {
 .social-link:hover .insta-paypal-mail,
 .lien-connect:hover .connect,
 .lien-deconnect:hover .deconnect,
-.lien-arrow:hover .arrow,
+.lien-home:hover .home,
 .circle-1-pink:hover .circle-pink,
 .circle-2-blue:hover .circle-blue {
   visibility: visible;
