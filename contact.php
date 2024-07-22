@@ -10,6 +10,11 @@
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\Exception;
 
+    // Générer un token CSRF s'il n'existe pas
+    if (empty($_SESSION['csrf_token'])) {
+        $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+    }
+
     // Créer une instance de PHPMailer
     $mail = new PHPMailer(true);
 
@@ -30,17 +35,13 @@
     }
 
     // Vérification que l'utilisateur est connecté
-    if (!isset($_SESSION['utilisateur_id'])) {
-        echo '<script>
-        alert("Vous devez être connecté pour envoyer un message.")
-        window.location.href = "formulaire-connexion.php";</script>';
-        exit();
-    }
-
-    // Récupération des données pré-remplies depuis la session
-    $nom = isset($_SESSION['utilisateur_nom']) ? htmlspecialchars($_SESSION['utilisateur_nom']) : '';
-    $prenom = isset($_SESSION['utilisateur_prenom']) ? htmlspecialchars($_SESSION['utilisateur_prenom']) : '';
-    $message_envoi = isset($_SESSION['form_data']['message_envoi']) ? htmlspecialchars($_SESSION['form_data']['message_envoi']) : '';
+    // if (!isset($_SESSION['utilisateur_id'])) {
+    //     echo '<script>
+    //     alert("Vous devez être connecté pour envoyer un message.");
+    //     window.location.href = "formulaire-connexion.php";
+    //     </script>';
+    //     exit();
+    // }
 
     // Vérification que tous les champs de formulaire nécessaires sont définis
     if (isset($_POST['sujet'], $_POST['domaine'], $_POST['date_envoi'], $_POST['paiement'], $_POST['message_envoi'], $_POST['csrf_token'])) {
@@ -49,6 +50,14 @@
             echo "<div style='color:red;'>Token CSRF invalide.</div>";
             exit();
         }
+
+        // Affichage des valeurs pour le débogage
+        echo "Sujet: " . htmlspecialchars($_POST['sujet']) . "<br>";
+        echo "Domaine: " . htmlspecialchars($_POST['domaine']) . "<br>";
+        echo "Date d'envoi: " . htmlspecialchars($_POST['date_envoi']) . "<br>";
+        echo "Paiement: " . htmlspecialchars($_POST['paiement']) . "<br>";
+        echo "Message: " . htmlspecialchars($_POST['message_envoi']) . "<br>";
+        echo "CSRF Token: " . htmlspecialchars($_POST['csrf_token']) . "<br>";
 
         // Assainir les entrées utilisateur
         $contact_sujet = htmlspecialchars($_POST['sujet']);
@@ -62,24 +71,15 @@
         $valid_domaines = ["avenir", "tirage_general", "grossesse", "demenagement", "amour", "travail", "permis", "argent", "general", "autres"];
         $valid_paiements = ["paypal", "virement"];
 
-        // $_SESSION['form_data'] = [
-        //     'nom' => $contact_nom,
-        //     'prenom' => $contact_prenom,
-        //     'message_envoi' => $contact_message_envoi,
-        // ];
-
         $errorMessages = [];
         if (!in_array($contact_sujet, $valid_sujets)) {
             $errorMessages['sujet'] = "* Sujet non choisi.";
-            exit();
         }
         if (!in_array($contact_domaine, $valid_domaines)) {
             $errorMessages['domaine'] = "* Domaine non choisi.";
-            exit();
         }
         if (!in_array($contact_paiement, $valid_paiements)) {
             $errorMessages['paiement'] = "* Type de paiement non choisi.";
-            exit();
         }
 
         if (!empty($errorMessages)) {
@@ -89,7 +89,7 @@
         }
 
         // Préparation de la requête SQL d'insertion
-        $sql = "INSERT INTO contact (nom, prenom, sujet, domaine, date_envoi, paiement, message_envoi) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO contact (utilisateur_id, sujet, domaine, date_envoi, paiement, message_envoi) VALUES (?, ?, ?, ?, ?, ?)";
         $stmt = $conn->prepare($sql);
 
         if ($stmt) {
@@ -115,21 +115,21 @@
 
                     // Contenu de l'email
                     $mail->isHTML(true);
-                    $mail->Subject = "Nouveau message de ' $utilisateur_id";
+                    $mail->Subject = "Nouveau message de " . htmlspecialchars($utilisateur_id);
                     $mail->Body    = "Vous avez reçu un nouveau message de contact.<br><br>
-                                    <strong>Nom:</strong> $utilisateur_id<br>
-                                    <strong>Sujet:</strong> $contact_sujet<br>
-                                    <strong>Domaine:</strong> $contact_domaine<br>
-                                    <strong>Date d'envoi:</strong> $contact_date_envoi<br>
-                                    <strong>Type de paiement:</strong> $contact_paiement<br>
-                                    <strong>Message:</strong><br>$contact_message_envoi";
+                                    <strong>Nom:</strong> " . htmlspecialchars($utilisateur_id) . "<br>
+                                    <strong>Sujet:</strong> " . htmlspecialchars($contact_sujet) . "<br>
+                                    <strong>Domaine:</strong> " . htmlspecialchars($contact_domaine) . "<br>
+                                    <strong>Date d'envoi:</strong> " . htmlspecialchars($contact_date_envoi) . "<br>
+                                    <strong>Type de paiement:</strong> " . htmlspecialchars($contact_paiement) . "<br>
+                                    <strong>Message:</strong><br>" . nl2br(htmlspecialchars($contact_message_envoi));
                     $mail->AltBody = "Vous avez reçu un nouveau message de contact.\n\n
-                                    Nom: $utilisateur_id\n
-                                    Sujet: $contact_sujet\n
-                                    Domaine: $contact_domaine\n
-                                    Date d'envoi: $contact_date_envoi\n
-                                    Type de paiement: $contact_paiement\n
-                                    Message:\n$contact_message_envoi";
+                                    Nom: " . htmlspecialchars($utilisateur_id) . "\n
+                                    Sujet: " . htmlspecialchars($contact_sujet) . "\n
+                                    Domaine: " . htmlspecialchars($contact_domaine) . "\n
+                                    Date d'envoi: " . htmlspecialchars($contact_date_envoi) . "\n
+                                    Type de paiement: " . htmlspecialchars($contact_paiement) . "\n
+                                    Message:\n" . htmlspecialchars($contact_message_envoi);
 
                     $mail->send();
                     echo '<script>
@@ -148,7 +148,10 @@
             echo "<div style='color:red;'>Erreur de préparation de la requête : " . htmlspecialchars($conn->error) . "</div>";
         }
     } else {
-        echo '<script>alert("Tous les champs ne sont pas remplis.");</script>';
+        echo '<script>
+            alert("Tous les champs ne sont pas remplis.");
+            window.location.href = "formulaire-contact.php";
+            </script>';
     }
 
     $conn->close();
