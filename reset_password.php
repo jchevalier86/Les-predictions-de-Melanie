@@ -1,3 +1,65 @@
+<?php
+    require 'index.php'; // Inclure le fichier de connexion
+
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $token = $_POST['token'];
+        $newPassword = $_POST['mot_de_passe'];
+        $confirmation_mot_de_passe = $_POST['confirmation_mot_de_passe'];
+
+        if ($newPassword !== $confirmation_mot_de_passe) {
+            $_SESSION['errorMessages']['mot_de_passe'] = "* Les mots de passe ne correspondent pas.";
+            header("Location: reset_password.php?token=$token");
+            exit();
+        }
+
+        $newPassword = password_hash($_POST['mot_de_passe'], PASSWORD_BCRYPT);
+
+        $conn = openConnection(); // Ouvrir la connexion
+
+        // Rechercher le jeton dans la base de données
+        $stmt = $conn->prepare("SELECT utilisateur_id FROM password_resets WHERE token = ?");
+        if ($stmt) {
+            $stmt->bind_param("s", $token);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            $resetRequest = $result->fetch_assoc();
+
+            if ($resetRequest) {
+                // Mettre à jour le mot de passe de l'utilisateur
+                $stmt = $conn->prepare("UPDATE utilisateurs SET mot_de_passe = ? WHERE id = ?");
+                if ($stmt) {
+                    $stmt->bind_param("si", $newPassword, $resetRequest['utilisateur_id']);
+                    $stmt->execute();
+
+                    // Supprimer le jeton après utilisation
+                    $stmt = $conn->prepare("DELETE FROM password_resets WHERE token = ?");
+                    if ($stmt) {
+                        $stmt->bind_param("s", $token);
+                        $stmt->execute();
+                        echo '<script>
+                        alert("Votre mot de passe a été réinitialisé avec succès ! Vous allez être redirigé vers la page connexion.");
+                        window.location.href = "formulaire-connexion.php";
+                        </script>';
+                        exit();
+                    } else {
+                        echo "Erreur de préparation de la requête : " . $conn->error;
+                    }
+                } else {
+                    echo "Erreur de préparation de la requête : " . $conn->error;
+                }
+            } else {
+                echo '<script>alert("Jeton de réinitialisation invalide.");</script>';
+            }
+            $stmt->close();
+        } else {
+            echo "Erreur de préparation de la requête : " . $conn->error;
+        }
+
+        closeConnection($conn); // Fermer la connexion
+    } elseif (isset($_GET['token'])) {
+        $token = $_GET['token'];
+        // Afficher le formulaire de réinitialisation
+?>
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -47,60 +109,9 @@
         </nav>
     </header>
 
-<?php
-    require 'index.php'; // Inclure le fichier de connexion
-
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        $token = $_POST['token'];
-        $newPassword = password_hash($_POST['mot_de_passe'], PASSWORD_BCRYPT);
-
-        $conn = openConnection(); // Ouvrir la connexion
-
-        // Rechercher le jeton dans la base de données
-        $stmt = $conn->prepare("SELECT utilisateur_id FROM password_resets WHERE token = ?");
-        if ($stmt) {
-            $stmt->bind_param("s", $token);
-            $stmt->execute();
-            $result = $stmt->get_result();
-            $resetRequest = $result->fetch_assoc();
-
-            if ($resetRequest) {
-                // Mettre à jour le mot de passe de l'utilisateur
-                $stmt = $conn->prepare("UPDATE utilisateurs SET mot_de_passe = ? WHERE id = ?");
-                if ($stmt) {
-                    $stmt->bind_param("si", $newPassword, $resetRequest['utilisateur_id']);
-                    $stmt->execute();
-
-                    // Supprimer le jeton après utilisation
-                    $stmt = $conn->prepare("DELETE FROM password_resets WHERE token = ?");
-                    if ($stmt) {
-                        $stmt->bind_param("s", $token);
-                        $stmt->execute();
-                        echo "<div style='color:blue;'>Votre mot de passe a été réinitialisé avec succès.</div>";
-                        echo "<script>setTimeout(function() { window.location.href = './connexion.html'; }, 3000);</script>";
-                        exit();
-                    } else {
-                        echo "Erreur de préparation de la requête : " . $conn->error;
-                    }
-                } else {
-                    echo "Erreur de préparation de la requête : " . $conn->error;
-                }
-            } else {
-                echo "<div style='color:red;'>Jeton de réinitialisation invalide.</div>";
-            }
-            $stmt->close();
-        } else {
-            echo "Erreur de préparation de la requête : " . $conn->error;
-        }
-
-        closeConnection($conn); // Fermer la connexion
-    } elseif (isset($_GET['token'])) {
-        $token = $_GET['token'];
-        // Afficher le formulaire de réinitialisation
-?>
-
     <!-- Section du formulaire réinitialisation du mot de passe -->
     <div class="container-2">
+
         <form action="reset_password.php" method="POST">
             <h2>Réinitialiser le mot de passe</h2>
             
@@ -109,6 +120,10 @@
             <!-- Champ pour entrer le nouveau mot de passe -->
             <label for="password"> Nouveau mot de passe <span class="star">*</span> </label>
             <input type="password" id="mot_de_passe" name="mot_de_passe" placeholder="Créer votre nouveau mot de passe" required>
+            <?php if (isset($_SESSION['errorMessages']['mot_de_passe'])): ?>
+            <span style="color: red; font-size: 14px;"> <?php echo $_SESSION['errorMessages']['mot_de_passe']; ?> </span>
+            <?php endif; ?>
+            <br /><br />
             
             <!-- Champ de confirmation du mot de passe -->
             <label for="password"> Confirmation du mot de passe <span class="star">*</span> </label>
@@ -154,8 +169,8 @@
         <div class="nav-links-2">
             <ul>
                 <li><a href="accueil.html"> Accueil </a></li>
-                <li><a href="inscription.html"> Inscription </a></li>
-                <li><a href="connexion.html"> Connexion </a></li>
+                <li><a href="formulaire-inscription.php"> Inscription </a></li>
+                <li><a href="formulaire-connexion.php"> Connexion </a></li>
             </ul>
 
             <ul>
@@ -191,6 +206,6 @@
 
 <?php
 } else {
-    echo "<div style='color:red;'>Aucun jeton fourni.</div>";
+    echo '<script>alert("Aucun jeton fourni.");</script>';
 }
 ?>

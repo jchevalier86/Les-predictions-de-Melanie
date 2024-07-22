@@ -13,8 +13,17 @@
 
     // Vérification de la connexion à la base de données
     if ($conn->connect_error) {
-        // Affichage d'un message d'erreur en cas d'échec de connexion
         die("La connexion a échoué : " . $conn->connect_error);
+    }
+
+    // Fonction pour valider l'email
+    function validateEmail($email) {
+        return filter_var($email, FILTER_VALIDATE_EMAIL) !== false;
+    }
+
+    // Fonction pour valider le mot de passe (exemple simple)
+    function validatePassword($password) {
+        return !empty($password); // Vérifie si le mot de passe n'est pas vide
     }
 
     // Vérification que les champs de formulaire sont définis
@@ -23,54 +32,72 @@
         $email = $_POST['email'];
         $mot_de_passe = $_POST['mot_de_passe'];
 
-        // Debugging
-        // var_dump($email, $mot_de_passe);
+        // Stocker les données du formulaire dans la session pour réutilisation en cas d'erreur
+        $_SESSION['form_data'] = [
+            'email' => $email
+        ];
 
-        // Préparation de la requête SQL de sélection
-        $sql = "SELECT * FROM utilisateurs WHERE email = ?";
-        $stmt = $conn->prepare($sql);
-        if ($stmt) {
-            // Liaison des paramètres de la requête préparée aux variables
-            $stmt->bind_param("s", $_POST['email']);
-            $stmt->execute();
-            $result = $stmt->get_result();
+        $errorMessages = [];
+        if (!validateEmail($email)) {
+            $errorMessages['email'] = "* Adresse email invalide.";
+        }
+        if (!validatePassword($mot_de_passe)) {
+            $errorMessages['mot_de_passe'] = "* Mot de passe invalide.";
+        }
 
-            if ($result->num_rows === 1) {
-                // Récupération des données utilisateur
-                $utilisateurs = $result->fetch_assoc();
+        if (empty($errorMessages)) {
+            // Préparation de la requête SQL de sélection
+            $sql = "SELECT * FROM utilisateurs WHERE email = ?";
+            $stmt = $conn->prepare($sql);
+            if ($stmt) {
+                // Liaison des paramètres de la requête préparée aux variables
+                $stmt->bind_param("s", $email);
+                $stmt->execute();
+                $result = $stmt->get_result();
 
-                // Debugging
-                // var_dump($utilisateurs);
+                if ($result->num_rows === 1) {
+                    // Récupération des données utilisateur
+                    $utilisateur = $result->fetch_assoc();
 
-                // Vérification du mot de passe
-                if (password_verify($mot_de_passe, $utilisateurs["mot_de_passe"])) {
-                    // Stockage des informations utilisateur dans la session
-                    $_SESSION['utilisateurs_id'] = $utilisateurs['id'];
-                    $_SESSION['utilisateurs_name'] = $utilisateurs['prenom'] . " " . $utilisateurs['nom'];
+                    // Vérification du mot de passe
+                    if (password_verify($mot_de_passe, $utilisateur["mot_de_passe"])) {
+                        // Stockage des informations utilisateur dans la session
+                        $_SESSION['utilisateurs_id'] = $utilisateur['id'];
+                        $_SESSION['utilisateurs_name'] = $utilisateur['prenom'] . " " . $utilisateur['nom'];
 
-                    echo "<div style='color:blue;'>Connexion réussie ! Bienvenue " . $utilisateurs['prenom'] . " " . $utilisateurs['nom'] . " !</div>";
-                    echo "<script>setTimeout(function() { window.location.href = './accueil.html'; }, 3000);</script>";
-                    exit();
-
+                        // Redirection avec un message de succès
+                        // $_SESSION['successMessage'] = "Connexion réussie ! Bienvenue " . $utilisateur['prenom'] . " " . $utilisateur['nom'] . " !";
+                        echo '<script>
+                        alert("Connexion réussie ! Vous allez être redirigé vers la page accueil.");
+                        window.location.href = "accueil.html";
+                        </script>';
+                        exit();
+                    } else {
+                        $_SESSION['errorMessages']['mot_de_passe'] = "* Mot de passe incorrect.";
+                        header("Location: formulaire-connexion.php");
+                        exit();
+                    }
                 } else {
-                    // Redirection vers la page connexion après une vérification du mot de passe incorrect avec un délai de 3 secondes
-                    echo "<div style='color:red;'>Mot de passe incorrect.</div>";
-                    echo "<script>setTimeout(function() { window.location.href = './connexion.html'; }, 3000);</script>";
+                    $_SESSION['errorMessages']['email'] = "* Aucun utilisateur trouvé avec cet e-mail.";
+                    header("Location: formulaire-connexion.php");
+                    exit();
                 }
+                $stmt->close();
             } else {
-                // Redirection vers la page connexion après une vérification de l'adresse mail incorrect avec un délai de 3 secondes
-                echo "<div style='color:red;'>Aucun utilisateur trouvé avec cet e-mail.</div>";
-                echo "<script>setTimeout(function() { window.location.href = './connexion.html'; }, 3000);</script>";
+                $_SESSION['errorMessages']['database'] = "Erreur de préparation de la requête : " . $conn->error;
+                header("Location: formulaire-connexion.php");
+                exit();
             }
-            $stmt->close();
         } else {
-            echo "Erreur de préparation de la requête : " . $conn->error;
+            // Envoi des messages d'erreur à la session
+            $_SESSION['errorMessages'] = $errorMessages;
+            header("Location: formulaire-connexion.php");
+            exit();
         }
     } else {
-        echo "Veuillez remplir tous les champs.";
-        
-        // Debugging
-        // var_dump($_POST);
+        $_SESSION['errorMessages']['form'] = "Veuillez remplir tous les champs.";
+        header("Location: formulaire-connexion.php");
+        exit();
     }
 
     // Fermeture de la connexion à la base de données

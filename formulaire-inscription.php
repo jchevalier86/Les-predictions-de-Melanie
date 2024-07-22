@@ -43,58 +43,63 @@
         <span class="home"> Accueil </span>
       </div>
 
-      <h1 class="title">Les prédictions de Mélanie</h1>
+      <h1 class="title"> Les prédictions de Mélanie </h1>
     </nav>
   </header>
 
   <!-- Conteneur principal pour le formulaire d'inscription -->
   <div class="container">
+    <?php
+      session_start();
+    ?>
     <!-- Formulaire d'inscription, les données sont envoyées à "inscription.php" en utilisant la méthode POST -->
-    <form onsubmit="return validate()" action="./inscription.php" method="post">
+    <form action="./inscription.php" method="POST">
       <h2>Inscription</h2>
 
       <!-- Champ de saisie pour le nom -->
       <label for="nom"> Nom <span class="star">*</span> </label>
-      <input type="text" id="nom" name="nom" placeholder="Votre nom" required />
+      <input type="text" id="nom" name="nom" placeholder="Votre nom" value="<?php echo isset($_SESSION['form_data']['nom']) ? htmlspecialchars($_SESSION['form_data']['nom']) : ''; ?>" required />
       <br /><br />
 
       <!-- Champ de saisie pour le prénom -->
       <label for="prenom"> Prénom <span class="star">*</span> </label>
-      <input type="text" id="prenom" name="prenom" placeholder="Votre prénom" required />
+      <input type="text" id="prenom" name="prenom" placeholder="Votre prénom" value="<?php echo isset($_SESSION['form_data']['prenom']) ? htmlspecialchars($_SESSION['form_data']['prenom']) : ''; ?>" required />
       <br /><br />
 
       <!-- Champ de saisie pour la date de naissance -->
-      <label for="date_naissance">
-        Date de naissance <span class="star">*</span>
-      </label>
-      <input type="date" id="date_naissance" name="date_naissance" required />
-      <span id="errorAge" style="color: red;"></span>
+      <label for="date_naissance"> Date de naissance <span class="star">*</span> </label>
+      <input type="date" id="date_naissance" name="date_naissance" value="<?php echo isset($_SESSION['form_data']['date_naissance']) ? htmlspecialchars($_SESSION['form_data']['date_naissance']) : ''; ?>" required />
+      <?php if (isset($_SESSION['errorMessages']['age'])): ?>
+      <span style="color: red; font-size: 14px;"> <?php echo $_SESSION['errorMessages']['age']; ?> </span>
+      <?php endif; ?>
       <br /><br />
 
       <!-- Champ de saisie pour l'email -->
       <label for="email"> E-mail <span class="star">*</span> </label>
-      <input type="email" id="email" name="email" placeholder="votre.email@exemple.com" required />
-      <span id="errorEmail" style="color: red;"></span>
+      <input type="email" id="email" name="email" placeholder="votre.email@exemple.com" value="<?php echo isset($_SESSION['form_data']['email']) ? htmlspecialchars($_SESSION['form_data']['email']) : ''; ?>" required />
+      <?php if (isset($_SESSION['errorMessages']['email'])): ?>
+      <span style="color: red; font-size: 14px;"> <?php echo $_SESSION['errorMessages']['email']; ?> </span>
+      <?php endif; ?>
       <br /><br />
 
       <!-- Champ de saisie pour le numéro de téléphone -->
       <label for="phone"> Tel </label>
-      <input type="tel" id="phone" name="phone" placeholder="+33" />
-      <span id="errorPhone" style="color: red;"></span>
+      <input type="tel" id="phone" name="phone" placeholder="+33" value="<?php echo isset($_SESSION['form_data']['phone']) ? htmlspecialchars($_SESSION['form_data']['phone']) : ''; ?>" />
+      <?php if (isset($_SESSION['errorMessages']['phone'])): ?>
+      <span style="color: red; font-size: 14px;"> <?php echo $_SESSION['errorMessages']['phone']; ?> </span>
+      <?php endif; ?>
       <br /><br />
 
       <!-- Champ de saisie pour le mot de passe -->
-      <label for="password">
-        Votre mot de passe <span class="star">*</span>
-      </label>
+      <label for="password"> Votre mot de passe <span class="star">*</span> </label>
       <input type="password" id="mot_de_passe" name="mot_de_passe" placeholder="Créer votre mot de passe" required />
-      <span id="errorPassword" style="color: red;"></span>
+      <?php if (isset($_SESSION['errorMessages']['mot_de_passe'])): ?>
+      <span style="color: red; font-size: 14px;"> <?php echo $_SESSION['errorMessages']['mot_de_passe']; ?> </span>
+      <?php endif; ?>
       <br /><br />
 
       <!-- Champ de confirmation du mot de passe -->
-      <label for="password">
-        Confirmation du mot de passe <span class="star">*</span>
-      </label>
+      <label for="password"> Confirmation du mot de passe <span class="star">*</span> </label>
       <input type="password" id="confirmation_mot_de_passe" name="confirmation_mot_de_passe"
         placeholder="Veuillez entrer à nouveau votre mot de passe" required />
       <br /><br />
@@ -105,7 +110,7 @@
 
       <!-- Lien pour se connecter si l'utilisateur a déjà un compte -->
       Vous avez déjà un compte ?
-      <a href="connexion.html" class="connectez-vous"> Se connecter </a>
+      <a href="formulaire-connexion.php" class="connectez-vous"> Se connecter </a>
     </form>
   </div>
 
@@ -141,8 +146,8 @@
     <div class="nav-links-2">
       <ul>
         <li><a href="accueil.html"> Accueil </a></li>
-        <li><a href="inscription.html"> Inscription </a></li>
-        <li><a href="connexion.html"> Connexion </a></li>
+        <li><a href="formulaire-inscription.php"> Inscription </a></li>
+        <li><a href="formulaire-connexion.php"> Connexion </a></li>
       </ul>
 
       <ul>
@@ -180,7 +185,14 @@
     </div>
   </footer>
 
-  <script src="./script/inscription.js"></script>
+  <?php
+    if (isset($_SESSION['errorMessages'])) {
+        unset($_SESSION['errorMessages']);
+    }
+    if (isset($_SESSION['form_data'])) {
+      unset($_SESSION['form_data']);
+    }
+  ?>
 </body>
 
 </html>
