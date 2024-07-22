@@ -1,3 +1,10 @@
+<?php
+    session_start();
+
+    // Vérifier si l'utilisateur est connecté
+    $isConnected = isset($_SESSION['utilisateurs_id']);
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -50,9 +57,6 @@
 
     <!-- Section du formulaire d'avis -->
     <div class="container-2">
-        <?php
-        session_start();
-        ?>
 
         <form action="./connexion.php" method="POST">
             <h2>Connexion</h2>

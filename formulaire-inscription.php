@@ -1,3 +1,7 @@
+<?php
+  session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -49,9 +53,7 @@
 
   <!-- Conteneur principal pour le formulaire d'inscription -->
   <div class="container">
-    <?php
-      session_start();
-    ?>
+    
     <!-- Formulaire d'inscription, les données sont envoyées à "inscription.php" en utilisant la méthode POST -->
     <form action="./inscription.php" method="POST">
       <h2>Inscription</h2>
@@ -174,7 +176,7 @@
 
       <ul>
         <li><a href="avis.html"> Avis clients </a></li>
-        <li><a href="contact.html"> Contact </a></li>
+        <li><a href="formulaire-contact.php"> Contact </a></li>
         <li><a href="horoscope.html"> Horoscope </a></li>
       </ul>
     </div>

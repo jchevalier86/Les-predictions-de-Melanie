@@ -1,3 +1,10 @@
+<?php
+      session_start();
+
+      // Vérifier si l'utilisateur est connecté
+      $isConnected = isset($_SESSION['utilisateurs_id']);
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -97,7 +104,7 @@
       <!-- Liens directs pour Contact, Avis clients et Horoscope -->
       <div class="tarif-contact-avis-blog">
         <a href="tarif.html"> Tarif </a>
-        <a href="contact.html"> Contact </a>
+        <a href="formulaire-contact.php"> Contact </a>
         <a href="avis.html"> Avis clients </a>
         <a href="horoscope.html"> Horoscope </a>
       </div>
@@ -110,7 +117,7 @@
       </div>
       <div class="lien-deconnect">
         <img class="icone-connect" src="./images/deconnexion.png" alt="Aller à la page accueil"
-          onclick="window.location.href='accueil.html'" />
+          onclick="window.location.href='deconnexion.php'" />
         <span class="deconnect"> Déconnexion </span>
       </div>
     </nav>
@@ -118,50 +125,61 @@
 
   <!-- Section du formulaire d'avis -->
   <div class="container-2">
-    <form action="../contact.php" method="post">
+    <form action="./contact.php" method="post">
       <h2>Contact</h2>
 
       <!-- Champ pour entrer l'email -->
       <label for="nom"> Nom <span class="star">*</span> </label>
-      <input type="text" id="nom" name="nom" placeholder="Votre nom" required />
+      <input type="text" id="nom" name="nom" placeholder="Votre nom" value="<?php echo isset($_SESSION['form_data']['nom']) ? htmlspecialchars($_SESSION['form_data']['nom']) : ''; ?>" required />
 
       <label for="prenom"> Prénom <span class="star">*</span> </label>
-      <input type="text" id="prenom" name="prenom" placeholder="Votre prénom" required />
+      <input type="text" id="prenom" name="prenom" placeholder="Votre prénom" value="<?php echo isset($_SESSION['form_data']['prenom']) ? htmlspecialchars($_SESSION['form_data']['prenom']) : ''; ?>" required />
 
-      <label for="subject"> Sujet <span class="star">*</span> </label>
-      <select name="sujet" id="subject" required>
+      <label for="sujet"> Sujet <span class="star">*</span> </label>
+      <select name="sujet" id="sujet" required>
         <option value="selection"> Sélectionnez un sujet </option>
-        <option value="question" name="question"> Question </option>
-        <option value="draught" name="tirage"> Tirage </option>
-        <option value="felt" name="ressenti-photo"> Ressenti photo </option>
-        <option value="big-shot" name="personnalite"> Personnalité </option>
-        <option value="information" name="information"> Renseignement </option>
+        <option value="question" id="question"> Question </option>
+        <option value="draught" id="tirage"> Tirage </option>
+        <option value="felt" id="ressenti-photo"> Ressenti photo </option>
+        <option value="big-shot" id="personnalite"> Personnalité </option>
+        <option value="information" id="information"> Renseignement </option>
       </select>
+      <?php if (isset($_SESSION['errorMessages']['sujet'])): ?>
+      <span style="color: red; font-size: 14px;"> <?php echo $_SESSION['errorMessages']['sujet']; ?> </span>
+      <?php endif; ?>
 
-      <label for="domain"> Domaine <span class="star">*</span> </label>
-      <select name="domaine" id="domain" required>
+      <label for="domaine"> Domaine <span class="star">*</span> </label>
+      <select name="domaine" id="domaine" required>
         <option value="selection"> Sélectionnez un domaine </option>
-        <option value="love" name="amour"> Amour </option>
-        <option value="work" name="travail"> Travail </option>
-        <option value="pregnancy" name="grossesse"> Grossesse </option>
-        <option value="money" name="argent"> Argent </option>
-        <option value="move" name="demenagement"> Déménagement </option>
-        <option value="permit" name="permis"> Permis </option>
-        <option value="general" name="general"> Général </option>
-        <option value="other" name="autres"> Autres </option>
+        <option value="futur" id="avenir"> Avenir </option>
+        <option value="general_draw" name="tirage_general"> Tirage Général </option>
+        <option value="pregnancy" id="grossesse"> Grossesse </option>
+        <option value="move" id="demenagement"> Déménagement </option>
+        <option value="love" id="amour"> Amour </option>
+        <option value="work" id="travail"> Travail </option>
+        <option value="permit" id="permis"> Permis </option>
+        <option value="money" id="argent"> Argent </option>
+        <option value="general" id="general"> Général </option>
+        <option value="other" id="autres"> Autres </option>
       </select>
+      <?php if (isset($_SESSION['errorMessages']['domaine'])): ?>
+      <span style="color: red; font-size: 14px;"> <?php echo $_SESSION['errorMessages']['domaine']; ?> </span>
+      <?php endif; ?>
 
       <!-- <label for="date">
         Date d'envoi <span class="star">*</span>
       </label>
       <input type="date" id="date_envoi" name="date_envoi" placeholder="jj/mm/aaaa" required /> -->
 
-      <label for="payment"> Type de paiement <span class="star">*</span> </label>
-      <select name="paiement" id="payment" required>
+      <label for="paiment"> Type de paiement <span class="star">*</span> </label>
+      <select name="paiement" id="paiement" required>
         <option value="selection"> Sélectionnez un type de paiement </option>
         <option value="paypal" name="paypal"> Paypal </option>
         <option value="virement" name="virement"> Virement bancaire </option>
       </select>
+      <?php if (isset($_SESSION['errorMessages']['paiement'])): ?>
+      <span style="color: red; font-size: 14px;"> <?php echo $_SESSION['errorMessages']['paiement']; ?> </span>
+      <?php endif; ?>
 
       <label for="message"> Message <span class="star">*</span> </label>
       <textarea type="text" id="message_envoi" name="message_envoi" rows="5" cols="46"
@@ -236,7 +254,7 @@
 
       <ul>
         <li><a href="avis.html"> Avis clients </a></li>
-        <li><a href="contact.html"> Contact </a></li>
+        <li><a href="formulaire-contact.php"> Contact </a></li>
         <li><a href="horoscope.html"> Horoscope </a></li>
       </ul>
     </div>
@@ -263,6 +281,14 @@
       href="https://www.livechat.com/?welcome" rel="noopener nofollow" target="_blank"> LiveChat </a> </noscript>
   <!-- End of LiveChat code -->
 
+  <?php
+    if (isset($_SESSION['errorMessages'])) {
+        unset($_SESSION['errorMessages']);
+    }
+    if (isset($_SESSION['form_data'])) {
+      unset($_SESSION['form_data']);
+    }
+  ?>
 </body>
 
 </html>

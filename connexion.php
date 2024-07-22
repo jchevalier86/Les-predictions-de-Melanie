@@ -13,15 +13,16 @@
 
     // Vérification de la connexion à la base de données
     if ($conn->connect_error) {
-        die("La connexion a échoué : " . $conn->connect_error);
+        error_log("Erreur de connexion à la base de données : " . $conn->connect_error);
+        echo "<div style='color:red;'>Une erreur est survenue. Veuillez réessayer plus tard.</div>";
+        exit();
     }
-
     // Fonction pour valider l'email
     function validateEmail($email) {
         return filter_var($email, FILTER_VALIDATE_EMAIL) !== false;
     }
 
-    // Fonction pour valider le mot de passe (exemple simple)
+    // Fonction pour valider le mot de passe
     function validatePassword($password) {
         return !empty($password); // Vérifie si le mot de passe n'est pas vide
     }

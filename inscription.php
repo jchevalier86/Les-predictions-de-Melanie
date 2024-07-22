@@ -3,10 +3,10 @@
     session_start();
 
     // Définition des informations de connexion au serveur MySQL
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "lespredictionsdemelanie";
+    $servername = "localhost"; // Nom du serveur
+    $username = "root"; // Nom d'utilisateur MySQL
+    $password = ""; // Mot de passe MySQL
+    $dbname = "lespredictionsdemelanie"; // Nom de la base de données
 
     // Création d'une nouvelle connexion à la base de données MySQL
     $conn = new mysqli($servername, $username, $password, $dbname);

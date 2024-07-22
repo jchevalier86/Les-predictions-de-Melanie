@@ -1,3 +1,10 @@
+<?php
+    session_start();
+
+    // Vérifier si l'utilisateur est connecté
+    $isConnected = isset($_SESSION['utilisateurs_id']);
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -50,9 +57,6 @@
 
     <!-- Section du formulaire mot de passe perdu -->
     <div class="container-2">
-        <?php
-        session_start();
-        ?>
 
         <form action="./password_requests.php" method="POST">
             <h2> Mot de passe oublié </h2>
@@ -131,7 +135,7 @@
 
             <ul>
                 <li><a href="avis.html"> Avis clients </a></li>
-                <li><a href="contact.html"> Contact </a></li>
+                <li><a href="formulaire-contact.php"> Contact </a></li>
                 <li><a href="horoscope.html"> Horoscope </a></li>
             </ul>
         </div>

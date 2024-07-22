@@ -1,4 +1,8 @@
-s<?php
+<?php
+    // Démarrer la session au début du fichier
+    session_start();
+    
+    // Inclure le fichier de connexion et les librairies PHPMailer
     require './index.php'; // Inclure le fichier de connexion
     require './libs/PHPMailer/src/PHPMailer.php';
     require './libs/PHPMailer/src/SMTP.php';
@@ -12,13 +16,14 @@ s<?php
         return filter_var($email, FILTER_VALIDATE_EMAIL) !== false;
     }
 
+    // Fonction pour envoyer l'email de réinitialisation du mot de passe
     function sendPasswordResetEmail($email) {
         $conn = openConnection(); // Ouvrir la connexion
 
         if (!validateEmail($email)) {
-            $_SESSION['errorMessages']['email'] = "* Aucun utilisateur trouvé avec cet e-mail.";
+            $_SESSION['errorMessages']['email'] = "* Adresse email invalide.";
             closeConnection($conn);
-            header("Location: mot_de_passe_perdu.php");
+            header("Location: mot-de-passe-perdu.php");
             exit();
         }
 
@@ -26,6 +31,7 @@ s<?php
             die("Erreur : L'objet mysqli est invalide.");
         }
 
+        // Préparer la requête pour vérifier si l'email existe
         $stmt = $conn->prepare("SELECT id FROM utilisateurs WHERE email = ?");
         if ($stmt) {
             $stmt->bind_param("s", $email);
@@ -34,22 +40,27 @@ s<?php
             $user = $result->fetch_assoc();
 
             if ($user) {
+                // Générer un token unique
                 $token = bin2hex(random_bytes(32));
+
+                // Préparer la requête pour insérer le token dans la base de données
                 $stmt = $conn->prepare("INSERT INTO password_resets (utilisateur_id, token) VALUES (?, ?)");
                 if ($stmt) {
                     $stmt->bind_param("is", $user['id'], $token);
                     $stmt->execute();
 
+                    // Générer le lien de réinitialisation du mot de passe
                     $resetLink = "http://localhost/les_predictions_de_melanie/reset_password.php?token=$token";
 
+                    // Configurer et envoyer l'email
                     $mail = new PHPMailer(true);
                     try {
                         // Configuration du serveur SMTP
                         $mail->isSMTP();
-                        $mail->Host = 'smtp.office365.com';
+                        $mail->Host = 'smtp.office365.com'; // Serveur SMTP
                         $mail->SMTPAuth = true;
-                        $mail->Username = 'les-predictions-de-melanie@outlook.com';
-                        $mail->Password = 'monamour20082011';
+                        $mail->Username = 'les-predictions-de-melanie@outlook.com'; // Votre adresse email SMTP
+                        $mail->Password = 'monamour20082011'; // Votre mot de passe SMTP
                         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
                         $mail->Port = 587;
 
@@ -77,21 +88,18 @@ s<?php
                         window.location.href = "accueil.html";
                         </script>';
                         exit();
-                        // echo "<div style='color:blue;'>Un email de réinitialisation a été envoyé.</div>";
-                        // echo "<script>setTimeout(function() { window.location.href = './accueil.html'; }, 3000);</script>";
-                        // exit();
                     } catch (Exception $e) {
                         echo '<script>
-                        alert("Une erreur est survenue lors de l\'envoi de l\'email. Erreur: {$mail->ErrorInfo}");</script>';
-                        // echo "<div style='color:red;'>Une erreur est survenue lors de l'envoi de l'email. Erreur: {$mail->ErrorInfo}</div>";
+                        alert("Une erreur est survenue lors de l\'envoi de l\'email. Erreur: ' . $mail->ErrorInfo . '");</script>';
                     }
                 } else {
                     echo "Erreur de préparation de la requête : " . $conn->error;
                 }
+            } else {
+                $_SESSION['errorMessages']['email'] = "* Aucun utilisateur trouvé avec cet e-mail.";
+                header("Location: mot-de-passe-perdu.php");
+                exit();
             }
-            // } else {
-            //     echo "<div style='color:red;'>Aucun utilisateur trouvé avec cet email.</div>";
-            // }
             $stmt->close();
         } else {
             echo "Erreur de préparation de la requête : " . $conn->error;
@@ -99,6 +107,7 @@ s<?php
         closeConnection($conn);
     }
 
+    // Vérifier si la requête est de type POST
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $email = $_POST['email'];
         sendPasswordResetEmail($email);
