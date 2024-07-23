@@ -1,5 +1,5 @@
 <?php
-    require 'index.php'; // Inclure le fichier de connexion
+    require 'config.php'; // Inclure le fichier de connexion
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $token = $_POST['token'];
@@ -86,7 +86,7 @@
         <title> Réinitialiser le mot de passe </title>
 
         <!-- Meta description de la page (max 160 caractères) -->
-        <meta name="description" content="" />
+        <meta name="description" content="Réinitialisez votre mot de passe après avoir reçu un email avec un token. Entrez votre nouveau mot de passe et confirmez-le pour accéder à nouveau à votre compte sur Les Prédictions de Mélanie." />
     </head>
     
 <body>

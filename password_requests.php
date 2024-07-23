@@ -1,9 +1,8 @@
 <?php
-    // Démarrer la session au début du fichier
-    session_start();
-    
-    // Inclure le fichier de connexion et les librairies PHPMailer
-    require './index.php'; // Inclure le fichier de connexion
+    // Inclure le fichier de configuration pour la connexion à la base de données et les fonctions utilitaires
+    require 'config.php';
+
+    // Inclure les librairies PHPMailer
     require './libs/PHPMailer/src/PHPMailer.php';
     require './libs/PHPMailer/src/SMTP.php';
     require './libs/PHPMailer/src/Exception.php';
@@ -11,22 +10,11 @@
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\Exception;
 
-    // Fonction pour valider l'email
-    function validateEmail($email) {
-        return filter_var($email, FILTER_VALIDATE_EMAIL) !== false;
-    }
-
     // Fonction pour envoyer l'email de réinitialisation du mot de passe
     function sendPasswordResetEmail($email) {
-        $conn = openConnection(); // Ouvrir la connexion
-
-        if (!validateEmail($email)) {
-            $_SESSION['errorMessages']['email'] = "* Adresse email invalide.";
-            closeConnection($conn);
-            header("Location: mot-de-passe-perdu.php");
-            exit();
-        }
-
+        // Ouvrir la connexion à la base de données
+        $conn = openConnection();
+        
         if (!$conn instanceof mysqli) {
             die("Erreur : L'objet mysqli est invalide.");
         }
@@ -40,7 +28,7 @@
             $user = $result->fetch_assoc();
 
             if ($user) {
-                // Générer un token unique
+                // Générer un token unique pour la réinitialisation
                 $token = bin2hex(random_bytes(32));
 
                 // Préparer la requête pour insérer le token dans la base de données
@@ -59,29 +47,32 @@
                         $mail->isSMTP();
                         $mail->Host = 'smtp.office365.com'; // Serveur SMTP
                         $mail->SMTPAuth = true;
-                        $mail->Username = 'les-predictions-de-melanie@outlook.com'; // Votre adresse email SMTP
-                        $mail->Password = 'monamour20082011'; // Votre mot de passe SMTP
+                        $mail->Username = 'les-predictions-de-melanie@outlook.com'; // Adresse email SMTP
+                        $mail->Password = 'monamour20082011'; // Mot de passe SMTP
                         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
                         $mail->Port = 587;
 
-                        // Désactiver la vérification du certificat SSL (pour le développement local)
-                        $mail->SMTPOptions = array(
-                            'ssl' => array(
+                        // Désactiver la vérification du certificat SSL pour le développement local
+                        $mail->SMTPOptions = [
+                            'ssl' => [
                                 'verify_peer' => false,
                                 'verify_peer_name' => false,
                                 'allow_self_signed' => true
-                            )
-                        );
+                            ]
+                        ];
 
                         // Configuration de l'email
-                        $mail->setFrom('les-predictions-de-melanie@outlook.com', 'Les Predictions de Melanie');
+                        $mail->setFrom('les-predictions-de-melanie@outlook.com', 'Les Prédictions de Mélanie');
                         $mail->addAddress($email);
 
                         $mail->isHTML(true);
-                        $mail->Subject = 'Reinitialisation de votre mot de passe';
+                        $mail->CharSet = 'UTF-8'; // Définir l'encodage en UTF-8
+                        $mail->Encoding = 'base64'; // Encodage du message
+                        $mail->Subject = 'Réinitialisation de votre mot de passe';
                         $mail->Body = "Bonjour,<br><br>Cliquez sur le lien suivant pour réinitialiser votre mot de passe :<br><br><a href='$resetLink'>$resetLink</a><br><br>Si vous n'avez pas demandé de réinitialisation, ignorez cet email.";
                         $mail->AltBody = "Bonjour,\n\nCliquez sur le lien suivant pour réinitialiser votre mot de passe :\n\n$resetLink\n\nSi vous n'avez pas demandé de réinitialisation, ignorez cet email.";
 
+                        // Envoyer l'email
                         $mail->send();
                         echo '<script>
                         alert("Un email de réinitialisation a été envoyé ! Vous allez être redirigé vers la page d\'accueil.");
@@ -89,21 +80,28 @@
                         </script>';
                         exit();
                     } catch (Exception $e) {
+                        // Gestion des erreurs d'envoi d'email
                         echo '<script>
-                        alert("Une erreur est survenue lors de l\'envoi de l\'email. Erreur: ' . $mail->ErrorInfo . '");</script>';
+                        alert("Une erreur est survenue lors de l\'envoi de l\'email. Erreur : ' . $mail->ErrorInfo . '");
+                        </script>';
                     }
                 } else {
+                    // Erreur lors de la préparation de la requête d'insertion du token
                     echo "Erreur de préparation de la requête : " . $conn->error;
                 }
             } else {
+                // Aucun utilisateur trouvé avec cet e-mail
                 $_SESSION['errorMessages']['email'] = "* Aucun utilisateur trouvé avec cet e-mail.";
                 header("Location: mot-de-passe-perdu.php");
                 exit();
             }
             $stmt->close();
         } else {
+            // Erreur lors de la préparation de la requête de vérification de l'email
             echo "Erreur de préparation de la requête : " . $conn->error;
         }
+
+        // Fermer la connexion à la base de données
         closeConnection($conn);
     }
 

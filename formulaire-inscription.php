@@ -1,5 +1,8 @@
 <?php
   session_start();
+
+  // Vérifier si l'utilisateur est connecté
+  $isConnected = isset($_SESSION['utilisateurs_id']);
 ?>
 
 <!DOCTYPE html>
@@ -56,7 +59,7 @@
     
     <!-- Formulaire d'inscription, les données sont envoyées à "inscription.php" en utilisant la méthode POST -->
     <form action="./inscription.php" method="POST">
-      <h2>Inscription</h2>
+      <h2> Inscription </h2>
 
       <!-- Champ de saisie pour le nom -->
       <label for="nom"> Nom <span class="star">*</span> </label>

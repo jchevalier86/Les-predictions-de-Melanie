@@ -2,7 +2,7 @@
     session_start();
 
     // Vérifier si l'utilisateur est connecté
-    $isConnected = isset($_SESSION['utilisateurs_id']);
+    $isConnected = isset($_SESSION['utilisateur_id']);
 ?>
 
 <!DOCTYPE html>

@@ -1,31 +1,12 @@
 <?php
-    // Démarrage de la session
-    session_start();
+    // Inclure le fichier de configuration pour la connexion à la base de données
+    require 'config.php';
 
-    // Définition des informations de connexion au serveur MySQL
-    $servername = "localhost"; // Nom du serveur
-    $username = "root"; // Nom d'utilisateur MySQL
-    $password = ""; // Mot de passe MySQL
-    $dbname = "lespredictionsdemelanie"; // Nom de la base de données
+    // Vérifier si l'utilisateur est déjà connecté
+    $isConnected = isset($_SESSION['utilisateur_id']);
 
-    // Création d'une nouvelle connexion à la base de données MySQL
-    $conn = new mysqli($servername, $username, $password, $dbname);
-
-    // Vérification de la connexion à la base de données
-    if ($conn->connect_error) {
-        error_log("Erreur de connexion à la base de données : " . $conn->connect_error);
-        echo "<div style='color:red;'>Une erreur est survenue. Veuillez réessayer plus tard.</div>";
-        exit();
-    }
-    // Fonction pour valider l'email
-    function validateEmail($email) {
-        return filter_var($email, FILTER_VALIDATE_EMAIL) !== false;
-    }
-
-    // Fonction pour valider le mot de passe
-    function validatePassword($password) {
-        return !empty($password); // Vérifie si le mot de passe n'est pas vide
-    }
+    // Ouvrir une connexion à la base de données
+    $conn = openConnection();
 
     // Vérification que les champs de formulaire sont définis
     if (isset($_POST['email'], $_POST['mot_de_passe'])) {
@@ -38,18 +19,12 @@
             'email' => $email
         ];
 
-        $errorMessages = [];
-        if (!validateEmail($email)) {
-            $errorMessages['email'] = "* Adresse email invalide.";
-        }
-        if (!validatePassword($mot_de_passe)) {
-            $errorMessages['mot_de_passe'] = "* Mot de passe invalide.";
-        }
-
+        // Si aucune erreur n'a été trouvée
         if (empty($errorMessages)) {
             // Préparation de la requête SQL de sélection
             $sql = "SELECT * FROM utilisateurs WHERE email = ?";
             $stmt = $conn->prepare($sql);
+
             if ($stmt) {
                 // Liaison des paramètres de la requête préparée aux variables
                 $stmt->bind_param("s", $email);
@@ -63,11 +38,10 @@
                     // Vérification du mot de passe
                     if (password_verify($mot_de_passe, $utilisateur["mot_de_passe"])) {
                         // Stockage des informations utilisateur dans la session
-                        $_SESSION['utilisateurs_id'] = $utilisateur['id'];
-                        $_SESSION['utilisateurs_name'] = $utilisateur['prenom'] . " " . $utilisateur['nom'];
+                        $_SESSION['utilisateur_id'] = $utilisateur['id'];
+                        $_SESSION['utilisateurs_name'] = $utilisateur['nom'] . " " . $utilisateur['prenom'];
 
                         // Redirection avec un message de succès
-                        // $_SESSION['successMessage'] = "Connexion réussie ! Bienvenue " . $utilisateur['prenom'] . " " . $utilisateur['nom'] . " !";
                         echo '<script>
                         alert("Connexion réussie ! Vous allez être redirigé vers la page accueil.");
                         window.location.href = "accueil.html";
@@ -102,5 +76,5 @@
     }
 
     // Fermeture de la connexion à la base de données
-    $conn->close();
+    closeConnection($conn);
 ?>

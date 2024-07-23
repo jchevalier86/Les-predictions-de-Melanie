@@ -1,8 +1,8 @@
 <?php
-      session_start();
+  session_start();
 
-      // Vérifier si l'utilisateur est connecté
-      $isConnected = isset($_SESSION['utilisateurs_id']);
+  // Vérifier si l'utilisateur est connecté
+  $isConnected = isset($_SESSION['utilisateur_id']);
 ?>
 
 <!DOCTYPE html>
@@ -125,8 +125,9 @@
 
   <!-- Section du formulaire d'avis -->
   <div class="container-2">
-    <form action="./contact.php" method="post">
-      <h2>Contact</h2>
+
+    <form action="./contact.php" method="POST">
+      <h2> Contact </h2>
 
       <!-- Champ pour entrer l'email -->
       <label for="nom"> Nom <span class="star">*</span> </label>
@@ -137,11 +138,11 @@
 
       <label for="sujet"> Sujet <span class="star">*</span> </label>
       <select name="sujet" id="sujet" required>
-        <option value="selection"> Sélectionnez un sujet </option>
+        <option value="" disabled selected> Sélectionnez un sujet </option>
         <option value="question" id="question"> Question </option>
-        <option value="draught" id="tirage"> Tirage </option>
-        <option value="felt" id="ressenti-photo"> Ressenti photo </option>
-        <option value="big-shot" id="personnalite"> Personnalité </option>
+        <option value="tirage" id="tirage"> Tirage </option>
+        <option value="ressenti_photo" id="ressenti_photo"> Ressenti photo </option>
+        <option value="personnalite" id="personnalite"> Personnalité </option>
         <option value="information" id="information"> Renseignement </option>
       </select>
       <?php if (isset($_SESSION['errorMessages']['sujet'])): ?>
@@ -150,30 +151,25 @@
 
       <label for="domaine"> Domaine <span class="star">*</span> </label>
       <select name="domaine" id="domaine" required>
-        <option value="selection"> Sélectionnez un domaine </option>
-        <option value="futur" id="avenir"> Avenir </option>
-        <option value="general_draw" name="tirage_general"> Tirage Général </option>
-        <option value="pregnancy" id="grossesse"> Grossesse </option>
-        <option value="move" id="demenagement"> Déménagement </option>
-        <option value="love" id="amour"> Amour </option>
-        <option value="work" id="travail"> Travail </option>
-        <option value="permit" id="permis"> Permis </option>
-        <option value="money" id="argent"> Argent </option>
+        <option value="" disabled selected> Sélectionnez un domaine </option>
+        <option value="avenir" id="avenir"> Avenir </option>
+        <option value="tirage_general" name="tirage_general"> Tirage Général </option>
+        <option value="grossesse" id="grossesse"> Grossesse </option>
+        <option value="demenagement" id="demenagement"> Déménagement </option>
+        <option value="amour" id="amour"> Amour </option>
+        <option value="travail" id="travail"> Travail </option>
+        <option value="permis" id="permis"> Permis </option>
+        <option value="argent" id="argent"> Argent </option>
         <option value="general" id="general"> Général </option>
-        <option value="other" id="autres"> Autres </option>
+        <option value="autres" id="autres"> Autres </option>
       </select>
       <?php if (isset($_SESSION['errorMessages']['domaine'])): ?>
       <span style="color: red; font-size: 14px;"> <?php echo $_SESSION['errorMessages']['domaine']; ?> </span>
       <?php endif; ?>
 
-      <!-- <label for="date">
-        Date d'envoi <span class="star">*</span>
-      </label>
-      <input type="date" id="date_envoi" name="date_envoi" placeholder="jj/mm/aaaa" required /> -->
-
-      <label for="paiment"> Type de paiement <span class="star">*</span> </label>
+      <label for="paiement"> Type de paiement <span class="star">*</span> </label>
       <select name="paiement" id="paiement" required>
-        <option value="selection"> Sélectionnez un type de paiement </option>
+        <option value="" disabled selected> Sélectionnez un type de paiement </option>
         <option value="paypal" name="paypal"> Paypal </option>
         <option value="virement" name="virement"> Virement bancaire </option>
       </select>
