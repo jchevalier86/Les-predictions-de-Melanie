@@ -10,13 +10,6 @@
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\Exception;
 
-    ini_set('max_execution_time', 300); // Augmenter le temps d'exécution maximum à 300 secondes
-
-    $startTime = microtime(true);
-
-    // Créer une instance de PHPMailer
-    $mail = new PHPMailer(true);
-
     // Créer une connexion à la base de données
     $conn = openConnection();
 
@@ -28,7 +21,7 @@
     }
 
     // Vérification que l'utilisateur est connecté
-    if (!isset($_SESSION['utilisateur_id'])) {
+    if (!isset($_SESSION['user_id']) || empty($_SESSION['user_id'])) {
         echo '<script>
         alert("Vous devez être connecté pour envoyer un message.");
         window.location.href = "formulaire-connexion.php";
@@ -36,31 +29,10 @@
         exit();
     }
 
-     // Afficher le contenu de $_POST pour débogage
-    //  echo '<pre>';
-    //  print_r($_POST);
-    //  echo '</pre>';
- 
-     // Vérification que tous les champs de formulaire nécessaires sont définis et non vides
-    //  if (empty($_POST['sujet']) || empty($_POST['domaine']) || empty($_POST['paiement']) || empty($_POST['message_envoi'])) {
-    //      echo '<script>
-    //          alert("Tous les champs ne sont pas remplis.");
-    //          window.location.href = "formulaire-contact.php";
-    //          </script>';
-    //      exit();
-    //  }
+    $user_id = $_SESSION['user_id'];
 
     // Vérification que tous les champs de formulaire nécessaires sont définis
     if (isset($_POST['nom'], $_POST['prenom'], $_POST['sujet'], $_POST['domaine'], $_POST['paiement'], $_POST['message_envoi'])) {
-
-        // Affichage des valeurs pour le débogage
-        // echo "Nom : " . htmlspecialchars($_POST['nom']) . "<br>";
-        // echo "Prenom : " . htmlspecialchars($_POST['prenom']) . "<br>";
-        // echo "Sujet : " . htmlspecialchars($_POST['sujet']) . "<br>";
-        // echo "Domaine : " . htmlspecialchars($_POST['domaine']) . "<br>";
-        // echo "Paiement : " . htmlspecialchars($_POST['paiement']) . "<br>";
-        // echo "Message : " . htmlspecialchars($_POST['message_envoi']) . "<br>";
-        // echo "CSRF Token : " . htmlspecialchars($_POST['csrf_token']) . "<br>";
 
         // Assainir les entrées utilisateur
         $contact_nom = htmlspecialchars($_POST['nom'], ENT_QUOTES, 'UTF-8');
@@ -69,6 +41,22 @@
         $contact_domaine = htmlspecialchars($_POST['domaine']);
         $contact_paiement = htmlspecialchars($_POST['paiement']);
         $contact_message_envoi = htmlspecialchars($_POST['message_envoi'], ENT_QUOTES, 'UTF-8');
+
+        // Vérifiez que l'utilisateur existe
+        $check_user_query = "SELECT user_id FROM utilisateurs WHERE user_id = ?";
+        $stmt = $conn->prepare($check_user_query);
+        $stmt->bind_param("i", $user_id);
+        $stmt->execute();
+        $stmt->store_result();
+        if ($stmt->num_rows === 0) {
+            echo '<script>
+            alert("Utilisateur non trouvé.");
+            </script>';
+            $stmt->close();
+            $conn->close();
+            exit();
+        }
+        $stmt->close();
 
         // Vérifier si les valeurs des ENUM sont valides
         $valid_sujets = ["question", "tirage", "ressenti_photo", "personnalite", "information"];
@@ -93,23 +81,21 @@
         }
 
         // Préparation de la requête SQL d'insertion
-        $sql = "INSERT INTO contact (utilisateur_id, nom, prenom, sujet, domaine, paiement, message_envoi) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO contact (user_id, nom, prenom, sujet, domaine, paiement, message_envoi) VALUES (?, ?, ?, ?, ?, ?, ?)";
         $stmt = $conn->prepare($sql);
 
         if ($stmt) {
-            // L'utilisateur_id est stocké dans la session
-            // $utilisateur_id = $_SESSION['utilisateur_id'];
-
-            $stmt->bind_param("issssss", $utilisateur_id, $contact_nom, $contact_prenom, $contact_sujet, $contact_domaine, $contact_paiement, $contact_message_envoi);
+            $stmt->bind_param("issssss", $user_id, $contact_nom, $contact_prenom, $contact_sujet, $contact_domaine, $contact_paiement, $contact_message_envoi);
             if ($stmt->execute()) {
                 // Préparer l'email après avoir inséré les données
                 try {
                     // Paramètres du serveur SMTP
+                    $mail = new PHPMailer(true);
                     $mail->isSMTP();
                     $mail->Host = 'smtp.office365.com'; // Serveur SMTP
                     $mail->SMTPAuth = true;
-                    $mail->Username = 'les-predictions-de-melanie@outlook.com'; // Adresse email SMTP
-                    $mail->Password = 'monamour20082011'; // Mot de passe SMTP
+                    $mail->Username = getenv('SMTP_USER'); // Utiliser une variable d'environnement
+                    $mail->Password = getenv('SMTP_PASS'); // Utiliser une variable d'environnement
                     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
                     $mail->Port = 587;
 
@@ -143,7 +129,6 @@
                                     Prenom : " . htmlspecialchars($contact_prenom) . "\n
                                     Sujet : " . htmlspecialchars($contact_sujet) . "\n
                                     Domaine : " . htmlspecialchars($contact_domaine) . "\n
-                                    Date d'envoi : " . htmlspecialchars(date("Y-m-d")) . "\n
                                     Type de paiement : " . htmlspecialchars($contact_paiement) . "\n
                                     Message :\n" . htmlspecialchars($contact_message_envoi);
 
@@ -152,7 +137,7 @@
                         alert("Votre message a été envoyé avec succès ! Vous allez être redirigé vers la page de contact.");
                         window.location.href = "formulaire-contact.php";
                         </script>';
-                        exit();
+                    exit();
                 } catch (Exception $e) {
                     echo 'Le message n\'a pas pu être envoyé. Erreur de messagerie: ' . htmlspecialchars($mail->ErrorInfo);
                 }
@@ -170,6 +155,7 @@
             alert("Tous les champs ne sont pas remplis.");
             window.location.href = "formulaire-contact.php";
             </script>';
+        exit();
     }
 
     $conn->close();

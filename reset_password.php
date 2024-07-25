@@ -17,7 +17,7 @@
         $conn = openConnection(); // Ouvrir la connexion
 
         // Rechercher le jeton dans la base de données
-        $stmt = $conn->prepare("SELECT utilisateur_id FROM password_resets WHERE token = ?");
+        $stmt = $conn->prepare("SELECT user_id FROM password_resets WHERE token = ?");
         if ($stmt) {
             $stmt->bind_param("s", $token);
             $stmt->execute();
@@ -26,7 +26,7 @@
 
             if ($resetRequest) {
                 // Mettre à jour le mot de passe de l'utilisateur
-                $stmt = $conn->prepare("UPDATE utilisateurs SET mot_de_passe = ? WHERE id = ?");
+                $stmt = $conn->prepare("UPDATE utilisateurs SET mot_de_passe = ? WHERE user_id = ?");
                 if ($stmt) {
                     $stmt->bind_param("si", $newPassword, $resetRequest['utilisateur_id']);
                     $stmt->execute();
@@ -100,7 +100,7 @@
 
             <!-- Logo maison accueil -->
             <div class="lien-home">
-                <img class="back-home" src="./images/maison-accueil.png" alt="Retour à la page d'accueil" onclick="window.location.href='accueil.html'" />
+                <img class="back-home" src="./images/maison-accueil.png" alt="Retour à la page d'accueil" onclick="window.location.href='accueil.php'" />
                 <span class="home"> Accueil </span>
             </div>
 
@@ -168,7 +168,7 @@
 
         <div class="nav-links-2">
             <ul>
-                <li><a href="accueil.html"> Accueil </a></li>
+                <li><a href="accueil.php"> Accueil </a></li>
                 <li><a href="formulaire-inscription.php"> Inscription </a></li>
                 <li><a href="formulaire-connexion.php"> Connexion </a></li>
             </ul>
@@ -186,7 +186,7 @@
             </ul>
 
             <ul>
-                <li><a href="avis.html"> Avis clients </a></li>
+                <li><a href="formulaire-avis.php"> Avis clients </a></li>
                 <li><a href="formulaire-contact.php"> Contact </a></li>
                 <li><a href="horoscope.html"> Horoscope </a></li>
             </ul>

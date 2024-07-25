@@ -47,15 +47,4 @@
     function validatePassword($password) {
         return !empty($password); // Vérifie si le mot de passe n'est pas vide
     }
-
-    // Fonction de déconnexion
-    function deconnexion() {
-        if (session_status() == PHP_SESSION_NONE) {
-            session_start(); // Démarrer la session si elle n'est pas déjà démarrée
-        }
-        session_unset(); // Supprimer toutes les variables de session
-        session_destroy(); // Détruire la session
-        header('Location: accueil.html'); // Rediriger vers la page de connexion
-        exit();
-}
 ?>

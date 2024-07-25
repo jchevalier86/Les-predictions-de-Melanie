@@ -1,9 +1,12 @@
 <?php
     // Inclure le fichier de configuration pour la connexion à la base de données
     require 'config.php';
+    require 'deconnexion.php';
 
-    // Vérifier si l'utilisateur est déjà connecté
-    $isConnected = isset($_SESSION['utilisateur_id']);
+    // Démarrer la session si elle n'est pas déjà démarrée
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
 
     // Ouvrir une connexion à la base de données
     $conn = openConnection();
@@ -19,53 +22,45 @@
             'email' => $email
         ];
 
-        // Si aucune erreur n'a été trouvée
-        if (empty($errorMessages)) {
-            // Préparation de la requête SQL de sélection
-            $sql = "SELECT * FROM utilisateurs WHERE email = ?";
-            $stmt = $conn->prepare($sql);
+        // Préparation de la requête SQL de sélection
+        $sql = "SELECT * FROM utilisateurs WHERE email = ?";
+        $stmt = $conn->prepare($sql);
 
-            if ($stmt) {
-                // Liaison des paramètres de la requête préparée aux variables
-                $stmt->bind_param("s", $email);
-                $stmt->execute();
-                $result = $stmt->get_result();
+        if ($stmt) {
+            // Liaison des paramètres de la requête préparée aux variables
+            $stmt->bind_param("s", $email);
+            $stmt->execute();
+            $result = $stmt->get_result();
 
-                if ($result->num_rows === 1) {
-                    // Récupération des données utilisateur
-                    $utilisateur = $result->fetch_assoc();
+            if ($result->num_rows === 1) {
+                // Récupération des données utilisateur
+                $utilisateur = $result->fetch_assoc();
 
-                    // Vérification du mot de passe
-                    if (password_verify($mot_de_passe, $utilisateur["mot_de_passe"])) {
-                        // Stockage des informations utilisateur dans la session
-                        $_SESSION['utilisateur_id'] = $utilisateur['id'];
-                        $_SESSION['utilisateurs_name'] = $utilisateur['nom'] . " " . $utilisateur['prenom'];
+                // Vérification du mot de passe
+                if (password_verify($mot_de_passe, $utilisateur["mot_de_passe"])) {
+                    // Stockage des informations utilisateur dans la session
+                    $_SESSION['user_id'] = $utilisateur['id'];
+                    $_SESSION['user_name'] = $utilisateur['nom'] . " " . $utilisateur['prenom'];
 
-                        // Redirection avec un message de succès
-                        echo '<script>
-                        alert("Connexion réussie ! Vous allez être redirigé vers la page accueil.");
+                    // Redirection avec un message de succès
+                    echo '<script>
+                        alert("Connexion réussie ! Vous allez être redirigé vers la page d\'accueil.");
                         window.location.href = "accueil.html";
-                        </script>';
-                        exit();
-                    } else {
-                        $_SESSION['errorMessages']['mot_de_passe'] = "* Mot de passe incorrect.";
-                        header("Location: formulaire-connexion.php");
-                        exit();
-                    }
+                    </script>';
+                    exit();
                 } else {
-                    $_SESSION['errorMessages']['email'] = "* Aucun utilisateur trouvé avec cet e-mail.";
+                    $_SESSION['errorMessages']['mot_de_passe'] = "* Mot de passe incorrect.";
                     header("Location: formulaire-connexion.php");
                     exit();
                 }
-                $stmt->close();
             } else {
-                $_SESSION['errorMessages']['database'] = "Erreur de préparation de la requête : " . $conn->error;
+                $_SESSION['errorMessages']['email'] = "* Aucun utilisateur trouvé avec cet e-mail.";
                 header("Location: formulaire-connexion.php");
                 exit();
             }
+            $stmt->close();
         } else {
-            // Envoi des messages d'erreur à la session
-            $_SESSION['errorMessages'] = $errorMessages;
+            $_SESSION['errorMessages']['database'] = "Erreur de préparation de la requête : " . $conn->error;
             header("Location: formulaire-connexion.php");
             exit();
         }

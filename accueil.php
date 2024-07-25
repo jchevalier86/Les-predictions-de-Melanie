@@ -93,7 +93,7 @@
       <div class="tarif-contact-avis-blog">
         <a href="tarif.html"> Tarif </a>
         <a href="formulaire-contact.php"> Contact </a>
-        <a href="avis.html"> Avis clients </a>
+        <a href="formulaire-avis.html"> Avis clients </a>
         <a href="horoscope.html"> Horoscope </a>
       </div>
 
@@ -210,7 +210,7 @@
 
     <div class="nav-links-2">
       <ul>
-        <li><a href="accueil.html"> Accueil </a></li>
+        <li><a href="accueil.php"> Accueil </a></li>
         <li><a href="formulaire-inscription.php"> Inscription </a></li>
         <li><a href="formulaire-connexion.php"> Connexion </a></li>
       </ul>
@@ -238,7 +238,7 @@
       </ul>
 
       <ul>
-        <li><a href="avis.html"> Avis clients </a></li>
+        <li><a href="formulaire-avis.php"> Avis clients </a></li>
         <li><a href="formulaire-contact.php"> Contact </a></li>
         <li><a href="horoscope.html"> Horoscope </a></li>
       </ul>

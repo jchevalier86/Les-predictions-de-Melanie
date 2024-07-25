@@ -46,7 +46,7 @@
             <!-- Logo maison accueil -->
             <div class="lien-home">
                 <img class="back-home" src="./images/maison-accueil.png" alt="Retour à la page d'accueil"
-                    onclick="window.location.href='accueil.html'" />
+                    onclick="window.location.href='accueil.php'" />
                 <span class="home"> Accueil </span>
             </div>
 
@@ -121,7 +121,7 @@
 
         <div class="nav-links-2">
             <ul>
-                <li><a href="accueil.html"> Accueil </a></li>
+                <li><a href="accueil.php"> Accueil </a></li>
                 <li><a href="formulaire-inscription.php"> Inscription </a></li>
                 <li><a href="formulaire-connexion.php"> Connexion </a></li>
             </ul>
@@ -149,8 +149,8 @@
             </ul>
 
             <ul>
-                <li><a href="avis.html"> Avis clients </a></li>
-                <li><a href="contact.html"> Contact </a></li>
+                <li><a href="formulaire-avis.php"> Avis clients </a></li>
+                <li><a href="formulaire-contact.php"> Contact </a></li>
                 <li><a href="horoscope.html"> Horoscope </a></li>
             </ul>
         </div>

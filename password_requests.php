@@ -19,8 +19,17 @@
             die("Erreur : L'objet mysqli est invalide.");
         }
 
+        // Assurer que l'email est valide
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            echo '<script>
+            alert("L\'adresse email fournie est invalide.");
+            window.location.href = "mot-de-passe-perdu.php";
+            </script>';
+            exit();
+        }
+
         // Préparer la requête pour vérifier si l'email existe
-        $stmt = $conn->prepare("SELECT id FROM utilisateurs WHERE email = ?");
+        $stmt = $conn->prepare("SELECT user_id FROM utilisateurs WHERE email = ?");
         if ($stmt) {
             $stmt->bind_param("s", $email);
             $stmt->execute();
@@ -32,9 +41,9 @@
                 $token = bin2hex(random_bytes(32));
 
                 // Préparer la requête pour insérer le token dans la base de données
-                $stmt = $conn->prepare("INSERT INTO password_resets (utilisateur_id, token) VALUES (?, ?)");
+                $stmt = $conn->prepare("INSERT INTO password_resets (user_id, token) VALUES (?, ?)");
                 if ($stmt) {
-                    $stmt->bind_param("is", $user['id'], $token);
+                    $stmt->bind_param("is", $user['user_id'], $token);
                     $stmt->execute();
 
                     // Générer le lien de réinitialisation du mot de passe
@@ -47,8 +56,8 @@
                         $mail->isSMTP();
                         $mail->Host = 'smtp.office365.com'; // Serveur SMTP
                         $mail->SMTPAuth = true;
-                        $mail->Username = 'les-predictions-de-melanie@outlook.com'; // Adresse email SMTP
-                        $mail->Password = 'monamour20082011'; // Mot de passe SMTP
+                        $mail->Username = getenv('SMTP_USER'); // Utiliser une variable d'environnement
+                        $mail->Password = getenv('SMTP_PASS'); // Utiliser une variable d'environnement
                         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
                         $mail->Port = 587;
 
@@ -82,12 +91,14 @@
                     } catch (Exception $e) {
                         // Gestion des erreurs d'envoi d'email
                         echo '<script>
-                        alert("Une erreur est survenue lors de l\'envoi de l\'email. Erreur : ' . $mail->ErrorInfo . '");
+                        alert("Une erreur est survenue lors de l\'envoi de l\'email. Erreur : ' . htmlspecialchars($mail->ErrorInfo, ENT_QUOTES, 'UTF-8') . '");
+                        window.location.href = "mot-de-passe-perdu.php";
                         </script>';
+                        exit();
                     }
                 } else {
                     // Erreur lors de la préparation de la requête d'insertion du token
-                    echo "Erreur de préparation de la requête : " . $conn->error;
+                    echo "Erreur de préparation de la requête : " . htmlspecialchars($conn->error, ENT_QUOTES, 'UTF-8');
                 }
             } else {
                 // Aucun utilisateur trouvé avec cet e-mail
@@ -98,7 +109,7 @@
             $stmt->close();
         } else {
             // Erreur lors de la préparation de la requête de vérification de l'email
-            echo "Erreur de préparation de la requête : " . $conn->error;
+            echo "Erreur de préparation de la requête : " . htmlspecialchars($conn->error, ENT_QUOTES, 'UTF-8');
         }
 
         // Fermer la connexion à la base de données
