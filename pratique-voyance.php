@@ -14,17 +14,17 @@
     <link rel="stylesheet" href="./style/definitions-pratiques.css" />
 
     <!-- Favicon pour le site -->
-    <link rel="shortcut icon" href="./images/favicon-8.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="./images/favicon-4.ico" type="image/x-icon" />
 
     <!-- Lien vers les icônes Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 
     <!-- Titre de la page (max 60 caractères) -->
-    <title> Pratique Ressenti Photo </title>
+    <title> Pratique de la Voyance </title>
 
     <!-- Meta description de la page (max 160 caractères) -->
     <meta name="description"
-        content="Découvrez comment j'utilise la photographie intuitive. Avec une photo récente et sans filtre, je peux percevoir des informations précises sur le passé, le présent et le futur, vous offrant ainsi des prédictions et des insights uniques." />
+        content="Découvrez la voyance pour des prédictions précises et des conseils éclairants. Connectez-vous aux énergies de l'univers pour éclaircir votre avenir et répondre à vos questions personnelles." />
 </head>
 
 <body>
@@ -64,8 +64,8 @@
                         <i class="fa fa-caret-down"> </i>
                     </button>
                     <div class="dropdown-content">
-                        <a href="definition-voyance.html"> Définition </a>
-                        <a href="pratique-voyance.html"> Pratique </a>
+                        <a href="definition-voyance.php"> Définition </a>
+                        <a href="pratique-voyance.php"> Pratique </a>
                     </div>
                 </div>
 
@@ -76,8 +76,8 @@
                         <i class="fa fa-caret-down"> </i>
                     </button>
                     <div class="dropdown-content">
-                        <a href="definition-cartomancie.html"> Définition </a>
-                        <a href="pratique-cartomancie.html"> Pratique </a>
+                        <a href="definition-cartomancie.php"> Définition </a>
+                        <a href="pratique-cartomancie.php"> Pratique </a>
                     </div>
                 </div>
 
@@ -88,18 +88,30 @@
                         <i class="fa fa-caret-down"> </i>
                     </button>
                     <div class="dropdown-content">
-                        <a href="definition-ressenti-photo.html"> Définition </a>
-                        <a href="pratique-ressenti-photo.html"> Pratique </a>
+                        <a href="definition-ressenti-photo.php"> Définition </a>
+                        <a href="pratique-ressenti-photo.php"> Pratique </a>
                     </div>
                 </div>
             </div>
 
             <!-- Liens directs pour Contact, Avis clients et Horoscope -->
             <div class="tarif-contact-avis-blog">
-                <a href="tarif.html"> Tarif </a>
+                <a href="tarif.php"> Tarif </a>
                 <a href="formulaire-contact.php"> Contact </a>
                 <a href="formulaire-avis.php"> Avis clients </a>
-                <a href="horoscope.html"> Horoscope </a>
+                <a href="horoscope.php"> Horoscope </a>
+            </div>
+
+            <!-- Icône de connexion avec un lien vers la page de connexion -->
+            <div class="lien-connect">
+                <img class="icone-connect" src="./images/connexion.png" alt="Aller à la page de connexion"
+                    onclick="window.location.href='formulaire-connexion.php'" />
+                <span class="connect"> Connexion </span>
+            </div>
+            <div class="lien-deconnect" style="display: none;">
+                <img class="icone-deconnect" src="./images/deconnexion.png" alt="Aller à la page accueil"
+                    onclick="window.location.href='deconnexion.php'" />
+                <span class="deconnect"> Déconnexion </span>
             </div>
 
             <div class="circle-1-2">
@@ -117,25 +129,26 @@
 
     <!-- Section d'introduction -->
     <section class="intro">
-        <h1>Le Ressenti Photo</h1>
+        <h1>La Voyance</h1>
         <hr class="separator">
         <h2>Pratique</h2>
 
         <!-- Section pratique -->
         <section class="section-presentation">
             <div class="section1-col1">
-                <!-- Photo dans la section pratique -->
+                <!-- Photo dans la section pratique voyance -->
                 <div class="photo">
-                    <img class="photo-body-4" src="./images/melanie-voyante-1.jpeg" alt="Logo de Mélanie Voyante">
+                    <img class="photo-body-4" src="./images/melanie-voyante-1.jpeg" alt="Mélanie Voyante">
                 </div>
 
                 <div class="presentation">
                     <div class="presentation-text-content">
-                        <!-- Texte de la pratique Ressenti photo -->
+                        <!-- Texte pratique de la Voyance -->
                         <p>
-                            Grâce aux photos, je peux offrir des ressentis plus précis à mes clients, notamment pour
-                            éclaircir des événements passés, présents ou futurs, ou pour répondre à des questions
-                            spécifiques comme des relations personnelles ou des situations professionnelles.
+                            Grâce à mes capacités de <span class="costum-word">voyance</span>, je peux offrir des
+                            prédictions plus précises à mes
+                            clients, que ce soit pour dater des événements, répondre à des questions spécifiques comme
+                            une grossesse, ou éclairer des aspects importants de la vie.
                         </p>
                         <br />
                         <p>
@@ -143,41 +156,42 @@
                         </p>
                         <br />
                         <p>
-                            <span class="costum-word">Réception de la Photo :</span> Vous me fournissez une ou plusieurs
-                            photos récente et sans
-                            filtre, idéalement où le sujet principal est bien visible et où les détails sont clairs.
+                            <span class="costum-word">Connexion Initiale :</span> Avant notre séance, je me prépare
+                            mentalement et spirituellement pour
+                            m'ouvrir aux énergies et aux messages de l'univers. Cette préparation est essentielle pour
+                            une lecture claire et précise.
                         </p>
                         <br />
                         <p>
-                            <span class="costum-word">Préparation :</span> Je m'installe dans un espace calme, propice à
-                            la concentration et à
-                            l'ouverture de mes perceptions intuitives
+                            <span class="costum-word">Écoute et Prise de Contact :</span> Lors de notre séance, je
+                            prends le temps de vous écouter
+                            attentivement. Vos questions, vos préoccupations et vos attentes sont cruciales pour
+                            orienter ma perception et mes ressentis.
                         </p>
                         <br />
                         <p>
-                            <span class="costum-word">Connexion :</span> Je prends le temps d'observer attentivement la
-                            photo, laissant mes
-                            impressions et ressentis émerger naturellement. Je me concentre sur les énergies et les
-                            vibrations que la photo émet.
+                            <span class="costum-word">Interprétation des Messages :</span> Je reçois des informations
+                            sous forme de visions, de
+                            sentiments ou de pensées. Chaque message est interprété avec soin pour comprendre son sens
+                            et sa pertinence pour vous.
                         </p>
                         <br />
                         <p>
-                            <span class="costum-word">Interprétation :</span> J'analyse les impressions et les ressentis
-                            reçus, qu'ils soient
-                            émotionnels, visuels ou intuitif. Chaque détail compte et peut révéler des
-                            informations précieuses sur le sujet de la photo.
+                            <span class="costum-word">Partage des Perceptions :</span> Une fois les messages reçus et
+                            interprétés, je partage avec vous
+                            mes perceptions de manière claire et détaillée. Je réponds à vos questions spécifiques et
+                            vous offre des prédictions basées sur les informations captées.
                         </p>
                         <br />
                         <p>
-                            <span class="costum-word">Partage des Perceptions :</span> Enfin, je partage avec vous mes
-                            ressentis et mes
-                            perceptions de manière détaillée. Je réponds à vos questions spécifiques et vous
-                            offre des prédictions ou des éclaircissements basés sur les énergies captées à
-                            travaers la photo.
+                            <span class="costum-word">Conseils et Clôture :</span> Après avoir partagé mes perceptions,
+                            je vous offre des conseils
+                            pratiques pour vous préparer à
+                            l'avenir. La séance se termine par un moment de clôture pour vous aider à intégrer les
+                            informations reçues.
                         </p>
                     </div>
                 </div>
-            </div>
         </section>
 
         <!-- Pied de page avec des liens vers les différentes pages du site -->
@@ -217,37 +231,37 @@
                 </ul>
 
                 <ul>
-                    <li><a href="definition-voyance.html"> Définition voyance </a></li>
+                    <li><a href="definition-voyance.php"> Définition voyance </a></li>
                     <li>
-                        <a href="definition-cartomancie.html"> Définition cartomancie </a>
+                        <a href="definition-cartomancie.php"> Définition cartomancie </a>
                     </li>
                     <li>
-                        <a href="definition-ressenti-photo.html">
+                        <a href="definition-ressenti-photo.php">
                             Définition ressenti photo
                         </a>
                     </li>
                 </ul>
 
                 <ul>
-                    <li><a href="pratique-voyance.html"> Pratique voyance </a></li>
+                    <li><a href="pratique-voyance.php"> Pratique voyance </a></li>
                     <li>
-                        <a href="pratique-cartomancie.html"> Pratique cartomancie </a>
+                        <a href="pratique-cartomancie.php"> Pratique cartomancie </a>
                     </li>
                     <li>
-                        <a href="pratique-ressenti-photo.html"> Pratique ressenti photo </a>
+                        <a href="pratique-ressenti-photo.php"> Pratique ressenti photo </a>
                     </li>
                 </ul>
 
                 <ul>
                     <li><a href="formulaire-avis.php"> Avis clients </a></li>
                     <li><a href="formulaire-contact.php"> Contact </a></li>
-                    <li><a href="horoscope.html"> Horoscope </a></li>
+                    <li><a href="horoscope.php"> Horoscope </a></li>
                 </ul>
             </div>
 
             <div class="copyright-info">
                 <p> © 2024 Les Prédictions de Mélanie. Tous droits réservés </p>
-                <a href="mentions-legales.html"> Mentions Légales </a>
+                <a href="mentions-legales.php"> Mentions Légales </a>
             </div>
         </footer>
 

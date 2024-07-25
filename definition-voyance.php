@@ -11,20 +11,20 @@
   <!-- Liens vers les feuilles de style CSS -->
   <link rel="stylesheet" href="./style/reset.css" />
   <link rel="stylesheet" href="./style/style.css" />
-  <link rel="stylesheet" href="./style/horoscope.css" />
+  <link rel="stylesheet" href="./style/definitions-pratiques.css" />
 
   <!-- Favicon pour le site -->
-  <link rel="shortcut icon" href="./images/favicon-6.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="./images/favicon-4.ico" type="image/x-icon" />
 
   <!-- Lien vers les icônes Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 
   <!-- Titre de la page (max 60 caractères) -->
-  <title> Horoscope </title>
+  <title>Définition de la Voyance</title>
 
   <!-- Meta description de la page (max 160 caractères) -->
   <meta name="description"
-    content="Découvrez votre horoscope quotidien personnalisé et obtenez des prédictions précises pour chaque signe astrologique. Sélectionnez votre signe et explorez ce que les étoiles vous réservent aujourd'hui." />
+    content="Découvrez la définition de la voyance, une pratique mystique permettant de percevoir des informations cachées ou de prédire des événements futurs à travers divers outils divinatoires et intuitions extrasensorielles." />
 </head>
 
 <body>
@@ -64,8 +64,8 @@
             <i class="fa fa-caret-down"> </i>
           </button>
           <div class="dropdown-content">
-            <a href="definition-voyance.html"> Définition </a>
-            <a href="pratique-voyance.html"> Pratique </a>
+            <a href="definition-voyance.php"> Définition </a>
+            <a href="pratique-voyance.php"> Pratique </a>
           </div>
         </div>
 
@@ -76,8 +76,8 @@
             <i class="fa fa-caret-down"> </i>
           </button>
           <div class="dropdown-content">
-            <a href="definition-cartomancie.html"> Définition </a>
-            <a href="pratique-cartomancie.html"> Pratique </a>
+            <a href="definition-cartomancie.php"> Définition </a>
+            <a href="pratique-cartomancie.php"> Pratique </a>
           </div>
         </div>
 
@@ -88,51 +88,87 @@
             <i class="fa fa-caret-down"> </i>
           </button>
           <div class="dropdown-content">
-            <a href="definition-ressenti-photo.html"> Définition </a>
-            <a href="pratique-ressenti-photo.html"> Pratique </a>
+            <a href="definition-ressenti-photo.php"> Définition </a>
+            <a href="pratique-ressenti-photo.php"> Pratique </a>
           </div>
         </div>
       </div>
 
       <!-- Liens directs pour Contact, Avis clients et Horoscope -->
       <div class="tarif-contact-avis-blog">
-        <a href="tarif.html"> Tarif </a>
+        <a href="tarif.php"> Tarif </a>
         <a href="formulaire-contact.php"> Contact </a>
         <a href="formulaire-avis.php"> Avis clients </a>
-        <a href="horoscope.html"> Horoscope </a>
+        <a href="horoscope.php"> Horoscope </a>
+      </div>
+
+      <!-- Icône de connexion avec un lien vers la page de connexion -->
+      <div class="lien-connect">
+        <img class="icone-connect" src="./images/connexion.png" alt="Aller à la page de connexion"
+          onclick="window.location.href='formulaire-connexion.php'" />
+        <span class="connect"> Connexion </span>
+      </div>
+      <div class="lien-deconnect" style="display: none;">
+        <img class="icone-deconnect" src="./images/deconnexion.png" alt="Aller à la page accueil"
+          onclick="window.location.href='deconnexion.php'" />
+        <span class="deconnect"> Déconnexion </span>
+      </div>
+
+      <div class="circle-1-2">
+        <div class="circle-1-pink">
+          <div class="circle-1"></div>
+          <span class="circle-pink"> Rose </span>
+        </div>
+        <div class="circle-2-blue">
+          <div class="circle-2"></div>
+          <span class="circle-blue"> Bleu </span>
+        </div>
       </div>
     </nav>
   </header>
 
-  <!-- Conteneur principal pour le formulaire d'horoscope -->
-  <div class="container">
-    <!-- Formulaire pour sélectionner le signe astrologique et obtenir l'horoscope -->
-    <form method="POST" action="../horoscope-api.php">
-      <h1>Choisissez votre signe astrologique</h1>
-      <label for="sign"> Signe : </label>
-      <select name="sign" id="sign">
-        <option value="belier">Bélier</option>
-        <option value="taureau">Taureau</option>
-        <option value="gemeaux">Gémeaux</option>
-        <option value="cancer">Cancer</option>
-        <option value="lion">Lion</option>
-        <option value="vierge">Vierge</option>
-        <option value="balance">Balance</option>
-        <option value="scorpion">Scorpion</option>
-        <option value="sagittaire">Sagittaire</option>
-        <option value="capricorne">Capricorne</option>
-        <option value="verseau">Verseau</option>
-        <option value="poissons">Poissons</option>
-      </select>
-      <br /><br />
+  <!-- Section d'introduction -->
+  <section class="intro">
+    <h1>La Voyance</h1>
+    <hr class="separator" />
+    <h2>Définition</h2>
 
-      <label for="date"> Date : </label>
-      <input type="date" id="date" name="date" />
-      <br /><br />
+    <!-- Section de définition -->
+    <section class="section-presentation">
+      <div class="section1-col1">
+        <!-- Texte de définition de la Voyance -->
+        <div class="presentation">
+          <div class="presentation-text-content">
+            <p>
+              <span class="costum-word">La voyance</span> est la capacité
+              prétendue de percevoir des informations sur des évènements
+              passés, présents ou futurs qui ne sont pas accessibles par les
+              moyens ordinaires des sens humains. Cette perception peut se
+              manifester sous diverses formes, telles que des visions, des
+              voix, des sensations ou des intuitions.
+              <span class="costum-word">Les voyants</span> ou
+              <span class="costum-word">praticiens de la voyance</span>,
+              affirment avoir un don ou une faculté extrasensorielle qui leur
+              permet de capter des informations cachées ou de prédire des
+              évènements futurs.
+              <span class="costum-word">La voyance</span> peut inclure
+              l'utilisation d'outils divinatoire comme les boules de cristal,
+              les cartes (<span class="costum-word">comme dans la cartomancie</span>), les pendules ou se faire sans
+              supports, par des flashes
+              intuitifs ou des ressentis. Elle est souvent utilisée pour
+              obtenir des conseils sur des aspects personnels, professionnels
+              ou émotionnels de la vie des consultants.
+            </p>
+          </div>
+        </div>
 
-      <button type="submit"> Voir l'horoscope </button>
-    </form>
-  </div>
+        <!-- Photo dans la section de définition voyance -->
+        <div class="photo">
+          <img class="photo-body-1" src="./images/voyance2.jpg" alt="Image de cartes entourées de bougies" />
+        </div>
+      </div>
+    </section>
+  </section>
 
   <!-- Pied de page avec des liens vers les différentes pages du site -->
   <footer class="lien-page-footer">
@@ -165,48 +201,48 @@
 
     <div class="nav-links-2">
       <ul>
-        <li><a href="accueil.html"> Accueil </a></li>
+        <li><a href="accueil.php"> Accueil </a></li>
         <li><a href="formulaire-inscription.php"> Inscription </a></li>
         <li><a href="formulaire-connexion.php"> Connexion </a></li>
       </ul>
 
       <ul>
-        <li><a href="definition-voyance.html"> Définition voyance </a></li>
+        <li><a href="definition-voyance.php"> Définition voyance </a></li>
         <li>
-          <a href="definition-cartomancie.html"> Définition cartomancie </a>
+          <a href="definition-cartomancie.php"> Définition cartomancie </a>
         </li>
         <li>
-          <a href="definition-ressenti-photo.html">
+          <a href="definition-ressenti-photo.php">
             Définition ressenti photo
           </a>
         </li>
       </ul>
 
       <ul>
-        <li><a href="pratique-voyance.html"> Pratique voyance </a></li>
+        <li><a href="pratique-voyance.php"> Pratique voyance </a></li>
         <li>
-          <a href="pratique-cartomancie.html"> Pratique cartomancie </a>
+          <a href="pratique-cartomancie.php"> Pratique cartomancie </a>
         </li>
         <li>
-          <a href="pratique-ressenti-photo.html"> Pratique ressenti photo </a>
+          <a href="pratique-ressenti-photo.php"> Pratique ressenti photo </a>
         </li>
       </ul>
 
       <ul>
-        <li><a href="avis.html"> Avis clients </a></li>
+        <li><a href="formulaire-avis.php"> Avis clients </a></li>
         <li><a href="formulaire-contact.php"> Contact </a></li>
-        <li><a href="horoscope.html"> Horoscope </a></li>
+        <li><a href="horoscope.php"> Horoscope </a></li>
       </ul>
     </div>
 
     <div class="copyright-info">
       <p> © 2024 Les Prédictions de Mélanie. Tous droits réservés </p>
-      <a href="mentions-legales.html"> Mentions Légales </a>
+      <a href="mentions-legales.php"> Mentions Légales </a>
     </div>
   </footer>
 
   <script src="./script/script.js"></script>
-  <script src="./script/horoscope.js"></script>
+  <script src="./script/script2.js"></script>
 </body>
 
 </html>
