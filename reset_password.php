@@ -1,5 +1,6 @@
 <?php
     require 'config.php'; // Inclure le fichier de connexion
+    require 'function.php';
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $token = $_POST['token'];
@@ -28,7 +29,7 @@
                 // Mettre à jour le mot de passe de l'utilisateur
                 $stmt = $conn->prepare("UPDATE utilisateurs SET mot_de_passe = ? WHERE user_id = ?");
                 if ($stmt) {
-                    $stmt->bind_param("si", $newPassword, $resetRequest['utilisateur_id']);
+                    $stmt->bind_param("si", $newPassword, $resetRequest['user_id']);
                     $stmt->execute();
 
                     // Supprimer le jeton après utilisation

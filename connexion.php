@@ -1,7 +1,7 @@
 <?php
     // Inclure le fichier de configuration pour la connexion à la base de données
     require 'config.php';
-    require 'deconnexion.php';
+    require 'function.php';
 
     // Démarrer la session si elle n'est pas déjà démarrée
     if (session_status() === PHP_SESSION_NONE) {
@@ -10,6 +10,15 @@
 
     // Ouvrir une connexion à la base de données
     $conn = openConnection();
+
+    // Vérifier si l'utilisateur est déjà connecté
+    if (isLoggedIn()) {
+        echo '<script>
+            alert("Vous êtes déjà connecté !");
+            window.location.href = "accueil.php";
+        </script>';
+        exit();
+    }
 
     // Vérification que les champs de formulaire sont définis
     if (isset($_POST['email'], $_POST['mot_de_passe'])) {
@@ -39,13 +48,12 @@
                 // Vérification du mot de passe
                 if (password_verify($mot_de_passe, $utilisateur["mot_de_passe"])) {
                     // Stockage des informations utilisateur dans la session
-                    $_SESSION['user_id'] = $utilisateur['id'];
-                    $_SESSION['user_name'] = $utilisateur['nom'] . " " . $utilisateur['prenom'];
+                    $_SESSION['user_id'] = $utilisateur['user_id'];
 
                     // Redirection avec un message de succès
                     echo '<script>
                         alert("Connexion réussie ! Vous allez être redirigé vers la page d\'accueil.");
-                        window.location.href = "accueil.html";
+                        window.location.href = "accueil.php";
                     </script>';
                     exit();
                 } else {

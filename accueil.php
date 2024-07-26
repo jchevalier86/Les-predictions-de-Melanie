@@ -1,3 +1,7 @@
+<?php
+  require 'config.php';
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -97,16 +101,20 @@
         <a href="horoscope.php"> Horoscope </a>
       </div>
 
+      <?php if (isset($_SESSION['user_id'])): ?>
+      <!-- Icône de déconnexion avec un lien vers la page de déconnexion -->
+      <div class="lien-deconnect">
+        <img class="icone-connect" src="./images/deconnexion.png" alt="Aller à la page accueil"
+          onclick="window.location.href='deconnexion.php'" />
+        <span class="deconnect"> Déconnexion </span>
+      </div>
+      <?php else: ?>
       <!-- Icône de connexion avec un lien vers la page de connexion -->
       <div class="lien-connect">
         <img class="icone-connect" src="./images/connexion.png" alt="Aller à la page de connexion"
           onclick="window.location.href='formulaire-connexion.php'" />
         <span class="connect"> Connexion </span>
-      </div>
-      <div class="lien-deconnect" style="display: none;">
-        <img class="icone-deconnect" src="./images/deconnexion.png" alt="Aller à la page accueil"
-          onclick="window.location.href='deconnexion.php'" />
-        <span class="deconnect"> Déconnexion </span>
+      <?php endif; ?>
       </div>
 
       <div class="circle-1-2">

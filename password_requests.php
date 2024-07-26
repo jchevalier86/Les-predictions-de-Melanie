@@ -1,14 +1,23 @@
 <?php
     // Inclure le fichier de configuration pour la connexion à la base de données et les fonctions utilitaires
     require 'config.php';
+    require 'function.php';
 
     // Inclure les librairies PHPMailer
     require './libs/PHPMailer/src/PHPMailer.php';
     require './libs/PHPMailer/src/SMTP.php';
     require './libs/PHPMailer/src/Exception.php';
 
+    // Inclure la librairie phpdotenv
+    require 'vendor/autoload.php';
+
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\Exception;
+    use Dotenv\Dotenv;
+
+    // Charger les variables d'environnement depuis le fichier .env
+    $dotenv = Dotenv::createImmutable(__DIR__);
+    $dotenv->load();
 
     // Fonction pour envoyer l'email de réinitialisation du mot de passe
     function sendPasswordResetEmail($email) {
@@ -56,8 +65,8 @@
                         $mail->isSMTP();
                         $mail->Host = 'smtp.office365.com'; // Serveur SMTP
                         $mail->SMTPAuth = true;
-                        $mail->Username = getenv('SMTP_USER'); // Utiliser une variable d'environnement
-                        $mail->Password = getenv('SMTP_PASS'); // Utiliser une variable d'environnement
+                        $mail->Username = $_ENV['SMTP_USER'];
+                        $mail->Password = $_ENV['SMTP_PASS']; // J'utilise des variables d'environnement dans le fichier .env qui se trouve à la racine de mon projet
                         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
                         $mail->Port = 587;
 
@@ -85,7 +94,7 @@
                         $mail->send();
                         echo '<script>
                         alert("Un email de réinitialisation a été envoyé ! Vous allez être redirigé vers la page d\'accueil.");
-                        window.location.href = "accueil.html";
+                        window.location.href = "accueil.php";
                         </script>';
                         exit();
                     } catch (Exception $e) {

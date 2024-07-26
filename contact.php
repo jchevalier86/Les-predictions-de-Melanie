@@ -7,8 +7,16 @@
     require './libs/PHPMailer/src/SMTP.php';
     require './libs/PHPMailer/src/Exception.php';
 
+    // Inclure la librairie phpdotenv
+    require 'vendor/autoload.php';
+
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\Exception;
+    use Dotenv\Dotenv;
+
+    // Charger les variables d'environnement depuis le fichier .env
+    $dotenv = Dotenv::createImmutable(__DIR__);
+    $dotenv->load();
 
     // Créer une connexion à la base de données
     $conn = openConnection();
@@ -94,8 +102,8 @@
                     $mail->isSMTP();
                     $mail->Host = 'smtp.office365.com'; // Serveur SMTP
                     $mail->SMTPAuth = true;
-                    $mail->Username = getenv('SMTP_USER'); // Utiliser une variable d'environnement
-                    $mail->Password = getenv('SMTP_PASS'); // Utiliser une variable d'environnement
+                    $mail->Username = $_ENV['SMTP_USER'];
+                    $mail->Password = $_ENV['SMTP_PASS']; // Utiliser une variable d'environnement
                     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
                     $mail->Port = 587;
 

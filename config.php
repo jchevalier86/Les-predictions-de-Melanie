@@ -25,26 +25,30 @@
         $conn->close();
     }
 
-    // Fonctions de validation
-    function validateAge($date_naissance) {
-        $today = new DateTime();
-        $birthDate = new DateTime($date_naissance);
-        if ($birthDate > $today) {
-            return false;
+    // Fonction pour vérifier si l'utilisateur est connecté
+    function isLoggedIn() {
+        return isset($_SESSION['user_id']);
+    }
+
+    // Fonction pour connecter l'utilisateur
+    function login($email, $mot_de_passe) {
+        $conn = openConnection();
+       
+        $stmt = $conn->prepare("SELECT user_id, mot_de_passe FROM utilisateurs WHERE email = ?");
+        $stmt->bind_param("ss", $email);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        
+        if ($result->num_rows === 1) {
+            $_SESSION['loggedin'] = true;
+            $_SESSION['username'] = $nom; // Optionnel : stocke le nom d'utilisateur dans la session
+            $stmt->close();
+            closeConnection($conn);
+            return true;
         }
-        $age = $today->diff($birthDate)->y;
-        return $age >= 18;
-    }
-
-    function validateEmail($email) {
-        return filter_var($email, FILTER_VALIDATE_EMAIL) !== false;
-    }
-
-    function validatePhone($phone) {
-        return preg_match('/^[0-9]{10}$/', $phone) || $phone === '';
-    }
-
-    function validatePassword($password) {
-        return !empty($password); // Vérifie si le mot de passe n'est pas vide
+        
+        $stmt->close();
+        closeConnection($conn);
+        return false;
     }
 ?>

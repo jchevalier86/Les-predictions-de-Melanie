@@ -1,5 +1,6 @@
 <?php
-    session_start();
+    require 'config.php';
+    require 'function.php';
 
     // Vérifier si l'utilisateur est connecté
     $isConnected = isset($_SESSION['utilisateurs_id']);

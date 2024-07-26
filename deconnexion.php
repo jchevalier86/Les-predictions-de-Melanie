@@ -11,7 +11,7 @@
     // Redirection avec un message de succès
     echo '<script>
         alert("Vous avez bien été déconnecté ! Vous allez être redirigé vers la page d\'accueil.");
-        window.location.href = "accueil.html";
+        window.location.href = "accueil.php";
     </script>';
     exit();
 ?>

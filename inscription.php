@@ -1,6 +1,7 @@
 <?php
     // Inclusion des configurations et fonctions communes
     require 'config.php';
+    require 'function.php';
 
     // Vérification que tous les champs de formulaire nécessaires sont définis
     if (!isset($_POST['nom'], $_POST['prenom'], $_POST['date_naissance'], $_POST['email'], $_POST['phone'], $_POST['mot_de_passe'], $_POST['confirmation_mot_de_passe'])) {
@@ -53,7 +54,7 @@
     $conn = openConnection();
 
     // Vérification si l'email existe déjà dans la base de données
-    $sql_check = "SELECT * FROM utilisateurs WHERE email = ?";
+    $sql_check = "SELECT email FROM utilisateurs WHERE email = ?";
     $stmt_check = $conn->prepare($sql_check);
     if ($stmt_check) {
         $stmt_check->bind_param("s", $utilisateurs_email);
