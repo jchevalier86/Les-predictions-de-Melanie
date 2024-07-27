@@ -45,6 +45,7 @@
         // Assainir les entrées utilisateur
         $contact_nom = htmlspecialchars($_POST['nom'], ENT_QUOTES, 'UTF-8');
         $contact_prenom = htmlspecialchars($_POST['prenom'], ENT_QUOTES, 'UTF-8');
+        $contact_email = htmlspecialchars($_POST['email'], ENT_QUOTES, 'UTF-8');
         $contact_sujet = htmlspecialchars($_POST['sujet']);
         $contact_domaine = htmlspecialchars($_POST['domaine']);
         $contact_paiement = htmlspecialchars($_POST['paiement']);
@@ -67,9 +68,9 @@
         $stmt->close();
 
         // Vérifier si les valeurs des ENUM sont valides
-        $valid_sujets = ["question", "tirage", "ressenti_photo", "personnalite", "information"];
-        $valid_domaines = ["avenir", "tirage_general", "grossesse", "demenagement", "amour", "travail", "permis", "argent", "general", "autres"];
-        $valid_paiements = ["paypal", "virement"];
+        $valid_sujets = ["Question", "Tirage", "Ressenti", "Personnalite", "Information"];
+        $valid_domaines = ["Avenir", "Tirage_general", "Grossesse", "Demenagement", "Amour", "Travail", "Permis", "Argent", "General", "Autres"];
+        $valid_paiements = ["Paypal", "Virement"];
 
         $errorMessages = [];
         if (!in_array($contact_sujet, $valid_sujets)) {
@@ -128,6 +129,7 @@
                     $mail->Body    = "Vous avez reçu un nouveau message de contact.<br><br>
                                     <strong>Nom :</strong> " . htmlspecialchars($contact_nom) . "<br>
                                     <strong>Prenom :</strong> " . htmlspecialchars($contact_prenom) . "<br>
+                                    <strong>Email :</strong> " . htmlspecialchars($contact_email) . "<br>
                                     <strong>Sujet :</strong> " . htmlspecialchars($contact_sujet) . "<br>
                                     <strong>Domaine :</strong> " . htmlspecialchars($contact_domaine) . "<br>
                                     <strong>Type de paiement :</strong> " . htmlspecialchars($contact_paiement) . "<br>
@@ -135,6 +137,7 @@
                     $mail->AltBody = "Vous avez reçu un nouveau message de contact.\n\n
                                     Nom : " . htmlspecialchars($contact_nom) . "\n
                                     Prenom : " . htmlspecialchars($contact_prenom) . "\n
+                                    Email : " . htmlspecialchars($contact_email) . "\n
                                     Sujet : " . htmlspecialchars($contact_sujet) . "\n
                                     Domaine : " . htmlspecialchars($contact_domaine) . "\n
                                     Type de paiement : " . htmlspecialchars($contact_paiement) . "\n

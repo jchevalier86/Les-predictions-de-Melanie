@@ -137,14 +137,21 @@
       <label for="prenom"> Prénom <span class="star">*</span> </label>
       <input type="text" id="prenom" name="prenom" placeholder="Votre prénom" value="<?php echo isset($_SESSION['form_data']['prenom']) ? htmlspecialchars($_SESSION['form_data']['prenom']) : ''; ?>" required />
 
+      <!-- Champ de saisie pour l'email -->
+      <label for="email"> E-mail <span class="star">*</span> </label>
+      <input type="email" id="email" name="email" placeholder="votre.email@exemple.com" value="<?php echo isset($_SESSION['form_data']['email']) ? htmlspecialchars($_SESSION['form_data']['email']) : ''; ?>" required />
+      <?php if (isset($_SESSION['errorMessages']['email'])): ?>
+      <span style="color: red; font-size: 14px;"> <?php echo $_SESSION['errorMessages']['email']; ?> </span>
+      <?php endif; ?>
+
       <label for="sujet"> Sujet <span class="star">*</span> </label>
       <select name="sujet" id="sujet" required>
         <option value="" disabled selected> Sélectionnez un sujet </option>
-        <option value="question" id="question"> Question </option>
-        <option value="tirage" id="tirage"> Tirage </option>
-        <option value="ressenti_photo" id="ressenti_photo"> Ressenti photo </option>
-        <option value="personnalite" id="personnalite"> Personnalité </option>
-        <option value="information" id="information"> Renseignement </option>
+        <option value="Question" id="Question"> Question </option>
+        <option value="Tirage" id="Tirage"> Tirage </option>
+        <option value="Ressenti" id="Ressenti"> Ressenti photo </option>
+        <option value="Personnalite" id="Personnalite"> Personnalité </option>
+        <option value="Information" id="Information"> Renseignement </option>
       </select>
       <?php if (isset($_SESSION['errorMessages']['sujet'])): ?>
       <span style="color: red; font-size: 14px;"> <?php echo $_SESSION['errorMessages']['sujet']; ?> </span>
@@ -153,16 +160,16 @@
       <label for="domaine"> Domaine <span class="star">*</span> </label>
       <select name="domaine" id="domaine" required>
         <option value="" disabled selected> Sélectionnez un domaine </option>
-        <option value="avenir" id="avenir"> Avenir </option>
-        <option value="tirage_general" name="tirage_general"> Tirage Général </option>
-        <option value="grossesse" id="grossesse"> Grossesse </option>
-        <option value="demenagement" id="demenagement"> Déménagement </option>
-        <option value="amour" id="amour"> Amour </option>
-        <option value="travail" id="travail"> Travail </option>
-        <option value="permis" id="permis"> Permis </option>
-        <option value="argent" id="argent"> Argent </option>
-        <option value="general" id="general"> Général </option>
-        <option value="autres" id="autres"> Autres </option>
+        <option value="Avenir" id="Avenir"> Avenir </option>
+        <option value="Tirage_general" name="Tirage_general"> Tirage Général </option>
+        <option value="Grossesse" id="Grossesse"> Grossesse </option>
+        <option value="Demenagement" id="Demenagement"> Déménagement </option>
+        <option value="Amour" id="Amour"> Amour </option>
+        <option value="Travail" id="Travail"> Travail </option>
+        <option value="Permis" id="Permis"> Permis </option>
+        <option value="Argent" id="Argent"> Argent </option>
+        <option value="General" id="General"> Général </option>
+        <option value="Autres" id="Autres"> Autres </option>
       </select>
       <?php if (isset($_SESSION['errorMessages']['domaine'])): ?>
       <span style="color: red; font-size: 14px;"> <?php echo $_SESSION['errorMessages']['domaine']; ?> </span>
@@ -171,8 +178,8 @@
       <label for="paiement"> Type de paiement <span class="star">*</span> </label>
       <select name="paiement" id="paiement" required>
         <option value="" disabled selected> Sélectionnez un type de paiement </option>
-        <option value="paypal" name="paypal"> Paypal </option>
-        <option value="virement" name="virement"> Virement bancaire </option>
+        <option value="Paypal" name="Paypal"> Paypal </option>
+        <option value="Virement" name="Virement"> Virement bancaire </option>
       </select>
       <?php if (isset($_SESSION['errorMessages']['paiement'])): ?>
       <span style="color: red; font-size: 14px;"> <?php echo $_SESSION['errorMessages']['paiement']; ?> </span>

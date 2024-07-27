@@ -19,6 +19,13 @@
     $dotenv = Dotenv::createImmutable(__DIR__);
     $dotenv->load();
 
+    // Vérifier si l'utilisateur est déjà connecté
+    if (isLoggedIn()) {
+        $_SESSION['errorMessages']['isLoggedIn'] = "Vous êtes déjà connecté !";
+        header("Location: mot-de-passe-perdu.php");
+        exit();
+    }
+
     // Fonction pour envoyer l'email de réinitialisation du mot de passe
     function sendPasswordResetEmail($email) {
         // Ouvrir la connexion à la base de données
@@ -92,10 +99,8 @@
 
                         // Envoyer l'email
                         $mail->send();
-                        echo '<script>
-                        alert("Un email de réinitialisation a été envoyé ! Vous allez être redirigé vers la page d\'accueil.");
-                        window.location.href = "accueil.php";
-                        </script>';
+                        $_SESSION['successMessages']['password_perdu'] = "Un email de réinitialisation a été envoyé !";
+                        header ('Location: mot-de-passe-perdu.php');
                         exit();
                     } catch (Exception $e) {
                         // Gestion des erreurs d'envoi d'email

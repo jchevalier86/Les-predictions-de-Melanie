@@ -13,10 +13,8 @@
 
     // Vérifier si l'utilisateur est déjà connecté
     if (isLoggedIn()) {
-        echo '<script>
-            alert("Vous êtes déjà connecté !");
-            window.location.href = "accueil.php";
-        </script>';
+        $_SESSION['errorMessages']['isLoggedIn'] = "Vous êtes déjà connecté !";
+        header("Location: formulaire-connexion.php");
         exit();
     }
 
@@ -49,12 +47,12 @@
                 if (password_verify($mot_de_passe, $utilisateur["mot_de_passe"])) {
                     // Stockage des informations utilisateur dans la session
                     $_SESSION['user_id'] = $utilisateur['user_id'];
-
+                    // Stocker le nom et le prénom dans la session
+                    $_SESSION['user_name'] = $utilisateur['nom'];
+                    $_SESSION['user_prenom'] = $utilisateur['prenom'];
                     // Redirection avec un message de succès
-                    echo '<script>
-                        alert("Connexion réussie ! Vous allez être redirigé vers la page d\'accueil.");
-                        window.location.href = "accueil.php";
-                    </script>';
+                    $_SESSION['successMessages']['connexion'] = "Connexion réussie ! Bienvenue " . htmlspecialchars($utilisateur['prenom']) . " " . htmlspecialchars($utilisateur['nom']) . ".";
+                    header("Location: accueil.php");
                     exit();
                 } else {
                     $_SESSION['errorMessages']['mot_de_passe'] = "* Mot de passe incorrect.";

@@ -31,10 +31,8 @@
 // function logout() {
 //   // Définit l'état de connexion dans le localStorage
 //   localStorage.setItem("isLoggedIn", "false");
-//   // // Affiche une alerte pour confirmer la déconnexion
-//   // alert("Vous avez bien été déconnecté.");
-//   // // Redirige l'utilisateur vers la page d'accueil
-//   // window.location.href = "accueil.html";
+//   // Redirige l'utilisateur vers la page d'accueil
+//   window.location.href = "accueil.php";
 // }
 
 // // Ce script s'exécute une fois que le DOM est entièrement chargé et prêt

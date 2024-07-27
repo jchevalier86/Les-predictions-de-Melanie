@@ -136,6 +136,10 @@
     <hr class="separator" />
     <h2>Voyance et Cartomancie</h2>
 
+    <?php if (isset($_SESSION['successMessages']['connexion'])): ?>
+    <span style="display: block; margin: 20px auto; padding: 10px; width: fit-content; border: 2px solid #4CAF50; background: #D4EDDA; color: #155724; border-radius: 5px; text-align: center; font-size: 16px;"> <?php echo $_SESSION['successMessages']['connexion']; ?> </span>
+    <?php endif; ?>
+
     <!-- Section de présentation -->
     <section class="section-presentation">
       <div class="section1-col1">
@@ -260,6 +264,15 @@
 
   <script src="./script/script.js"></script>
   <script src="./script/script2.js"></script>
+
+  <?php
+    if (isset($_SESSION['errorMessages'])) {
+      unset($_SESSION['errorMessages']);
+    }
+    if (isset($_SESSION['successMessages'])) {
+        unset($_SESSION['successMessages']);
+      }
+  ?>
 </body>
 
 </html>

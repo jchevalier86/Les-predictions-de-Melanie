@@ -37,10 +37,8 @@
                     if ($stmt) {
                         $stmt->bind_param("s", $token);
                         $stmt->execute();
-                        echo '<script>
-                        alert("Votre mot de passe a été réinitialisé avec succès ! Vous allez être redirigé vers la page connexion.");
-                        window.location.href = "formulaire-connexion.php";
-                        </script>';
+                        $_SESSION['successMessages']['password_reset'] = "Votre mot de passe a été réinitialisé avec succès !";
+                        header ('Location: formulaire-connexion.php');
                         exit();
                     } else {
                         echo "Erreur de préparation de la requête : " . $conn->error;
@@ -116,6 +114,7 @@
         <form action="reset_password.php" method="POST">
             <h2>Réinitialiser le mot de passe</h2>
             
+            <!-- Ce champ caché inclut un token CSRF (Cross-Site Request Forgery) dans le formulaire. Ce token est généré par le serveur et inclus dans le formulaire pour protéger contre les attaques CSRF. Lors de la soumission du formulaire, le serveur vérifie ce token pour s'assurer que la requête provient de l'utilisateur légitime et non d'un attaquant. -->
             <input type="hidden" name="token" value="<?php echo htmlspecialchars($token); ?>">
             
             <!-- Champ pour entrer le nouveau mot de passe -->

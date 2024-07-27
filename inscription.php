@@ -71,10 +71,12 @@
             if ($stmt) {
                 $stmt->bind_param("ssssss", $utilisateurs_nom, $utilisateurs_prenom, $utilisateurs_date_naissance, $utilisateurs_email, $utilisateurs_phone, $utilisateurs_mot_de_passe);
                 if ($stmt->execute()) {
-                    echo '<script>
-                    alert("Inscription réussie ! Vous allez être redirigé vers la page de connexion.");
-                    window.location.href = "formulaire-connexion.php";
-                    </script>';
+                    // Stocker le nom et le prénom dans la session
+                    $_SESSION['user_name'] = $utilisateurs_nom;
+                    $_SESSION['user_prenom'] = $utilisateurs_prenom;
+                    // Redirection avec un message de succès
+                    $_SESSION['successMessages']['inscription'] = "Inscription réussie ! Bienvenue " . htmlspecialchars($utilisateurs_prenom) . " " . htmlspecialchars($utilisateurs_nom) . ".";
+                    header("Location: formulaire-connexion.php");
                     exit();
                 } else {
                     $_SESSION['errorMessages'] = ["Erreur lors de l'insertion des données : " . $stmt->error];
