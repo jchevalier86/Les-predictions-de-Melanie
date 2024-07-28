@@ -15,20 +15,20 @@
   <!-- Liens vers les feuilles de style CSS -->
   <link rel="stylesheet" href="./style/reset.css" />
   <link rel="stylesheet" href="./style/style.css" />
-  <link rel="stylesheet" href="./style/inscription-connexion-contact.css" />
+  <link rel="stylesheet" href="./style/horoscope.css" />
 
   <!-- Favicon pour le site -->
-  <link rel="shortcut icon" href="./images/favicon-1.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="./images/favicon-6.ico" type="image/x-icon" />
 
   <!-- Lien vers les icônes Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 
   <!-- Titre de la page (max 60 caractères) -->
-  <title> Contact </title>
+  <title> Horoscope </title>
 
   <!-- Meta description de la page (max 160 caractères) -->
   <meta name="description"
-    content="Contactez Mélanie, voyante et cartomancienne, pour toute question ou demande de prédictions personnalisées. Remplissez le formulaire avec votre nom, prénom et message." />
+    content="Découvrez votre horoscope quotidien personnalisé et obtenez des prédictions précises pour chaque signe astrologique. Sélectionnez votre signe et explorez ce que les étoiles vous réservent aujourd'hui." />
 </head>
 
 <body>
@@ -124,82 +124,33 @@
     </nav>
   </header>
 
-  <!-- Section du formulaire d'avis -->
-  <div class="container-2">
-
-    <form action="./contact.php" method="POST">
-      <?php if (isset($_SESSION['successMessages']['contact'])): ?>
-      <span style="display: block; margin: 20px auto; padding: 10px; width: fit-content; border: 2px solid #4CAF50; background: #D4EDDA; color: #155724; border-radius: 5px; text-align: center; font-size: 16px;"> <?php echo $_SESSION['successMessages']['contact-avis']; ?> </span>
-      <?php endif; ?>
-
-      <?php if (isset($_SESSION['errorMessages']['contact'])): ?>
-      <span style="display: block; margin: 20px auto; padding: 10px; width: fit-content; border: 2px solid #C62828; background: #FFEBEE; color: #C62828; border-radius: 5px; text-align: center; font-size: 16px;"> <?php echo $_SESSION['errorMessages']['contact-avis']; ?> </span>
-      <?php endif; ?>
-
-      <h2> Contact </h2>
-
-      <!-- Champ pour entrer l'email -->
-      <label for="nom"> Nom <span class="star">*</span> </label>
-      <input type="text" id="nom" name="nom" placeholder="Votre nom" value="<?php echo isset($_SESSION['form_data']['nom']) ? htmlspecialchars($_SESSION['form_data']['nom']) : ''; ?>" required />
-
-      <label for="prenom"> Prénom <span class="star">*</span> </label>
-      <input type="text" id="prenom" name="prenom" placeholder="Votre prénom" value="<?php echo isset($_SESSION['form_data']['prenom']) ? htmlspecialchars($_SESSION['form_data']['prenom']) : ''; ?>" required />
-
-      <!-- Champ de saisie pour l'email -->
-      <label for="email"> E-mail <span class="star">*</span> </label>
-      <input type="email" id="email" name="email" placeholder="votre.email@exemple.com" value="<?php echo isset($_SESSION['form_data']['email']) ? htmlspecialchars($_SESSION['form_data']['email']) : ''; ?>" required />
-      <?php if (isset($_SESSION['errorMessages']['email'])): ?>
-      <span style="color: red; font-size: 14px;"> <?php echo $_SESSION['errorMessages']['email']; ?> </span>
-      <?php endif; ?>
-
-      <label for="sujet"> Sujet <span class="star">*</span> </label>
-      <select name="sujet" id="sujet" required>
-        <option value="" disabled selected> Sélectionnez un sujet </option>
-        <option value="Question" id="Question"> Question </option>
-        <option value="Tirage" id="Tirage"> Tirage </option>
-        <option value="Ressenti" id="Ressenti"> Ressenti photo </option>
-        <option value="Personnalite" id="Personnalite"> Personnalité </option>
-        <option value="Information" id="Information"> Renseignement </option>
+  <!-- Conteneur principal pour le formulaire d'horoscope -->
+  <div class="container">
+    <!-- Formulaire pour sélectionner le signe astrologique et obtenir l'horoscope -->
+    <form method="POST" action="./horoscope.php">
+      <h1>Choisissez votre signe astrologique</h1>
+      <label for="sign"> Signe : </label>
+      <select name="sign" id="sign">
+        <option value="belier">Bélier</option>
+        <option value="taureau">Taureau</option>
+        <option value="gemeaux">Gémeaux</option>
+        <option value="cancer">Cancer</option>
+        <option value="lion">Lion</option>
+        <option value="vierge">Vierge</option>
+        <option value="balance">Balance</option>
+        <option value="scorpion">Scorpion</option>
+        <option value="sagittaire">Sagittaire</option>
+        <option value="capricorne">Capricorne</option>
+        <option value="verseau">Verseau</option>
+        <option value="poissons">Poissons</option>
       </select>
-      <?php if (isset($_SESSION['errorMessages']['sujet'])): ?>
-      <span style="color: red; font-size: 14px;"> <?php echo $_SESSION['errorMessages']['sujet']; ?> </span>
-      <?php endif; ?>
-
-      <label for="domaine"> Domaine <span class="star">*</span> </label>
-      <select name="domaine" id="domaine" required>
-        <option value="" disabled selected> Sélectionnez un domaine </option>
-        <option value="Avenir" id="Avenir"> Avenir </option>
-        <option value="Tirage_general" name="Tirage_general"> Tirage Général </option>
-        <option value="Grossesse" id="Grossesse"> Grossesse </option>
-        <option value="Demenagement" id="Demenagement"> Déménagement </option>
-        <option value="Amour" id="Amour"> Amour </option>
-        <option value="Travail" id="Travail"> Travail </option>
-        <option value="Permis" id="Permis"> Permis </option>
-        <option value="Argent" id="Argent"> Argent </option>
-        <option value="General" id="General"> Général </option>
-        <option value="Autres" id="Autres"> Autres </option>
-      </select>
-      <?php if (isset($_SESSION['errorMessages']['domaine'])): ?>
-      <span style="color: red; font-size: 14px;"> <?php echo $_SESSION['errorMessages']['domaine']; ?> </span>
-      <?php endif; ?>
-
-      <label for="paiement"> Type de paiement <span class="star">*</span> </label>
-      <select name="paiement" id="paiement" required>
-        <option value="" disabled selected> Sélectionnez un type de paiement </option>
-        <option value="Paypal" name="Paypal"> Paypal </option>
-        <option value="Virement" name="Virement"> Virement bancaire </option>
-      </select>
-      <?php if (isset($_SESSION['errorMessages']['paiement'])): ?>
-      <span style="color: red; font-size: 14px;"> <?php echo $_SESSION['errorMessages']['paiement']; ?> </span>
-      <?php endif; ?>
-
-      <label for="message"> Message <span class="star">*</span> </label>
-      <textarea type="text" id="message_envoi" name="message_envoi" rows="5" cols="46"
-        placeholder="Entrez votre message ici" required></textarea>
       <br /><br />
 
-      <!-- Input Envoyer -->
-      <input type="submit" name="contact" value="Envoyer" />
+      <label for="date"> Date : </label>
+      <input type="date" id="date" name="date" />
+      <br /><br />
+
+      <button type="submit"> Voir l'horoscope </button>
     </form>
   </div>
 
@@ -274,30 +225,6 @@
     </div>
   </footer>
 
-  <!-- Start of LiveChat (www.livechat.com) code -->
-  <script>
-    window.__lc = window.__lc || {};
-    window.__lc.license = 18291969;
-    window.__lc.integration_name = "manual_onboarding";
-    window.__lc.product_name = "livechat";
-    ; (function (n, t, c) { function i(n) { return e._h ? e._h.apply(null, n) : e._q.push(n) } var e = { _q: [], _h: null, _v: "2.0", on: function () { i(["on", c.call(arguments)]) }, once: function () { i(["once", c.call(arguments)]) }, off: function () { i(["off", c.call(arguments)]) }, get: function () { if (!e._h) throw new Error("[LiveChatWidget] You can't use getters before load."); return i(["get", c.call(arguments)]) }, call: function () { i(["call", c.call(arguments)]) }, init: function () { var n = t.createElement("script"); n.async = !0, n.type = "text/javascript", n.src = "https://cdn.livechatinc.com/tracking.js", t.head.appendChild(n) } }; !n.__lc.asyncInit && e.init(), n.LiveChatWidget = n.LiveChatWidget || e }(window, document, [].slice))
-  </script>
-
-  <noscript> <a href="https://www.livechat.com/chat-with/18291969/" rel="nofollow">Chat with us </a>, powered by <a
-      href="https://www.livechat.com/?welcome" rel="noopener nofollow" target="_blank"> LiveChat </a> </noscript>
-  <!-- End of LiveChat code -->
-
-  <?php
-    if (isset($_SESSION['errorMessages'])) {
-        unset($_SESSION['errorMessages']);
-    }
-    if (isset($_SESSION['successMessages'])) {
-      unset($_SESSION['successMessages']);
-    }
-    if (isset($_SESSION['form_data'])) {
-      unset($_SESSION['form_data']);
-    }
-  ?>
 </body>
 
 </html>

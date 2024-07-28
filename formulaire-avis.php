@@ -103,7 +103,7 @@
         <a href="tarif.html"> Tarif </a>
         <a href="formulaire-contact.php"> Contact </a>
         <a href="formulaire-avis.php"> Avis clients </a>
-        <a href="horoscope.php"> Horoscope </a>
+        <a href="formulaire-horoscope.php"> Horoscope </a>
       </div>
 
       <?php if (isset($_SESSION['user_id'])): ?>
@@ -227,7 +227,7 @@
       <ul>
         <li><a href="formulaire-avis.php"> Avis clients </a></li>
         <li><a href="formulaire-contact.php"> Contact </a></li>
-        <li><a href="horoscope.php"> Horoscope </a></li>
+        <li><a href="formulaire-horoscope.php"> Horoscope </a></li>
       </ul>
     </div>
 

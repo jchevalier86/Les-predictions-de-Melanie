@@ -188,7 +188,7 @@
             <ul>
                 <li><a href="formulaire-avis.php"> Avis clients </a></li>
                 <li><a href="formulaire-contact.php"> Contact </a></li>
-                <li><a href="horoscope.php"> Horoscope </a></li>
+                <li><a href="formulaire-horoscope.php"> Horoscope </a></li>
             </ul>
         </div>
 
@@ -197,9 +197,7 @@
             <a href="mentions-legales.html"> Mentions Légales </a>
         </div>
     </footer>
-
-    <script src="./script/script.js"></script>
-    <script src="./script/inscription.js"></script>
+    
 </body>
 
 </html>
