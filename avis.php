@@ -1,16 +1,41 @@
 <?php
-    // Définition des informations de connexion au serveur MySQL
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "lespredictionsdemelanie";
+    // Inclusion des configurations et fonctions communes
+    require 'config.php';
 
-    $conn = new mysqli($servername, $username, $password, $dbname);
+    // Inclure PHPMailer
+    require './libs/PHPMailer/src/PHPMailer.php';
+    require './libs/PHPMailer/src/SMTP.php';
+    require './libs/PHPMailer/src/Exception.php';
 
-    // Vérifier la connexion
+    // Inclure la librairie phpdotenv
+    require 'vendor/autoload.php';
+
+    use PHPMailer\PHPMailer\PHPMailer;
+    use PHPMailer\PHPMailer\Exception;
+    use Dotenv\Dotenv;
+
+    // Charger les variables d'environnement depuis le fichier .env
+    $dotenv = Dotenv::createImmutable(__DIR__);
+    $dotenv->load();
+
+    // Créer une connexion à la base de données
+    $conn = openConnection();
+
+    // Vérification de la connexion à la base de données
     if ($conn->connect_error) {
-        die("Échec de la connexion : " . $conn->connect_error);
+        error_log("Erreur de connexion à la base de données : " . $conn->connect_error);
+        echo "<div style='color:red;'>Une erreur est survenue. Veuillez réessayer plus tard.</div>";
+        exit();
     }
+
+    // Vérification que l'utilisateur est connecté
+    if (!isset($_SESSION['user_id']) || empty($_SESSION['user_id'])) {
+        $_SESSION['errorMessages']['contact-avis'] = "Vous devez être connecté pour envoyer un avis.";
+        header("Location: formulaire-contact.php");
+        exit();
+    }
+
+    $user_id = $_SESSION['user_id'];
 
     // Récupération des données du formulaire
     $rating = $_POST['rating'];
@@ -40,6 +65,6 @@
     $conn->close();
 
     // Redirection ou message de succès
-    header('Location: avis.html');
+    header('Location: formulaire-avis.php');
     exit();
 ?>

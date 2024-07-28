@@ -129,6 +129,10 @@
   <div class="container">
     <!-- Formulaire pour laisser un avis -->
     <form id="avis-form" action="./avis.php" method="POST">
+      <?php if (isset($_SESSION['errorMessages']['contact-avis'])): ?>
+      <span style="display: block; margin: 20px auto; padding: 10px; width: fit-content; border: 2px solid #C62828; background: #FFEBEE; color: #C62828; border-radius: 5px; text-align: center; font-size: 16px;"> <?php echo $_SESSION['errorMessages']['contact-avis']; ?> </span>
+      <?php endif; ?>
+
       <h1>Donnez votre avis</h1>
 
       <!-- Système de notation avec des étoiles -->

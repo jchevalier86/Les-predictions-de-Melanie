@@ -175,16 +175,16 @@
     </footer>
 
     <?php
-    if (isset($_SESSION['errorMessages'])) {
-        unset($_SESSION['errorMessages']);
-    }
-    if (isset($_SESSION['successMessages'])) {
-        unset($_SESSION['successMessages']);
-    }
-    if (isset($_SESSION['form_data'])) {
-      unset($_SESSION['form_data']);
-    }
-  ?>
+        if (isset($_SESSION['errorMessages'])) {
+            unset($_SESSION['errorMessages']);
+        }
+        if (isset($_SESSION['successMessages'])) {
+            unset($_SESSION['successMessages']);
+        }
+        if (isset($_SESSION['form_data'])) {
+        unset($_SESSION['form_data']);
+        }
+    ?>
 </body>
 
 </html>

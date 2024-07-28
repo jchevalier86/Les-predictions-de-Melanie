@@ -30,17 +30,15 @@
 
     // Vérification que l'utilisateur est connecté
     if (!isset($_SESSION['user_id']) || empty($_SESSION['user_id'])) {
-        echo '<script>
-        alert("Vous devez être connecté pour envoyer un message.");
-        window.location.href = "formulaire-connexion.php";
-        </script>';
+        $_SESSION['errorMessages']['contact-avis'] = "Vous devez être connecté pour envoyer un message.";
+        header("Location: formulaire-contact.php");
         exit();
     }
 
     $user_id = $_SESSION['user_id'];
 
     // Vérification que tous les champs de formulaire nécessaires sont définis
-    if (isset($_POST['nom'], $_POST['prenom'], $_POST['sujet'], $_POST['domaine'], $_POST['paiement'], $_POST['message_envoi'])) {
+    if (isset($_POST['nom'], $_POST['prenom'], $_POST['email'], $_POST['sujet'], $_POST['domaine'], $_POST['paiement'], $_POST['message_envoi'])) {
 
         // Assainir les entrées utilisateur
         $contact_nom = htmlspecialchars($_POST['nom'], ENT_QUOTES, 'UTF-8');
@@ -90,11 +88,11 @@
         }
 
         // Préparation de la requête SQL d'insertion
-        $sql = "INSERT INTO contact (user_id, nom, prenom, sujet, domaine, paiement, message_envoi) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO contact (user_id, nom, prenom, email, sujet, domaine, paiement, message_envoi) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         $stmt = $conn->prepare($sql);
 
         if ($stmt) {
-            $stmt->bind_param("issssss", $user_id, $contact_nom, $contact_prenom, $contact_sujet, $contact_domaine, $contact_paiement, $contact_message_envoi);
+            $stmt->bind_param("isssssss", $user_id, $contact_nom, $contact_prenom, $contact_email, $contact_sujet, $contact_domaine, $contact_paiement, $contact_message_envoi);
             if ($stmt->execute()) {
                 // Préparer l'email après avoir inséré les données
                 try {
@@ -117,14 +115,16 @@
                         ]
                     ];
 
+                    // Définir l'encodage en UTF-8
+                    $mail->CharSet = 'UTF-8';
+                    $mail->Encoding = 'base64'; // Encodage du message
+
                     // Destinataires
                     $mail->setFrom('les-predictions-de-melanie@outlook.com', 'Les Prédictions de Mélanie');
                     $mail->addAddress('les-predictions-de-melanie@outlook.com', 'Propriétaire du Site');
 
-                    // Contenu de l'email
+                    // Contenu de l'email au propriétaire du site
                     $mail->isHTML(true);
-                    $mail->CharSet = 'UTF-8'; // Définir l'encodage en UTF-8
-                    $mail->Encoding = 'base64'; // Encodage du message
                     $mail->Subject = "Nouveau message de " . htmlspecialchars($contact_prenom);
                     $mail->Body    = "Vous avez reçu un nouveau message de contact.<br><br>
                                     <strong>Nom :</strong> " . htmlspecialchars($contact_nom) . "<br>
@@ -133,8 +133,34 @@
                                     <strong>Sujet :</strong> " . htmlspecialchars($contact_sujet) . "<br>
                                     <strong>Domaine :</strong> " . htmlspecialchars($contact_domaine) . "<br>
                                     <strong>Type de paiement :</strong> " . htmlspecialchars($contact_paiement) . "<br>
-                                    <strong>Message :</strong><br>" . nl2br(htmlspecialchars($contact_message_envoi));
+                                    <strong>Message :</strong><br>" . nl2br($contact_message_envoi);
                     $mail->AltBody = "Vous avez reçu un nouveau message de contact.\n\n
+                                    Nom : " . htmlspecialchars($contact_nom) . "\n
+                                    Prenom : " . htmlspecialchars($contact_prenom) . "\n
+                                    Email : " . htmlspecialchars($contact_email) . "\n
+                                    Sujet : " . htmlspecialchars($contact_sujet) . "\n
+                                    Domaine : " . htmlspecialchars($contact_domaine) . "\n
+                                    Type de paiement : " . htmlspecialchars($contact_paiement) . "\n
+                                    Message :\n" . htmlspecialchars($contact_message_envoi);
+                    $mail->send();
+
+                    // Réinitialiser les destinataires et contenu pour l'email à l'utilisateur
+                    $mail->clearAddresses();
+                    $mail->clearAttachments();
+
+                    // Préparer l'email de récapitulatif pour l'utilisateur
+                    $mail->addAddress($contact_email);
+                    // Contenu de l'email
+                    $mail->Subject = "Votre message à bien été envoyé sur le site Les Prédictions de Mélanie";
+                    $mail->Body     = "Récapitulatif de votre message.<br><br>
+                                    <strong>Nom :</strong> " . htmlspecialchars($contact_nom) . "<br>
+                                    <strong>Prenom :</strong> " . htmlspecialchars($contact_prenom) . "<br>
+                                    <strong>Email :</strong> " . htmlspecialchars($contact_email) . "<br>
+                                    <strong>Sujet :</strong> " . htmlspecialchars($contact_sujet) . "<br>
+                                    <strong>Domaine :</strong> " . htmlspecialchars($contact_domaine) . "<br>
+                                    <strong>Type de paiement :</strong> " . htmlspecialchars($contact_paiement) . "<br>
+                                    <strong>Message :</strong><br>" . nl2br($contact_message_envoi);
+                    $mail->AltBody = "Récapitulatif de votre message.\n\n
                                     Nom : " . htmlspecialchars($contact_nom) . "\n
                                     Prenom : " . htmlspecialchars($contact_prenom) . "\n
                                     Email : " . htmlspecialchars($contact_email) . "\n
@@ -144,10 +170,8 @@
                                     Message :\n" . htmlspecialchars($contact_message_envoi);
 
                     $mail->send();
-                    echo '<script>
-                        alert("Votre message a été envoyé avec succès ! Vous allez être redirigé vers la page de contact.");
-                        window.location.href = "formulaire-contact.php";
-                        </script>';
+                    $_SESSION['successMessages']['contact-avis'] = "Votre message a été envoyé avec succès !";
+                    header ('Location: formulaire-contact.php');
                     exit();
                 } catch (Exception $e) {
                     echo 'Le message n\'a pas pu être envoyé. Erreur de messagerie: ' . htmlspecialchars($mail->ErrorInfo);

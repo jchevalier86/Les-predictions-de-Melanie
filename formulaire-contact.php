@@ -128,6 +128,14 @@
   <div class="container-2">
 
     <form action="./contact.php" method="POST">
+      <?php if (isset($_SESSION['successMessages']['contact-avis'])): ?>
+      <span style="display: block; margin: 20px auto; padding: 10px; width: fit-content; border: 2px solid #4CAF50; background: #D4EDDA; color: #155724; border-radius: 5px; text-align: center; font-size: 16px;"> <?php echo $_SESSION['successMessages']['contact-avis']; ?> </span>
+      <?php endif; ?>
+
+      <?php if (isset($_SESSION['errorMessages']['contact-avis'])): ?>
+      <span style="display: block; margin: 20px auto; padding: 10px; width: fit-content; border: 2px solid #C62828; background: #FFEBEE; color: #C62828; border-radius: 5px; text-align: center; font-size: 16px;"> <?php echo $_SESSION['errorMessages']['contact-avis']; ?> </span>
+      <?php endif; ?>
+
       <h2> Contact </h2>
 
       <!-- Champ pour entrer l'email -->
@@ -288,6 +296,9 @@
   <?php
     if (isset($_SESSION['errorMessages'])) {
         unset($_SESSION['errorMessages']);
+    }
+    if (isset($_SESSION['successMessages'])) {
+      unset($_SESSION['successMessages']);
     }
     if (isset($_SESSION['form_data'])) {
       unset($_SESSION['form_data']);
