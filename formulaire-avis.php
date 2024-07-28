@@ -130,11 +130,11 @@
     <!-- Formulaire pour laisser un avis -->
     <form id="avis-form" action="./avis.php" method="POST">
       <?php if (isset($_SESSION['successMessages']['avis'])): ?>
-      <span style="display: block; margin: 20px auto; padding: 10px; width: fit-content; border: 2px solid #4CAF50; background: #D4EDDA; color: #155724; border-radius: 5px; text-align: center; font-size: 16px;"> <?php echo $_SESSION['successMessages']['contact-avis']; ?> </span>
+      <span style="display: block; margin: 20px auto; padding: 10px; width: fit-content; border: 2px solid #4CAF50; background: #D4EDDA; color: #155724; border-radius: 5px; text-align: center; font-size: 16px;"> <?php echo $_SESSION['successMessages']['avis']; ?> </span>
       <?php endif; ?>
 
       <?php if (isset($_SESSION['errorMessages']['avis'])): ?>
-      <span style="display: block; margin: 20px auto; padding: 10px; width: fit-content; border: 2px solid #C62828; background: #FFEBEE; color: #C62828; border-radius: 5px; text-align: center; font-size: 16px;"> <?php echo $_SESSION['errorMessages']['contact-avis']; ?> </span>
+      <span style="display: block; margin: 20px auto; padding: 10px; width: fit-content; border: 2px solid #C62828; background: #FFEBEE; color: #C62828; border-radius: 5px; text-align: center; font-size: 16px;"> <?php echo $_SESSION['errorMessages']['avis']; ?> </span>
       <?php endif; ?>
 
       <h1>Donnez votre avis</h1>
@@ -156,6 +156,21 @@
         <input type="radio" id="star1" name="rating" value="1" required />
         <label for="star1" title="1étoile"> ☆ </label>
       </div>
+
+      <!-- Champ pour entrer le nom -->
+      <label for="nom"> Nom <span class="star">*</span> </label>
+      <input type="text" id="nom" name="nom" placeholder="Votre nom" value="<?php echo isset($_SESSION['form_data']['nom']) ? htmlspecialchars($_SESSION['form_data']['nom']) : ''; ?>" required />
+
+      <!-- Champ pour entrer le prénom -->
+      <label for="prenom"> Prénom <span class="star">*</span> </label>
+      <input type="text" id="prenom" name="prenom" placeholder="Votre prénom" value="<?php echo isset($_SESSION['form_data']['prenom']) ? htmlspecialchars($_SESSION['form_data']['prenom']) : ''; ?>" required />
+
+      <!-- Champ de saisie pour l'email -->
+      <label for="email"> E-mail <span class="star">*</span> </label>
+      <input type="email" id="email" name="email" placeholder="votre.email@exemple.com" value="<?php echo isset($_SESSION['form_data']['email']) ? htmlspecialchars($_SESSION['form_data']['email']) : ''; ?>" required />
+      <?php if (isset($_SESSION['errorMessages']['email'])): ?>
+      <span style="color: red; font-size: 14px;"> <?php echo $_SESSION['errorMessages']['email']; ?> </span>
+      <?php endif; ?>
 
       <!-- Zone de texte pour écrire l'avis -->
       <label for="avis"> Votre avis </label>
@@ -237,6 +252,17 @@
     </div>
   </footer>
 
+  <?php
+    if (isset($_SESSION['errorMessages'])) {
+        unset($_SESSION['errorMessages']);
+    }
+    if (isset($_SESSION['successMessages'])) {
+      unset($_SESSION['successMessages']);
+    }
+    if (isset($_SESSION['form_data'])) {
+      unset($_SESSION['form_data']);
+    }
+  ?>
 </body>
 
 </html>

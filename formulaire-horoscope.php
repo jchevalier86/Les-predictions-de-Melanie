@@ -129,8 +129,9 @@
     <!-- Formulaire pour sélectionner le signe astrologique et obtenir l'horoscope -->
     <form method="POST" action="./horoscope.php">
       <h1>Choisissez votre signe astrologique</h1>
-      <label for="sign"> Signe : </label>
-      <select name="sign" id="sign">
+      <label for="signe"> Signe : </label>
+      <select name="signe" id="signe">
+        <option value="" disabled selected> Sélectionnez votre signe </option>
         <option value="belier">Bélier</option>
         <option value="taureau">Taureau</option>
         <option value="gemeaux">Gémeaux</option>

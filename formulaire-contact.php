@@ -129,19 +129,20 @@
 
     <form action="./contact.php" method="POST">
       <?php if (isset($_SESSION['successMessages']['contact'])): ?>
-      <span style="display: block; margin: 20px auto; padding: 10px; width: fit-content; border: 2px solid #4CAF50; background: #D4EDDA; color: #155724; border-radius: 5px; text-align: center; font-size: 16px;"> <?php echo $_SESSION['successMessages']['contact-avis']; ?> </span>
+      <span style="display: block; margin: 20px auto; padding: 10px; width: fit-content; border: 2px solid #4CAF50; background: #D4EDDA; color: #155724; border-radius: 5px; text-align: center; font-size: 16px;"> <?php echo $_SESSION['successMessages']['contact']; ?> </span>
       <?php endif; ?>
 
       <?php if (isset($_SESSION['errorMessages']['contact'])): ?>
-      <span style="display: block; margin: 20px auto; padding: 10px; width: fit-content; border: 2px solid #C62828; background: #FFEBEE; color: #C62828; border-radius: 5px; text-align: center; font-size: 16px;"> <?php echo $_SESSION['errorMessages']['contact-avis']; ?> </span>
+      <span style="display: block; margin: 20px auto; padding: 10px; width: fit-content; border: 2px solid #C62828; background: #FFEBEE; color: #C62828; border-radius: 5px; text-align: center; font-size: 16px;"> <?php echo $_SESSION['errorMessages']['contact']; ?> </span>
       <?php endif; ?>
 
       <h2> Contact </h2>
 
-      <!-- Champ pour entrer l'email -->
+      <!-- Champ pour entrer le nom -->
       <label for="nom"> Nom <span class="star">*</span> </label>
       <input type="text" id="nom" name="nom" placeholder="Votre nom" value="<?php echo isset($_SESSION['form_data']['nom']) ? htmlspecialchars($_SESSION['form_data']['nom']) : ''; ?>" required />
 
+      <!-- Champ pour entrer le prénom -->
       <label for="prenom"> Prénom <span class="star">*</span> </label>
       <input type="text" id="prenom" name="prenom" placeholder="Votre prénom" value="<?php echo isset($_SESSION['form_data']['prenom']) ? htmlspecialchars($_SESSION['form_data']['prenom']) : ''; ?>" required />
 

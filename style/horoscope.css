@@ -79,6 +79,10 @@ input[type="date"] {
   font-size: 16px; /* Taille de police de 16px */
 }
 
+select:hover {
+  cursor: pointer;
+}
+
 button {
   background-color: #6a0dad; /* Couleur de fond violette pour le bouton */
   color: #fff; /* Couleur du texte blanche */

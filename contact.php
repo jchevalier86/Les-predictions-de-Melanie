@@ -99,7 +99,7 @@
                     // Paramètres du serveur SMTP
                     $mail = new PHPMailer(true);
                     $mail->isSMTP();
-                    $mail->Host = 'smtp.office365.com'; // Serveur SMTP
+                    $mail->Host = $_ENV['SMTP_HOST']; // Serveur SMTP
                     $mail->SMTPAuth = true;
                     $mail->Username = $_ENV['SMTP_USER'];
                     $mail->Password = $_ENV['SMTP_PASS']; // Utiliser une variable d'environnement
