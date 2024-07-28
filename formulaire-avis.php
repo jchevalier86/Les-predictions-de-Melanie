@@ -1,5 +1,15 @@
 <?php
   require 'config.php';
+
+  // Créer une connexion à la base de données
+  $conn = openConnection();
+
+  // Récupérer les avis depuis la base de données
+  $avis_query = "SELECT rating, nom, prenom, avis FROM avis_clients ORDER BY date_envoi DESC";
+  $result = $conn->query($avis_query);
+
+  // Fermer la connexion
+  $conn->close();
 ?>
 
 <!DOCTYPE html>
@@ -137,24 +147,39 @@
       <span style="display: block; margin: 20px auto; padding: 10px; width: fit-content; border: 2px solid #C62828; background: #FFEBEE; color: #C62828; border-radius: 5px; text-align: center; font-size: 16px;"> <?php echo $_SESSION['errorMessages']['avis']; ?> </span>
       <?php endif; ?>
 
-      <h1>Donnez votre avis</h1>
+      <h1> Donnez votre avis </h1>
 
       <!-- Système de notation avec des étoiles -->
       <div class="rating">
-        <input type="radio" id="star5" name="rating" value="5" />
-        <label for="star5" title="5étoiles"> ☆ </label>
+        <div class="rating-star-1">
+          <input type="radio" id="star1" name="rating" value="1" required />
+          <label for="star1"> ☆ </label>
+          <span class="rating-star"> 1 étoile </span>
+        </div>
 
-        <input type="radio" id="star4" name="rating" value="4" />
-        <label for="star4" title="4étoiles"> ☆ </label>
+        <div class="rating-star-2">
+          <input type="radio" id="star2" name="rating" value="2" />
+          <label for="star2"> ☆ </label>
+          <span class="rating-star"> 2 étoiles </span>
+        </div>
 
-        <input type="radio" id="star3" name="rating" value="3" />
-        <label for="star3" title="3étoiles"> ☆ </label>
+        <div class="rating-star-3">
+          <input type="radio" id="star3" name="rating" value="3" />
+          <label for="star3"> ☆ </label>
+          <span class="rating-star"> 3 étoiles </span>
+        </div>
 
-        <input type="radio" id="star2" name="rating" value="2" />
-        <label for="star2" title="2étoiles"> ☆ </label>
+        <div class="rating-star-4">
+          <input type="radio" id="star4" name="rating" value="4" />
+          <label for="star4"> ☆ </label>
+          <span class="rating-star"> 4 étoiles </span>
+        </div>
 
-        <input type="radio" id="star1" name="rating" value="1" required />
-        <label for="star1" title="1étoile"> ☆ </label>
+        <div class="rating-star-5">
+          <input type="radio" id="star5" name="rating" value="5" />
+          <label for="star5"> ☆ </label>
+          <span class="rating-star"> 5 étoiles </span>
+        </div>
       </div>
 
       <!-- Champ pour entrer le nom -->
@@ -173,12 +198,39 @@
       <?php endif; ?>
 
       <!-- Zone de texte pour écrire l'avis -->
-      <label for="avis"> Votre avis </label>
+      <label for="avis"> Votre avis <span class="star">*</span> </label>
       <textarea id="avis" name="avis" rows="4" placeholder="Écrivez votre avis ici..." required></textarea>
 
       <!-- Bouton pour soumettre le formulaire -->
       <button type="submit" class="submit"> Envoyer </button>
     </form>
+  </div>
+
+  <!-- Affichage des avis -->
+  <div class="avis-item">
+    <h2> Avis des clients </h2>
+    <?php if ($result->num_rows > 0): ?>
+      <?php while ($row = $result->fetch_assoc()): ?>
+        <div class="avis-item">
+          <div class="rating-stars">
+            <?php for ($i = 0; $i < $row['rating']; $i++): ?>
+              <i class="fas fa-star"></i>
+            <?php endfor; ?>
+            <?php for ($i = $row['rating']; $i < 5; $i++): ?>
+              <i class="far fa-star"></i>
+            <?php endfor; ?>
+          </div>
+          <br>
+          <div class="avis-name">
+          <p><?php echo htmlspecialchars($row['prenom']); ?> <?php echo htmlspecialchars($row['nom']); ?></p>
+          </div>
+          <br>
+          <p><?php echo htmlspecialchars($row['avis']); ?></p>
+        </div>
+      <?php endwhile; ?>
+    <?php else: ?>
+      <h6> Il n'y a pas encore d'avis. </h6>
+    <?php endif; ?>
   </div>
 
   <!-- Pied de page avec des liens vers les différentes pages du site -->
@@ -251,6 +303,8 @@
       <a href="mentions-legales.html"> Mentions Légales </a>
     </div>
   </footer>
+
+  <script src="./script/avis.js"></script>
 
   <?php
     if (isset($_SESSION['errorMessages'])) {

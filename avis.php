@@ -105,7 +105,7 @@
                     $mail->isHTML(true);
                     $mail->Subject = "Nouveau avis de " . htmlspecialchars($avis_clients_prenom);
                     $mail->Body    = "Vous avez reçu un nouveau avis sur le site Les Prédictions de Mélanie.<br><br>
-                                    <strong>Note :</strong> " . htmlspecialchars($avis_clients_rating) . " étoiles. <br>
+                                    <strong>Note :</strong> " . htmlspecialchars($avis_clients_rating) . " étoile(s) <br>
                                     <strong>Nom :</strong> " . htmlspecialchars($avis_clients_nom) . "<br>
                                     <strong>Prenom :</strong> " . htmlspecialchars($avis_clients_prenom) . "<br>
                                     <strong>Email :</strong> " . htmlspecialchars($avis_clients_email) . "<br>
@@ -128,7 +128,7 @@
                     $mail->isHTML(true);
                     $mail->Subject = 'Récapitulatif de votre avis';
                     $mail->Body    = "Merci pour votre avis ! Voici un récapitulatif :<br><br>
-                                      <strong>Note :</strong> " . $avis_clients_rating . " étoiles.<br>
+                                      <strong>Note :</strong> " . $avis_clients_rating . " étoile(s)<br>
                                       <strong>Nom :</strong> " . htmlspecialchars($avis_clients_nom) . "<br>
                                       <strong>Prenom :</strong> " . htmlspecialchars($avis_clients_prenom) . "<br>
                                       <strong>Email :</strong> " . htmlspecialchars($avis_clients_email) . "<br>

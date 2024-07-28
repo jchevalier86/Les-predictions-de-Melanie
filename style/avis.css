@@ -36,7 +36,9 @@ body {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Ajoute une ombre légère autour du conteneur */
 }
 
-h1 {
+h1,
+h2,
+h6 {
   font-size: 24px; /* Définit la taille de police à 24px pour le titre */
   color: #6a0dad; /* Couleur violette pour le texte du titre */
   text-align: center; /* Centre le texte du titre */
@@ -61,7 +63,7 @@ input[type="email"] {
   display: flex; /* Utilise flexbox pour aligner les éléments en ligne */
   justify-content: center; /* Centre les étoiles horizontalement */
   margin-bottom: 20px; /* Ajoute une marge inférieure de 20px à la zone de notation */
-  direction: rtl; /* Inverse la direction des éléments de droite à gauche */
+  position: relative;
 }
 
 .rating input {
@@ -75,10 +77,42 @@ input[type="email"] {
   transition: color 0.2s; /* Ajoute une transition douce pour le changement de couleur */
 }
 
+/* Change la couleur des étoiles survolées et de toutes les étoiles précédentes */
 .rating input:checked ~ label,
-.rating label:hover ~ label,
-.rating label:hover {
-  color: #ffd700; /* Change la couleur des étoiles sélectionnées ou survolées en or */
+.rating input:checked ~ label ~ label,
+.rating label:hover,
+.rating label:hover ~ label {
+  color: #ffd700; /* Couleur des étoiles survolées ou sélectionnées */
+}
+
+.rating-stars {
+  color: #ffd700;
+}
+
+.rating-star {
+  visibility: hidden;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px 10px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  width: 120px;
+}
+
+.rating-star-1:hover .rating-star,
+.rating-star-2:hover .rating-star,
+.rating-star-3:hover .rating-star,
+.rating-star-4:hover .rating-star,
+.rating-star-5:hover .rating-star {
+  visibility: visible;
+  opacity: 1;
 }
 
 label {
@@ -115,4 +149,18 @@ button:hover {
 
 .star {
   color: red;
+}
+
+/* Styles pour les avis */
+.avis-item {
+  background-color: white; /* Fond blanc pour chaque avis */
+  padding: 20px; /* Padding de 20px autour de chaque avis */
+  margin: 10px auto; /* Marge de 10px autour de chaque avis */
+  border-radius: 8px; /* Coins arrondis de 8px pour chaque avis */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Ombre légère autour de chaque avis */
+  text-align: center; /* Centre le texte à l'intérieur de chaque avis */
+}
+
+.avis-name {
+  font-weight: 600;
 }
