@@ -30,7 +30,7 @@
 
     // Vérification que l'utilisateur est connecté
     if (!isset($_SESSION['user_id']) || empty($_SESSION['user_id'])) {
-        $_SESSION['errorMessages']['contact-avis'] = "Vous devez être connecté pour envoyer un message.";
+        $_SESSION['errorMessages']['contact'] = "Vous devez être connecté pour envoyer un message.";
         header("Location: formulaire-contact.php");
         exit();
     }
@@ -170,7 +170,7 @@
                                     Message :\n" . htmlspecialchars($contact_message_envoi);
 
                     $mail->send();
-                    $_SESSION['successMessages']['contact-avis'] = "Votre message a été envoyé avec succès !";
+                    $_SESSION['successMessages']['contact'] = "Votre message a été envoyé avec succès !";
                     header ('Location: formulaire-contact.php');
                     exit();
                 } catch (Exception $e) {

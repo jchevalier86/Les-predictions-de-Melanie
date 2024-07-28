@@ -68,8 +68,8 @@
             <i class="fa fa-caret-down"> </i>
           </button>
           <div class="dropdown-content">
-            <a href="definition-voyance.php"> Définition </a>
-            <a href="pratique-voyance.php"> Pratique </a>
+            <a href="definition-voyance.html"> Définition </a>
+            <a href="pratique-voyance.html"> Pratique </a>
           </div>
         </div>
 
@@ -80,8 +80,8 @@
             <i class="fa fa-caret-down"> </i>
           </button>
           <div class="dropdown-content">
-            <a href="definition-cartomancie.php"> Définition </a>
-            <a href="pratique-cartomancie.php"> Pratique </a>
+            <a href="definition-cartomancie.html"> Définition </a>
+            <a href="pratique-cartomancie.html"> Pratique </a>
           </div>
         </div>
 
@@ -92,15 +92,15 @@
             <i class="fa fa-caret-down"> </i>
           </button>
           <div class="dropdown-content">
-            <a href="definition-ressenti-photo.php"> Définition </a>
-            <a href="pratique-ressenti-photo.php"> Pratique </a>
+            <a href="definition-ressenti-photo.html"> Définition </a>
+            <a href="pratique-ressenti-photo.html"> Pratique </a>
           </div>
         </div>
       </div>
 
       <!-- Liens directs pour Contact, Avis clients et Horoscope -->
       <div class="tarif-contact-avis-blog">
-        <a href="tarif.php"> Tarif </a>
+        <a href="tarif.html"> Tarif </a>
         <a href="formulaire-contact.php"> Contact </a>
         <a href="formulaire-avis.php"> Avis clients </a>
         <a href="horoscope.php"> Horoscope </a>
@@ -191,24 +191,24 @@
       </ul>
 
       <ul>
-        <li><a href="definition-voyance.php"> Définition voyance </a></li>
+        <li><a href="definition-voyance.html"> Définition voyance </a></li>
         <li>
-          <a href="definition-cartomancie.php"> Définition cartomancie </a>
+          <a href="definition-cartomancie.html"> Définition cartomancie </a>
         </li>
         <li>
-          <a href="definition-ressenti-photo.php">
+          <a href="definition-ressenti-photo.html">
             Définition ressenti photo
           </a>
         </li>
       </ul>
 
       <ul>
-        <li><a href="pratique-voyance.php"> Pratique voyance </a></li>
+        <li><a href="pratique-voyance.html"> Pratique voyance </a></li>
         <li>
-          <a href="pratique-cartomancie.php"> Pratique cartomancie </a>
+          <a href="pratique-cartomancie.html"> Pratique cartomancie </a>
         </li>
         <li>
-          <a href="pratique-ressenti-photo.php"> Pratique ressenti photo </a>
+          <a href="pratique-ressenti-photo.html"> Pratique ressenti photo </a>
         </li>
       </ul>
 
@@ -221,12 +221,10 @@
 
     <div class="copyright-info">
       <p> © 2024 Les Prédictions de Mélanie. Tous droits réservés </p>
-      <a href="mentions-legales.php"> Mentions Légales </a>
+      <a href="mentions-legales.html"> Mentions Légales </a>
     </div>
   </footer>
 
-  <script src="./script/script.js"></script>
-  <script src="./script/horoscope.js"></script>
 </body>
 
 </html>

@@ -1,7 +1,3 @@
-<?php
-  require 'config.php';
-?>
-
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -18,17 +14,17 @@
   <link rel="stylesheet" href="./style/definitions-pratiques.css" />
 
   <!-- Favicon pour le site -->
-  <link rel="shortcut icon" href="./images/favicon-4.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="./images/favicon-8.ico" type="image/x-icon" />
 
   <!-- Lien vers les icônes Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 
   <!-- Titre de la page (max 60 caractères) -->
-  <title>Définition de la Voyance</title>
+  <title> Définition Ressenti Photo </title>
 
   <!-- Meta description de la page (max 160 caractères) -->
   <meta name="description"
-    content="Découvrez la définition de la voyance, une pratique mystique permettant de percevoir des informations cachées ou de prédire des événements futurs à travers divers outils divinatoires et intuitions extrasensorielles." />
+    content="Découvrez la définition du ressenti photo, un concept essentiel pour comprendre l'impact émotionnel des images. Apprenez comment les photographies peuvent évoquer des sentiments puissants et influencer la perception visuelle." />
 </head>
 
 <body>
@@ -68,8 +64,8 @@
             <i class="fa fa-caret-down"> </i>
           </button>
           <div class="dropdown-content">
-            <a href="definition-voyance.php"> Définition </a>
-            <a href="pratique-voyance.php"> Pratique </a>
+            <a href="definition-voyance.html"> Définition </a>
+            <a href="pratique-voyance.html"> Pratique </a>
           </div>
         </div>
 
@@ -80,8 +76,8 @@
             <i class="fa fa-caret-down"> </i>
           </button>
           <div class="dropdown-content">
-            <a href="definition-cartomancie.php"> Définition </a>
-            <a href="pratique-cartomancie.php"> Pratique </a>
+            <a href="definition-cartomancie.html"> Définition </a>
+            <a href="pratique-cartomancie.html"> Pratique </a>
           </div>
         </div>
 
@@ -92,34 +88,18 @@
             <i class="fa fa-caret-down"> </i>
           </button>
           <div class="dropdown-content">
-            <a href="definition-ressenti-photo.php"> Définition </a>
-            <a href="pratique-ressenti-photo.php"> Pratique </a>
+            <a href="definition-ressenti-photo.html"> Définition </a>
+            <a href="pratique-ressenti-photo.html"> Pratique </a>
           </div>
         </div>
       </div>
 
       <!-- Liens directs pour Contact, Avis clients et Horoscope -->
       <div class="tarif-contact-avis-blog">
-        <a href="tarif.php"> Tarif </a>
+        <a href="tarif.html"> Tarif </a>
         <a href="formulaire-contact.php"> Contact </a>
         <a href="formulaire-avis.php"> Avis clients </a>
         <a href="horoscope.php"> Horoscope </a>
-      </div>
-
-      <?php if (isset($_SESSION['user_id'])): ?>
-      <!-- Icône de déconnexion avec un lien vers la page de déconnexion -->
-      <div class="lien-deconnect">
-        <img class="icone-connect" src="./images/deconnexion.png" alt="Aller à la page accueil"
-          onclick="window.location.href='deconnexion.php'" />
-        <span class="deconnect"> Déconnexion </span>
-      </div>
-      <?php else: ?>
-      <!-- Icône de connexion avec un lien vers la page de connexion -->
-      <div class="lien-connect">
-        <img class="icone-connect" src="./images/connexion.png" alt="Aller à la page de connexion"
-          onclick="window.location.href='formulaire-connexion.php'" />
-        <span class="connect"> Connexion </span>
-      <?php endif; ?>
       </div>
 
       <div class="circle-1-2">
@@ -137,43 +117,66 @@
 
   <!-- Section d'introduction -->
   <section class="intro">
-    <h1>La Voyance</h1>
+    <h1>Le Ressenti Photo</h1>
     <hr class="separator" />
     <h2>Définition</h2>
 
-    <!-- Section de définition -->
+    <!-- Section définition -->
     <section class="section-presentation">
       <div class="section1-col1">
-        <!-- Texte de définition de la Voyance -->
+        <!-- Texte définition ressenti photo -->
         <div class="presentation">
           <div class="presentation-text-content">
             <p>
-              <span class="costum-word">La voyance</span> est la capacité
-              prétendue de percevoir des informations sur des évènements
-              passés, présents ou futurs qui ne sont pas accessibles par les
-              moyens ordinaires des sens humains. Cette perception peut se
-              manifester sous diverses formes, telles que des visions, des
-              voix, des sensations ou des intuitions.
-              <span class="costum-word">Les voyants</span> ou
-              <span class="costum-word">praticiens de la voyance</span>,
-              affirment avoir un don ou une faculté extrasensorielle qui leur
-              permet de capter des informations cachées ou de prédire des
-              évènements futurs.
-              <span class="costum-word">La voyance</span> peut inclure
-              l'utilisation d'outils divinatoire comme les boules de cristal,
-              les cartes (<span class="costum-word">comme dans la cartomancie</span>), les pendules ou se faire sans
-              supports, par des flashes
-              intuitifs ou des ressentis. Elle est souvent utilisée pour
-              obtenir des conseils sur des aspects personnels, professionnels
-              ou émotionnels de la vie des consultants.
+              <span class="costum-word">Le ressenti photo</span> désigne
+              l’ensemble des impressions et émotions subjectives qu’une
+              personne éprouve en regardant une photographie. Ce ressenti est
+              influencé par plusieurs facteurs :
+            </p>
+            <br />
+
+            <p>
+              <span class="costum-word">Éléments visuels :</span>
+              Couleurs, composition, lumières et textures de l’image.
+            </p>
+            <br />
+            <p>
+              <span class="costum-word">Sujet :</span> Ce que représente
+              la photo, comme des personnes, des paysages, des objets ou
+              des évènements.
+            </p>
+            <br />
+            <p>
+              <span class="costum-word">Contexte émotionnel :</span>
+              L’état d’esprit du spectateurs au moment où il regarde la
+              photo.
+            </p>
+            <br />
+            <p>
+              <span class="costum-word">Expériences personnelles :</span>
+              Les souvenirs et associations personnelles que la photo peut
+              évoquer.
+            </p>
+            <br />
+            <p>
+              <span class="costum-word">Référence culturelles :</span> Les
+              significations culturelles et sociales associées aux
+              éléments présents dans l’image.
+            </p>
+            <br />
+            <p>
+              En résumé,
+              <span class="costum-word">le ressenti photo</span> est une
+              réaction personnelle et émotionnelle unique que suscite une
+              photographie chez chaque individu.
             </p>
           </div>
         </div>
+      </div>
 
-        <!-- Photo dans la section de définition voyance -->
-        <div class="photo">
-          <img class="photo-body-1" src="./images/voyance2.jpg" alt="Image de cartes entourées de bougies" />
-        </div>
+      <!-- Photo dans la section définition ressenti photo -->
+      <div class="photo">
+        <img class="photo-body-3" src="images/ressenti-photo.jpeg" alt="Image" />
       </div>
     </section>
   </section>
@@ -215,24 +218,24 @@
       </ul>
 
       <ul>
-        <li><a href="definition-voyance.php"> Définition voyance </a></li>
+        <li><a href="definition-voyance.html"> Définition voyance </a></li>
         <li>
-          <a href="definition-cartomancie.php"> Définition cartomancie </a>
+          <a href="definition-cartomancie.html"> Définition cartomancie </a>
         </li>
         <li>
-          <a href="definition-ressenti-photo.php">
+          <a href="definition-ressenti-photo.html">
             Définition ressenti photo
           </a>
         </li>
       </ul>
 
       <ul>
-        <li><a href="pratique-voyance.php"> Pratique voyance </a></li>
+        <li><a href="pratique-voyance.html"> Pratique voyance </a></li>
         <li>
-          <a href="pratique-cartomancie.php"> Pratique cartomancie </a>
+          <a href="pratique-cartomancie.html"> Pratique cartomancie </a>
         </li>
         <li>
-          <a href="pratique-ressenti-photo.php"> Pratique ressenti photo </a>
+          <a href="pratique-ressenti-photo.html"> Pratique ressenti photo </a>
         </li>
       </ul>
 
@@ -245,12 +248,11 @@
 
     <div class="copyright-info">
       <p> © 2024 Les Prédictions de Mélanie. Tous droits réservés </p>
-      <a href="mentions-legales.php"> Mentions Légales </a>
+      <a href="mentions-legales.html"> Mentions Légales </a>
     </div>
   </footer>
 
   <script src="./script/script.js"></script>
-  <script src="./script/script2.js"></script>
 </body>
 
 </html>

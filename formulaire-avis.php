@@ -68,8 +68,8 @@
             <i class="fa fa-caret-down"> </i>
           </button>
           <div class="dropdown-content">
-            <a href="definition-voyance.php"> Définition </a>
-            <a href="pratique-voyance.php"> Pratique </a>
+            <a href="definition-voyance.html"> Définition </a>
+            <a href="pratique-voyance.html"> Pratique </a>
           </div>
         </div>
 
@@ -80,8 +80,8 @@
             <i class="fa fa-caret-down"> </i>
           </button>
           <div class="dropdown-content">
-            <a href="definition-cartomancie.php"> Définition </a>
-            <a href="pratique-cartomancie.php"> Pratique </a>
+            <a href="definition-cartomancie.html"> Définition </a>
+            <a href="pratique-cartomancie.html"> Pratique </a>
           </div>
         </div>
 
@@ -92,15 +92,15 @@
             <i class="fa fa-caret-down"> </i>
           </button>
           <div class="dropdown-content">
-            <a href="definition-ressenti-photo.php"> Définition </a>
-            <a href="pratique-ressenti-photo.php"> Pratique </a>
+            <a href="definition-ressenti-photo.html"> Définition </a>
+            <a href="pratique-ressenti-photo.html"> Pratique </a>
           </div>
         </div>
       </div>
 
       <!-- Liens directs pour Contact, Avis clients et Horoscope -->
       <div class="tarif-contact-avis-blog">
-        <a href="tarif.php"> Tarif </a>
+        <a href="tarif.html"> Tarif </a>
         <a href="formulaire-contact.php"> Contact </a>
         <a href="formulaire-avis.php"> Avis clients </a>
         <a href="horoscope.php"> Horoscope </a>
@@ -129,7 +129,11 @@
   <div class="container">
     <!-- Formulaire pour laisser un avis -->
     <form id="avis-form" action="./avis.php" method="POST">
-      <?php if (isset($_SESSION['errorMessages']['contact-avis'])): ?>
+      <?php if (isset($_SESSION['successMessages']['avis'])): ?>
+      <span style="display: block; margin: 20px auto; padding: 10px; width: fit-content; border: 2px solid #4CAF50; background: #D4EDDA; color: #155724; border-radius: 5px; text-align: center; font-size: 16px;"> <?php echo $_SESSION['successMessages']['contact-avis']; ?> </span>
+      <?php endif; ?>
+
+      <?php if (isset($_SESSION['errorMessages']['avis'])): ?>
       <span style="display: block; margin: 20px auto; padding: 10px; width: fit-content; border: 2px solid #C62828; background: #FFEBEE; color: #C62828; border-radius: 5px; text-align: center; font-size: 16px;"> <?php echo $_SESSION['errorMessages']['contact-avis']; ?> </span>
       <?php endif; ?>
 
@@ -199,24 +203,24 @@
       </ul>
 
       <ul>
-        <li><a href="definition-voyance.php"> Définition voyance </a></li>
+        <li><a href="definition-voyance.html"> Définition voyance </a></li>
         <li>
-          <a href="definition-cartomancie.php"> Définition cartomancie </a>
+          <a href="definition-cartomancie.html"> Définition cartomancie </a>
         </li>
         <li>
-          <a href="definition-ressenti-photo.php">
+          <a href="definition-ressenti-photo.html">
             Définition ressenti photo
           </a>
         </li>
       </ul>
 
       <ul>
-        <li><a href="pratique-voyance.php"> Pratique voyance </a></li>
+        <li><a href="pratique-voyance.html"> Pratique voyance </a></li>
         <li>
-          <a href="pratique-cartomancie.php"> Pratique cartomancie </a>
+          <a href="pratique-cartomancie.html"> Pratique cartomancie </a>
         </li>
         <li>
-          <a href="pratique-ressenti-photo.php"> Pratique ressenti photo </a>
+          <a href="pratique-ressenti-photo.html"> Pratique ressenti photo </a>
         </li>
       </ul>
 
@@ -229,11 +233,10 @@
 
     <div class="copyright-info">
       <p> © 2024 Les Prédictions de Mélanie. Tous droits réservés </p>
-      <a href="mentions-legales.php"> Mentions Légales </a>
+      <a href="mentions-legales.html"> Mentions Légales </a>
     </div>
   </footer>
 
-  <script src="./script/script.js"></script>
 </body>
 
 </html>

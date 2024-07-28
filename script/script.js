@@ -1,46 +1,59 @@
-// // Fonction pour vérifier si l'utilisateur est connecté
-// function checkLoginStatus() {
-//   // Récupère l'état de connexion depuis le localStorage
-//   const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+// Ce script s'exécute une fois que le DOM est entièrement chargé et prêt
+document.addEventListener("DOMContentLoaded", () => {
+  // Sélectionne les éléments et la section
+  const circleBlue = document.querySelector(".circle-2");
+  const circlePink = document.querySelector(".circle-1");
+  const colorSection = document.querySelector(".intro");
 
-//   // Sélectionne les éléments pour les liens de connexion et de déconnexion
-//   const lienConnect = document.querySelector(".lien-connect");
-//   const lienDeconnect = document.querySelector(".lien-deconnect");
+  // Fonction pour changer l'arrière-plan et stocker la couleur
+  function setBackground(color) {
+    colorSection.style.background = color;
+    localStorage.setItem("backgroundColor", color);
+  }
 
-//   // Vérifie si l'utilisateur est connecté ou non
-//   if (isLoggedIn) {
-//     // Si connecté, cache le lien de connexion et affiche le lien de déconnexion
-//     lienConnect.style.display = "none";
-//     lienDeconnect.style.display = "block";
-//   } else {
-//     // Si non connecté, affiche le lien de connexion et cache le lien de déconnexion
-//     lienConnect.style.display = "block";
-//     lienDeconnect.style.display = "none";
-//   }
-// }
+  // Lire la couleur stockée lors du chargement de la page
+  const savedColor = localStorage.getItem("backgroundColor");
+  if (savedColor) {
+    colorSection.style.background = savedColor;
+  }
 
-// // Fonction pour simuler la connexion de l'utilisateur
-// function login() {
-//   // Définit l'état de connexion dans le localStorage
-//   localStorage.setItem("isLoggedIn", "true");
-//   // Met à jour l'affichage en fonction du nouvel état de connexion
-//   checkLoginStatus();
-// }
+  // Ajouter les écouteurs d'événements pour les cercles
+  circleBlue.addEventListener("click", () => {
+    setBackground("linear-gradient(90deg, #ffffff, #00b5fd)");
+  });
 
-// // Fonction pour la déconnexion de l'utilisateur
-// function logout() {
-//   // Définit l'état de connexion dans le localStorage
-//   localStorage.setItem("isLoggedIn", "false");
-//   // Redirige l'utilisateur vers la page d'accueil
-//   window.location.href = "accueil.php";
-// }
+  circlePink.addEventListener("click", () => {
+    setBackground("linear-gradient(90deg, #ffffff, #f32bf3)");
+  });
+});
 
-// // Ce script s'exécute une fois que le DOM est entièrement chargé et prêt
-// document.addEventListener("DOMContentLoaded", function () {
-//   // Vérifie l'état de connexion et met à jour l'affichage en conséquence
-//   checkLoginStatus();
+// Ce script s'exécute également une fois que le DOM est entièrement chargé et prêt
+document.addEventListener("DOMContentLoaded", () => {
+  // Sélectionne les éléments avec des classes spécifiques pour les afficher
+  const presentation = document.querySelector(".presentation");
+  const photoBody = document.querySelector(".photo-body");
+  const photoBody1 = document.querySelector(".photo-body-1");
+  const photoBody2 = document.querySelector(".photo-body-2");
+  const photoBody3 = document.querySelector(".photo-body-3");
+  const photoBody4 = document.querySelector(".photo-body-4");
 
-//   // Ajoute des écouteurs d'événement pour les liens de connexion et de déconnexion
-//   document.querySelector(".lien-connect").addEventListener("click", login);
-//   document.querySelector(".lien-deconnect").addEventListener("click", logout);
-// });
+  // Vérifie et ajoute la classe "show" si les éléments existent
+  if (presentation) {
+    presentation.classList.add("show");
+  }
+  if (photoBody) {
+    photoBody.classList.add("show");
+  }
+  if (photoBody1) {
+    photoBody1.classList.add("show");
+  }
+  if (photoBody2) {
+    photoBody2.classList.add("show");
+  }
+  if (photoBody3) {
+    photoBody3.classList.add("show");
+  }
+  if (photoBody4) {
+    photoBody4.classList.add("show");
+  }
+});

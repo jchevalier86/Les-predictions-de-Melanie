@@ -1,7 +1,3 @@
-<?php
-  require 'config.php';
-?>
-
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -15,20 +11,20 @@
     <!-- Liens vers les feuilles de style CSS -->
     <link rel="stylesheet" href="./style/reset.css" />
     <link rel="stylesheet" href="./style/style.css" />
-    <link rel="stylesheet" href="./style/mentions-legales.css" />
+    <link rel="stylesheet" href="./style/definitions-pratiques.css" />
 
     <!-- Favicon pour le site -->
-    <link rel="shortcut icon" href="./images/favicon-1.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="./images/favicon-3.ico" type="image/x-icon" />
 
     <!-- Lien vers les icônes Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 
     <!-- Titre de la page (max 60 caractères) -->
-    <title> Mentions Légales </title>
+    <title> Pratique de la Cartomancie </title>
 
     <!-- Meta description de la page (max 160 caractères) -->
     <meta name="description"
-        content="Découvrez les mentions légales du site Les Prédictions de Mélanie, incluant les informations sur l'éditeur, l'hébergeur, la propriété intellectuelle, la responsabilité, les données personnelles, les cookies et la loi applicable." />
+        content="Découvrez comment mes tirages de cartes précis vous offrent des prédictions détaillées pour dater des événements et répondre à vos questions spécifiques." />
 </head>
 
 <body>
@@ -68,8 +64,8 @@
                         <i class="fa fa-caret-down"> </i>
                     </button>
                     <div class="dropdown-content">
-                        <a href="definition-voyance.php"> Définition </a>
-                        <a href="pratique-voyance.php"> Pratique </a>
+                        <a href="definition-voyance.html"> Définition </a>
+                        <a href="pratique-voyance.html"> Pratique </a>
                     </div>
                 </div>
 
@@ -80,8 +76,8 @@
                         <i class="fa fa-caret-down"> </i>
                     </button>
                     <div class="dropdown-content">
-                        <a href="definition-cartomancie.php"> Définition </a>
-                        <a href="pratique-cartomancie.php"> Pratique </a>
+                        <a href="definition-cartomancie.html"> Définition </a>
+                        <a href="pratique-cartomancie.html"> Pratique </a>
                     </div>
                 </div>
 
@@ -100,132 +96,89 @@
 
             <!-- Liens directs pour Contact, Avis clients et Horoscope -->
             <div class="tarif-contact-avis-blog">
-                <a href="tarif.php"> Tarif </a>
+                <a href="tarif.html"> Tarif </a>
                 <a href="formulaire-contact.php"> Contact </a>
                 <a href="formulaire-avis.php"> Avis clients </a>
                 <a href="horoscope.php"> Horoscope </a>
             </div>
 
-            <?php if (isset($_SESSION['user_id'])): ?>
-            <!-- Icône de déconnexion avec un lien vers la page de déconnexion -->
-            <div class="lien-deconnect">
-                <img class="icone-connect" src="./images/deconnexion.png" alt="Aller à la page accueil"
-                onclick="window.location.href='deconnexion.php'" />
-                <span class="deconnect"> Déconnexion </span>
-            </div>
-            <?php else: ?>
-            <!-- Icône de connexion avec un lien vers la page de connexion -->
-            <div class="lien-connect">
-                <img class="icone-connect" src="./images/connexion.png" alt="Aller à la page de connexion"
-                onclick="window.location.href='formulaire-connexion.php'" />
-                <span class="connect"> Connexion </span>
-            <?php endif; ?>
+            <div class="circle-1-2">
+                <div class="circle-1-pink">
+                    <div class="circle-1"></div>
+                    <span class="circle-pink"> Rose </span>
+                </div>
+                <div class="circle-2-blue">
+                    <div class="circle-2"></div>
+                    <span class="circle-blue"> Bleu </span>
+                </div>
             </div>
         </nav>
     </header>
 
     <!-- Section d'introduction -->
     <section class="intro">
-        <h1>Mentions Légales</h1>
-        <hr class="separator" />
-        <!-- Section de mention légales -->
+        <h1>La Cartomancie</h1>
+        <hr class="separator">
+        <h2>Pratique</h2>
+
+        <!-- Section pratique -->
         <section class="section-presentation">
             <div class="section1-col1">
-                <!-- Texte de mention légales -->
+                <!-- Photo dans la section pratique cartomancie -->
+                <div class="photo">
+                    <img class="photo-body-4" src="./images/melanie-voyante-1.jpeg" alt="Logo de Mélanie Voyante">
+                </div>
                 <div class="presentation">
                     <div class="presentation-text-content">
-                        <h2> Editeur du site : </h2>
-                        <br />
-                        <div class="text">
-                            <p>
-                                Les Prédictions de Mélanie
-                                <br />
-                                Numéro de SIREN : 877 550 327
-                            </p>
-                        </div>
-                        <br />
-                        <h2> Siège Social : </h2>
-
-                        <br />
-                        <div class="text">
-                            <p>
-                                <br />
-                                Téléphone : +33 7 68 04 12 49
-                                <br />
-                                Email : les-predictions-de-melanie@outlook.com
-                            </p>
-                        </div>
-                        <br />
-                        <h2> Hébergeur : </h2>
-                        <br />
-                        <div class="text">
-                            <p>
-                                Mr CHEVALIER
-                                <br />
-                                Téléphone : +33 7 68 37 16 05
-                                <br />
-                                Email : johnny.chevalier91@gmail.com
-                            </p>
-                        </div>
-                        <br />
-                        <h2> Propriété Intellectuelle : </h2>
-                        <br />
+                        <!-- Texte pratique de la Cartomancie -->
                         <p>
-                            Le site "Les Prédictions de Mélanie" et l'ensemble de son contenu (textes, images,
-                            graphismes, logos, vidéos, icônes, logiciels) sont la propriété exclusive de Mélanie Maupin,
-                            sauf mentions contraires. Toute reproduction, distribution, modification, adaptation,
-                            retransmission ou publication, même partielle, de ces différents éléments est strictement
-                            interdite sans l'accord écrit de Mélanie Maupin.
+                            Grâce aux <span class="costum-word">cartes</span>, je peux offrir des prédictions plus
+                            précises à mes clients, notamment pour
+                            dater des événements ou pour des questions spécifiques comme une grossesse.
                         </p>
                         <br />
-                        <h2> Responsabilité : </h2>
-                        <br />
                         <p>
-                            Les informations fournies sur le site "Les Prédictions de Mélanie" sont données à titre
-                            informatif. Mélanie Maupin ne saurait garantir l'exactitude, la complétude, et l'actualité
-                            des informations diffusées sur le site. En conséquence, l'utilisateur reconnaît utiliser ces
-                            informations sous sa responsabilité exclusive.
+                            Voici comment je procède :
                         </p>
                         <br />
-                        <h2> Données Personnelles : </h2>
-                        <br />
                         <p>
-                            Les informations recueillies sur le site "Les Prédictions de Mélanie" font l’objet d’un
-                            traitement informatique destiné à répondre aux demandes des utilisateurs et à améliorer les
-                            services proposés. Conformément à la loi "Informatique et Libertés" du 6 janvier 1978
-                            modifiée, l'utilisateur dispose d’un droit d’accès, de rectification, et de suppression des
-                            informations le concernant, qu'il peut exercer en s’adressant à
-                            les-predictions-de-melanie@outlook.com.
+                            <span class="costum-word"> Préparation des cartes : </span> Je commence par trier et
+                            disposer
+                            les cartes face cachée.
                         </p>
                         <br />
-                        <h2> Cookies : </h2>
-                        <br />
                         <p>
-                            Le site "Les Prédictions de Mélanie" peut être amené à utiliser des cookies pour améliorer
-                            l'expérience utilisateur, analyser le trafic ou à des fins publicitaires. L'utilisateur peut
-                            configurer son navigateur pour refuser les cookies.
+                            <span class="costum-word"> Mélange des cartes : </span> Ensuite, je les mélange
+                            soigneusement.
                         </p>
                         <br />
-                        <h2> Liens Hypertextes : </h2>
-                        <br />
                         <p>
-                            Le site "Les Prédictions de Mélanie" peut contenir des liens hypertextes vers d'autres sites
-                            web. Mélanie Maupin décline toute responsabilité quant au contenu de ces sites tiers.
+                            <span class="costum-word"> Bataille : </span> Je bats les cartes et je procède au tirage
+                            avec
+                            ma main gauche, ou bien j'attends
+                            que certaines cartes tombent directement sur le tapis.
                         </p>
                         <br />
-                        <h2> Modification des Mentions Légales : </h2>
-                        <br />
                         <p>
-                            Les Prédictions de Mélanie se réservent le droit de modifier les présentes mentions légales
-                            à tout moment. L'utilisateur est donc invité à les consulter régulièrement.
+                            <span class="costum-word"> Interprétation des messages : </span> Chaque carte tirée est
+                            analysée avec soin. Je décode les symboles et les messages cachés, reliant les indices pour
+                            vous offrir une vision claire et précise de votre situation actuelle et des possibilités
+                            futures.
                         </p>
                         <br />
-                        <h2> Loi Applicable : </h2>
+                        <p>
+                            <span class="costum-word"> Partage des prédictions : </span>Je vous transmets ensuite mes
+                            perceptions et prédictions, vous aidant à comprendre les enjeux et à prendre des décisions
+                            éclairées. Que ce soit pour des questions de cœur, de carrière, ou de chemin de vie, je suis
+                            là pour vous guider.
+                        </p>
                         <br />
                         <p>
-                            Les présentes mentions légales sont soumises au droit français. En cas de litige, et après
-                            une tentative de recherche de solution amiable, compétence est attribuée aux tribunaux
-                            français compétents.
+                            Avec la <span class="costum-word"> cartomancie </span>, chaque séance est une aventure
+                            unique et enrichissante. Laissez-vous
+                            surprendre par la sagesse des cartes et découvrez des réponses inattendues et des
+                            perspectives nouvelles pour votre vie. Ensemble, nous explorerons les mystères de votre
+                            destin et ouvrirons les portes vers un avenir lumineux.
                         </p>
                     </div>
                 </div>
@@ -270,24 +223,24 @@
             </ul>
 
             <ul>
-                <li><a href="definition-voyance.php"> Définition voyance </a></li>
+                <li><a href="definition-voyance.html"> Définition voyance </a></li>
                 <li>
-                    <a href="definition-cartomancie.php"> Définition cartomancie </a>
+                    <a href="definition-cartomancie.html"> Définition cartomancie </a>
                 </li>
                 <li>
-                    <a href="definition-ressenti-photo.php">
+                    <a href="definition-ressenti-photo.html">
                         Définition ressenti photo
                     </a>
                 </li>
             </ul>
 
             <ul>
-                <li><a href="pratique-voyance.php"> Pratique voyance </a></li>
+                <li><a href="pratique-voyance.html"> Pratique voyance </a></li>
                 <li>
-                    <a href="pratique-cartomancie.php"> Pratique cartomancie </a>
+                    <a href="pratique-cartomancie.html"> Pratique cartomancie </a>
                 </li>
                 <li>
-                    <a href="pratique-ressenti-photo.php"> Pratique ressenti photo </a>
+                    <a href="pratique-ressenti-photo.html"> Pratique ressenti photo </a>
                 </li>
             </ul>
 
@@ -300,7 +253,7 @@
 
         <div class="copyright-info">
             <p> © 2024 Les Prédictions de Mélanie. Tous droits réservés </p>
-            <a href="mentions-legales.php"> Mentions Légales </a>
+            <a href="mentions-legales.html"> Mentions Légales </a>
         </div>
     </footer>
 
