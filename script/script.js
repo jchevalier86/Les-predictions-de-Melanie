@@ -1,3 +1,5 @@
+/* --------------------------Effets Couleurs-------------------------------- */
+
 // Ce script s'exécute une fois que le DOM est entièrement chargé et prêt
 document.addEventListener("DOMContentLoaded", () => {
   // Sélectionne les éléments et la section
@@ -26,6 +28,8 @@ document.addEventListener("DOMContentLoaded", () => {
     setBackground("linear-gradient(90deg, #ffffff, #f32bf3)");
   });
 });
+
+/* -------------------------Effets Textes et Photos----------------------------------- */
 
 // Ce script s'exécute également une fois que le DOM est entièrement chargé et prêt
 document.addEventListener("DOMContentLoaded", () => {

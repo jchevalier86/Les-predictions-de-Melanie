@@ -1,3 +1,5 @@
+/* -----------------------Effets Etoiles------------------------- */
+
 document.addEventListener("DOMContentLoaded", function () {
   const ratingLabels = document.querySelectorAll(".rating label");
 
@@ -36,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-/* ------------------------------------------------------------------------------ */
+/* -----------------Affichage Avis par 5 avec bouton voir plus------------------- */
 
 document.addEventListener("DOMContentLoaded", function () {
   var voirPlusButton = document.getElementById("voir-plus");
