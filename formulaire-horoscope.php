@@ -128,28 +128,28 @@
   <div class="container">
     <!-- Formulaire pour sélectionner le signe astrologique et obtenir l'horoscope -->
     <form method="POST" action="./horoscope.php">
-      <h1>Choisissez votre signe astrologique</h1>
+      <h1> Choisissez votre signe astrologique </h1>
       <label for="signe"> Signe : </label>
       <select name="signe" id="signe">
         <option value="" disabled selected> Sélectionnez votre signe </option>
-        <option value="belier">Bélier</option>
-        <option value="taureau">Taureau</option>
-        <option value="gemeaux">Gémeaux</option>
-        <option value="cancer">Cancer</option>
-        <option value="lion">Lion</option>
-        <option value="vierge">Vierge</option>
-        <option value="balance">Balance</option>
-        <option value="scorpion">Scorpion</option>
-        <option value="sagittaire">Sagittaire</option>
-        <option value="capricorne">Capricorne</option>
-        <option value="verseau">Verseau</option>
-        <option value="poissons">Poissons</option>
+        <option value="belier"> Bélier </option>
+        <option value="taureau"> Taureau </option>
+        <option value="gemeaux"> Gémeaux </option>
+        <option value="cancer"> Cancer </option>
+        <option value="lion"> Lion </option>
+        <option value="vierge"> Vierge </option>
+        <option value="balance"> Balance </option>
+        <option value="scorpion"> Scorpion </option>
+        <option value="sagittaire"> Sagittaire </option>
+        <option value="capricorne"> Capricorne </option>
+        <option value="verseau"> Verseau </option>
+        <option value="poissons"> Poissons </option>
       </select>
-      <br><br>
+      <!-- <br><br>
 
       <label for="date"> Date : </label>
       <input type="date" id="date" name="date">
-      <br><br>
+      <br><br> -->
 
       <button type="submit"> Voir l'horoscope </button>
     </form>
@@ -193,24 +193,14 @@
 
       <ul>
         <li><a href="definition-voyance.html"> Définition voyance </a></li>
-        <li>
-          <a href="definition-cartomancie.html"> Définition cartomancie </a>
-        </li>
-        <li>
-          <a href="definition-ressenti-photo.html">
-            Définition ressenti photo
-          </a>
-        </li>
+        <li><a href="definition-cartomancie.html"> Définition cartomancie </a></li>
+        <li><a href="definition-ressenti-photo.html"> Définition ressenti photo </a></li>
       </ul>
 
       <ul>
         <li><a href="pratique-voyance.html"> Pratique voyance </a></li>
-        <li>
-          <a href="pratique-cartomancie.html"> Pratique cartomancie </a>
-        </li>
-        <li>
-          <a href="pratique-ressenti-photo.html"> Pratique ressenti photo </a>
-        </li>
+        <li><a href="pratique-cartomancie.html"> Pratique cartomancie </a></li>
+        <li><a href="pratique-ressenti-photo.html"> Pratique ressenti photo </a></li>
       </ul>
 
       <ul>

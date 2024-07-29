@@ -1,29 +1,38 @@
 <?php
-// // URL du flux RSS
-// $rss_url = 'https://rss.app/feeds/9h0iqjiAA9X6XT5t.xml';
-
-// // Récupérer le contenu du flux RSS
-// $rss_content = file_get_contents($rss_url);
-
-// if ($rss_content === FALSE) {
-//     // Gérer les erreurs de récupération
-//     die('Erreur de récupération du flux RSS');
-// }
-
-// // Charger le contenu du flux RSS dans un objet SimpleXMLElement
-// $rss_xml = simplexml_load_string($rss_content, 'SimpleXMLElement', LIBXML_NOCDATA);
-
-// if ($rss_xml === FALSE) {
-//     // Gérer les erreurs de parsing
-//     die('Erreur de parsing du flux RSS');
-// }
-
-// // Convertir l'objet SimpleXMLElement en JSON pour l'envoyer à la page HTML
-// $rss_json = json_encode($rss_xml);
-
-// header('Content-Type: application/json');
-// echo $rss_json;
-
-
-
+    if (isset($_POST['signe'])) {
+        $signe = $_POST['signe'];
+        $rss_urls = [
+            'belier' => 'https://www.mon-horoscope-du-jour.com/rss/rss_belier.php',
+            'taureau' => 'https://www.mon-horoscope-du-jour.com/rss/rss_taureau.php',
+            'gemeaux' => 'https://www.mon-horoscope-du-jour.com/rss/rss_gemeaux.php',
+            'cancer' => 'https://www.mon-horoscope-du-jour.com/rss/rss_cancer.php',
+            'lion' => 'https://www.mon-horoscope-du-jour.com/rss/rss_lion.php',
+            'vierge' => 'https://www.mon-horoscope-du-jour.com/rss/rss_vierge.php',
+            'balance' => 'https://www.mon-horoscope-du-jour.com/rss/rss_balance.php',
+            'scorpion' => 'https://www.mon-horoscope-du-jour.com/rss/rss_scorpion.php',
+            'sagittaire' => 'https://www.mon-horoscope-du-jour.com/rss/rss_sagittaire.php',
+            'capricorne' => 'https://www.mon-horoscope-du-jour.com/rss/rss_capricorne.php',
+            'verseau' => 'https://www.mon-horoscope-du-jour.com/rss/rss_verseau.php',
+            'poissons' => 'https://www.mon-horoscope-du-jour.com/rss/rss_poissons.php'
+        ];
+    
+        if (array_key_exists($signe, $rss_urls)) {
+            $url = $rss_urls[$signe];
+            $xml = simplexml_load_file($url);
+    
+            if ($xml) {
+                echo "<h1> Horoscope pour " . ucfirst($signe) . "</h1>";
+                foreach ($xml->channel->item as $item) {
+                    echo "<h2>" . $item->title . "</h2>";
+                    echo "<p>" . $item->description . "</p>";
+                }
+            } else {
+                echo "Erreur lors de la récupération du flux RSS.";
+            }
+        } else {
+            echo "Signe astrologique non valide.";
+        }
+    } else {
+        echo "Veuillez sélectionner un signe astrologique.";
+    }
 ?>

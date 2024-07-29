@@ -1,6 +1,6 @@
 // Fonction pour charger le flux RSS et afficher les articles
 function appelRss() {
-  const rssUrl = "../horoscope-api.php";
+  const rssUrl = "./horoscope.php";
   fetch(rssUrl)
     .then((response) => response.json())
     .then((data) => {
