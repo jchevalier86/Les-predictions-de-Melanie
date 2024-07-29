@@ -207,11 +207,13 @@
   </div>
 
   <!-- Affichage des avis -->
-  <div class="avis-item">
-    <h2> Avis des clients </h2>
+  <div class="avis-container">
+    <h2>Avis des clients</h2>
     <?php if ($result->num_rows > 0): ?>
+      <?php $avis_count = 0; ?>
       <?php while ($row = $result->fetch_assoc()): ?>
-        <div class="avis-item">
+        <?php $avis_count++; ?>
+          <div class="avis-item <?php echo $avis_count > 5 ? 'hidden' : ''; ?>">
           <div class="rating-stars">
             <?php for ($i = 0; $i < $row['rating']; $i++): ?>
               <i class="fas fa-star"></i>
@@ -220,16 +222,19 @@
               <i class="far fa-star"></i>
             <?php endfor; ?>
           </div>
-          <br>
           <div class="avis-name">
-          <p><?php echo htmlspecialchars($row['prenom']); ?> <?php echo htmlspecialchars($row['nom']); ?></p>
+            <br>
+            <p><?php echo htmlspecialchars($row['prenom']); ?> <?php echo htmlspecialchars($row['nom']); ?></p>
           </div>
           <br>
           <p><?php echo htmlspecialchars($row['avis']); ?></p>
         </div>
       <?php endwhile; ?>
+      <div class="voir-plus-container">
+        <button id="voir-plus">Voir plus</button>
+      </div>
     <?php else: ?>
-      <h6> Il n'y a pas encore d'avis. </h6>
+      <h6>Il n'y a pas encore d'avis.</h6>
     <?php endif; ?>
   </div>
 

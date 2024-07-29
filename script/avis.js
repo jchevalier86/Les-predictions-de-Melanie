@@ -35,3 +35,23 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 });
+
+/* ------------------------------------------------------------------------------ */
+
+document.addEventListener("DOMContentLoaded", function () {
+  var voirPlusButton = document.getElementById("voir-plus");
+  var hiddenAvis = document.querySelectorAll(".avis-item.hidden");
+  var avisIndex = 0;
+
+  voirPlusButton.addEventListener("click", function () {
+    // Afficher les 5 prochains avis cachés
+    for (var i = 0; i < 5 && avisIndex < hiddenAvis.length; i++, avisIndex++) {
+      hiddenAvis[avisIndex].classList.remove("hidden");
+    }
+
+    // Si tous les avis sont affichés, masquer le bouton "voir plus"
+    if (avisIndex >= hiddenAvis.length) {
+      voirPlusButton.style.display = "none";
+    }
+  });
+});
