@@ -7,34 +7,34 @@
 
 <head>
   <!-- La balise meta charset spécifie le jeu de caractères utilisé. Utiliser UTF-8 est recommandé pour une compatibilité maximale -->
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
 
   <!-- La balise meta viewport contrôle la mise en page sur les appareils mobiles et est essentielle pour un design responsive -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Liens vers les feuilles de style CSS -->
-  <link rel="stylesheet" href="./style/reset.css" />
-  <link rel="stylesheet" href="./style/style.css" />
-  <link rel="stylesheet" href="./style/accueil.css" />
+  <link rel="stylesheet" href="./style/reset.css">
+  <link rel="stylesheet" href="./style/style.css">
+  <link rel="stylesheet" href="./style/accueil.css">
 
   <!-- Favicon pour le site -->
-  <link rel="shortcut icon" href="./images/favicon-1.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="./images/favicon-1.ico" type="image/x-icon">
 
   <!-- Lien vers les icônes Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
   <!-- Titre de la page (max 60 caractères) -->
-  <title>Les prédictions de Mélanie</title>
+  <title> Les prédictions de Mélanie </title>
 
   <!-- Meta description de la page (max 160 caractères) -->
   <meta name="description"
-    content="Explorez les prédictions de Mélanie, cartomancienne et voyante passionnée. Avec des années d'expérience, j'offre des guidances claires et authentiques en amour, travail, argent, et plus encore." />
+    content="Explorez les prédictions de Mélanie, cartomancienne et voyante passionnée. Avec des années d'expérience, j'offre des guidances claires et authentiques en amour, travail, argent, et plus encore.">
 </head>
 
 <body>
   <header>
     <!-- Image de l'en-tête avec un logo ou une photo -->
-    <img class="photo-header" src="./images/melanie-voyante-2.jpg" alt="Logo de Mélanie Voyante" />
+    <img class="photo-header" src="./images/melanie-voyante-2.jpg" alt="Logo de Mélanie Voyante">
 
     <!-- Navigation principale -->
     <nav class="lien-page-header">
@@ -70,7 +70,7 @@
 
         <!-- Menu déroulant pour Cartomancie -->
         <div class="dropdown">
-          <button class="dropbtn" id="dropbtn">
+          <button class="dropbtn">
             Cartomancie
             <i class="fa fa-caret-down"> </i>
           </button>
@@ -105,14 +105,14 @@
       <!-- Icône de déconnexion avec un lien vers la page de déconnexion -->
       <div class="lien-deconnect">
         <img class="icone-connect" src="./images/deconnexion.png" alt="Aller à la page accueil"
-          onclick="window.location.href='deconnexion.php'" />
+          onclick="window.location.href='deconnexion.php'">
         <span class="deconnect"> Déconnexion </span>
       </div>
       <?php else: ?>
       <!-- Icône de connexion avec un lien vers la page de connexion -->
       <div class="lien-connect">
         <img class="icone-connect" src="./images/connexion.png" alt="Aller à la page de connexion"
-          onclick="window.location.href='formulaire-connexion.php'" />
+          onclick="window.location.href='formulaire-connexion.php'">
         <span class="connect"> Connexion </span>
       <?php endif; ?>
       </div>
@@ -133,7 +133,7 @@
   <!-- Section d'introduction -->
   <section class="intro">
     <h1>Les prédictions de Mélanie</h1>
-    <hr class="separator" />
+    <hr class="separator">
     <h2>Voyance et Cartomancie</h2>
 
     <?php if (isset($_SESSION['successMessages']['connexion'])): ?>
@@ -141,11 +141,11 @@
     <?php endif; ?>
 
     <!-- Section de présentation -->
-    <section class="section-presentation">
+    <div class="section-presentation">
       <div class="section1-col1">
         <!-- Texte de présentation -->
         <div class="presentation">
-          <span class="presentation-span">Bonjour et bienvenue !</span>
+          <span class="presentation-span"> Bonjour et bienvenue ! </span>
           <div class="presentation-text-content">
             <p>
               Je me présente Mélanie, je suis
@@ -182,13 +182,12 @@
           </div>
         </div>
       </div>
-      </div>
 
       <!-- Photo dans la section de présentation -->
       <div class="photo">
-        <img class="photo-body" src="./images/melanie-cartomancienne.jpeg" alt="Mélanie Cartomancienne" />
+        <img class="photo-body" src="./images/melanie-cartomancienne.jpeg" alt="Mélanie Cartomancienne">
       </div>
-    </section>
+    </div>
   </section>
 
   <!-- Pied de page avec des liens vers les différentes pages du site -->
@@ -197,14 +196,14 @@
       <div class="social-link">
         <!-- Liens vers les réseaux sociaux et PayPal -->
         <a class="logo-footer" href="https://www.instagram.com/melanievoyante/" target="_blank">
-          <img src="./images/instagram.png">
+          <img src="./images/instagram.png" alt="Logo Instagram">
           <!-- <i class="fab fa-instagram fa-2x instagram-logo"> </i> -->
           <span class="insta-paypal-mail"> Suivez-moi sur Instagram </span>
         </a>
       </div>
       <div class="social-link">
         <a class="logo-footer" href="https://www.paypal.me/maupin20" target="_blank">
-          <img src="./images/paypal.png">
+          <img src="./images/paypal.png" alt="Logo Paypal">
           <!-- <i class="fa-brands fa-paypal fa-2xl paypal-logo"> </i> -->
           <span class="insta-paypal-mail"> PayPal </span>
         </a>
@@ -213,7 +212,7 @@
       <!-- Lien mailto pour contacter par email -->
       <div class="social-link">
         <a class="logo-footer " href="mailto:les-predictions-de-melanie@outlook.com" target="_blank">
-          <img src="./images/gmail.png">
+          <img src="./images/gmail.png" alt="Logo Gmail">
           <!-- <i class="fa-regular fa-envelope fa-2xl gmail-logo"></i> -->
           <span class="insta-paypal-mail"> Contactez-moi par mail </span>
         </a>

@@ -7,34 +7,34 @@
 
 <head>
   <!-- La balise meta charset spécifie le jeu de caractères utilisé. Utiliser UTF-8 est recommandé pour une compatibilité maximale -->
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
 
   <!-- La balise meta viewport contrôle la mise en page sur les appareils mobiles et est essentielle pour un design responsive -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Liens vers les feuilles de style CSS -->
-  <link rel="stylesheet" href="./style/reset.css" />
-  <link rel="stylesheet" href="./style/style.css" />
-  <link rel="stylesheet" href="./style/horoscope.css" />
+  <link rel="stylesheet" href="./style/reset.css">
+  <link rel="stylesheet" href="./style/style.css">
+  <link rel="stylesheet" href="./style/horoscope.css">
 
   <!-- Favicon pour le site -->
-  <link rel="shortcut icon" href="./images/favicon-6.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="./images/favicon-6.ico" type="image/x-icon">
 
   <!-- Lien vers les icônes Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
   <!-- Titre de la page (max 60 caractères) -->
   <title> Horoscope </title>
 
   <!-- Meta description de la page (max 160 caractères) -->
   <meta name="description"
-    content="Découvrez votre horoscope quotidien personnalisé et obtenez des prédictions précises pour chaque signe astrologique. Sélectionnez votre signe et explorez ce que les étoiles vous réservent aujourd'hui." />
+    content="Découvrez votre horoscope quotidien personnalisé et obtenez des prédictions précises pour chaque signe astrologique. Sélectionnez votre signe et explorez ce que les étoiles vous réservent aujourd'hui.">
 </head>
 
 <body>
   <header>
     <!-- Image de l'en-tête avec un logo ou une photo -->
-    <img class="photo-header" src="./images/melanie-voyante-2.jpg" alt="Logo de Mélanie Voyante" />
+    <img class="photo-header" src="./images/melanie-voyante-2.jpg" alt="Logo de Mélanie Voyante">
 
     <!-- Navigation principale -->
     <nav class="lien-page-header">
@@ -42,7 +42,7 @@
       <!-- Logo maison accueil -->
       <div class="lien-home">
         <img class="back-home" src="./images/maison-accueil.png" alt="Retour à la page d'accueil"
-          onclick="window.location.href='accueil.php'" />
+          onclick="window.location.href='accueil.php'">
         <span class="home"> Accueil </span>
       </div>
 
@@ -110,14 +110,14 @@
       <!-- Icône de déconnexion avec un lien vers la page de déconnexion -->
       <div class="lien-deconnect">
         <img class="icone-connect" src="./images/deconnexion.png" alt="Aller à la page accueil"
-          onclick="window.location.href='deconnexion.php'" />
+          onclick="window.location.href='deconnexion.php'">
         <span class="deconnect"> Déconnexion </span>
       </div>
       <?php else: ?>
       <!-- Icône de connexion avec un lien vers la page de connexion -->
       <div class="lien-connect">
         <img class="icone-connect" src="./images/connexion.png" alt="Aller à la page de connexion"
-          onclick="window.location.href='formulaire-connexion.php'" />
+          onclick="window.location.href='formulaire-connexion.php'">
         <span class="connect"> Connexion </span>
       <?php endif; ?>
       </div>
@@ -145,11 +145,11 @@
         <option value="verseau">Verseau</option>
         <option value="poissons">Poissons</option>
       </select>
-      <br /><br />
+      <br><br>
 
       <label for="date"> Date : </label>
-      <input type="date" id="date" name="date" />
-      <br /><br />
+      <input type="date" id="date" name="date">
+      <br><br>
 
       <button type="submit"> Voir l'horoscope </button>
     </form>
@@ -161,14 +161,14 @@
       <div class="social-link">
         <!-- Liens vers les réseaux sociaux et PayPal -->
         <a class="logo-footer" href="https://www.instagram.com/melanievoyante/" target="_blank">
-          <img src="./images/instagram.png">
+          <img src="./images/instagram.png" alt="Logo Instagram">
           <!-- <i class="fab fa-instagram fa-2x instagram-logo"> </i> -->
           <span class="insta-paypal-mail"> Suivez-moi sur Instagram </span>
         </a>
       </div>
       <div class="social-link">
         <a class="logo-footer" href="https://www.paypal.me/maupin20" target="_blank">
-          <img src="./images/paypal.png">
+          <img src="./images/paypal.png" alt="Logo Paypal">
           <!-- <i class="fa-brands fa-paypal fa-2xl paypal-logo"> </i> -->
           <span class="insta-paypal-mail"> PayPal </span>
         </a>
@@ -177,7 +177,7 @@
       <!-- Lien mailto pour contacter par email -->
       <div class="social-link">
         <a class="logo-footer " href="mailto:les-predictions-de-melanie@outlook.com" target="_blank">
-          <img src="./images/gmail.png">
+          <img src="./images/gmail.png" alt="Logo Gmail">
           <!-- <i class="fa-regular fa-envelope fa-2xl gmail-logo"></i> -->
           <span class="insta-paypal-mail"> Contactez-moi par mail </span>
         </a>

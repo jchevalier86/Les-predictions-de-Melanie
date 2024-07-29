@@ -3,6 +3,21 @@
     require 'config.php';
     require 'function.php';
 
+    // Démarrer la session si elle n'est pas déjà démarrée
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
+
+    // Ouvrir une connexion à la base de données
+    $conn = openConnection();
+
+    // Vérifier si l'utilisateur est déjà connecté
+    if (isLoggedIn()) {
+        $_SESSION['errorMessages']['isLoggedIn'] = "Vous êtes déjà connecté !";
+        header("Location: formulaire-inscription.php");
+        exit();
+    }
+
     // Vérification que tous les champs de formulaire nécessaires sont définis
     if (!isset($_POST['nom'], $_POST['prenom'], $_POST['date_naissance'], $_POST['email'], $_POST['phone'], $_POST['mot_de_passe'], $_POST['confirmation_mot_de_passe'])) {
         $_SESSION['errorMessages'] = ["Tous les champs ne sont pas remplis."];
