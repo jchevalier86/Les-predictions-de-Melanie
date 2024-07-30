@@ -242,24 +242,14 @@
 
       <ul>
         <li><a href="definition-voyance.html"> Définition voyance </a></li>
-        <li>
-          <a href="definition-cartomancie.html"> Définition cartomancie </a>
-        </li>
-        <li>
-          <a href="definition-ressenti-photo.html">
-            Définition ressenti photo
-          </a>
-        </li>
+        <li><a href="definition-cartomancie.html"> Définition cartomancie </a></li>
+        <li><a href="definition-ressenti-photo.html"> Définition ressenti photo </a></li>
       </ul>
 
       <ul>
         <li><a href="pratique-voyance.html"> Pratique voyance </a></li>
-        <li>
-          <a href="pratique-cartomancie.html"> Pratique cartomancie </a>
-        </li>
-        <li>
-          <a href="pratique-ressenti-photo.html"> Pratique ressenti photo </a>
-        </li>
+        <li><a href="pratique-cartomancie.html"> Pratique cartomancie </a></li>
+        <li><a href="pratique-ressenti-photo.html"> Pratique ressenti photo </a></li>
       </ul>
 
       <ul>

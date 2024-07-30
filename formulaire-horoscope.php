@@ -28,7 +28,7 @@
 
   <!-- Meta description de la page (max 160 caractères) -->
   <meta name="description"
-    content="Découvrez votre horoscope quotidien personnalisé et obtenez des prédictions précises pour chaque signe astrologique. Sélectionnez votre signe et explorez ce que les étoiles vous réservent aujourd'hui.">
+    content="Découvrez votre horoscope quotidien personnalisé et obtenez des prédictions précises pour chaque signe astrologique.">
 </head>
 
 <body>
@@ -127,29 +127,15 @@
   <!-- Conteneur principal pour le formulaire d'horoscope -->
   <div class="container">
     <!-- Formulaire pour sélectionner le signe astrologique et obtenir l'horoscope -->
-    <form method="POST" action="./horoscope.php">
-      <h1> Choisissez votre signe astrologique </h1>
-      <label for="signe"> Signe : </label>
-      <select name="signe" id="signe">
-        <option value="" disabled selected> Sélectionnez votre signe </option>
-        <option value="belier"> Bélier </option>
-        <option value="taureau"> Taureau </option>
-        <option value="gemeaux"> Gémeaux </option>
-        <option value="cancer"> Cancer </option>
-        <option value="lion"> Lion </option>
-        <option value="vierge"> Vierge </option>
-        <option value="balance"> Balance </option>
-        <option value="scorpion"> Scorpion </option>
-        <option value="sagittaire"> Sagittaire </option>
-        <option value="capricorne"> Capricorne </option>
-        <option value="verseau"> Verseau </option>
-        <option value="poissons"> Poissons </option>
-      </select>
-      <!-- <br><br>
+    <form action="./choix-horoscope.php" method="POST">
+      <h1> Choisissez le type d'horoscope </h1>
 
-      <label for="date"> Date : </label>
-      <input type="date" id="date" name="date">
-      <br><br> -->
+      <label for="type"> Type d'horoscope : </label>
+      <select name="type" id="type">
+        <option value="" disabled selected> Sélectionnez votre choix </option>
+        <option value="jour"> Horoscope du jour </option>
+        <option value="hebdomadaire"> Horsocope hebdomadaire </option>
+      </select>
 
       <button type="submit"> Voir l'horoscope </button>
     </form>
