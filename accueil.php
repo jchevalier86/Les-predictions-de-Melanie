@@ -39,10 +39,10 @@
     <!-- Navigation principale -->
     <nav class="lien-page-header">
 
-      <!-- Ajout du bouton hamburger -->
-      <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+    <!-- Ajout du bouton hamburger -->
+    <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
 
-      <div class="navbar" id="navbar">
+      <div class="navbar">
 
         <!-- Menu déroulant pour Accueil -->
         <div class="dropdown">
@@ -127,6 +127,7 @@
           <span class="circle-blue"> Bleu </span>
         </div>
       </div>
+
     </nav>
   </header>
 

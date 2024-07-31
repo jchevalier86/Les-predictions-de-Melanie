@@ -35,10 +35,6 @@ body {
     width: 100%;
   }
 
-  .hamburger {
-    display: block;
-  }
-
   .lien-page-header {
     flex-direction: column;
   }
@@ -47,15 +43,24 @@ body {
     order: 1;
   }
 
-  .navbar {
-    order: 2;
+  .navbar,
+  .tarif-contact-avis-blog {
+    display: none;
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
   }
 
-  .navbar .dropdown {
+  .navbar {
+    order: 3;
+  }
+
+  .tarif-contact-avis-blog {
+    order: 2;
+  }
+
+  .dropdown {
     width: 100%;
   }
 
@@ -68,7 +73,6 @@ body {
     text-align: center;
   }
 
-  /* Ajout pour centrer et agrandir les titres */
   h1,
   h2,
   .presentation-text-content p,
@@ -78,7 +82,6 @@ body {
     width: 100%;
   }
 
-  /* Placement de la photo en bas du texte */
   .section-presentation {
     display: flex;
     flex-direction: column;
@@ -97,13 +100,14 @@ body {
 
   .photo {
     text-align: center;
-    margin: 100px 20px 0 0; /* Espace au-dessus de la photo */
+    margin: 100px 20px 0 0;
     width: 100%;
   }
 
   .photo img {
-    width: 70%; /* Ajustez la taille de l'image si nécessaire */
+    width: 75%;
     height: 70%;
+    padding-bottom: 10px;
   }
 
   .copyright-info {
@@ -117,10 +121,6 @@ body {
     font-size: 12px;
     margin: 0;
     padding: 10px;
-  }
-
-  .hamburger {
-    display: block;
   }
 
   .lien-page-header {
@@ -226,35 +226,25 @@ header {
   padding: 0;
 }
 
-.circle-1 {
-  width: 25px;
-  height: 25px;
-  background: linear-gradient(90deg, #ffffff, #f32bf3);
-  border-radius: 50%;
-}
+/* 
+  * Liens de l'en-tête : Alignement et espacement des éléments,
+  * fond en dégradé, largeur 100%.
+*/
 
-.circle-2 {
-  width: 25px;
-  height: 25px;
-  background: linear-gradient(90deg, #ffffff, #00b5fd);
-  border-radius: 50%;
-}
-
-.circle-1:hover,
-.circle-2:hover {
-  cursor: pointer;
-}
-
-.circle-1-2 {
+.lien-page-header {
   display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 20px;
+  background: linear-gradient(90deg, rgb(15, 0, 146), rgb(176, 0, 176));
+  width: 100%;
 }
 
 .hamburger {
   display: none;
   font-size: 30px;
   cursor: pointer;
-  padding: 14px 16px;
-  color: white;
+  color: #ffffff;
 }
 
 .lien-home {
@@ -266,6 +256,7 @@ header {
 */
 
 .navbar {
+  display: flex;
   overflow: hidden;
 }
 
@@ -391,20 +382,6 @@ header {
 }
 
 /* 
-  * Liens de l'en-tête : Alignement et espacement des éléments,
-  * fond en dégradé, largeur 100%.
-*/
-
-.lien-page-header {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  gap: 20px;
-  background: linear-gradient(90deg, rgb(15, 0, 146), rgb(176, 0, 176));
-  width: 100%;
-}
-
-/* 
   * Section contact-avis-blog : Alignement et espacement des éléments.
 */
 
@@ -453,6 +430,29 @@ header {
 .icone-deconnect {
   height: 20px;
   cursor: pointer;
+}
+
+.circle-1 {
+  width: 25px;
+  height: 25px;
+  background: linear-gradient(90deg, #ffffff, #f32bf3);
+  border-radius: 50%;
+}
+
+.circle-2 {
+  width: 25px;
+  height: 25px;
+  background: linear-gradient(90deg, #ffffff, #00b5fd);
+  border-radius: 50%;
+}
+
+.circle-1:hover,
+.circle-2:hover {
+  cursor: pointer;
+}
+
+.circle-1-2 {
+  display: flex;
 }
 
 /* 

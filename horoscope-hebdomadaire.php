@@ -107,9 +107,8 @@
       </div>
     </header>
 
-    <h1> Horoscope Hebdomadaire </h1>
-
-    <?php
+    <div class="body-image">
+      <?php
         // URL de l'API pour les horoscopes hebdomadaires
         $url = "https://kayoo123.github.io/astroo-api/hebdomadaire.json";
 
@@ -120,23 +119,87 @@
 
         // Exécuter la session cURL et récupérer la réponse
         $response = curl_exec($ch);
-
-        // Fermer la session cURL
         curl_close($ch);
 
-        // Décoder la réponse JSON en un tableau associatif
-        $horoscopes = json_decode($response, true);
+        // Vérifier si la réponse n'est pas vide et si cURL a réussi
+        if ($response === false || $response === null) {
+            echo "Erreur lors de la récupération des données de l'API.";
+            exit();
+        }
 
-        // Afficher les horoscopes pour chaque signe
-        foreach ($horoscopes as $signe => $description) {
+        // Décoder la réponse JSON en un tableau associatif
+        $data = json_decode($response, true);
+
+        // Vérifier si le JSON a été correctement décodé
+        if ($data === null) {
+            echo "Erreur lors du décodage des données JSON.";
+            exit();
+        }
+
+        // Vérifier si la clé 'date' existe dans les données
+        if (isset($data['date']) && !empty($data['date'])) {
+            $dateString = $data['date'];
+
+            // Créer un objet DateTime à partir de la date au format YYYY-MM-DD
+            $date = DateTime::createFromFormat('Y-m-d', $dateString);
+
+            // Vérifier si la création de l'objet DateTime a réussi
+            if ($date !== false) {
+                // Reformater la date en JJ/MM/YYYY
+                $formattedDate = $date->format('d/m/Y');
+            } else {
+                echo "Erreur lors de la création de l'objet DateTime.";
+                exit();
+            }
+        } else {
+            echo "Date non disponible dans les données de l'API.";
+            exit();
+        }
+
+        // Extraire les horoscopes
+        $horoscopes = array_diff_key($data, ['date' => '']);
+
+        // Tableau de traduction des semaines (si nécessaire)
+        $index = [
+            0 => "",
+            1 => "Semaine 1 :",
+            2 => "Semaine 2 :",
+            3 => "Semaine 3 :"
+            // Ajouter d'autres traductions si nécessaire
+        ];
+
+        echo "<h1> Horoscope Hebdomadaire du $formattedDate </h1>";
+
+        // Afficher les horoscopes pour tous les signes
+        foreach ($horoscopes as $signe => $descriptionArray) {
             echo "<div class='horoscope'>";
-            echo "<h2>$signe</h2>";
-            echo "<p>$description</p>";
+            echo "<h2> $signe </h2>";
+
+            // Vérifier si $descriptionArray est un tableau
+            if (is_array($descriptionArray)) {
+                // Parcourir les descriptions pour le signe actuel
+                foreach ($descriptionArray as $key => $description) {
+                    // Utiliser la traduction si disponible, sinon afficher "Autre"
+                    $categorie = isset($index[$key]) ? $index[$key] : "Autre";
+                    echo "<br>";
+                    echo "<div class='categorie'>";
+                    echo "<p> $categorie </p>";
+                    echo "</div>";
+                    echo "<br>";
+                    echo "<div class='description-hebdo'>";
+                    echo "<p> $description </p>";
+                    echo "</div>";
+                }
+            } else {
+                echo "<p> Aucune description disponible pour $signe. </p>";
+            }
+
             echo "</div>";
         }
-    ?>
+      ?>
+    </div>
 
-    <!-- Pied de page avec des liens vers les différentes pages du site -->
+  <!-- Pied de page avec des liens vers les différentes pages du site -->
   <footer class="lien-page-footer">
     <div class="nav-links-1">
       <div class="social-link">

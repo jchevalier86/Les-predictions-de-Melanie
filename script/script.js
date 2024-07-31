@@ -61,3 +61,10 @@ document.addEventListener("DOMContentLoaded", () => {
     photoBody4.classList.add("show");
   }
 });
+
+/* -------------------------Menu Hamburger----------------------------------- */
+
+function toggleMenu() {
+  var navbar = document.querySelector(".navbar");
+  navbar.classList.toggle("active");
+}

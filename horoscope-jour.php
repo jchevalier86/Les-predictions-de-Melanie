@@ -124,8 +124,7 @@
     </nav>
   </header>
 
-    <h1> Horoscope du Jour </h1>
-    
+  <div class="body-image">
     <?php
       // Récupération des données avec cURL
       $url = "https://kayoo123.github.io/astroo-api/jour.json";
@@ -135,16 +134,65 @@
       $response = curl_exec($ch);
       curl_close($ch);
 
+      // Vérifiez si la réponse a été correctement récupérée
+      if ($response === false) {
+        echo "Erreur lors de la récupération des données de l'API.";
+        exit();
+      }
+
+      // Décoder la réponse JSON en tableau associatif
       $horoscopes = json_decode($response, true);
+
+      // Vérifiez si le JSON a été correctement décodé
+      if ($horoscopes === null) {
+        echo "Erreur lors du décodage des données JSON.";
+        exit();
+      }
+
+      // Utilisation d'une date dans l'API
+      $date = isset($horoscopes['date']) ? $horoscopes['date'] : null;
+
+      if ($date) {
+          $dateObj = new DateTime($date);
+          $dateFormatee = $dateObj->format('d/m/Y');
+      } else {
+          $dateFormatee = "Date non disponible";
+      }
+
+      echo "<h1> Horoscope du $dateFormatee </h1>";
 
       // Afficher les horoscopes pour chaque signe
       foreach ($horoscopes as $signe => $description) {
+         // Nettoyer le mot "Date" du signe
+        $signe = preg_replace('/Date\s*/i', '', $signe);
+        $signe = trim($signe); // Enlever les espaces éventuels au début ou à la fin
+
+        // Nettoyer la date et le mot "Date" de la description
+        $description = preg_replace('/\d{4}-\d{2}-\d{2}/', '', $description);
+        $description = preg_replace('/Date\s*/i', '', $description);
+        $description = trim($description);
+
+        // Vérifiez si $description est une chaîne de caractères
+        if (is_string($description)) {
+          // Enlever la date de la description
+          $description = preg_replace('/\d{4}-\d{2}-\d{2}/', '', $description);
+          $description = trim($description);
+
           echo "<div class='horoscope'>";
+          echo "<div class='signe'>";
           echo "<h2> $signe </h2>";
+          echo "</div>";
+          echo "<div class='description-jour'>";
+          echo "<br>";
           echo "<p> $description </p>";
           echo "</div>";
+          echo "</div>";
+        } else {
+            echo "<p>Aucune description disponible pour $signe.</p>";
+        }
       }
     ?>
+  </div>
 
     <!-- Pied de page avec des liens vers les différentes pages du site -->
   <footer class="lien-page-footer">
