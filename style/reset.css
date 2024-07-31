@@ -105,7 +105,7 @@ section {
 
 /* Réinitialise la hauteur de ligne par défaut pour le body */
 body {
-  line-height: 1; /* Définit une hauteur de ligne standard */
+  line-height: 0.7; /* Définit une hauteur de ligne standard */
 }
 
 /* Supprime les puces des listes */
